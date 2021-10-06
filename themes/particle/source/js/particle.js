@@ -5,10 +5,15 @@ window.addEventListener('scroll', function (e) {
   var menu = document.getElementById('menu')
   var home_posts_wrap = document.getElementById('home-posts-wrap')
   var footer = document.getElementById('footer')
-  if (barLocal < newLocal) {
-    menu.className = 'hidden-menu'
-  } else {
+
+  if (newLocal <= 0 || barLocal < 0) {
+    return
+  }
+
+  if (barLocal > newLocal) {
     menu.className = 'show-menu'
+  } else {
+    menu.className = 'hidden-menu'
   }
 
   if (home_posts_wrap) {
