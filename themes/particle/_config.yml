@@ -120,3 +120,8 @@ gitalk:
 
 # theme style: full / night / maiden, defalut: full
 style: full
+
+# mathjax
+mathjax:
+  enable: true
+  per_page: true
