@@ -200,9 +200,9 @@
 </ol>
 <span id="more"></span>
 <h2 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><script type="math/tex; mode=display">
-\int_a^bf(x)dx=\lim_\limits{n\to \infty}\sum_{i=1}^nf(a+\frac{b-a}{n}i)\cfrac{b-a}{n}</script><p>当 $a=0, b=1$ 时, 得出以下形式</p>
+\int_a^bf(x)dx=\lim_\limits{n\to \infty}\sum_{i=1}^nf(a+\frac{b-a}{n}i)\frac{b-a}{n}</script><p>当 $a=0, b=1$ 时, 得出以下形式</p>
 <script type="math/tex; mode=display">
-\int_0^1f(x)dx=\lim_\limits{n\to \infty}\sum_{i=1}^nf(\frac{i}{n})\cfrac{1}{n}</script><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+\int_0^1f(x)dx=\lim_\limits{n\to \infty}\sum_{i=1}^nf(\frac{i}{n})\frac{1}{n}</script><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
 <li>求区间长度: 设 $a&lt;b$, 则 $\int_a^bdx=b-a=L$, 其中 $L$ 为区间 $[a,b]$ 的长度</li>
 <li>积分的线性性质: 设 $k_1,k_2$ 为常数, 则 $\int_a^b[k_1f(x)\pm k_2g(x)]dx=k_1\int_a^bf(x)dx\pm k_2\int_a^bg(x)dx$</li>
 <li>积分的可加 (拆) 性: 无论 $a,b,c$ 的大小如何, 总有 $\int_a^b=\int_a^cf(x)dx+\int_c^bf(x)$</li>
@@ -219,40 +219,40 @@
 <li>函数 $f(x)$ 在 $[a,b]$ 上连续, 则函数 $F(x)=\int_a^xf(t)dt$ 在 $[a,b]$ 上可导</li>
 </ol>
 <h3 id="变限积分的求导公式"><a href="#变限积分的求导公式" class="headerlink" title="变限积分的求导公式"></a>变限积分的求导公式</h3><script type="math/tex; mode=display">
-F'(x)=\cfrac{d}{dx}\left[\int_{\phi_1(x)}^{\phi_2(x)}f(t)dt \right]=f[\phi_2(x)]\phi_2'(x)-f[\phi_1(x)]\phi_1'(x)</script><h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><h3 id="不定积分的积分法"><a href="#不定积分的积分法" class="headerlink" title="不定积分的积分法"></a>不定积分的积分法</h3><h4 id="基本积分公式"><a href="#基本积分公式" class="headerlink" title="基本积分公式"></a>基本积分公式</h4><script type="math/tex; mode=display">
-\int x^kdx=\cfrac{1}{k+1}x^{k+1}+C, k\neq -1\\
-\int\cfrac{1}{x}dx=\ln |x|+C\\
+F'(x)=\frac{d}{dx}\left[\int_{\phi_1(x)}^{\phi_2(x)}f(t)dt \right]=f[\phi_2(x)]\phi_2'(x)-f[\phi_1(x)]\phi_1'(x)</script><h2 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h2><h3 id="不定积分的积分法"><a href="#不定积分的积分法" class="headerlink" title="不定积分的积分法"></a>不定积分的积分法</h3><h4 id="基本积分公式"><a href="#基本积分公式" class="headerlink" title="基本积分公式"></a>基本积分公式</h4><script type="math/tex; mode=display">
+\int x^kdx=\frac{1}{k+1}x^{k+1}+C, k\neq -1\\
+\int\frac{1}{x}dx=\ln |x|+C\\
 \int e^xdx=e^x+C\\
-\int a^xdx=\cfrac{a^x}{\ln a}+C(a>0且a\neq 1)\\
+\int a^xdx=\frac{a^x}{\ln a}+C(a>0且a\neq 1)\\
 \int \sin xdx=-\cos x+C\\
 \int \cos xdx=\sin x+C\\
 \int \tan xdx=-\ln|\cos x|+C\\
 \int \cot xdx=\ln|\sin x|+C\\
-\int \cfrac{1}{\cos x}dx=\int \sec xdx=\ln|\sec x+\tan x|+C\\
-\int \cfrac{1}{\sin x}dx=\int \csc x xdx=\ln|\csc x-\cot x|+C\\
+\int \frac{1}{\cos x}dx=\int \sec xdx=\ln|\sec x+\tan x|+C\\
+\int \frac{1}{\sin x}dx=\int \csc x xdx=\ln|\csc x-\cot x|+C\\
 \int \sec^2xdx=\tan x+C\\
 \int \csc^2xdx=-\cot x+C\\
 \int \sec x\tan xdx=\sec x+C\\
 \int \csc x\tan xdx=-\csc x+C\\
-\int \cfrac{1}{a^2+x^2} dx=\cfrac{1}{a}\arctan\frac{x}{a}+C(a>0)\\
-\int \cfrac{1}{\sqrt{a^2-x^2}} dx=\arcsin\frac{x}{a}+C(a>0)\\
-\int \cfrac{1}{\sqrt{x^2\pm a^2}} dx=\ln(x\pm \sqrt{x^2+a^2})+C\\
-\int \cfrac{1}{x^2-a^2} dx=\cfrac{1}{2a}\ln\left|\frac{x-a}{x+a} \right|+C\\
-\int \cfrac{1}{a^2-x^2} dx=\cfrac{1}{2a}\ln\left|\frac{x+a}{x-a} \right|+C\\
-\int \sqrt{a^2-x^2}dx=\cfrac{a^2}{2}\arcsin\frac{x}{a}+\cfrac{x}{2}\sqrt{a^2-x^2}+C (a>|x|\geq 0)\\
-\int \sin^2xdx=\cfrac{x}{2}-\cfrac{\sin 2x}{4}+C\\
-\int \cos^2xdx=\cfrac{x}{2}+\cfrac{\sin 2x}{4}+C\\
+\int \frac{1}{a^2+x^2} dx=\frac{1}{a}\arctan\frac{x}{a}+C(a>0)\\
+\int \frac{1}{\sqrt{a^2-x^2}} dx=\arcsin\frac{x}{a}+C(a>0)\\
+\int \frac{1}{\sqrt{x^2\pm a^2}} dx=\ln(x\pm \sqrt{x^2+a^2})+C\\
+\int \frac{1}{x^2-a^2} dx=\frac{1}{2a}\ln\left|\frac{x-a}{x+a} \right|+C\\
+\int \frac{1}{a^2-x^2} dx=\frac{1}{2a}\ln\left|\frac{x+a}{x-a} \right|+C\\
+\int \sqrt{a^2-x^2}dx=\frac{a^2}{2}\arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+C (a>|x|\geq 0)\\
+\int \sin^2xdx=\frac{x}{2}-\frac{\sin 2x}{4}+C\\
+\int \cos^2xdx=\frac{x}{2}+\frac{\sin 2x}{4}+C\\
 \int \tan^2xdx=\tan x-x+C\\
 \int \cot^2xdx=-\cot x-x+C\\</script><h4 id="凑微分法"><a href="#凑微分法" class="headerlink" title="凑微分法"></a>凑微分法</h4><script type="math/tex; mode=display">
 \int f[g(x)]g'(x)dx=\int f[g(x)]d[g(x)]=\int f(u)du</script><h4 id="换元法"><a href="#换元法" class="headerlink" title="换元法"></a>换元法</h4><script type="math/tex; mode=display">
-\int f(x)dx \xlongequal{x=g(u)}\int f[g(u)]d[g(u)]=\int f[g(u)]g'(u)du</script><h5 id="换元法总结"><a href="#换元法总结" class="headerlink" title="换元法总结"></a>换元法总结</h5><h6 id="三角函数代换"><a href="#三角函数代换" class="headerlink" title="三角函数代换"></a>三角函数代换</h6><script type="math/tex; mode=display">
+\int f(x)dx \overset{\underset{\mathrm{x=g(u)}}{}}{=}\int f[g(u)]d[g(u)]=\int f[g(u)]g'(u)du</script><h5 id="换元法总结"><a href="#换元法总结" class="headerlink" title="换元法总结"></a>换元法总结</h5><h6 id="三角函数代换"><a href="#三角函数代换" class="headerlink" title="三角函数代换"></a>三角函数代换</h6><script type="math/tex; mode=display">
 \begin{cases}
-\sqrt{a^2-x^2}\stackrel{令}{\longrightarrow} x=a\sin t, |t|<\cfrac{\pi}{2}\\
-\sqrt{a^2+x^2}\stackrel{令}{\longrightarrow} x=a\tan t, |t|<\cfrac{\pi}{2}\\
-\sqrt{x^2-a^2}\stackrel{令}{\longrightarrow} x=a\sec t, 
+\sqrt{a^2-x^2}\stackrel{\text{令}}{\longrightarrow} x=a\sin t, |t|<\frac{\pi}{2}\\
+\sqrt{a^2+x^2}\stackrel{\text{令}}{\longrightarrow} x=a\tan t, |t|<\frac{\pi}{2}\\
+\sqrt{x^2-a^2}\stackrel{\text{令}}{\longrightarrow} x=a\sec t, 
     \begin{cases}
-              x>0, 则 0<t<\cfrac{\pi}{2}\\
-                x<0, 则 \cfrac{\pi}{2}<t<\pi
+              x>0, \text{则} 0<t<\frac{\pi}{2}\\
+                x<0, \text{则} \frac{\pi}{2}<t<\pi
     \end{cases}
 \end{cases}</script><h6 id="恒等变形后作三角函数代换"><a href="#恒等变形后作三角函数代换" class="headerlink" title="恒等变形后作三角函数代换"></a>恒等变形后作三角函数代换</h6><p>当被积函数含有根式 $\sqrt{ax^2+bx+c}$ 时, 可化为以下三种形式, 再作三角函数代换</p>
 <ol>
@@ -260,30 +260,30 @@ F'(x)=\cfrac{d}{dx}\left[\int_{\phi_1(x)}^{\phi_2(x)}f(t)dt \right]=f[\phi_2(x)]
 <li>$\sqrt{\phi^2(x)-k^2}$</li>
 <li>$\sqrt{k^2-\phi^2(x)}$</li>
 </ol>
-<h6 id="根式代换"><a href="#根式代换" class="headerlink" title="根式代换"></a>根式代换</h6><p>当被积函数含有根式 $\sqrt[n]{ax+b}$, $\sqrt{\cfrac{ax+b}{cx+d}}$, $\sqrt{ae^{bx}+c}$ 等时, 一般令根式 $\sqrt{*}=t$ (因为事实上, 很难通过根号内换元的办法凑成平方, 所以根号无法去掉), 对既含有 $\sqrt[n]{ax+b}$, 也含有$\sqrt[m]{ax+b}$ 的函数, 一般取 $m,n$ 的最小公倍数 $l$, 令 $\sqrt[l]{ax+b}=t$</p>
-<h6 id="倒代换"><a href="#倒代换" class="headerlink" title="倒代换"></a>倒代换</h6><p>当被积函数分母的幂次比分子高两次及两次以上时, 作倒代换, 令 $x=\cfrac{1}{t}$</p>
+<h6 id="根式代换"><a href="#根式代换" class="headerlink" title="根式代换"></a>根式代换</h6><p>当被积函数含有根式 $\sqrt[n]{ax+b}$, $\sqrt{\frac{ax+b}{cx+d}}$, $\sqrt{ae^{bx}+c}$ 等时, 一般令根式 $\sqrt{*}=t$ (因为事实上, 很难通过根号内换元的办法凑成平方, 所以根号无法去掉), 对既含有 $\sqrt[n]{ax+b}$, 也含有$\sqrt[m]{ax+b}$ 的函数, 一般取 $m,n$ 的最小公倍数 $l$, 令 $\sqrt[l]{ax+b}=t$</p>
+<h6 id="倒代换"><a href="#倒代换" class="headerlink" title="倒代换"></a>倒代换</h6><p>当被积函数分母的幂次比分子高两次及两次以上时, 作倒代换, 令 $x=\frac{1}{t}$</p>
 <h6 id="复杂函数的直接代换"><a href="#复杂函数的直接代换" class="headerlink" title="复杂函数的直接代换"></a>复杂函数的直接代换</h6><p>当被积函数中含有 $a^x,e^x,\ln x, \arcsin x, \arctan x$ 等时, 可考虑直接令复杂函数等于 $t$, 值得指出的是, 当 $\ln x, \arcsin x, \arctan x$ 与 $P_n(x)$ 或 $e^{ax}$ 作乘法时 (其中 $P_n(x)$ 为 $x$ 的 $n$ 次多项式), 优先考虑分部积分法</p>
 <h4 id="分部积分法"><a href="#分部积分法" class="headerlink" title="分部积分法"></a>分部积分法</h4><script type="math/tex; mode=display">
 \int udv=uv-\int vdu</script><h4 id="有理函数积分"><a href="#有理函数积分" class="headerlink" title="有理函数积分"></a>有理函数积分</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><script type="math/tex; mode=display">
-\int \cfrac{P_n(x)}{Q_n(x)}dx(n<m)</script><p>其中 $P_n(x), Q_n(x)$ 分别是 $x$ 的 $n$ 次多项式和 $m$ 次多项式</p>
-<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>先将 $Q_m(x)$ 因式分解, 再把 $\cfrac{P_n(x)}{Q_n(x)}$ 拆成若干最简有理分式之和</p>
+\int \frac{P_n(x)}{Q_n(x)}dx(n<m)</script><p>其中 $P_n(x), Q_n(x)$ 分别是 $x$ 的 $n$ 次多项式和 $m$ 次多项式</p>
+<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><p>先将 $Q_m(x)$ 因式分解, 再把 $\frac{P_n(x)}{Q_n(x)}$ 拆成若干最简有理分式之和</p>
 <h5 id="分解的基本原则"><a href="#分解的基本原则" class="headerlink" title="分解的基本原则"></a>分解的基本原则</h5><ol>
-<li>$Q_m(x)$ 的一次单因式 $ax+b$ 产生一项 $\cfrac{A}{ax+b}$</li>
-<li>$Q_m(x)$ 的 $k$ 重一次单因式 $(ax+b)^k$ 产生 $k$ 项 $\cfrac{A_1}{ax+b}+\cfrac{A_2}{(ax+b)^2}+\cdots+\cfrac{A_k}{(ax+b)^k}$</li>
-<li>$Q_m(x)$ 的二次单因式 $px^2+qx+r$ 产生一项 $\cfrac{Ax+B}{px^2+qx+r}$</li>
-<li>$Q_m(x)$ 的 $k$ 重二次单因式 $(px^2+qx+r)^k$ 产生 $k$ 项 $\cfrac{A_1x+B_1}{px^2+qx+r}+\cfrac{A_2x+B_2}{(px^2+qx+r)^2}+\cdots+\cfrac{A_kx+B_k}{(px^2+qx+r)^k}$</li>
+<li>$Q_m(x)$ 的一次单因式 $ax+b$ 产生一项 $\frac{A}{ax+b}$</li>
+<li>$Q_m(x)$ 的 $k$ 重一次单因式 $(ax+b)^k$ 产生 $k$ 项 $\frac{A_1}{ax+b}+\frac{A_2}{(ax+b)^2}+\cdots+\frac{A_k}{(ax+b)^k}$</li>
+<li>$Q_m(x)$ 的二次单因式 $px^2+qx+r$ 产生一项 $\frac{Ax+B}{px^2+qx+r}$</li>
+<li>$Q_m(x)$ 的 $k$ 重二次单因式 $(px^2+qx+r)^k$ 产生 $k$ 项 $\frac{A_1x+B_1}{px^2+qx+r}+\frac{A_2x+B_2}{(px^2+qx+r)^2}+\cdots+\frac{A_kx+B_k}{(px^2+qx+r)^k}$</li>
 </ol>
 <h3 id="定积分计算"><a href="#定积分计算" class="headerlink" title="定积分计算"></a>定积分计算</h3><h4 id="华里士公式"><a href="#华里士公式" class="headerlink" title="华里士公式"></a>华里士公式</h4><script type="math/tex; mode=display">
 \int_0^{\frac{\pi}{2}}\sin^nxdx=\int_0^{\frac{\pi}{2}}\cos^nxdx=\begin{cases}
-\cfrac{n-1}{n}\cdot\cfrac{n-3}{n-2}\cdots\cfrac{2}{3}\cdot1, n 为大于 1 的奇数\\
-\cfrac{n-1}{n}\cdot\cfrac{n-3}{n-2}\cdots\cfrac{1}{2}\cdot\cfrac{\pi}{2}, n 为正偶数
+\frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdots\frac{2}{3}\cdot1, n \text{为大于} 1 \text{的奇数}\\
+\frac{n-1}{n}\cdot\frac{n-3}{n-2}\cdots\frac{1}{2}\cdot\frac{\pi}{2}, n \text{为正偶数}
 \end{cases}</script><h4 id="区间再现公式"><a href="#区间再现公式" class="headerlink" title="区间再现公式"></a>区间再现公式</h4><script type="math/tex; mode=display">
 \int_a^bf(x)dx=\int_a^bf(a+b-x)dx\\
 证: \int_a^bf(x)dx=\int_b^af(a+b-t)d(-t)=\int_a^bf(a+b-x)dx</script><h2 id="定积分的几何应用"><a href="#定积分的几何应用" class="headerlink" title="定积分的几何应用"></a>定积分的几何应用</h2><h3 id="面积"><a href="#面积" class="headerlink" title="面积"></a>面积</h3><p>曲线 $y=y_1(x)$ 与 $y=y_2(x)$ 及 $x=a,x=b(a&lt;b)$ 所围成的平面图形的面积</p>
 <script type="math/tex; mode=display">
 S=\int_a^b|y_1(x)-f_2(x)|dx</script><p>曲线 $r=r_1(\theta)$ 与 $r=r_2(\theta)$ 与两射线 $\theta=\alpha$ 与 $\theta=\beta(0&lt;\beta-\alpha\leq2\pi)$ 所围成的曲边扇形的面积</p>
 <script type="math/tex; mode=display">
-S=\cfrac12\int_\alpha^\beta|r_1^2(\theta)-r_2^2(\theta)|d\theta</script><h3 id="体积"><a href="#体积" class="headerlink" title="体积"></a>体积</h3><p>曲线 $y=y(x)$ 与 $x=a,x=b(a&lt;b)$ 及 $x$ 轴围成的曲边梯形绕 $x$ 轴旋转一周所得到的旋转体的体积</p>
+S=\frac12\int_\alpha^\beta|r_1^2(\theta)-r_2^2(\theta)|d\theta</script><h3 id="体积"><a href="#体积" class="headerlink" title="体积"></a>体积</h3><p>曲线 $y=y(x)$ 与 $x=a,x=b(a&lt;b)$ 及 $x$ 轴围成的曲边梯形绕 $x$ 轴旋转一周所得到的旋转体的体积</p>
 <script type="math/tex; mode=display">
 V_x=\int_a^b\pi y^2(x)dx</script><p>曲线 $y=y_1(x)\geq0$ 与 $y=y_2(x)\geq0$ 及 $x=a, x=b(a&lt;b)$ 所围成的平面图形绕 $x$ 轴旋转一周所得到的旋转体的体积</p>
 <script type="math/tex; mode=display">
@@ -291,11 +291,11 @@ V_x=\pi\int_a^b|y^2_1(x)-y_2^2(x)|dx</script><p>曲线 $y=y(x)$ 与 $x=a, x=b(0\
 <script type="math/tex; mode=display">
 V_y=2\pi\int_a^bx|y(x)|dx</script><p>曲线 $y=y_1(x)$ 与 $y=y_2(x)$ 及 $x=a,x=b(0\leq a\leq b)$ 所围成的图形绕 $y$ 轴旋转一周所得到的旋转体的体积</p>
 <script type="math/tex; mode=display">
-V_y=2\pi\int_a^bx|y_1(x)-y_2(x)|dx</script><h3 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h3><p>设 $x\in[a,b]$, 函数 $y(x)$ 在 $[a,b]$ 上的平均值为 $\overline y=\cfrac{1}{b-a}\int_a^by(x)dx$</p>
+V_y=2\pi\int_a^bx|y_1(x)-y_2(x)|dx</script><h3 id="平均值"><a href="#平均值" class="headerlink" title="平均值"></a>平均值</h3><p>设 $x\in[a,b]$, 函数 $y(x)$ 在 $[a,b]$ 上的平均值为 $\overline y=\frac{1}{b-a}\int_a^by(x)dx$</p>
 <h2 id="常见不定积分的原函数"><a href="#常见不定积分的原函数" class="headerlink" title="常见不定积分的原函数"></a>常见不定积分的原函数</h2><script type="math/tex; mode=display">
-\int\cfrac{1}{x^2-a^2}dx=\cfrac{1}{2a}\ln\left|\cfrac{x-a}{x+a}\right|+C</script><script type="math/tex; mode=display">
-\int\cfrac{1}{x^2+a^2}dx=\cfrac{1}{a}\arctan\cfrac{x}{a}+C</script><script type="math/tex; mode=display">
-\int \cfrac{1}{\sqrt{x^2\pm a^2}}dx=\ln\left|x+\sqrt{x^2\pm a^2}\right|+C</script>
+\int\frac{1}{x^2-a^2}dx=\frac{1}{2a}\ln\left|\frac{x-a}{x+a}\right|+C</script><script type="math/tex; mode=display">
+\int\frac{1}{x^2+a^2}dx=\frac{1}{a}\arctan\frac{x}{a}+C</script><script type="math/tex; mode=display">
+\int \frac{1}{\sqrt{x^2\pm a^2}}dx=\ln\left|x+\sqrt{x^2\pm a^2}\right|+C</script>
     </div>
 
     

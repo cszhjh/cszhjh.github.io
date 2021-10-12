@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/微分" style=color:#03a9f4>
+                <a href="/tags/微分" style=color:#00a596>
                     微分
                 </a>
             </span>
@@ -197,7 +197,7 @@
 <span id="more"></span>
 <h3 id="零点定理-证存在性"><a href="#零点定理-证存在性" class="headerlink" title="零点定理 ( 证存在性 )"></a>零点定理 ( 证存在性 )</h3><p>设 $f(x)$ 在 $[a, b]$ 上连续, 且 $f(a)f(b)&lt;0$, 则 $f(x)=0$ 在 $(a, b)$ 内至少有一个根</p>
 <blockquote>
-<p>[注] 推广的零点定理: 若 $f(x)$ 在 $(a,b)$ 内连续, $\lim<em>\limits{x\to a^+}f(x)=\alpha, \lim</em>\limits{x\to b^-}f(x)=\beta$​, 且 $\alpha\cdot\beta&lt;0$, 则 $f(x)=0$ 在 $(a,b)$ 内至少存在一个根, 这里 $a, b, \alpha, \beta$ 可以是有限数, 也可以是无穷大</p>
+<p>[注] 推广的零点定理: 若 $f(x)$ 在 $(a,b)$ 内连续, $\lim_\limits{x\to a^+}f(x)=\alpha, \lim_\limits{x\to b^-}f(x)=\beta$​, 且 $\alpha\cdot\beta&lt;0$, 则 $f(x)=0$ 在 $(a,b)$ 内至少存在一个根, 这里 $a, b, \alpha, \beta$ 可以是有限数, 也可以是无穷大</p>
 </blockquote>
 <h3 id="单调性-证唯一性"><a href="#单调性-证唯一性" class="headerlink" title="单调性 ( 证唯一性 )"></a>单调性 ( 证唯一性 )</h3><p>若 $f(x)$ 在 $(a,b)$ 内单调, 则 $f(x)=0$ 在 $(a,b)$ 内至多有一个根, 这里 $a,b$ 可以是有限数, 也可以是无穷大</p>
 <h3 id="罗尔原话-罗尔定理的推论-⭐️"><a href="#罗尔原话-罗尔定理的推论-⭐️" class="headerlink" title="罗尔原话 ( 罗尔定理的推论 ) ⭐️"></a>罗尔原话 ( 罗尔定理的推论 ) ⭐️</h3><p>若 $f^{(n)}(x)=0$ 至多有 $k$ 个根, 则 $f(x)=0$ 至多有 $k+n$ 个根</p>
@@ -206,9 +206,9 @@
 x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}=0</script><blockquote>
 <p>证明: 设</p>
 <script type="math/tex; mode=display">
-f(x)=x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}</script><p>则 $\lim_\limits{x\to+\infty}f(x)=+\infty$​​​, 故 $\forall M_1&gt;0$​​​, $\exist X_1&gt;0$​​​, 当 $x&gt;X_1$​​​ 时, $f(x)&gt;M_1&gt;0$​​​, 故 $\exist x_1 &gt; X_1$​​​, 使 $f(x_1)&gt;0$​​​</p>
-<p>又 $\lim_\limits{x\to-\infty}f(x)=-\infty$​​​​​​​, 故 $\forall M_2&gt;0$​​​​​​​, $\exist X_2&gt;0$​​​​​​​, 当 $x&lt;-X_2$​​​​​​​ 时, $f(x)&lt;-M_2&lt;0$​​​​​​​, 故 $\exist x_2 &lt; -X_2$​​​​​​​, 使 $f(x_2)&lt;0$​​​​​​​</p>
-<p>由 $f(x)$ 的连续性及零点定理, 知 $\exist\xi\in(x_2,x_1)\subset(-\infty,+\infty)$, 使 $f(\xi)=0$, 即至少有一个实根</p>
+f(x)=x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}</script><p>则 $\lim_\limits{x\to+\infty}f(x)=+\infty$​​​, 故 $\forall M_1&gt;0$​​​, $\exists X_1&gt;0$​​​, 当 $x&gt;X_1$​​​ 时, $f(x)&gt;M_1&gt;0$​​​, 故 $\exists x_1 &gt; X_1$​​​, 使 $f(x_1)&gt;0$​​​</p>
+<p>又 $\lim_\limits{x\to-\infty}f(x)=-\infty$​​​​​​​, 故 $\forall M_2&gt;0$​​​​​​​, $\exists X_2&gt;0$​​​​​​​, 当 $x&lt;-X_2$​​​​​​​ 时, $f(x)&lt;-M_2&lt;0$​​​​​​​, 故 $\exists x_2 &lt; -X_2$​​​​​​​, 使 $f(x_2)&lt;0$​​​​​​​</p>
+<p>由 $f(x)$ 的连续性及零点定理, 知 $\exists\xi\in(x_2,x_1)\subset(-\infty,+\infty)$, 使 $f(\xi)=0$, 即至少有一个实根</p>
 </blockquote>
 <h2 id="微分不等式"><a href="#微分不等式" class="headerlink" title="微分不等式"></a>微分不等式</h2><h3 id="用函数性态-包括单调性、凹凸性和最值等-证明不等式"><a href="#用函数性态-包括单调性、凹凸性和最值等-证明不等式" class="headerlink" title="用函数性态 ( 包括单调性、凹凸性和最值等 ) 证明不等式"></a>用函数性态 ( 包括单调性、凹凸性和最值等 ) 证明不等式</h3><ol>
 <li>⭐️ 若有 $f’(x)\geq 0, a&lt;x&lt;b$​, 则有 $f(a) \leq f(x)\leq f(b)$​</li>
@@ -217,7 +217,7 @@ f(x)=x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}</script><p>则 $\lim_\limits{x\to+\i
 <li>当 $f’(b)&lt;0$ 时, $f’(x)&lt;0\Rightarrow f(x)$ 单调减少</li>
 </ol>
 </li>
-<li>⭐️ 设 $f(x)$ 在 $I$ 内有唯一的极值点 $x_0$, 则 $\begin{cases}当 x_0 为极大值点时, f(x_0)\geq f(x)\当 x_0 为极小值点时, f(x_0)\leq f(x)\end{cases}$ , $\forall x\in I$</li>
+<li>⭐️ 设 $f(x)$ 在 $I$ 内有唯一的极值点 $x_0$, 则 $\begin{cases}\text{当} x_0 \text{为极大值点时,} f(x_0)\geq f(x)\\\text{当} x_0 \text{为极小值点时,} f(x_0)\leq f(x)\end{cases}$ , $\forall x\in I$</li>
 <li>⭐️ 若有 $f’’(x)&gt;0, a&lt;x&lt;b, f(a)=f(b)=0$, 则有 $f(x)&lt;0$</li>
 </ol>
 <h3 id="用常数变量化证明不等式"><a href="#用常数变量化证明不等式" class="headerlink" title="用常数变量化证明不等式"></a>用常数变量化证明不等式</h3><p>如果欲证的不等式中都是常数, 则可以将其中一个或者几个常数变量化, 再利用上面所述的导数工具去证明</p>
