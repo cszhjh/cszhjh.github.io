@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || git 和 github 的使用</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>git 和 github 的使用 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/8
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Git">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Git
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Git" style=color:#ffa2c4>
+                    Git
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><h3 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库(Repository)"></a>仓库(Repository)</h3><p>仓库用来存放项目代码, 每个项目对应一个仓库, 多个开源项目则有多个仓库</p>
+<h3 id="收藏-Star"><a href="#收藏-Star" class="headerlink" title="收藏(Star)"></a>收藏(Star)</h3><p>收藏项目, 方便下次查看, 同点赞 + 收藏</p>
+<span id="more"></span>
+<h3 id="复制克隆项目-Fork"><a href="#复制克隆项目-Fork" class="headerlink" title="复制克隆项目(Fork)"></a>复制克隆项目(Fork)</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJPpt.jpg"><img src="https://s1.ax1x.com/2020/05/28/teJPpt.jpg" alt="teJPpt.jpg"></a></p>
+<p><strong>注意: 该 Fork 的项目是独立存在的</strong></p>
+<h3 id="发起请求-Pull-Request"><a href="#发起请求-Pull-Request" class="headerlink" title="发起请求(Pull Request)"></a>发起请求(Pull Request)</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJ9fI.jpg"><img src="https://s1.ax1x.com/2020/05/28/teJ9fI.jpg" alt="teJ9fI.jpg"></a></p>
+<h3 id="关注-Watch"><a href="#关注-Watch" class="headerlink" title="关注(Watch)"></a>关注(Watch)</h3><p>关注项目, 当项目更新可以接收到通知</p>
+<h3 id="事务卡片-Issue"><a href="#事务卡片-Issue" class="headerlink" title="事务卡片(Issue)"></a>事务卡片(Issue)</h3><p>发现代码 Bug, 但是目前没有成型代码, 需要讨论时用, 即提出建议和意见的反馈区</p>
+<h3 id="仓库主页说明"><a href="#仓库主页说明" class="headerlink" title="仓库主页说明"></a>仓库主页说明</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJptA.png"><img src="https://s1.ax1x.com/2020/05/28/teJptA.png" alt="teJptA.png"></a></p>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="git-工作区"><a href="#git-工作区" class="headerlink" title="git 工作区"></a>git 工作区</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJSkd.jpg"><img src="https://s1.ax1x.com/2020/05/28/teJSkd.jpg" alt="teJSkd.jpg"></a></p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p><strong>设置用户名</strong></p>
+<pre><code class="lang-shell">git config --global user.name &#39;cszhjh&#39;
+</code></pre>
+<p><strong>设置用户名邮箱</strong></p>
+<pre><code class="lang-shell">git config --global user.email &#39;cszhjh@gmail.com&#39;
+</code></pre>
+<p><strong>初始化工作区</strong></p>
+<pre><code class="lang-shell">git init
+</code></pre>
+<h4 id="过滤文件"><a href="#过滤文件" class="headerlink" title="过滤文件"></a>过滤文件</h4><p><strong>.gitignore 文件</strong><br>git 忽略文件, 忽略配置项, 哪些文件不需要提交到 git 上就可以在这里进行忽略</p>
+<p><strong>vim .gitignore</strong><br>新增以及编写这个文件</p>
+<p>此外, git 对于 .gitignore 配置文件是按行从上到下进行规则匹配的, 意味着如果前面的规则匹配的范围更大, 则后面的规则将不会生效</p>
+<pre><code>node_modules/  ---&gt; 过滤整个文件夹
+*.zip        ---&gt; 过滤zip后缀文件
+demo.html   过滤该文件
+
+!src/   不过滤该文件夹
+!*.js   不过滤java源文件
+!index.html 不过滤该文件
+</code></pre><h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><p><strong>创建文件</strong></p>
+<pre><code>touch file.txt
+</code></pre><p><strong>添加文件到暂存区</strong></p>
+<pre><code>git add file.txt
+</code></pre><p><strong>将所有需要添加的文件添加到暂存区</strong></p>
+<pre><code>git add .
+</code></pre><p><strong>将文件从暂存区提交到仓库</strong></p>
+<pre><code>git commit -m &#39;添加描述&#39;
+</code></pre><p><strong>将所有修改的文件直接放到仓库中</strong></p>
+<pre><code>git commit --all -m &#39;描述&#39;
+</code></pre><h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><p><strong>查看当前文件状态</strong></p>
+<pre><code>git status
+</code></pre><p><strong>查看日志</strong></p>
+<pre><code>git log
+</code></pre><p><strong>查看简洁版的日志</strong></p>
+<pre><code>git log --oneline
+</code></pre><h4 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h4><p><strong>回退到指定的版本</strong></p>
+<pre><code>git reset --hard Head~0   ## 0代表上次, 1代表上上次
+</code></pre><p><strong>通过版本号回退</strong></p>
+<pre><code>通过版本号回退：git reset --hard [版本号]
+</code></pre><p><strong>查看切换版本的记录</strong></p>
+<pre><code>git reflog
+</code></pre><h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p><strong>创建分支</strong></p>
+<pre><code>git branch name
+</code></pre><p><strong>查看分支</strong></p>
+<pre><code>git branch
+</code></pre><p><strong>切换分支</strong></p>
+<pre><code>git checkout name
+</code></pre><p><strong>合并分支</strong></p>
+<pre><code>git merge name
+</code></pre><p><strong>删除分支</strong></p>
+<pre><code>git branch -d name
+</code></pre><h4 id="连接-github"><a href="#连接-github" class="headerlink" title="连接 github"></a>连接 github</h4><p><strong>上传当前分支代码</strong></p>
+<pre><code>git push [github项目地址] master
+</code></pre><p>当我们在 push / pull 时, 加上 <strong>-u</strong> 参数, 那么在下一次 push / pull 时, 我们只需要写 <code>git push / pull</code> 就能上传 / 下载代码(加上 <strong>-u</strong> 之后, git会把当前分支与远程的指定分支进行关联)</p>
+<p><code>git push -f</code> 表示将目前自己本机的代码库推送到远端, 并覆盖</p>
+<p><strong>生成变量</strong></p>
+<pre><code>git remote add name [github项目地址]
+</code></pre><p>相当于 name = github 仓库 HTTPS 地址, 只在本地当前文件夹生效, 其他地方不可用</p>
+<p><strong>下载到本地</strong></p>
+<pre><code>git pull [github项目地址] master   ## 本地要初始一个仓库, 多次执行会合并处理
+</code></pre><p><strong>克隆到本地</strong></p>
+<pre><code>git clone [github项目地址] --depth=1   ## 多次执行会覆盖本地内容
+</code></pre><p>下载中可以加上 <code>--depth=1</code> 表示只下载最后一次的 commit, 其他历史记录不要, 这样可以提高下载速度</p>
+<p>如果服务器版本和本地版本不同时, 先 pull, 在本地解决冲突后再 push 到服务器中</p>
+<h4 id="ssh-连接"><a href="#ssh-连接" class="headerlink" title="ssh 连接"></a>ssh 连接</h4><p>创建 ssh 钥匙</p>
+<pre><code>ssh-keygen -t rsa -C &quot;[邮箱地址]&quot;
+</code></pre><p>路径: <strong>C:\Users\Administrator.ssh</strong></p>
+<p><code>id_rsa</code>: 私钥<br><code>id_rsa.pub</code>: 公钥</p>
+<p><strong>点击 github 头像 –&gt; settings –&gt; SSH and GPG keys –&gt; New SSH key –&gt; 将复制的公钥里的内容粘贴到 Key 中 –&gt; 生成</strong></p>
+<p>上传当前分支代码</p>
+<pre><code>git push [github仓库SSH地址] master  ## 不用输入账号密码
+</code></pre>
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

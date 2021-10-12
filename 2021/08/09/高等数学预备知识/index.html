@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 高等数学预备知识</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>高等数学预备知识 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/8/9
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/数学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数学
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/高数" style=color:#00a596>
+                    高数
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="反函数"><a href="#反函数" class="headerlink" title="反函数"></a>反函数</h3><ul>
+<li><strong>严格单调函数必有反函数</strong>, 比如函数 $y = x^2(x\in[0, +\infty))$ 是严格单调函数, 故它有反函数 $x=\sqrt y$</li>
+<li>若把 $x=f^{-1}(y)$ 与 $y=f(x)$ 的图形画在同一坐标系中, 则它们完全重合, 只有把 $y=f(x)$ 的反函数 $x=f^{-1}(y)$ 写成 $y=f^{-1}(x)$ 后, 它们的图形才关于 $y=x$ 对称, 事实上这也是字母 $x$ 与 $y$ 互换的结果</li>
+</ul>
+<span id="more"></span>
+<h3 id="单调性定义"><a href="#单调性定义" class="headerlink" title="单调性定义"></a>单调性定义</h3><p>对任何 $x_1, x_2\in D, x_1\neq x_2$,  则</p>
+<p>$(x_1-x_2)[f(x_1)-f(x_2)]&gt;0$ 是单调增函数</p>
+<p>$(x_1-x_2)[f(x_1)-f(x_2)]&lt;0$ 是单调减函数</p>
+<p>$(x_1-x_2)[f(x_1)-f(x_2)]\geq 0$ 是单调不减函数</p>
+<p>$(x_1-x_2)[f(x_1)-f(x_2)]\leq 0$ 是单调不增函数</p>
+<h3 id="奇偶性-⭐"><a href="#奇偶性-⭐" class="headerlink" title="奇偶性 ⭐"></a>奇偶性 ⭐</h3><p>偶函数: $f(x)=f(-x)$, 关于 $y$ 轴对称</p>
+<p>奇函数: $-f(x)=f(-x)$, 关于原点对称</p>
+<p>$F_1(x)=f(x)-f(-x)$ 必为<strong>奇函数</strong>, $F_2(x)=f(x)+f(-x)$ 必为<strong>偶函数</strong></p>
+<ol>
+<li>奇函数 $y=f(x)$ 的图形关于坐标原点对称, 当 $f(x)$ 在 $x = 0$ 处有定义时, 必有 $f(x)=0$</li>
+<li>偶函数 $y=f(x)$ 的图形关于 $y$ 轴对称, 且当 $f’(0)$ 存在时, 必有 $f’(0)=0$</li>
+<li>函数 $y=f(x)$ 与 $y=-f(x)$ 的图形关于 <strong>$x$ 轴</strong>对称, 函数 $y=f(x)$ 与 $y=f(-x)$ 的图形关于 <strong>$y$ 轴</strong>对称, 函数 $y=f(x)$ 与 $y=-f(-x)$ 的图形关于<strong>原点</strong>对称</li>
+<li>函数 $y=f(x)$ 的图形关于直线 $x=T$ 对称的充分必要条件是: $f(x)=f(2T-x)$ 或 $f(x+T)=f(T-x)$</li>
+</ol>
+<h3 id="周期性"><a href="#周期性" class="headerlink" title="周期性"></a>周期性</h3><p>设 $f(x)$ 得定义域为 $D$,  如果存在一个正数 $T$, 使得对于任一 $x\in D$, 有 $x\pm T\in D$, 且 $f(x+T)=f(x)$, 则称 $f(x)$ 为<strong>周期函数</strong>, 从几何图形上看, 在周期函数的定义域内, 相邻两个长度为 $T$ 的区间上, 函数图形完全一样</p>
+<h3 id="重要结论-⭐⭐"><a href="#重要结论-⭐⭐" class="headerlink" title="重要结论 ⭐⭐"></a>重要结论 ⭐⭐</h3><ol>
+<li>若 $f(x)$ 是可导的偶函数, 则 $f’(x)$ 是奇函数</li>
+<li>若 $f(x)$ 是可导的奇函数, 则 $f’(x)$ 是偶函数</li>
+<li>若 $f(x)$ 是可导的周期为 $T$ 的周期函数, 则 $f’(x)$ 也是以 $T$ 为周期的周期函数</li>
+<li>连续的奇函数的一切原函数都是偶函数</li>
+<li>连续的偶函数的原函数中仅有一个原函数是奇函数</li>
+<li>若连续函数 $f(x)$ 以 $T$ 为周期且 $\displaystyle \int_0^T f(x)dx=0$, 则 $f(x)$ 的一切数也以 $T$ 为周期</li>
+<li>若 $f(x)$ 在有限区间 $(a,b)$ 内可导且 $f’(x)$ 有界, 则 $f(x)$ 在 $(a,b)$ 内有界</li>
+</ol>
+<h3 id="最值方法-图形-⭐"><a href="#最值方法-图形-⭐" class="headerlink" title="最值方法 (图形) ⭐"></a>最值方法 (图形) ⭐</h3><p>见到 $\sqrt{u}$, $\sqrt[3]{u}$, 用 $u$ 研究即可</p>
+<p>见到 $|u|$, 用 $u^2$ 研究即可</p>
+<p>见到 $\cfrac{1}{u} (u&gt;0)$, 用 $u$ 研究即可</p>
+<p>见到 $u<em>1u_2\cdots u_n=u$, 用 $\ln{u}=\sum</em>\limits{i=1}^{n}{\ln{u_i}}$ 研究即可</p>
+<h3 id="三角函数和反三角函数-⭐"><a href="#三角函数和反三角函数-⭐" class="headerlink" title="三角函数和反三角函数 ⭐"></a>三角函数和反三角函数 ⭐</h3><p>性质: $\arcsin x+\arccos x=\cfrac{\pi}{2}(-1\leq x\leq 1)$</p>
+<p>性质: $\arctan x + \arccot x=\cfrac{\pi}{2} (-\infty &lt; x &lt; +\infty)$</p>
+<h3 id="取整函数"><a href="#取整函数" class="headerlink" title="取整函数"></a>取整函数</h3><p>向下取整 <code>Math.floor(x)</code></p>
+<ol>
+<li>$x-1&lt;[x]\leq x$</li>
+<li>$\lim<em>\limits{x \to 0^+}{[x]=0}$, $\lim</em>\limits{x \to 0^-}{[x]=-1}$</li>
+</ol>
+<h3 id="图像变换-⭐"><a href="#图像变换-⭐" class="headerlink" title="图像变换 ⭐"></a>图像变换 ⭐</h3><h4 id="平移变换"><a href="#平移变换" class="headerlink" title="平移变换"></a>平移变换</h4><p>$x_0 &gt;0,y_0 &gt; 0$</p>
+<ol>
+<li>$y=f(x + x_0)$ 沿 $x$ 轴<strong>向左</strong>平移 $x_0$ 个单位</li>
+<li>$y=f(x - x_0)$ 沿 $x$ 轴<strong>向右</strong>平移 $x_0$ 个单位</li>
+<li>$y = f(x) + y_0$ 沿 $y$ 轴<strong>向上</strong>平移 $y_0$ 个单位</li>
+<li>$y = f(x) - y_0$ 沿 $y$ 轴<strong>向下</strong>平移 $y_0$ 个单位</li>
+</ol>
+<h4 id="对称变换"><a href="#对称变换" class="headerlink" title="对称变换"></a>对称变换</h4><ol>
+<li>原式 $y=f(x)$, 则 $y=-f(x)$ 关于 <strong>$x$</strong> 轴对称</li>
+<li>原式 $y=f(x)$, 则 $y = f(-x)$ 关于 <strong>$y$</strong> 轴对称</li>
+<li>原式 $y=f(x)$, 则 $y=-f(-x)$ 关于<strong>原点</strong>对称</li>
+<li>原式 $y=f(x)$, 则 $y=f^{-1}(x)$ 关于 <strong>$y=x$</strong> 对称</li>
+<li>原式 $y=f(x)$, 则 $y=|f(x)|$ 的图像为: 把 $x$ 轴下方的部分关于 $x$ 轴对称到 $x$ 轴上, 并去掉原来下方的部分</li>
+<li>原式 $y=f(x)$, 则 $y=f(|x|)$ 的图像为: 把 $y$ 轴左边的部分去掉, 再将 $y$ 轴右边的图像对称到 $y$ 轴左边</li>
+</ol>
+<h4 id="伸缩变换"><a href="#伸缩变换" class="headerlink" title="伸缩变换"></a>伸缩变换</h4><p><strong>水平伸缩: $y=f(kx)$</strong></p>
+<ol>
+<li>当 <strong>$k&gt;1$</strong> 时的图像, 可由 $y=f(x)$ 的图像上每点的横坐标都<strong>缩短</strong>到原来的 <strong>$\cfrac{1}{k}$</strong> 倍, 且纵坐标不变</li>
+<li>当 $0 &lt; k &lt; 1$ 时的图像, 可由 $y=f(x)$ 的图像上每点的横坐标<strong>伸长</strong>到原来 <strong>$\cfrac{1}{k}$</strong> 倍, 且纵坐标不变</li>
+</ol>
+<p><strong>垂直伸缩: $y=kf(x)$</strong></p>
+<ol>
+<li>当 <strong>$k&gt;1$</strong> 时的图像, 可由 $y=f(x)$ 的图像上每点的纵坐标都<strong>伸长</strong>到原来的 <strong>$k$</strong> 倍, 且横坐标不变</li>
+<li>当 $0 &lt; k &lt; 1$ 时的图像, 可由 $y=f(x)$ 的图像上每点的纵坐标<strong>缩短</strong>到原来 <strong>$k$</strong> 倍, 且横坐标不变</li>
+</ol>
+<h3 id="心形线-外摆线"><a href="#心形线-外摆线" class="headerlink" title="心形线 (外摆线)"></a>心形线 (外摆线)</h3><script type="math/tex; mode=display">
+r=a(1-cos\theta)(a>0)</script><h3 id="玫瑰线"><a href="#玫瑰线" class="headerlink" title="玫瑰线"></a>玫瑰线</h3><script type="math/tex; mode=display">
+r=a\sin3\theta(a>0)</script><h3 id="阿基米德螺线"><a href="#阿基米德螺线" class="headerlink" title="阿基米德螺线"></a>阿基米德螺线</h3><script type="math/tex; mode=display">
+r=a\theta(a>0,\theta\geq 0)</script><h3 id="伯努利双扭线"><a href="#伯努利双扭线" class="headerlink" title="伯努利双扭线"></a>伯努利双扭线</h3><script type="math/tex; mode=display">
+\sqrt{(x+a)^2+y^2}\cdot\sqrt{(x-a)^2+y^2}=a^2</script><p>整理得</p>
+<script type="math/tex; mode=display">
+(x^2+y^2)^2=2a^2(x^2-y^2)</script><p>在极坐标系中, 可化简得</p>
+<script type="math/tex; mode=display">
+r^2=2a^2\cos2\theta</script><p>在极坐标系中, 双扭线得极坐标方程常常写成 $r^2=a^2\cos2\theta$, 或 $r^2=a^2\sin2\theta$</p>
+<h3 id="摆线-平摆线"><a href="#摆线-平摆线" class="headerlink" title="摆线 (平摆线)"></a>摆线 (平摆线)</h3><script type="math/tex; mode=display">
+\begin{cases}x=r(t-\sin t)\\y=r(1-\cos t)\end{cases}</script><h3 id="星型线-内摆线"><a href="#星型线-内摆线" class="headerlink" title="星型线 (内摆线)"></a>星型线 (内摆线)</h3><script type="math/tex; mode=display">
+\begin{cases}x=r\cos^3 t \\y=r\sin^3 t\end{cases}</script><p>消去 $t$ 可得</p>
+<script type="math/tex; mode=display">
+x^{\frac{2}{3}}+y^{\frac{2}{3}}=r^{\frac{2}{3}}</script><h2 id="数列"><a href="#数列" class="headerlink" title="数列"></a>数列</h2><h3 id="等差数列"><a href="#等差数列" class="headerlink" title="等差数列"></a>等差数列</h3><h4 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h4><script type="math/tex; mode=display">
+a_n=a_1+(n-1)d</script><h4 id="前-n-项和"><a href="#前-n-项和" class="headerlink" title="前 n 项和"></a>前 n 项和</h4><script type="math/tex; mode=display">
+S_n=\cfrac{n}{2}[2a_1+(n-1)d]=\cfrac{n}{2}(a_1+a_n)</script><h3 id="等比数列"><a href="#等比数列" class="headerlink" title="等比数列"></a>等比数列</h3><h4 id="通项公式-1"><a href="#通项公式-1" class="headerlink" title="通项公式"></a>通项公式</h4><script type="math/tex; mode=display">
+a_n=a_1q^{n-1}</script><h4 id="前-n-项和-1"><a href="#前-n-项和-1" class="headerlink" title="前 n 项和"></a>前 n 项和</h4><script type="math/tex; mode=display">
+S_n=
+\begin{cases}
+na_1, & r=1 \\
+\cfrac{a_1(1-q^n)}{1-q}, & r\neq 1
+\end{cases}</script><h4 id="常见数列前-n-项得和-⭐⭐⭐"><a href="#常见数列前-n-项得和-⭐⭐⭐" class="headerlink" title="常见数列前 n 项得和 ⭐⭐⭐"></a>常见数列前 n 项得和 ⭐⭐⭐</h4><script type="math/tex; mode=display">
+\sum_{k=1}^n k=1+2+3+...+n=\cfrac{n(n+1)}{2}</script><script type="math/tex; mode=display">
+\sum_\limits{k=1}^n k^2=1^2+2^2+3^2+...+n^2=\cfrac{n(n+1)(2n+1)}{6}</script><script type="math/tex; mode=display">
+\sum_\limits{k=1}^n \cfrac{1}{k(k+1)}=\cfrac{1}{1\times 2}+\cfrac{1}{2\times 3}+\cfrac{1}{3\times 4}+...+\cfrac{1}{n\times (n+1)}=\cfrac{n}{n\times (n+1)}</script><h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><h3 id="三角函数基本关系"><a href="#三角函数基本关系" class="headerlink" title="三角函数基本关系"></a>三角函数基本关系</h3><p>$\csc \alpha =\cfrac{1}{\sin \alpha}$</p>
+<p>$\sec \alpha =\cfrac{1}{\cos \alpha}$</p>
+<p>$\cot \alpha =\cfrac{1}{\tan \alpha}=\cfrac{\cos \alpha}{\sin \alpha}$</p>
+<p>$\tan \alpha =\cfrac{\sin \alpha}{\cos \alpha}$</p>
+<p>$\sin^2 \alpha+\cos^2 \alpha = 1$</p>
+<p>$\tan^2 \alpha + 1 =\sec^2 \alpha$</p>
+<p>$\cot^2 \alpha + 1 =\csc^2 \alpha$</p>
+<h3 id="诱导公式-⭐"><a href="#诱导公式-⭐" class="headerlink" title="诱导公式 ⭐"></a>诱导公式 ⭐</h3><script type="math/tex; mode=display">
+\sin(\frac{\pi}{2}\pm\alpha)=\cos\alpha</script><script type="math/tex; mode=display">
+\cos(\frac{\pi}{2}\pm\alpha)=\mp\sin\alpha</script><script type="math/tex; mode=display">
+\sin(\pi\pm\alpha)=\mp\sin\alpha</script><script type="math/tex; mode=display">
+\cos(\pi\pm\alpha)=-\cos\alpha</script><h3 id="象限口诀"><a href="#象限口诀" class="headerlink" title="象限口诀"></a>象限口诀</h3><p>一全, 二正弦, 三正切, 四余弦</p>
+<h3 id="重要公式-⭐"><a href="#重要公式-⭐" class="headerlink" title="重要公式 ⭐"></a>重要公式 ⭐</h3><p><strong>倍角公式</strong></p>
+<p>$\sin 2\alpha=2\sin \alpha\cos\alpha$</p>
+<p>$\cos 2\alpha=2\cos^2\alpha-1=1-2\sin^2\alpha=\cos^2\alpha-\sin^2\alpha$</p>
+<p>$\sin3\alpha=-4\sin^3\alpha+3\sin\alpha$</p>
+<p>$\cos3\alpha=4\cos^3\alpha-3\cos\alpha$</p>
+<p>$\tan2\alpha=\cfrac{2\tan\alpha}{1-\tan^2\alpha}$</p>
+<p>$\cot2\alpha=\cfrac{\cot^2\alpha-1}{2\cot\alpha}$</p>
+<p><strong>和差角公式</strong></p>
+<p>$\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$</p>
+<p>$\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta$</p>
+<p>$\tan(\alpha\pm\beta)=\cfrac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$</p>
+<p>$cot(\alpha\pm\beta)=\cfrac{\cot\alpha\cot\beta\mp1}{\cot\alpha\pm\cot\beta}$</p>
+<h2 id="指数运算法则-⭐"><a href="#指数运算法则-⭐" class="headerlink" title="指数运算法则 ⭐"></a>指数运算法则 ⭐</h2><p>$x^\alpha\ast x^\beta=x^{\alpha+\beta}$</p>
+<p>$\cfrac{x^\alpha}{x^\beta}=x^{\alpha-\beta}$</p>
+<p>$(x^\alpha)^\beta=x^{\alpha\beta}$</p>
+<p>$(xy)^\alpha=x^\alpha y^\alpha$</p>
+<p>$(\cfrac{x}{y})^\alpha=\cfrac{x^\alpha}{y^\alpha}$</p>
+<p>其中 $x, y$ 是正实数, $\alpha, \beta$ 是任意实数</p>
+<h2 id="对数运算法则-⭐⭐⭐"><a href="#对数运算法则-⭐⭐⭐" class="headerlink" title="对数运算法则 ⭐⭐⭐"></a>对数运算法则 ⭐⭐⭐</h2><p>$\log_a MN=\log_a M+\log_a N$</p>
+<p>$\log_a \cfrac{M}{N}=\log_a M-\log_a N$</p>
+<p>$\log_a M^n=n\log_a M$</p>
+<p>$log_a \sqrt[n]{M}=\cfrac{1}{n}\log_a M$</p>
+<h2 id="一元二次方程基础"><a href="#一元二次方程基础" class="headerlink" title="一元二次方程基础"></a>一元二次方程基础</h2><p>根的公式: $x_{1,2}=\cfrac{-b\pm \sqrt{b^2-4ac}}{2a}$</p>
+<p>根与系数的关系 (韦达定理):</p>
+<ol>
+<li><p>$x_1+x_2=-\cfrac{b}{a}$</p>
+</li>
+<li><p>$x_1x_2=\cfrac{c}{a}$</p>
+</li>
+</ol>
+<p>抛物线: $y=ax^2+bx+c$ 的顶点 $(-\cfrac{b}{2a}, c-\cfrac{b^2}{4a})$</p>
+<h3 id="因式分解公式-⭐⭐"><a href="#因式分解公式-⭐⭐" class="headerlink" title="因式分解公式 ⭐⭐"></a>因式分解公式 ⭐⭐</h3><ol>
+<li>$(a\pm b)^2=a^2\pm 2ab+b^2$</li>
+<li>$(a\pm b)^3=a^3\pm 3a^2b+3ab^2\pm b^3$</li>
+<li>$a^2-b^2=(a+b)(a-b)$</li>
+<li>$a^3\pm b^3=(a\pm b)(a^2\mp ab+b^2)$</li>
+<li>$a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\cdots+ab^{n-2}+b^{n-1})(n 是正整数)$<ol>
+<li>$n$ 是正偶数时, $a^n-b^n=(a+b)(a^{n-1}-a^{n-2}b+\cdots+ab^{n-2}-b^{n-1})$</li>
+<li>$n$ 是正奇数时, $a^n+b^n=(a+b)(a^{n-1}-a^{n-2}b+\cdots-ab^{n-2}+b^{n-1})$</li>
+</ol>
+</li>
+</ol>
+<p><strong>二项式定理</strong>⭐⭐⭐</p>
+<script type="math/tex; mode=display">
+(a+b)^n=\sum_\limits{k=0}^nC_n^ka^{n-k}b^k</script><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/W6Gj54"><img src="https://z3.ax1x.com/2021/07/24/W6Gj54.jpg" alt="W6Gj54.jpg"></a></p>
+<h2 id="阶乘与双阶乘"><a href="#阶乘与双阶乘" class="headerlink" title="阶乘与双阶乘"></a>阶乘与双阶乘</h2><p>$n!=1\ast 2\ast 3\ast \cdots \ast n$</p>
+<p>$(2n)!!=2\ast 4\ast 6\ast \cdots \ast (2n)=2^n\ast n!$</p>
+<p>$(2n-1)!!=1\ast 3\ast 5\ast \cdots \ast (2n-1)$</p>
+<h2 id="常用不等式-⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐"><a href="#常用不等式-⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐" class="headerlink" title="常用不等式 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐"></a>常用不等式 ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐</h2><p>设 $a,b$ 为实数, 则 : </p>
+<script type="math/tex; mode=display">
+|a\pm b|\leq |a|+|b|</script><script type="math/tex; mode=display">
+||a|-|b||\leq|a-b|</script><script type="math/tex; mode=display">
+\left|\int_a^bf(x)dx\right|\leq\int_a^b|f(x)|dx</script><script type="math/tex; mode=display">
+\sqrt {ab}\leq \cfrac{a+b}{2}\leq \sqrt {\cfrac{a^2+b^2}{2}}(a,b>0)</script><script type="math/tex; mode=display">
+\sqrt {abc}\leq \cfrac{a+b+c}{3}\leq \sqrt {\cfrac{a^2+b^2+c^2}{3}}(a,b,c>0)</script><script type="math/tex; mode=display">
+a>b>0\Rightarrow
+\begin{cases}
+n>0,a^n>b^n\\
+n<0,a^n<b^n
+\end{cases}</script><script type="math/tex; mode=display">
+\lbrace
+0<a<x<b,
+0<c<y<d
+\rbrace
+\Rightarrow \cfrac{c}{b}<\cfrac{y}{x}<\cfrac{d}{a}</script><script type="math/tex; mode=display">
+\sin x<x<\tan x(0<x<\frac{\pi}{2})</script><script type="math/tex; mode=display">
+\arctan x\leq x\leq \arcsin x(0\leq x \leq 1)</script><script type="math/tex; mode=display">
+e^x\geq x+1 (\forall x)</script><script type="math/tex; mode=display">
+x-1\geq \ln x(x>0)</script><script type="math/tex; mode=display">
+\cfrac{1}{1+x}<\ln(1+\frac{1}{x})<\cfrac{1}{x}(x>0)</script>
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

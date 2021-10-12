@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || React组件化开发</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>React组件化开发 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/18
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/React-Components" style=color:#00bcd4>
+                    React-Components
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="认识组件化开发"><a href="#认识组件化开发" class="headerlink" title="认识组件化开发"></a>认识组件化开发</h2><h3 id="什么是组件化"><a href="#什么是组件化" class="headerlink" title="什么是组件化?"></a>什么是组件化?</h3><p>人面对复杂问题的处理方式:</p>
+<ul>
+<li>任何一个人处理信息的逻辑能力都是有限的</li>
+<li>所以, 当面对一个非常复杂的问题时, 我们不太可能一次性搞定一大堆内容</li>
+<li>但是, 我们人有一种天生的能力, 就是将问题进行拆解</li>
+<li>如果将一个复杂的问题, 拆分成很多个可以处理的小问题, 再将其放在整体当中, 你会发现大的问题也会迎刃而解</li>
+</ul>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/18/NmBDVU.png"><img src="https://s1.ax1x.com/2020/06/18/NmBDVU.png" alt="NmBDVU.png"></a></p>
+<p>组件化也是类似的思想</p>
+<ul>
+<li>如果我们将一个页面中所有的处理逻辑全部放在一起, 处理起来就会变得非常复杂, 而且不利于后续的管理以及扩展</li>
+<li>但如果我们将一个页面拆分成一个个小的功能块, 每个功能块完成属于自己这部分独立的功能, 那么之后整个页面的管理和维护就会变得非常容易了</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/18/NmDui4.png"><img src="https://s1.ax1x.com/2020/06/18/NmDui4.png" alt="NmDui4.png"></a></p>
+<p>我们需要通过组件化的思想来思考整个应用程序</p>
+<ul>
+<li>我们将一个完整的页面分成很多个组件</li>
+<li>每个组件都用于实现页面的一个功能块</li>
+<li>而每一个组件又可以进行细分</li>
+<li>组件本身又可以在多个地方进行复用</li>
+</ul>
+<h3 id="React-组件化"><a href="#React-组件化" class="headerlink" title="React 组件化"></a>React 组件化</h3><p>组件化是 React 的核心思想, 前面我们封装的<code>App</code>本身就是一个组件</p>
+<ul>
+<li>组件化提供了一种抽象, 让我们可以开发出一个个独立可复用的小组件来构造我们的应用</li>
+<li>任何的应用都会被抽象成一颗组件树</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/18/Nm4tTs.png"><img src="https://s1.ax1x.com/2020/06/18/Nm4tTs.png" alt="Nm4tTs.png"></a></p>
+<p>组件化思想的应用</p>
+<ul>
+<li>有了组件化的思想, 我们在之后的开发中就要充分的利用它</li>
+<li>尽可能的将页面拆分成一个个小的、可复用的组件</li>
+<li>这样让我们的代码更加方便组织和管理, 并且扩展性也更强</li>
+</ul>
+<p>React 的组件相对于 Vue 更加的灵活和多样, 按照不同的方式可以分成很多类组件</p>
+<ul>
+<li>根据组件的定义方式, 可以分为: <strong>函数组件(Function Component)</strong>和<strong>类组件(Class Component)</strong></li>
+<li>根据组件内部是否有状态需要维护, 可以分成: <strong>无状态组件(Stateless Component)</strong>和<strong>有状态组件(Stateful Component)</strong></li>
+</ul>
+<p>这些概念有很多重叠, 但是它们最主要是关注数据逻辑和 UI 展示的分离</p>
+<ul>
+<li>函数组件、无状态组件、展示型组件主要关注 UI 的展示</li>
+<li>类组件、有状态组件、容器型组件主要关注数据逻辑</li>
+</ul>
+<p>当然还有很多组件的其他概念: 比如异步组件、高阶组件等等</p>
+<h2 id="创建-React-组件"><a href="#创建-React-组件" class="headerlink" title="创建 React 组件"></a>创建 React 组件</h2><h3 id="创建类组件"><a href="#创建类组件" class="headerlink" title="创建类组件"></a>创建类组件</h3><p>类组件的定义有如下要求</p>
+<ul>
+<li>组件的名称必须是<strong>大写字符开头</strong>(无论是类组件还是函数组件)</li>
+<li>类组件需要继承自<code>React.Component</code></li>
+<li>类组件必须实现<code>render</code>函数</li>
+</ul>
+<p>在 ES6 之前, 可以通过<code>create-react-class</code>模块来定义类组件, 但是目前官网建议我们使用 ES6 的<code>class</code>类定义</p>
+<p>使用<code>class</code>定义一个组件</p>
+<ul>
+<li><code>constructor</code>是可选的, 我们通常在<code>constructor</code>中初始化一些数据</li>
+<li><code>this.state</code>中维护的就是我们组件内部的数据</li>
+<li><code>render()</code> 方法是<code>class</code>组件中唯一必须要实现的方法</li>
+</ul>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+export default class App extends Component &#123;
+  constructor() &#123;
+    super()
+
+    this.state = &#123;&#125;
+  &#125;
+
+  render() &#123;
+    return &lt;h2&gt;Hello React&lt;/h2&gt;
+  &#125;
+&#125;
+</code></pre>
+<p>当<code>render</code>被调用时, 它会检查<code>this.props</code>和<code>this.state</code>的变化并返回以下类型之一</p>
+<ul>
+<li><p>React 元素</p>
+<ul>
+<li>通常通过 JSX 创建</li>
+<li>例如, <code>&lt;div /&gt;</code>会被 React 渲染为 DOM 节点, <code>&lt;MyComponent /&gt;</code>会被 React 渲染为自定义组件</li>
+<li>无论是<code>&lt;div /&gt;</code>还是<code>&lt;MyComponent /&gt;</code>均为 React 元素</li>
+</ul>
+</li>
+<li><p>数组或 fragments</p>
+<ul>
+<li>使得<code>render</code>方法可以返回多个元素</li>
+</ul>
+</li>
+<li><p>Portals</p>
+<ul>
+<li>可以渲染子节点到不同的 DOM 子树中</li>
+</ul>
+</li>
+<li><p>字符串或数值类型</p>
+<ul>
+<li>它们在 DOM 中会被渲染为<strong>文本节点</strong></li>
+</ul>
+</li>
+<li><p>布尔类型或 <code>null</code></p>
+<ul>
+<li>什么都不渲染</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建函数组件"><a href="#创建函数组件" class="headerlink" title="创建函数组件"></a>创建函数组件</h3><p>函数组件时使用<code>function</code>来进行定义的函数, 只是这个函数会返回和类组件中<code>render</code>函数返回一样的内容</p>
+<p>函数组件有自己的特点</p>
+<ul>
+<li>没有生命周期, 也会被更新并挂载, 但是没有生命周期函数</li>
+<li>没有<code>this</code>(组件实例)</li>
+<li>没有<code>state</code>(内部状态)</li>
+</ul>
+<pre><code class="lang-react">export default function App() &#123;
+  return &lt;div&gt;Hello React&lt;/div&gt;
+&#125;
+</code></pre>
+<h2 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h2><h3 id="认识生命周期"><a href="#认识生命周期" class="headerlink" title="认识生命周期"></a>认识生命周期</h3><p>很多的事物都有从创建到销毁的整个过程, 这个过程称之为<strong>生命周期</strong></p>
+<p>React 组件也有自己的生命周期, 了解组件的生命周期可以让我们在最合适的地方完成自己想要的功能</p>
+<p>生命周期和生命周期函数的关系:</p>
+<ul>
+<li>生命周期时一个抽象的概念, 在生命周期的整个过程, 分成了很多个阶段, 比如<ul>
+<li>装载阶段(<code>Mount</code>), 组件第一次在 DOM 树中被渲染的过程</li>
+<li>更行过程(<code>Update</code>), 组件状态发生变化, 重新更新渲染的过程</li>
+<li>卸载过程(<code>Unmount</code>), 组件从 DOM 树中被移除的过程</li>
+</ul>
+</li>
+<li>React 内部为了告诉我们当前处于哪些阶段, 会对我们组件内部实现的某些函数进行回调, 这些函数就是生命周期函数, 比如<ul>
+<li><code>componentDidMount</code>函数: 组件已经挂载到 DOM 上时发生回调</li>
+<li><code>componentDidUpdate</code>函数: 组件已经发生了更新时发生回调</li>
+<li><code>componentWillUnmount</code>函数: 组件即将被移除时发生回调</li>
+<li>我们可以在这些回调函数中编写自己的逻辑代码, 来完成自己的需求功能</li>
+</ul>
+</li>
+</ul>
+<p>我们谈 React 生命周期时, 主要谈的是类的生命周期, 因为函数式组件式没有生命周期函数的, 将来我们可以通过 <strong>hooks</strong> 来模拟一些生命周期的回调</p>
+<h3 id="生命周期解析"><a href="#生命周期解析" class="headerlink" title="生命周期解析"></a>生命周期解析</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/18/NntFCq.png"><img src="https://s1.ax1x.com/2020/06/18/NntFCq.png" alt="NntFCq.png"></a></p>
+<p>上图第一个区域解析:</p>
+<ul>
+<li>当我们挂载一个组件时, 会先执行<code>constructor</code>构造方法来创建组件</li>
+<li>紧接着调用<code>render</code>函数, 获取要渲染的 DOM 结构(<code>JSX</code>), 并且开始渲染 DOM</li>
+<li>当组件挂载成功(DOM 渲染完成), 会执行<code>componentDidMount</code>生命周期函数</li>
+</ul>
+<p>上图第二个区域解析:</p>
+<ul>
+<li>当我们通过修改<code>props</code>, 或者调用<code>setState</code>修改内部状态, 或者直接调用<code>forceUpdate</code>时会重新调用<code>render</code>函数, 进行更新操作</li>
+<li>当更新完成时, 会调用<code>componentDidUpdate</code>生命周期函数</li>
+</ul>
+<p>上图第三个区域解析:</p>
+<ul>
+<li>当我们的组件不再使用, 会从 DOM 中移除掉(卸载)</li>
+<li>这个时候会回调<code>componentWillUnmount</code>生命周期函数</li>
+</ul>
+<h3 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h3><p><code>constructor</code></p>
+<pre><code class="lang-react">constructor(props)
+</code></pre>
+<p>如果不初始化<code>state</code>或不进行方法绑定, 则不需要为 React 组件实现构造函数</p>
+<p><code>constructor</code>中通常只做两件事</p>
+<ol>
+<li>通过给<code>this.state</code>赋值对象来初始化内部<code>state</code></li>
+<li>为事件绑定实例<code>this</code></li>
+</ol>
+<p><code>componentDidMount</code></p>
+<pre><code class="lang-react">componentDidMount()
+</code></pre>
+<p><code>componentDidMount()</code>会在组件挂载后(插入 DOM 树中)立即调用</p>
+<p><code>componentDidMount</code>中通常进行哪些操作呢?</p>
+<ul>
+<li>依赖于 DOM 的操作可以在这里进行</li>
+<li>在此处发送网络请求就是最好的地方(官方建议)</li>
+<li>可以在此处添加一些订阅(会在<code>componentWillUnmount</code>取消订阅)</li>
+</ul>
+<p><code>componentDidUpdate</code></p>
+<pre><code class="lang-react">componentDidUpdate(prevProps, prevState, snapshot)
+</code></pre>
+<p><code>componentDidUpdate()</code>会在更新后立即调用, 首次渲染不会执行此方法</p>
+<ul>
+<li>当组件更新后, 可以在此处对 DOM 进行操作</li>
+<li>如果你对更新前后的<code>props</code>进行了比较, 也可以选择在此处进行网络请求(例如, 当<code>props</code>未发生变化时, 则不会执行网络请求)</li>
+</ul>
+<pre><code class="lang-react">componentDidUpdate(prevProps) &#123;
+  if (this.props.userID !== prevProps.userID) &#123;
+    this.fetchData(this.props.userID)
+  &#125;
+&#125;
+</code></pre>
+<p><code>componentWillUnmount</code></p>
+<pre><code class="lang-react">componentWillUnmount()
+</code></pre>
+<p><code>componentWillUnmount()</code>会在组件卸载及销毁之前直接调用</p>
+<ul>
+<li>在此方法中执行必要的清理操作</li>
+<li>例如, 清除<code>timer</code>, 取消网络请求或清除在<code>componentDidMount()</code>中创建的订阅等</li>
+</ul>
+<p><strong>代码验证所有的生命周期函数</strong></p>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+class HYTestCpn extends Component &#123;
+  render() &#123;
+    return &lt;h2&gt;HYTestCpn&lt;/h2&gt;
+  &#125;
+
+  componentWillUnmount() &#123;
+    console.log(&#39;HYTestCpn componentWillUnmount&#39;)
+  &#125;
+&#125;
+
+export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      counter: 0
+    &#125;
+
+    console.log(&#39;调用constructor方法&#39;)
+  &#125;
+
+  render() &#123;
+    console.log(&#39;调用render方法&#39;)
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: &#123;this.state.counter&#125;&lt;/h2&gt;
+        &#123;this.state.counter &lt;= 5 &amp;&amp; &lt;HYTestCpn/&gt;&#125;
+        &lt;button onClick=&#123;e =&gt; this.increment()&#125;&gt;+1&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  increment() &#123;
+    this.setState(&#123;
+      counter: this.state.counter + 1
+    &#125;)
+  &#125;
+
+  componentDidMount() &#123;
+    console.log(&#39;调用componentDidMount方法&#39;)
+  &#125;
+
+  componentDidUpdate() &#123;
+    console.log(&#39;调用componentDidUpdate方法&#39;)
+  &#125;
+
+  componentWillUnmount() &#123;
+    console.log(&#39;调用componentWillUnmount方法&#39;)
+  &#125;
+&#125;
+</code></pre>
+<h3 id="不常用生命周期"><a href="#不常用生命周期" class="headerlink" title="不常用生命周期"></a>不常用生命周期</h3><p>除了上面介绍的生命周期函数之外, 还有一些不常用的生命周期函数</p>
+<ul>
+<li><code>getDerivedStateFromProps</code>: <code>state</code>的值在任何时候都依赖于<code>props</code>时使用, 该方法返回一个对象来更新<code>state</code></li>
+<li><code>getSnapshotBeforeUpdate</code>: 在 React 更新 DOM 之前回调的一个函数, 可以获取 DOM 更新前的一些信息(比如滚动位置)</li>
+<li><code>shouldComponentUpdate</code>: 该生命周期函数很常用, 但是我们等待讲性能优化时再来详细讲解</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/18/Nmj8XR.jpg"><img src="https://s1.ax1x.com/2020/06/18/Nmj8XR.jpg" alt="Nmj8XR.jpg"></a></p>
+<p>另外, React 中还提供了一些过期的生命周期函数, 这些函数已经不再推荐使用</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

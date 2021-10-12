@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Vue 组件化开发</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Vue 组件化开发 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/28
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Vue
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Vue-Components" style=color:#03a9f4>
+                    Vue-Components
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="Vue-组件化介绍"><a href="#Vue-组件化介绍" class="headerlink" title="Vue 组件化介绍"></a>Vue 组件化介绍</h2><ul>
+<li><strong>组件化</strong>是 Vue 的<strong>精髓</strong>, Vue 就是由一个一个的组件构成的</li>
+<li><strong>组件化思想</strong>是笔者认为世界上最美丽的思想, 此时不学, 更待何时!!!<ul>
+<li><strong>(别再跟我说面向对象思想了, 我没有对象~~)</strong></li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h2 id="创建组件构造器对象"><a href="#创建组件构造器对象" class="headerlink" title="创建组件构造器对象"></a>创建组件构造器对象</h2><ul>
+<li>调用 <code>Vue.extend()</code> 创建的是一个组件构造器</li>
+<li>通常在创建组件构造器时, 传入 <code>template</code> 代表我们自定义组件的模板</li>
+<li>该模板就是在使用到组件的地方, 要显示的 <code>HTML</code> 代码</li>
+<li>事实上, 这种写法在 <code>Vue2.x</code> 的文档中几乎看不到了, 因为<a target="_blank" rel="noopener" href="https://www.coderlion.com/2020/04/28/Vue组件化开发/#cpnss">语法糖</a>的存在</li>
+</ul>
+<pre><code class="lang-javascript">Vue.extend(&#123;
+  template: &quot;html 模板代码&quot;,
+
+  components: &#123;
+    // 注册子组件
+  &#125;,
+
+  data() &#123;
+    return Object;
+  &#125;,
+
+  methods: &#123;
+    // 方法
+  &#125;,
+
+  props: [] || &#123;&#125; // 获得组件的属性值 数组 | 对象
+&#125;);
+</code></pre>
+<h2 id="注册组件"><a href="#注册组件" class="headerlink" title="注册组件"></a>注册组件</h2><ul>
+<li><code>Vue.component(&quot;组件标签名&quot;, 构造器对象)</code></li>
+<li>调用<code>Vue.component()</code>是将组件构造器注册为一个组件, 并且给它起了一个组件的标签名称</li>
+<li>所以需要传递两个参数:<ol>
+<li>注册组件的标签名(在 HTML 中使用该组件的标签名称)</li>
+<li>组件构造器对象</li>
+</ol>
+</li>
+</ul>
+<h2 id="模板代码注意事项"><a href="#模板代码注意事项" class="headerlink" title="模板代码注意事项"></a>模板代码注意事项</h2><ul>
+<li><strong>模板代码必须有且只有一个根标签(<code>template</code> 不算根标签)</strong></li>
+</ul>
+<h2 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h2><ul>
+<li>通过 <code>Vue.component</code> 注册的组件即为全局组件</li>
+<li>在所有 Vue 实例和所有组件中都可以使用该组件</li>
+</ul>
+<h2 id="局部组件"><a href="#局部组件" class="headerlink" title="局部组件"></a>局部组件</h2><ul>
+<li>通过 Vue 实例在 <code>options</code> 中的 <code>components</code> 属性中注册的组件</li>
+<li>只能在该实例中使用该组件</li>
+</ul>
+<h2 id="父子组件"><a href="#父子组件" class="headerlink" title="父子组件"></a>父子组件</h2><ul>
+<li>在父构造器中使用 <code>components</code> 属性注册子组件</li>
+<li>Vue 实例对象也可以看成一个组件, 即根结点 <code>root</code></li>
+<li>子组件只能在直接父组件内使用<ul>
+<li>若要在 A 组件下使用某个子组件(非 A 注册, 但被其他组件注册过的子组件), 需在 A 组件上注册该子组件</li>
+</ul>
+</li>
+<li>即组件树中, 父结点只能访问直接子结点<ul>
+<li>若要访问孙子结点, 需要在将孙子结点变成父结点的子结点, 或将孙子结点注册为全局组件</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件语法糖-推荐写法"><a href="#组件语法糖-推荐写法" class="headerlink" title="组件语法糖 (!!!推荐写法!!!)"></a>组件语法糖 (!!!推荐写法!!!)</h2><h3 id="注册全局组件"><a href="#注册全局组件" class="headerlink" title="注册全局组件"></a>注册全局组件</h3><pre><code class="lang-javascript">Vue.component(&quot;cpn&quot;, &#123;
+  template: `&lt;div&gt;hello world&lt;/div&gt;`
+&#125;);
+</code></pre>
+<h3 id="组册局部组件"><a href="#组册局部组件" class="headerlink" title="组册局部组件"></a>组册局部组件</h3><ul>
+<li>该写法是将 <strong>template模板</strong> 代码直接写入 <code>components</code> 中 <strong>(不推荐, 容易造成代码阅读困难)</strong></li>
+<li>后面我们将介绍<strong>模板分离写法(最主流写法, 也使代码更容易阅读)</strong></li>
+</ul>
+<pre><code class="lang-javascript">components: &#123;
+   &quot;cpn&quot;: &#123;
+    template: `&lt;div&gt;hello world&lt;/div&gt;`
+  &#125;
+&#125;
+</code></pre>
+<p>即省略构造器, 直接在构造器参数上填写构造器对象, 内部还是调用了 <code>Vue.extend(&#123;...&#125;)</code></p>
+<h2 id="模版分离写法"><a href="#模版分离写法" class="headerlink" title="模版分离写法"></a>模版分离写法</h2><h3 id="script-标签写法"><a href="#script-标签写法" class="headerlink" title="script 标签写法"></a>script 标签写法</h3><ul>
+<li>在 <code>body</code> 中使用 <code>script</code> 标签写模板代码, 且用 <code>id</code> 进行绑定</li>
+</ul>
+<pre><code class="lang-html">&lt;script type=&quot;text/x-template&quot; id=&quot;cpn&quot;&gt;
+  &lt;div&gt;hello world&lt;/div&gt;
+&lt;/script&gt;
+</code></pre>
+<h3 id="注册全局组件-1"><a href="#注册全局组件-1" class="headerlink" title="注册全局组件"></a>注册全局组件</h3><pre><code class="lang-javascript">Vue.component(&quot;cpn&quot;, &#123; template: &quot;#cpn&quot; &#125;);
+</code></pre>
+<h3 id="注册局部组件"><a href="#注册局部组件" class="headerlink" title="注册局部组件"></a>注册局部组件</h3><pre><code class="lang-javascript">components: &#123;
+  &quot;cpn&quot;: &#123; template: &quot;#cpn&quot; &#125;
+&#125;
+</code></pre>
+<h3 id="template-标签写法"><a href="#template-标签写法" class="headerlink" title="template 标签写法"></a>template 标签写法</h3><ul>
+<li>该写法为最常用, 且最实用, 创建 <code>.vue</code> 来抽离组件将更有利于代码阅读和维护</li>
+<li>方案一: 在 <code>body</code> 中使用 <code>template</code> 标签写模版代码, 且用 <code>id</code> 进行绑定</li>
+</ul>
+<pre><code class="lang-html">&lt;template id=&quot;cpn&quot;&gt;
+ &lt;div&gt;hello world&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><strong>方案二(推荐写法)</strong>: 你也可以创建 <code>.vue</code> 文件<ul>
+<li>在该文件中写入 <code>template</code> 模版代码</li>
+<li>以及组件 <code>JS</code> 逻辑代码</li>
+<li>和 <code>CSS</code> 样式代码</li>
+</ul>
+</li>
+<li>且不需要绑定 <code>id</code>, 在注册时引入文件即可</li>
+<li><strong>注意:</strong><ul>
+<li>在父组件中使用子组件时必须将<strong>驼峰式</strong>转换成用 <strong>-</strong> 链接的形式</li>
+</ul>
+</li>
+</ul>
+<p>以下为 <code>HelloWorld.vue</code> 文件的 <code>template</code> 实例代码</p>
+<pre><code class="lang-vue">&lt;template&gt;
+ &lt;div&gt;hello world&#123;&#123; name &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        name: &quot;zjh&quot;
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<p>以下为父组件 template 中使用子组件</p>
+<pre><code class="lang-vue">&lt;template&gt;
+ &lt;hello-world&gt;&lt;/hello-world&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  // 以下为父组件注册, 路径可以不需要携带.vue后缀, 这件事情Vue以及帮我们做好了, 放心写即可
+  import HelloWorld from &quot;./HelloWorld&quot;
+
+  export default &#123;
+    components: &#123;
+      HelloWorld
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h3 id="注册全局组件-2"><a href="#注册全局组件-2" class="headerlink" title="注册全局组件"></a>注册全局组件</h3><pre><code class="lang-javascript">Vue.component(&quot;cpn&quot;, &#123; template: &quot;#cpn&quot; &#125;);
+</code></pre>
+<h4 id="注册局部组件-1"><a href="#注册局部组件-1" class="headerlink" title="注册局部组件"></a>注册局部组件</h4><pre><code class="lang-javascript">components: &#123;
+  &quot;cpn&quot;: &#123; template: &quot;#cpn&quot; &#125;
+&#125;
+</code></pre>
+<h2 id="组件的-data-数据"><a href="#组件的-data-数据" class="headerlink" title="组件的 data 数据"></a>组件的 data 数据</h2><ul>
+<li><p>组件不可以</p>
+<p>直接</p>
+<p>访问 Vue 实例或其他组件中的数据</p>
+<ul>
+<li>因为:<ul>
+<li>组件是一个单独的功能模块的封装, 这个模块有属于自己的 <code>HTML</code> 模板, 也应该有属于自己的数据 <code>data</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件内部属性-data"><a href="#组件内部属性-data" class="headerlink" title="组件内部属性 data"></a>组件内部属性 data</h2><pre><code class="lang-javascript">data() &#123;
+  return &#123;
+    message: &quot;hello world&quot;
+  &#125;;
+&#125;
+</code></pre>
+<ul>
+<li>注意:<ul>
+<li><strong>组件中的 data</strong> 与 <strong>实例中的 data</strong> 有区别</li>
+<li>组件中的 <code>data</code> 必须是一个函数, 且函数返回一个对象, 变量声明在对象中</li>
+<li>因为:<ul>
+<li>对象是引用类型, 组件可能会被多个实例同时引用</li>
+<li>如果 <code>data</code> 值为对象, 将导致多个实例共享一个对象, 其中一个组件改变 <code>data</code> 属性值, 其它实例也会受到影响</li>
+</ul>
+</li>
+<li>上面解释了 <code>data</code> 不能为对象的原因, 这里我们简单说下 <code>data</code> 为函数的原因<ul>
+<li><code>data</code> 为函数, 通过 <code>return</code> 返回对象的拷贝, 致使每个实例都有自己独立的对象, 实例之间可以互不影响的改变 <code>data</code> 属性值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件-data-是函数-且返回对象的原理"><a href="#组件-data-是函数-且返回对象的原理" class="headerlink" title="组件 data 是函数, 且返回对象的原理"></a>组件 data 是函数, 且返回对象的原理</h2><ul>
+<li>在使用组件时, 因为 <code>data</code> 函数每次调用时会返回一个新的对象</li>
+<li>即每个组件的实例得到的 <code>data</code> 都是独立的, 所以组件在使用时的变量就没有连锁反应了</li>
+</ul>
+<h2 id="父子组件的通信"><a href="#父子组件的通信" class="headerlink" title="父子组件的通信"></a>父子组件的通信</h2><h3 id="下传数据-父组件传递数据给子组件"><a href="#下传数据-父组件传递数据给子组件" class="headerlink" title="下传数据 (父组件传递数据给子组件)"></a>下传数据 (父组件传递数据给子组件)</h3><h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><ul>
+<li><code>props</code> 在组件中, 使用选项 <strong>props</strong> 来声明需要从父级接收到的数据</li>
+<li>在父组件模版中, 如果有多个子组件模板, 那么<strong>父组件传递给子组件的属性只作用与该子组件的对应模板</strong><ul>
+<li>即父组件传递给子组件 A 模板, 那么就只有 A 组件有该属性, 子组件的其他模板并没有该属性</li>
+</ul>
+</li>
+<li><strong>注意:</strong><ul>
+<li>Vue 的 <strong>v-bind 不支持小驼峰式</strong>(即传递失败), 所以一般使用 <strong>-</strong> 来作为单词分割符</li>
+</ul>
+</li>
+<li>如果 props 属性要写小驼峰式, 那么 v-bind 必须要用 <strong>-</strong> 来链接单词从而转换成对应的小驼峰属性, 且使用变量时<strong>必须是 props 中定义的小驼峰式属性</strong></li>
+<li>子组件<strong>不能修改 props 属性的值</strong>, 应该要让父组件来对 props 的值进行修改<ul>
+<li>如果需要实现通过下传得到的数据来与子组件进行双向绑定(<code>v-model</code>), 需要使用 <strong>data 或 computed</strong> 来实现<strong>双向绑定</strong></li>
+<li>详情参见 <a target="_blank" rel="noopener" href="https://www.coderlion.com/2020/04/28/Vue组件化开发/#module-demo">父子组件案例</a>&lt;/a&gt;</li>
+</ul>
+</li>
+</ul>
+<h4 id="props-字符串数组"><a href="#props-字符串数组" class="headerlink" title="props 字符串数组"></a>props 字符串数组</h4><p>以下代码为父组件向子组件传递数据</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;child :c-message=&quot;message&quot;&gt;&lt;/child&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Child from &quot;./Child&quot;
+
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;hello, world&quot;
+      &#125;
+    &#125;,
+    components: &#123;
+      Child
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<p>以下代码为子组件接收并使用父组件传递的数据</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;&#123;&#123; cMessage &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  // 以下代码为子组件接收父组件传递的数据
+  export default &#123;
+    props: [&quot;cMessage&quot;]
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>字符串数组, 数组中的字符串就是传递时的名称, 通过 v-bind 获得父组件的数据</li>
+<li>为子组件添加属性, 属性值为父组件的变量值</li>
+</ul>
+<h4 id="props-对象"><a href="#props-对象" class="headerlink" title="props 对象"></a>props 对象</h4><ul>
+<li>对象可以设置传递时的<strong>类型</strong>, 也可以<strong>设置默认值</strong>等</li>
+<li>类型:<ul>
+<li><code>String</code></li>
+<li><code>Number</code></li>
+<li><code>Boolean</code></li>
+<li><code>Array</code></li>
+<li><code>Object</code></li>
+<li><code>Date</code></li>
+<li><code>Function</code></li>
+<li><code>Symbol</code></li>
+<li><code>null</code> (匹配任何类型)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-javascript">props: &#123;
+  // 1、类型限制
+  cMovies: Arraym,
+  cMessage: String
+
+  // 2、提供默认值, 以及使用组件时属性是否为必传值
+  cMessage: &#123;
+    type: String,
+    default: &quot;hello world&quot;,
+    required: true
+  &#125;,
+
+  // 3、类型是Array | Object时, 默认值必须是一个函数
+  cMovies: &#123;
+    type: Array,
+    default() &#123;
+      return [];
+    &#125;
+  &#125;,
+
+  // 4、多个可能的类型
+  cMessage: [String, Number],
+
+  // 5、自定义验证函数
+  cMessage: &#123;
+    validator(value) &#123;
+      // 这个值必须匹配下列字符串中的一个
+      return [&quot;success&quot;, &quot;warning&quot;, &quot;danger&quot;].indexOf(value) !== -1;
+    &#125;
+  &#125;
+
+  /* 6、自定义类型
+     function Zjh() &#123;
+       name: &quot;Sunny&quot;,
+       age: 20
+     &#125;
+  */
+  cMessage: Zjh
+&#125;
+</code></pre>
+<h3 id="上传数据-子组件传递数据给父组件"><a href="#上传数据-子组件传递数据给父组件" class="headerlink" title="上传数据 (子组件传递数据给父组件)"></a>上传数据 (子组件传递数据给父组件)</h3><h4 id="自定义事件-Vue-emit-和-v-on"><a href="#自定义事件-Vue-emit-和-v-on" class="headerlink" title="自定义事件 Vue.$emit 和 v-on:"></a>自定义事件 Vue.$emit 和 v-on:</h4><ul>
+<li><p>同 <code>v-bind</code> 一样不能写驼峰(如果使用<strong>Vue脚手</strong>架可以写驼峰式)</p>
+</li>
+<li><p>流程:</p>
+<ul>
+<li><p>子组件的浏览器默认事件触发后</p>
+</li>
+<li><p>通过 <code>this.$emit(&quot;自定义对象名称&quot;, 数据)</code>  发送事件</p>
+<ul>
+<li><strong>自定义事件</strong>, 将该<strong>自定义事件</strong>发送到父组件上</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>以下代码为子组件模板代码</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;button @click=&quot;btnClick&quot;&gt;button&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;hello world&quot;
+      &#125;;
+    &#125;,
+    methods: &#123;
+      btnClick() &#123;
+        this.$emit(&quot;itemChild&quot;, this.message);
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>在父组件中, 通过 <code>v-on</code> 来监听子组件的自定义事件</li>
+<li>此时的 <code>cpnClick</code> 省略括号, 则 Vue 会自动把数据传入该事件方法中<ul>
+<li>因为不是浏览器默认事件, 所以没有 <code>event</code> 对象</li>
+</ul>
+</li>
+<li>此时在父组件的 <code>methods</code> 中实现监听该事件的方法即可获得子传父的数据</li>
+</ul>
+<p>以下代码为父组件模板代码</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;child @itemChild=&quot;cpnChild&quot;&gt;&lt;/child&gt;
+    &#123;&#123; message &#125;&#125;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Child from &quot;./Child&quot;
+
+  export default &#123;
+    data() &#123;
+      message: &quot;&quot;
+    &#125;,
+    methods: &#123;
+      cpnChild(message) &#123;
+        this.message = message;
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h2 id="父子组件案例"><a href="#父子组件案例" class="headerlink" title="父子组件案例"></a>父子组件案例</h2><h3 id="父组件下传数据-子组件与自身表单进行双向绑定-且同时与父组件双向绑定"><a href="#父组件下传数据-子组件与自身表单进行双向绑定-且同时与父组件双向绑定" class="headerlink" title="父组件下传数据, 子组件与自身表单进行双向绑定, 且同时与父组件双向绑定"></a>父组件下传数据, 子组件与自身表单进行双向绑定, 且同时与父组件双向绑定</h3><p>父组件模板代码</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;!-- 1、父组件通过v-bind给子组件传递数据 --&gt;
+    &lt;!-- 2、父组件监听子组件的自定义事件 --&gt;
+    &lt;child :number=&quot;num&quot; @numChange=&quot;numChange&quot;&gt;&lt;/child&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import Child from &#39;./Child&#39;
+
+  export default &#123;
+    name: &#39;App&#39;,
+    components: &#123;
+      Child
+    &#125;,
+    data() &#123;
+      return &#123;
+        num: &quot;1&quot;
+      &#125;
+    &#125;,
+    methods: &#123;
+      // 3、父组件自定义事件触发, 通过emit传来的数据修改自身的值
+      numChange(value) &#123;
+        this.num = value;
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<p>子组件模板代码</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;props:&#123;&#123; number &#125;&#125;&lt;/h2&gt;
+    &lt;h2&gt;data:&#123;&#123; dnumber &#125;&#125;&lt;/h2&gt;
+
+    &lt;!-- 3、进行双向绑定 --&gt;
+    &lt;input type=&quot;text&quot; :value=&quot;dnumber&quot; @input=&quot;numInput&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    // 1、子组件通过props获得数据
+    props: &#123;
+      number: [Number, String]
+    &#125;,
+
+    // 2、因为props得到的数据不能直接修改, 所以在子组件内拷贝props中的数据
+    data() &#123;
+      return &#123;
+        dnumber: this.number
+      &#125;;
+    &#125;,
+    methods: &#123;
+      // 4、在触发input事件后, 将最新的值通过emit传递给父组件
+      numInput(e) &#123;
+        this.dnumber = e.target.value;
+        this.$emit(&quot;numChange&quot;, this.dnumber);
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h2 id="父子组件的访问方式"><a href="#父子组件的访问方式" class="headerlink" title="父子组件的访问方式"></a>父子组件的访问方式</h2><h3 id="父组件访问子组件"><a href="#父组件访问子组件" class="headerlink" title="父组件访问子组件"></a>父组件访问子组件</h3><h4 id="children"><a href="#children" class="headerlink" title="$children"></a>$children</h4><ul>
+<li><p>在父组件中使用 <code>this.$children</code> 即可获得一个数组</p>
+<ul>
+<li>该数组中包含了父组件下所有子组件对象 <strong>VueComponent</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="refs-推荐使用"><a href="#refs-推荐使用" class="headerlink" title="$refs (!!!推荐使用!!!)"></a>$refs (!!!推荐使用!!!)</h4><ul>
+<li>在父组件中使用 <code>this.$refs</code> 获得一个空对象</li>
+<li>为这个对象添加子组件即可获得第一个子组件对象</li>
+</ul>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;child ref=&quot;childOne&quot;&gt;&lt;/child&gt;
+    &lt;child&gt;&lt;/child&gt;
+    &lt;p&gt;为想要添加到对象中的子组件添加属性&lt;/p&gt;
+    &lt;p&gt;(ref=&quot;这是对象中的属性名里面存放了该子组件的对象(VueComponent)&quot;)&lt;/p&gt;
+    &lt;button @click=&quot;showRefs&quot;&gt;查看ref子组件&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    methods: &#123;
+      showRefs() &#123;
+        console.log(this.$refs.childOne);
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h3 id="子组件访问父组件"><a href="#子组件访问父组件" class="headerlink" title="子组件访问父组件"></a>子组件访问父组件</h3><h4 id="parent-不推荐使用-耦合度太高"><a href="#parent-不推荐使用-耦合度太高" class="headerlink" title="$parent (不推荐使用, 耦合度太高)"></a>$parent (不推荐使用, 耦合度太高)</h4><ul>
+<li><p>在子组件中使用 <code>this.$parent</code> 即可获得父组件对象</p>
+<ul>
+<li>如果是 Vue 实例下的子组件, 则获得 Vue 实例对象<strong>Vue</strong></li>
+<li>如果不是 Vue 实例下的子组件, 则获得父组件对象<strong>VueComponent</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="访问根组件"><a href="#访问根组件" class="headerlink" title="访问根组件"></a>访问根组件</h2><h3 id="root"><a href="#root" class="headerlink" title="$root"></a>$root</h3><ul>
+<li>在 Vue 实例下, 任意组件通过<code>this.$root</code>即可获得 Vue 的实例对象(Vue)</li>
+<li>Vue 实例的 <code>root</code> 是自己本身</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

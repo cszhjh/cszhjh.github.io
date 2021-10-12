@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || JSX原理解析</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>JSX原理解析 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/13
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/JSX" style=color:#03a9f4>
+                    JSX
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="JSX-转换本质"><a href="#JSX-转换本质" class="headerlink" title="JSX 转换本质"></a>JSX 转换本质</h2><p>实际上, JSX 仅仅只是<code>React.createElement(component, props, ...children)</code>函数的语法糖</p>
+<ul>
+<li>所有的 JSX 最终都会被转换成<code>React.createElement</code>的函数调用</li>
+</ul>
+<p><code>React.createElement</code>在源码的什么位置呢?</p>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/14/tzaYsU.png"><img src="https://s1.ax1x.com/2020/06/14/tzaYsU.png" alt="tzaYsU.png"></a></p>
+<p><code>createElement</code>需要传递三个参数</p>
+<ol>
+<li><p><code>type</code></p>
+<ul>
+<li>当前<code>ReactElement</code>的类型</li>
+<li>如果是标签元素, 那么就使用字符串表示<code>&quot;div&quot;</code></li>
+<li>如果是组件元素, 那么就直接使用组件的名称</li>
+</ul>
+</li>
+<li><p><code>config</code></p>
+<ul>
+<li>所有 JSX 中的属性都在<code>config</code>中以对象的属性和值的形式存储</li>
+</ul>
+</li>
+<li><p><code>children</code></p>
+<ul>
+<li>存放在标签中的内容, 以<code>children</code>数组的方式进行存储</li>
+<li>当然, 如果是多个元素呢? React 内部有对它们进行处理</li>
+</ul>
+</li>
+</ol>
+<p>对<code>children</code>进行处理</p>
+<ul>
+<li>从第二个参数开始, 将其他所有的参数放到<code>props</code>对象的<code>children</code>中</li>
+</ul>
+<pre><code class="lang-javascript">const childrenLength = arguments.length - 2
+if (childrenLength === 1) &#123;
+  props.children = children
+&#125; else if (childrenLength &gt; 1) &#123;
+  const childArray = Array(childrenLength)
+  for (let i = 0; i &lt; childrenLength; i++) &#123;
+    childArray[i] = arguments[i + 2]
+  &#125;
+  if (__DEV__) &#123;
+    if (Object.freeze) &#123;
+      Object.freeze(childArray)
+    &#125;
+  &#125;
+  props.children = childArray
+&#125;
+</code></pre>
+<p>真实的转换过程到底长什么样子呢? 我们可以从多个角度来查看</p>
+<h3 id="Babel-官网查看"><a href="#Babel-官网查看" class="headerlink" title="Babel 官网查看"></a>Babel 官网查看</h3><p>默认 JSX 是通过 Babel 帮我们进行语法转换的, 所以我们之前写的 JSX 代码都需要依赖 Babel</p>
+<ul>
+<li>可以在 Babel 的官网中快速查看转换的过程<a target="_blank" rel="noopener" href="https://babeljs.io/repl#?presets=react">https://babeljs.io/repl#?presets=react</a></li>
+</ul>
+<p>在这里我们编写一些 JSX 代码, 来查看运行后的结果</p>
+<pre><code class="lang-html">&lt;div className=&quot;app&quot;&gt;
+  &lt;div className=&quot;header&quot;&gt;
+    &lt;h1 title=&quot;标题&quot;&gt;我是网站标题&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div className=&quot;content&quot;&gt;
+    &lt;h2&gt;我是h2元素&lt;/h2&gt;
+    &lt;button onClick=&#123;e =&gt; console.log(&#39;+1&#39;)&#125;&gt;+1&lt;/button&gt;
+    &lt;button onClick=&#123;e =&gt; console.log(&#39;-1&#39;)&#125;&gt;-1&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div className=&quot;footer&quot;&gt;
+    &lt;p&gt;我是网站的尾部&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/14/tzsfnx.png"><img src="https://s1.ax1x.com/2020/06/14/tzsfnx.png" alt="tzsfnx.png"></a></p>
+<h3 id="编写-createElement"><a href="#编写-createElement" class="headerlink" title="编写 createElement"></a>编写 createElement</h3><p>还有一种办法是我们自己来编写<code>React.createElement</code>代码</p>
+<pre><code class="lang-react">class App extends React.Component &#123;
+  constructor(props) &#123;
+    super(props)
+  &#125;
+
+  render() &#123;
+    /*#__PURE__*/
+    const result = React.createElement(&#39;div&#39;, &#123;
+      className: &#39;app&#39;
+    &#125;, /*#__PURE__*/React.createElement(&#39;div&#39;, &#123;
+      className: &#39;header&#39;
+    &#125;, /*#__PURE__*/React.createElement(&#39;h1&#39;, &#123;
+      title: &#39;\u6807\u9898&#39;
+    &#125;, &#39;\u6211\u662F\u7F51\u7AD9\u6807\u9898&#39;)), /*#__PURE__*/React.createElement(&#39;div&#39;, &#123;
+      className: &#39;content&#39;
+    &#125;, /*#__PURE__*/React.createElement(&#39;h2&#39;, null, &#39;\u6211\u662Fh2\u5143\u7D20&#39;), /*#__PURE__*/React.createElement(&#39;button&#39;, &#123;
+      onClick: e =&gt; console.log(&#39;+1&#39;)
+    &#125;, &#39;+1&#39;), /*#__PURE__*/React.createElement(&#39;button&#39;, &#123;
+      onClick: e =&gt; console.log(&#39;-1&#39;)
+    &#125;, &#39;-1&#39;)), /*#__PURE__*/React.createElement(&#39;div&#39;, &#123;
+      className: &#39;footer&#39;
+    &#125;, /*#__PURE__*/React.createElement(&#39;p&#39;, null, &#39;\u6211\u662F\u7F51\u7AD9\u7684\u5C3E\u90E8&#39;)))
+    return result
+  &#125;
+&#125;
+
+ReactDOM.render(React.createElement(App, null), document.getElementById(&#39;app&#39;))
+</code></pre>
+<p>上面的整个代码, 我们就没有通过 JSX 来书写了, 界面依然是可以正常渲染的</p>
+<p>另外, 在这样的情况下, 你还需要 Babel 相关的内容吗? 不需要了</p>
+<ul>
+<li>所以, <code>type=&quot;text/babel&quot;</code>可以被我们删掉了</li>
+<li>所以, <code>&lt;script src=&quot;./babel.min.js&quot;&gt;&lt;/script&gt;</code>也可以被我们删掉了</li>
+</ul>
+<h2 id="虚拟-DOM"><a href="#虚拟-DOM" class="headerlink" title="虚拟 DOM"></a>虚拟 DOM</h2><h3 id="虚拟-DOM-的创建过程"><a href="#虚拟-DOM-的创建过程" class="headerlink" title="虚拟 DOM 的创建过程"></a>虚拟 DOM 的创建过程</h3><p>我们通过<code>React.createElement</code>最终创建出一个<code>ReactElement</code>对象</p>
+<pre><code class="lang-react">return ReactElement(
+  type,
+  key,
+  ref,
+  self,
+  source,
+  ReactCurrentOwner.current,
+  props,
+)
+</code></pre>
+<p>这个<code>ReactElement</code>对象有什么作用呢? React 为什么要创建它?</p>
+<ul>
+<li>原因是 React 利用 ReactElement 对象组成了一个 JavaScript 的对象树</li>
+<li>JavaScript 的对象树就是大名鼎鼎的<strong>虚拟 DOM (Virtual DOM)</strong></li>
+</ul>
+<p>如何查看 <code>ReactElement</code> 的树结构呢?</p>
+<ul>
+<li>我们可以将之前的 JSX 返回结果进行打印</li>
+</ul>
+<pre><code class="lang-react">render() &#123;
+  const jsx = (
+    &lt;div className=&quot;app&quot;&gt;
+      &lt;div className=&quot;header&quot;&gt;
+        &lt;h1 title=&quot;标题&quot;&gt;我是网站标题&lt;/h1&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;content&quot;&gt;
+        &lt;h2&gt;我是h2元素&lt;/h2&gt;
+        &lt;button onClick=&#123;e =&gt; console.log(&#39;+1&#39;)&#125;&gt;+1&lt;/button&gt;
+        &lt;button onClick=&#123;e =&gt; console.log(&#39;-1&#39;)&#125;&gt;-1&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;footer&quot;&gt;
+        &lt;p&gt;我是网站的尾部&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  )
+
+  console.log(jsx)
+  return jsx
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/14/tzyM8J.png"><img src="https://s1.ax1x.com/2020/06/14/tzyM8J.png" alt="tzyM8J.png"></a></p>
+<p>而<code>ReactElement</code>最终形成的树结构就是 <strong>Virtual DOM</strong></p>
+<p>整体转换过程如下</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/14/tzcrAf.png"><img src="https://s1.ax1x.com/2020/06/14/tzcrAf.png" alt="tzcrAf.png"></a></p>
+<h3 id="为什么采用虚拟-DOM"><a href="#为什么采用虚拟-DOM" class="headerlink" title="为什么采用虚拟 DOM"></a>为什么采用虚拟 DOM</h3><p>为什么要采用虚拟 DOM, 而不是直接修改真实 DOM 呢?</p>
+<ul>
+<li>很难跟踪状态发生的改变: 原有的开发模式, 我们很难跟踪到状态发生的改变, 不方便针对我们应用程序进行调试</li>
+<li>操作真实 DOm 性能较低: 传统的开发模式会进行频繁的 DOM 操作, 而这一做法性能非常低</li>
+</ul>
+<p><strong>DOM 操作性能低:</strong></p>
+<p>首先, <code>document.createElement</code>本身创建出来的就是一个非常复杂的对象</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement">https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement</a></li>
+</ul>
+<p>其次, DOM 操作会引起浏览器的<strong>回流</strong>和<strong>重绘</strong>, 所以在开发中应该避免频繁的操作 DOM</p>
+<p>例如我们有一个数组需要渲染: <code>[0, 1, 2, 3, 4]</code>, 我们一般怎么做?</p>
+<pre><code class="lang-html">&lt;ul&gt;
+  &lt;li&gt;0&lt;/li&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+  &lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>后来, 我们又增加了 5 条数据: <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></p>
+<pre><code class="lang-javascript">for (let i = 5; i &lt; 10; i++) &#123;
+  let li = document.createElement(&#39;li&#39;)
+  li.innerHTML = arr[i]
+  ul.appendChild(li)
+&#125;
+</code></pre>
+<p>上面这种代码的性能怎么样? <strong>非常低效</strong></p>
+<ul>
+<li>因为我们通过<code>document.createElement</code>创建元素, 再通过<code>ul.appendChild(li)</code>渲染到 DOM 上, 进行了多次 DOM 操作</li>
+<li>对于批量操作, 最好的办法不是一次次修改 DOM, 而是对批量的操作进行合并(比如可以通过<code>DocumentFragment</code>进行合并)</li>
+</ul>
+<p><strong>虚拟 DOM 帮助我们从命令式编程转到了声明式编程的模式</strong></p>
+<blockquote>
+<p>React 官方说法: Virtual DOM 是一种编程理念</p>
+</blockquote>
+<p>在这个理念中, UI 以一种理想化或者说虚拟化的方式保存在内存中, 并且它是一个相对简单的 JavaScript 对象, 我们可以通过<code>ReactDOM.render</code>让<strong>虚拟 DOM</strong> 和<strong>真实 DOM</strong> 同步起来, 这个过程叫做协调(Reconciliation)</p>
+<p>这种编程的方式赋予了 React 声明式的 API: 你只需要告诉 React 希望让 UI 是什么状态, React 来确保 DOM 和这种状态是匹配的</p>
+<p>你不需要直接进行 DOM 操作, 可以从手动修改 DOM、属性操作、事件处理中解放出来</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || React高阶组件</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>React高阶组件 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/4
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/React-Components" style=color:#ff7d73>
+                    React-Components
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="高阶组件"><a href="#高阶组件" class="headerlink" title="高阶组件"></a>高阶组件</h2><h3 id="认识高阶组件"><a href="#认识高阶组件" class="headerlink" title="认识高阶组件"></a>认识高阶组件</h3><p>什么是高阶组件呢? 相信很多朋友都用过<strong>高阶函数</strong>, 它们之间非常相似, 所以我们可以先来回顾一下什么是<strong>高阶函数</strong></p>
+<p>高阶函数的维基百科百科定义: 至少满足以下条件之一</p>
+<ul>
+<li>接收一个或多个函数作为输入</li>
+<li>输出一个函数</li>
+</ul>
+<p>JavaScript 中比较常见的<code>filter</code>、<code>map</code>、<code>reduce</code>都是高阶函数</p>
+<p>那么什么是高阶组件呢?</p>
+<ul>
+<li>高阶组件的英文是 <strong>Higher-Order Components</strong>, 简称 <strong>HOC</strong></li>
+<li>官方的定义: <strong>高阶组件是参数为组件, 返回值为新组件的函数</strong></li>
+</ul>
+<span id="more"></span>
+<p>我们可以进行如下解析</p>
+<ul>
+<li>首先, 高阶组件本身不是一个组件, 而是一个函数</li>
+<li>其次, 这个函数的参数及返回值都是一个组件</li>
+</ul>
+<p>高阶组件的调用过程类似于下面的代码</p>
+<pre><code class="lang-react">const EnhancedComponent = higherOrderComponent(WrapperComponent)
+</code></pre>
+<p>高阶函数的编写过程类似于下面的代码</p>
+<pre><code class="lang-react">function higherOrderComponent(WrapperComponent) &#123;
+  return class NewComponent extends PureComponent &#123;
+    render() &#123;
+      return &lt;WrapperComponent /&gt;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>在 ES6 中, 类表达式中类名是可以省略的, 所以可以改写成下面的写法</p>
+<pre><code class="lang-react">function higherOrderComponent(WrapperComponent) &#123;
+  return class extends PureComponent &#123;
+    render() &#123;
+      return &lt;WrapperComponent /&gt;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>另外, 组件的名称都可以通过<code>displayName</code>来修改</p>
+<pre><code class="lang-react">function higherOrderComponent(WrapperComponent) &#123;
+  class NewComponent extends PureComponent &#123;
+    render() &#123;
+      return &lt;WrapperComponent /&gt;
+    &#125;
+  &#125;
+  NewComponent.displayName = &#39;coderlion&#39;
+  return NewComponent
+&#125;
+</code></pre>
+<p>完整代码</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+function higherOrderComponent(WrapperComponent) &#123;
+  return class NewComponent extends PureComponent &#123;
+    render() &#123;
+      return &lt;WrapperComponent/&gt;
+    &#125;
+  &#125;
+&#125;
+
+class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        App
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+export default higherOrderComponent(App)
+</code></pre>
+<p>高阶组件并不是 React API 的一部分, 它是基于 React 的组合特性而形成的设计模式</p>
+<p>高阶组件在一些 React 第三方库中非常常见</p>
+<ul>
+<li>比如 redux 中的<code>connect</code></li>
+<li>比如 react-router 中的<code>withRouter</code></li>
+</ul>
+<h3 id="高阶组件的使用"><a href="#高阶组件的使用" class="headerlink" title="高阶组件的使用"></a>高阶组件的使用</h3><h4 id="props-的增强"><a href="#props-的增强" class="headerlink" title="props 的增强"></a>props 的增强</h4><p>不修改原有代码的情况下, 添加新的<code>props</code></p>
+<pre><code class="lang-react">class Header extends PureComponent &#123;
+  render() &#123;
+    const &#123; name, age &#125; = this.props
+    return &lt;h2&gt;Header &#123;name + age&#125;&lt;/h2&gt;
+  &#125;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Header name=&quot;aaa&quot; age=&#123;18&#125; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>我们可以通过一个高阶组件, 让使用者在不破坏原有结构的情况下对某个组件增强<code>props</code></p>
+<pre><code class="lang-react">function enhanceProps(WrapperCpn, otherProps) &#123;
+ return props =&gt; &lt;WrapperCpn &#123;...props&#125; &#123;...otherProps&#125; /&gt;
+&#125;
+
+const EnhanceHeader = enhanceProps(Header, &#123;height: 1.88&#125;)
+</code></pre>
+<p><strong>利用高阶组件来共享 Context 属性</strong></p>
+<pre><code class="lang-react">import React, &#123; PureComponent, createContext &#125; from &#39;react&#39;
+
+function enhanceProps(WrapperCpn, otherProps) &#123;
+  return props =&gt; &lt;WrapperCpn &#123;...props&#125; &#123;...otherProps&#125; /&gt;
+&#125;
+
+const UserContext = createContext(&#123;
+  nickname: &#39;默认&#39;,
+  level: -1
+&#125;)
+
+function Header(props) &#123;
+  return (
+    &lt;UserContext.Consumer&gt;
+      &#123;value =&gt; &#123;
+        const &#123; nickname, level &#125; = value
+        return &lt;h2&gt;Header &#123;&#39;昵称:&#39; + nickname + &#39;等级&#39; + level&#125;&lt;/h2&gt;
+      &#125;&#125;
+    &lt;/UserContext.Consumer&gt;
+  )
+&#125;
+
+function Footer(props) &#123;
+  return (
+    &lt;UserContext.Consumer&gt;
+      &#123;value =&gt; &#123;
+        const &#123; nickname, level &#125; = value
+        return &lt;h2&gt;Footer &#123;&#39;昵称:&#39; + nickname + &#39;等级&#39; + level&#125;&lt;/h2&gt;
+      &#125;&#125;
+    &lt;/UserContext.Consumer&gt;
+  )
+&#125;
+
+const EnhanceHeader = enhanceProps(Header, &#123; height: 1.88 &#125;)
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;UserContext.Provider value=&#123;&#123; nickname: 'lion', level: 90 &#125;&#125;&gt;
+          &lt;Header /&gt;
+          &lt;Footer /&gt;
+        &lt;/UserContext.Provider&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>利用高阶组件<code>withUser</code></p>
+<pre><code class="lang-react">import React, &#123; PureComponent, createContext &#125; from &#39;react&#39;
+
+const UserContext = createContext(&#123;
+  nickname: &#39;默认&#39;,
+  level: -1
+&#125;)
+
+function withUser(WrapperCpn) &#123;
+  return props =&gt; &#123;
+    return (
+      &lt;UserContext.Consumer&gt;
+        &#123;value =&gt; &#123;
+          return &lt;WrapperCpn &#123;...props&#125; &#123;...value&#125; /&gt;
+        &#125;&#125;
+      &lt;/UserContext.Consumer&gt;
+    )
+  &#125;
+&#125;
+
+function Header(props) &#123;
+  const &#123; nickname, level &#125; = props
+  return &lt;h2&gt;Header &#123;&#39;昵称:&#39; + nickname + &#39;等级:&#39; + level&#125;&lt;/h2&gt;
+&#125;
+
+function Footer(props) &#123;
+  const &#123; nickname, level &#125; = props
+  return &lt;h2&gt;Footer &#123;&#39;昵称:&#39; + nickname + &#39;等级:&#39; + level&#125;&lt;/h2&gt;
+&#125;
+
+const UserHeader = withUser(Header)
+const UserFooter = withUser(Footer)
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;UserContext.Provider value=&#123;&#123; nickname: 'lion', level: 90 &#125;&#125;&gt;
+          &lt;UserHeader /&gt;
+          &lt;UserFooter /&gt;
+        &lt;/UserContext.Provider&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h4 id="渲染判断鉴权"><a href="#渲染判断鉴权" class="headerlink" title="渲染判断鉴权"></a>渲染判断鉴权</h4><p>在开发中, 我们可能遇到这样的场景</p>
+<ul>
+<li>某些页面是必须用户登陆成功才能进行访问</li>
+<li>如果用户没有登陆就访问, 那么直接跳转到登陆页面</li>
+</ul>
+<p>这个时候, 我们就可以使用高阶组件来完成鉴权操作</p>
+<pre><code class="lang-react">function LoginPage() &#123;
+  return &lt;h2&gt;LoginPage&lt;/h2&gt;
+&#125;
+
+function CartPage() &#123;
+  return &lt;h2&gt;CartPage&lt;/h2&gt;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;CartPage /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>编写鉴权的高阶组件</p>
+<pre><code class="lang-react">function loginAuth(Page) &#123;
+  return props =&gt; &#123;
+    if (props.isLogin) &#123;
+      return &lt;Page /&gt;
+    &#125; else &#123;
+      return &lt;LoginPage /&gt;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>完整代码</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+function loginAuth(Page) &#123;
+  return props =&gt; &#123;
+    if (props.isLogin) &#123;
+      return &lt;Page /&gt;
+    &#125; else &#123;
+      return &lt;LoginPage /&gt;
+    &#125;
+  &#125;
+&#125;
+
+function LoginPage() &#123;
+  return &lt;h2&gt;LoginPage&lt;/h2&gt;
+&#125;
+
+function CartPage() &#123;
+  return &lt;h2&gt;CartPage&lt;/h2&gt;
+&#125;
+
+const AuthCartPage = loginAuth(CartPage)
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;AuthCartPage isLogin=&#123;true&#125; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h4 id="生命周期劫持"><a href="#生命周期劫持" class="headerlink" title="生命周期劫持"></a>生命周期劫持</h4><pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+class Home extends PureComponent &#123;
+  UNSAFE_componentWillMount() &#123;
+    this.begin = Date.now()
+  &#125;
+
+  componentDidMount() &#123;
+    this.end = Date.now()
+    const interval = this.end - this.begin
+    console.log(`Home渲染使用时间:$&#123;interval&#125;`)
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Home&lt;/h2&gt;
+        &lt;p&gt;我是home的元素,哈哈哈&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+class Detail extends PureComponent &#123;
+  UNSAFE_componentWillMount() &#123;
+    this.begin = Date.now()
+  &#125;
+
+  componentDidMount() &#123;
+    this.end = Date.now()
+    const interval = this.end - this.begin
+    console.log(`Detail渲染使用时间:$&#123;interval&#125;`)
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Detail&lt;/h2&gt;
+        &lt;p&gt;我是detail的元素,哈哈哈&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Home /&gt;
+        &lt;Detail /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>我们可以定义如下高阶组件</p>
+<pre><code class="lang-react">function logRenderTime(WrapperCpn) &#123;
+  return class extends PureComponent &#123;
+    UNSAFE_componentWillMount() &#123;
+      this.begin = Date.now()
+    &#125;
+
+    componentDidMount() &#123;
+      this.end = Date.now()
+      const interval = this.end - this.begin
+      console.log(`Home渲染使用时间:$&#123;interval&#125;`)
+    &#125;
+
+    render() &#123;
+      return &lt;WrapperCpn &#123;...this.props&#125; /&gt;
+    &#125;
+  &#125;
+&#125;
+
+const LogHome = logRenderTime(Home)
+const LogDetail = logRenderTime(Detail)
+</code></pre>
+<p>完整代码</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+function logRenderTime(WrapperCpn) &#123;
+  return class extends PureComponent &#123;
+    UNSAFE_componentWillMount() &#123;
+      this.begin = Date.now()
+    &#125;
+
+    componentDidMount() &#123;
+      this.end = Date.now()
+      const interval = this.end - this.begin
+      console.log(`$&#123;WrapperCpn.name&#125;渲染使用时间:$&#123;interval&#125;`)
+    &#125;
+
+    render() &#123;
+      return &lt;WrapperCpn &#123;...this.props&#125; /&gt;
+    &#125;
+  &#125;
+&#125;
+
+class Home extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Home&lt;/h2&gt;
+        &lt;p&gt;我是home的元素,哈哈哈&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+class Detail extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;Detail&lt;/h2&gt;
+        &lt;p&gt;我是detail的元素,哈哈哈&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+const LogHome = logRenderTime(Home)
+const LogDetail = logRenderTime(Detail)
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;LogHome /&gt;
+        &lt;LogDetail /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h3 id="高阶函数的意义"><a href="#高阶函数的意义" class="headerlink" title="高阶函数的意义"></a>高阶函数的意义</h3><p>我们会发现利用高阶组件可以针对某些 React 代码进行更加优雅的处理</p>
+<p>其实早期的 React 有提供组件之间的一种复用方式是 <strong>Mixin</strong>, 目前已经不再建议使用</p>
+<ul>
+<li><strong>Mixin</strong> 可能会相互依赖, 相互耦合, 不利于代码维护</li>
+<li>不同的 <strong>Mixin</strong> 中的方法可能会相互冲突</li>
+<li><strong>Mixin</strong> 非常多时, 组件时可以感知到的, 甚至还要为其做相关处理, 这样会给代码造成滚雪球式的复杂性</li>
+</ul>
+<p>当然, <strong>HOC</strong> 也有自己的一些缺陷</p>
+<ul>
+<li><strong>HOC</strong> 需要在原组件上进行包裹或者嵌套, 如果大量使用<strong>HOC</strong>, 将会产生非常多的嵌套, 这让调试变得非常困难</li>
+<li><strong>HOC</strong> 可以劫持<code>props</code>, 在不遵守约定的情况下也可能造成冲突</li>
+</ul>
+<p>Hooks 的出现, 是开创性的, 它解决了很多 React 之前存在的问题, 比如<code>this</code>指向问题、比如 <strong>HOC</strong> 的嵌套复杂度问题等等</p>
+<h2 id="组件补充"><a href="#组件补充" class="headerlink" title="组件补充"></a>组件补充</h2><h3 id="ref-转发"><a href="#ref-转发" class="headerlink" title="ref 转发"></a>ref 转发</h3><pre><code class="lang-react">import React, &#123; PureComponent, createRef &#125; from &#39;react&#39;
+
+function Home(props) &#123;
+  return (
+    &lt;div&gt;
+      &lt;h2 ref=&#123;props.ref&#125;&gt;Home&lt;/h2&gt;
+      &lt;button&gt;按钮&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;
+
+export default class App extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.homeTitleRef = createRef()
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Home ref=&#123;this.homeTitleRef&#125; /&gt;
+        &lt;button onClick=&#123;e =&gt; this.printInfo()&#125;&gt;打印ref&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  printInfo() &#123;
+    console.log(this.homeTitleRef)
+  &#125;
+&#125;
+</code></pre>
+<p>使用<code>forwardRef</code></p>
+<pre><code class="lang-react">import React, &#123; PureComponent, createRef, forwardRef &#125; from &#39;react&#39;
+
+const Home = forwardRef(function (props, ref) &#123;
+  return (
+    &lt;div&gt;
+      &lt;h2 ref=&#123;ref&#125;&gt;Home&lt;/h2&gt;
+      &lt;button&gt;按钮&lt;/button&gt;
+    &lt;/div&gt;
+  )
+&#125;)
+
+export default class App extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.homeTitleRef = createRef()
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Home ref=&#123;this.homeTitleRef&#125; /&gt;
+        &lt;button onClick=&#123;e =&gt; this.printInfo()&#125;&gt;打印ref&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  printInfo() &#123;
+    console.log(this.homeTitleRef.current)
+  &#125;
+&#125;
+</code></pre>
+<h3 id="Portals"><a href="#Portals" class="headerlink" title="Portals"></a>Portals</h3><p>某些情况下, 我们希望渲染的内容独立于父组件, 甚至是独立于当前挂载到的 DOM 元素中(默认都是挂载到<code>id</code>为<code>root</code>的 DOM 元素上的)</p>
+<p>Portal 提供了一种将子节点渲染到存在于父组件以外的 DOM 节点的优秀方案</p>
+<pre><code class="lang-react">ReactDOM.createPortal(child, container)
+</code></pre>
+<ul>
+<li>第一个参数(<code>child</code>)是任何可渲染的 React 子元素, 例如一个元素, 字符串或<code>fragment</code></li>
+<li>第二个参数(<code>container</code>)是一个 DOM 元素</li>
+</ul>
+<p>通常来讲, 当你从组件的<code>render</code>方法返回一个元素时, 该元素将被挂载到 DOM 节点中离其最近的父节点</p>
+<pre><code class="lang-react">render() &#123;
+  // React 挂载了一个新的 div, 并且把子元素渲染其中
+  return (
+    &lt;div&gt;
+      &#123;this.props.children&#125;
+    &lt;/div&gt;
+  )
+&#125;
+</code></pre>
+<p>然而, 有时候将子元素插入到 DOM 节点中的不同位置也是有好处的</p>
+<pre><code class="lang-react">render() &#123;
+  // React 并没有创建一个新的 div, 它只是把子元素渲染到 domNode 中
+  // domNode 时一个可以在任何位置都有效的 DOM 节点
+  return ReactDOM.createPortal(
+    this.props.children,
+    domNode
+  )
+&#125;
+</code></pre>
+<p><strong>比如说, 我们准备开发一个<code>Modal</code>组件, 它可以将它的子组件渲染到屏幕的中间位置</strong></p>
+<p>步骤一: 修改<code>index.html</code>添加新的节点</p>
+<pre><code class="lang-jsx">&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+
+&lt;!-- 新节点 --&gt;
+&lt;div id=&quot;modal&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>步骤二: 编写这个节点的样式</p>
+<pre><code class="lang-css">#modal &#123;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+&#125;
+</code></pre>
+<p>步骤三: 编写组件代码</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+import ReactDOM from &#39;react-dom&#39;
+
+class Modal extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+  &#125;
+
+  render() &#123;
+    return ReactDOM.createPortal(
+      this.props.children,
+      document.getElementById(&#39;modal&#39;)
+    )
+  &#125;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Modal&gt;
+          &lt;h2&gt;我是标题&lt;/h2&gt;
+        &lt;/Modal&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h3 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h3><p>在之前的开发中, 我们总是在一个组件中返回内容时包裹一个<code>div</code>元素</p>
+<pre><code class="lang-react">export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: 0&lt;/h2&gt;
+        &lt;button&gt;+1&lt;/button&gt;
+        &lt;button&gt;-1&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/08/UVkJUO.png"><img src="https://s1.ax1x.com/2020/07/08/UVkJUO.png" alt="UVkJUO.png"></a></p>
+<p>我们会发现多了一个<code>div</code>元素</p>
+<ul>
+<li>这个<code>div</code>元素对于某些场景是需要的(比如我们就希望放到一个<code>div</code>元素中, 在针对性设置样式)</li>
+<li>某些场景下这个<code>div</code>是没有必要的, 比如当前这里我可能希望所有的内容直接渲染到<code>root</code>中即可</li>
+</ul>
+<p>我们可以删除这个<code>div</code>吗?</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/08/UVk2GQ.png"><img src="https://s1.ax1x.com/2020/07/08/UVk2GQ.png" alt="UVk2GQ.png"></a></p>
+<p>我们又希望可以不渲染这样一个<code>div</code>应该如何操作呢?</p>
+<ul>
+<li>使用<code>Fragment</code></li>
+<li><code>Fragment</code>允许你将子列表分组, 而无需向 DOM 添加额外节点</li>
+</ul>
+<pre><code class="lang-react">import React, &#123; PureComponent, Fragment &#125; from &#39;react&#39;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;Fragment&gt;
+        &lt;h2&gt;当前计数: 0&lt;/h2&gt;
+        &lt;button&gt;+1&lt;/button&gt;
+        &lt;button&gt;-1&lt;/button&gt;
+      &lt;/Fragment&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/08/UVArl9.png"><img src="https://s1.ax1x.com/2020/07/08/UVArl9.png" alt="UVArl9.png"></a></p>
+<p>React 还提供了<code>Fragment</code>的<strong>段语法</strong></p>
+<ul>
+<li>它看起来像<strong>空标签</strong><code>&lt;&gt;&lt;/&gt;</code></li>
+</ul>
+<pre><code class="lang-react">import React, &#123; PureComponent, Fragment &#125; from &#39;react&#39;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;&gt;
+        &lt;h2&gt;当前计数: 0&lt;/h2&gt;
+        &lt;button&gt;+1&lt;/button&gt;
+        &lt;button&gt;-1&lt;/button&gt;
+      &lt;/&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>但是, 如果我们需要在<code>Fragment</code>中添加<code>key</code>, 那么就不能使用段语法</p>
+<pre><code class="lang-react">&#123;
+  this.state.friends.map((item, index) =&gt; &#123;
+    return (
+      &lt;Fragment key=&#123;item.name&#125;&gt;
+        &lt;div&gt;&#123;item.name&#125;&lt;/div&gt;
+        &lt;div&gt;&#123;item.age&#125;&lt;/div&gt;
+      &lt;/Fragment&gt;
+    )
+  &#125;)
+&#125;
+</code></pre>
+<p>这里是不支持下面的写法的</p>
+<pre><code class="lang-jsx">&lt;key=&#123;item.name&#125;&gt;
+  &lt;div&gt;&#123;item.name&#125;&lt;/div&gt;
+  &lt;div&gt;&#123;item.age&#125;&lt;/div&gt;
+&lt;/&gt;
+</code></pre>
+<h3 id="StrictMode"><a href="#StrictMode" class="headerlink" title="StrictMode"></a>StrictMode</h3><p><code>StrictMode</code>是一个用来突出显示应用程序中潜在问题的工具</p>
+<ul>
+<li>与<code>Fragment</code>一样, <code>StrictMode</code>不会渲染任何可见的 UI</li>
+<li>它为其后代元素触发额外的检查和警告</li>
+<li>严格模式检查仅在开发模式下运行, <strong>它们不会影响生产构建</strong></li>
+</ul>
+<p>可以为应用程序的任何部分启用<strong>严格模式</strong></p>
+<pre><code class="lang-react">import React from &#39;react&#39;
+
+function ExampleApplication() &#123;
+  return (
+    &lt;div&gt;
+      &lt;Header /&gt;
+      &lt;React.StrictMode&gt;
+        &lt;div&gt;
+          &lt;ComponentOne /&gt;
+          &lt;ComponentTwo /&gt;
+        &lt;/div&gt;
+      &lt;/React.StrictMode&gt;
+      &lt;Footer /&gt;
+    &lt;/div&gt;
+  )
+&#125;
+</code></pre>
+<ul>
+<li>不会对<code>Header</code>和<code>Footer</code>组件运行严格模式检查</li>
+<li>但是, <code>ComponentOne</code>和<code>ComponentTwo</code>以及它们所有的后代元素都将进行检查</li>
+</ul>
+<p><strong>到底检测什么东西呢?</strong></p>
+<ol>
+<li>识别不安全的生命周期</li>
+</ol>
+<pre><code class="lang-react">import React, &#123; PureComponent, StrictMode &#125; from &#39;react&#39;
+
+class Home extends PureComponent &#123;
+  UNSAFE_componentWillMount() &#123;&#125;
+
+  render() &#123;
+    return &lt;h2&gt;Home&lt;/h2&gt;
+  &#125;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;StrictMode&gt;
+        &lt;Home /&gt;
+      &lt;/StrictMode&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/08/UVVoZt.png"><img src="https://s1.ax1x.com/2020/07/08/UVVoZt.png" alt="UVVoZt.png"></a></p>
+<ol>
+<li>使用过时的 <code>ref API</code></li>
+</ol>
+<pre><code class="lang-react">import React, &#123; PureComponent, StrictMode &#125; from &#39;react&#39;
+
+class Home extends PureComponent &#123;
+  UNSAFE_componentWillMount() &#123;&#125;
+
+  render() &#123;
+    return &lt;h2 ref=&quot;home&quot;&gt;Home&lt;/h2&gt;
+  &#125;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;StrictMode&gt;
+        &lt;Home /&gt;
+      &lt;/StrictMode&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/08/UVZndx.png"><img src="https://s1.ax1x.com/2020/07/08/UVZndx.png" alt="UVZndx.png"></a></p>
+<ol>
+<li>使用废弃的<code>findDOMNode</code>方法</li>
+</ol>
+<p>在之前的 React API 中, 可以通过<code>findDOMNode</code>来获取 DOM, 不过已经不再推荐使用了, 可以自行学习该 API</p>
+<ol>
+<li>检查意外的副作用</li>
+</ol>
+<pre><code class="lang-react">import React, &#123; PureComponent, StrictMode &#125; from &#39;react&#39;
+
+class Home extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    console.log(&#39;home constructor&#39;)
+  &#125;
+
+  UNSAFE_componentWillMount() &#123;&#125;
+
+  render() &#123;
+    return &lt;h2 ref=&quot;home&quot;&gt;Home&lt;/h2&gt;
+  &#125;
+&#125;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;StrictMode&gt;
+        &lt;Home /&gt;
+      &lt;/StrictMode&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>Home</code>组件的<code>constructor</code>会被调用两次</li>
+<li>这是严格模式下故意进行的操作, 让你来查看在这里写的一些逻辑代码被调用多次时, 是否会产生一些副作用</li>
+<li>在生产环境中, 是不会被调用两次的</li>
+</ul>
+<ol>
+<li>检测过时的 <code>context API</code></li>
+</ol>
+<p>早期的 Context 是通过<code>static</code>属性声明 Context 对象属性的, 通过<code>getChildContext</code>返回 Context 对象等方式来使用 <code>Context</code></p>
+<p>目前这种方式已经不再推荐使用, 可以自行学习该 API</p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 一元函数微分学</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>一元函数微分学 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/8/11
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/数学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数学
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/微分" style=color:#00bcd4>
+                    微分
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <script type="math/tex; mode=display">
+\Delta y=A\Delta x +o(\Delta x)=y'dx+o(\Delta x)=dy+o(\Delta x)</script><script type="math/tex; mode=display">
+\Delta y=dy+o(\Delta x)\Leftrightarrow\Delta y-dy=o(\Delta x)</script><span id="more"></span>
+<h2 id="极值与最值的概念"><a href="#极值与最值的概念" class="headerlink" title="极值与最值的概念"></a>极值与最值的概念</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><strong>定义一</strong>: 若存在 $x_0$ 的某个邻域, 使得在该邻域内任意一点 $x$, 均有</p>
+<script type="math/tex; mode=display">
+f(x)\leq f(x_0)(或 f(x)\geq f(x_0))</script><p>成立, 则称 $x_0$ 为 $f(x)$ 的广义极大值点 (或极小值点) , $f(x_0)$ 为 $f(x)$ 的广义极大值 (或极小值) </p>
+<p><strong>定义二</strong>: 若存在 $x_0$ 的某个去心邻域, 使得对于该邻域内任一异于 $x_0$ 的点 $x$, 均有</p>
+<script type="math/tex; mode=display">
+f(x)<f(x_0)(或f(x)>f(x_0))</script><p>成立, 则称 $x_0$ 为 $f(x)$ 的真正的极大值点 (或极小值点) , $f(x_0)$ 为 $f(x)$ 的真正极大值 (或极小值) </p>
+<p><strong>定义三</strong>: 设 $x_0$ 为 $f(x)$ 定义域内一点, 若对于 $f(x)$ 的定义域内任意一点 $x$, 均有</p>
+<script type="math/tex; mode=display">
+f(x)\leq f(x_0)(或f(x)\geq f(x_0))</script><p>成立, 则称 $x_0$ 为 $f(x)$ 的广义的最大值 (或最小值) </p>
+<p><strong>定义四</strong>: 设 $x_0$ 为 $f(x)$ 定义域内一点, 若对于 $f(x)$ 的定义域内任一异于 $x_0$ 的点 $x$, 均有</p>
+<script type="math/tex; mode=display">
+f(x)< f(x_0)(或f(x)> f(x_0))</script><p>成立, 则称 $x_0$ 为 $f(x)$ 的真正的最大值 (或最小值) </p>
+<p>如果 $f(x)$ 在区间 $I$ 上有最值点 $x_0$, 并且最值点 $x_0$ 不是区间 $I$ 的端点而是 $I$ 内部的点, 那么此时 $x_0$ 必是 $f(x)$ 的一个极值点</p>
+<h3 id="单调性与极值的判别"><a href="#单调性与极值的判别" class="headerlink" title="单调性与极值的判别"></a>单调性与极值的判别</h3><h4 id="单调性的判别"><a href="#单调性的判别" class="headerlink" title="单调性的判别"></a>单调性的判别</h4><p>若用导数工具, 则若 $y=f(x)$ 在区间 $I$ 上有 $f’(x)&gt;0$, 则 $y=f(x)$ 在 $I$ 上<strong>严格单调增加</strong>, 相应的, 若 $y=f(x)$ 在区间 $I$ 上有 $f’(x)&lt;0$, 则 $y=f(x)$ 在 $I$ 上<strong>严格单调减少</strong></p>
+<h4 id="一阶可导点极值点的必要条件"><a href="#一阶可导点极值点的必要条件" class="headerlink" title="一阶可导点极值点的必要条件"></a>一阶可导点极值点的必要条件</h4><p>设 $f(x)$ 在 $x=x_0$ 处可导, 且在点 $x_0$ 处取得极值, 则必有 $f’(x_0)=0$</p>
+<h4 id="判别极值的第一充分条件"><a href="#判别极值的第一充分条件" class="headerlink" title="判别极值的第一充分条件"></a>判别极值的第一充分条件</h4><p>设 $f(x)$ 在 $x=x_0$ 处连续, 且在 $x_0$ 的某去心邻域 $U(x_0,\delta)$ 内可导</p>
+<ol>
+<li>若 $x\in (x_0-\delta,x_0)$ 时, $f’(x_0)&lt;0$, 而 $x\in (x_0, x_0+\delta)$ 时, $f’(x)&gt;0$, 则 $f(x)$ 在 $x_0$ 处取得<strong>极小值</strong></li>
+<li>若 $x\in (x_0-\delta,x_0)$ 时, $f’(x_0)&gt;0$, 而 $x\in (x_0, x_0+\delta)$ 时, $f’(x)&lt;0$, 则 $f(x)$ 在 $x_0$ 处取得<strong>极大值</strong></li>
+<li>若 $f’(x)$ 在 $(x_0-\delta, x_0)$ 和 $(x_0,x_0+\delta)$ 内不变号, 则点 $x_0$ 不是极值点</li>
+</ol>
+<h4 id="判别极值的第二充分条件"><a href="#判别极值的第二充分条件" class="headerlink" title="判别极值的第二充分条件"></a>判别极值的第二充分条件</h4><p>设 $f(x)$ 在 $x=x_0$ 处二阶可导, 且 $f’(x_0)=0, f’’(x_0)\neq 0$</p>
+<ol>
+<li>若 $f’’(x_0)&lt;0$, 则 $f(x)$ 在 $x_0$ 处取得<strong>极大值</strong></li>
+<li>若 $f’’(x_0)&gt;0$, 则 $f(x)$ 在 $x_0$ 处取得<strong>极小值</strong></li>
+</ol>
+<h4 id="判别极值的第三充分条件"><a href="#判别极值的第三充分条件" class="headerlink" title="判别极值的第三充分条件"></a>判别极值的第三充分条件</h4><p>设 $f(x)$ 在 $x_0$ 处 $n$ 阶可导, 且 $f^{(m)}(x_0)=0(m=1,2,…,n-1),f^{(n)}(x_0)\neq 0(n\geq 2)$, 则</p>
+<ol>
+<li>当 $n$ 为偶数且 $f^{(n)}(x_0)&lt;0$ 时, $f(x)$ 在 $x_0$ 处取得<strong>极大值</strong></li>
+<li>当 $n$ 为偶数且 $f^{(n)}(x_0)&gt;0$ 时, $f(x)$ 在 $x_0$ 处取得<strong>极小值</strong></li>
+</ol>
+<h2 id="凹凸性与拐点的概念"><a href="#凹凸性与拐点的概念" class="headerlink" title="凹凸性与拐点的概念"></a>凹凸性与拐点的概念</h2><h3 id="凹凸性的定义"><a href="#凹凸性的定义" class="headerlink" title="凹凸性的定义"></a>凹凸性的定义</h3><p>设函数 $f(x)$ 在区间 $I$ 上连续, 如果对 $I$ 上任意 $x_1,x_2$ 两点, 恒有</p>
+<script type="math/tex; mode=display">
+f(\cfrac{x_1+x_2}2)<\cfrac{f(x_1)+f(x_2)}2</script><p>则称 $y=f(x)$ 在 $I$ 上的图形是 ( 向上 ) 凹的 ( 或凹弧 ), 如果恒有</p>
+<script type="math/tex; mode=display">
+f(\cfrac{x_1+x_2}2)>\cfrac{f(x_1)+f(x_2)}2</script><p>则称 $y=f(x)$ 在 $I$ 上的图形是 ( 向上 ) 凸的 ( 或凸弧 )</p>
+<h3 id="判别凹凸性"><a href="#判别凹凸性" class="headerlink" title="判别凹凸性"></a>判别凹凸性</h3><p>设函数 $f(x)$ 在 $I$ 上<strong>二阶可导</strong></p>
+<ol>
+<li>若在 $I$ 上 $f’’(x)&gt;0$, 则 $f(x)$ 在 $I$ 上的图形是<strong>凹的</strong></li>
+<li>若在 $I$ 上 $f’’(x)&lt;0$, 则 $f(x)$ 在 $I$ 上的图形是<strong>凸的</strong></li>
+</ol>
+<h3 id="二阶可导点是拐点的必要条件"><a href="#二阶可导点是拐点的必要条件" class="headerlink" title="二阶可导点是拐点的必要条件"></a>二阶可导点是拐点的必要条件</h3><p>设 $f’’(x_0)$ 存在, 且点 $(x_0,f(x_0))$ 为曲线上的拐点, 则 $f’’(x_0)=0$</p>
+<h3 id="判别拐点的第一充分条件"><a href="#判别拐点的第一充分条件" class="headerlink" title="判别拐点的第一充分条件"></a>判别拐点的第一充分条件</h3><p>设 $f(x)$ 在点 $x=x_0$ 处连续, 在点 $x=x_0$ 的某去心邻域 $U(x_0, \delta)$ 内二阶导数存在, 且在该点的左、右邻域内 $f’’(x)$ 变号 ( 无论是由正变负, 还是由负变正 ), 则点 $(x_0, f(x_0))$ 为曲线上的拐点</p>
+<h3 id="判别拐点的第二充分条件"><a href="#判别拐点的第二充分条件" class="headerlink" title="判别拐点的第二充分条件"></a>判别拐点的第二充分条件</h3><p>设 $f(x)$ 在 $x=x_0$ 的某领域内三阶可导, 且 $f’’(x_0)=0, f’’’(x_0)\neq 0$, 则 $(x_0, f(x_0))$ 为拐点</p>
+<h3 id="判别拐点的第三充分条件"><a href="#判别拐点的第三充分条件" class="headerlink" title="判别拐点的第三充分条件"></a>判别拐点的第三充分条件</h3><p>设 $f(x)$ 在 $x_0$ 处 $n$ 阶可导, 且 $f^{(m)}(x_0)=0(m=2,…,n-1), f^{(n)}(x_0)\neq 0(n\geq 3)$, 则当 $n$ 为奇数时, $(x_0, f(x_0))$ 为拐点</p>
+<h2 id="渐近线"><a href="#渐近线" class="headerlink" title="渐近线"></a>渐近线</h2><h3 id="铅垂渐近线"><a href="#铅垂渐近线" class="headerlink" title="铅垂渐近线"></a>铅垂渐近线</h3><p>若 $\lim<em>\limits{x\to x_0^+}=\infty(或 \lim</em>\limits{x\to x_0^-}f(x)=\infty)$, 则 $x=x_0$ 为一条铅垂渐近线, $x_0$ 一般为 $f(x)$ 的<strong>无定义点</strong></p>
+<h3 id="水平渐近线"><a href="#水平渐近线" class="headerlink" title="水平渐近线"></a>水平渐近线</h3><p>若 $\lim<em>\limits{x\to+\infty}f(x)=y_1$, 则 $y=y_1$ 为一条水平渐近线, 若 $\lim</em>\limits{x\to-\infty}f(x)=y_2$ , 则 $y=y_2$ 为一条水平渐近线</p>
+<p>若 $\lim_\limits{x\to\infty}f(x)=y_0$, 则 $y=y_0$ 为一条水平渐近线</p>
+<h3 id="斜渐近线"><a href="#斜渐近线" class="headerlink" title="斜渐近线"></a>斜渐近线</h3><p>若 $\lim<em>\limits{x\to+\infty}\cfrac{f(x)}{x}=k_1\neq 0, \lim</em>\limits{x\to+\infty}[f(x)-k_1x]=b_1$, 则 $y=k_1x+b_1$ 是曲线 $y=f(x)$ 的一条斜渐近线</p>
+<p>若 $\lim<em>\limits{x\to-\infty}\cfrac{f(x)}{x}=k_2\neq 0, \lim</em>\limits{x\to-\infty}[f(x)-k_2x]=b_2$, 则 $y=k_2x+b_2$ 是曲线 $y=f(x)$ 的一条斜渐近线</p>
+<p>若 $\lim<em>\limits{x\to\infty}\cfrac{f(x)}{x}=k\neq 0, \lim</em>\limits{x\to\infty}[f(x)-kx]=b$, 则 $y=kx+b$ 是曲线 $y=f(x)$ 的一条斜渐近线</p>
+<h3 id="最值或取值范围"><a href="#最值或取值范围" class="headerlink" title="最值或取值范围"></a>最值或取值范围</h3><p><strong>求闭区间 $[a, b]$ 上连续函数 $f(x)$ 的最大值 $M$ 和 最小值 $m$</strong></p>
+<ol>
+<li>求出 $f(x)$ 在 $(a, b)$ 内的<strong>可疑点</strong> ( <strong>驻点、不可导点</strong> ), 并求出这些可以点的函数值</li>
+<li>求出端点的函数值 $f(a)$ 和 $f(b)$</li>
+<li>比较以上所求得的所有函数值, 其中最大者为 $f(x)$ 在 $[a, b]$ 上的最大值 $M$, 最小者为 $f(x)$ 在 $[a,b]$ 上的最小值 $m$</li>
+</ol>
+<p><strong>求开区间 $(a,b)$ 内连续函数 $f(x)$ 的最值或取值范围</strong></p>
+<ol>
+<li>求出 $f(x)$ 在 $(a, b)$ 内的可疑点 ( <strong>驻点、不可导点</strong> ), 并且出这些可疑点的函数值</li>
+<li>求 $(a, b)$ 两端的单侧极限:<ol>
+<li>若 $a, b$ 为有限常数, 则求 $\lim<em>\limits{x\to a^+}f(x)$ 与 $\lim</em>\limits{x\to b^-}f(x)$</li>
+<li>若 $a$ 为 $-\infty$, 则求 $\lim<em>\limits{x\to -\infty}f(x)$, 若 $b$ 为 $+\infty$, 则求 $\lim</em>\limits{x\to +\infty}f(x)$</li>
+</ol>
+</li>
+<li>比较 $1,2$ 所得结果, 确定最值或取值范围</li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

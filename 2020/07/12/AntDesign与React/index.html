@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || AntDesign与React</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>AntDesign与React </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/12
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/AntDesign" style=color:#00bcd4>
+                    AntDesign
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="认识-AntDesign"><a href="#认识-AntDesign" class="headerlink" title="认识 AntDesign"></a>认识 AntDesign</h2><h3 id="AntDesign-介绍"><a href="#AntDesign-介绍" class="headerlink" title="AntDesign 介绍"></a>AntDesign 介绍</h3><p><strong>AntDesign</strong> 简称 <strong>antd</strong>, 主要用于研发企业级中后台产品</p>
+<p>AntDesign 的特点</p>
+<ol>
+<li>🌈 提炼自企业级中后台产品的交互语言和视觉风格</li>
+<li>📦 开箱即用的高质量 React 组件</li>
+<li>🛡️ 使用 TypeScript 开发, 提供完整的类型定义文件</li>
+<li>⚙️ 全链路开发和设计工具体系</li>
+<li>🌍 数十个国际化语言支持</li>
+<li>🎨 深入每个细节的主题定制能力</li>
+</ol>
+<span id="more"></span>
+<p><strong>全链路开发和设计指的是什么?</strong></p>
+<ul>
+<li>全链路这个词大概是 16 年由阿里提出的</li>
+<li>从<strong>业务战略-用户场景-设计目标-交互体验-用户流程-预期效率</strong>全方面分析和考虑</li>
+<li>这个主要是产品经理会考虑的点</li>
+</ul>
+<p>AntDesign 的兼容性</p>
+<ul>
+<li>现代浏览器和 IE11 (需要 polyfills)</li>
+<li>支持服务端渲染</li>
+<li>Electron</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/12/U3yhJf.png"><img src="https://s1.ax1x.com/2020/07/12/U3yhJf.png" alt="U3yhJf.png"></a></p>
+<p><strong>antd@2.0</strong> 之后不再支持 IE8, <strong>antd@4.0</strong> 之后不再支持 IE9/10</p>
+<p>目前稳定的版本为: v4.4.0</p>
+<h3 id="AntDesign-安装"><a href="#AntDesign-安装" class="headerlink" title="AntDesign 安装"></a>AntDesign 安装</h3><p>使用 <code>npm</code> 或 <code>yarn</code> 安装</p>
+<p><code>npm</code> 安装</p>
+<pre><code class="lang-shell">npm install antd --save
+</code></pre>
+<p><code>yarn</code> 安装</p>
+<pre><code class="lang-shell">yarn add antd
+</code></pre>
+<p>之后在<code>index.js</code>中引入全局的 Antd 样式</p>
+<pre><code class="lang-css">import &#39;antd/dist/antd.css&#39;
+</code></pre>
+<p>在<code>App.js</code>中就可以使用一些组件了</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+import &#123; Button, DatePicker &#125; from &#39;antd&#39;
+
+export default class App extends PureComponent &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;Button&gt;Default Button&lt;/Button&gt;
+          &lt;Button type=&quot;primary&quot;&gt;Primary Button&lt;/Button&gt;
+          &lt;Button type=&quot;dashed&quot;&gt;Dashed Button&lt;/Button&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;DatePicker
+            onChange=&#123;this.onChange&#125;
+            allowClear=&#123;false&#125;
+            dateRender=&#123;this.userDateRender&#125;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  onChange(date, dateString) &#123;
+    console.log(date, dateString)
+  &#125;
+
+  userDateRender(current) &#123;
+    const style = &#123;&#125;
+    if (current.date() === 1) &#123;
+      style.border = &#39;1px solid #1890ff&#39;
+      style.borderRadius = &#39;50%&#39;
+    &#125;
+    return (
+      &lt;div className=&quot;ant-picker-cell-inner&quot; style=&#123;style&#125;&gt;
+        &#123;current.date()&#125;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/12/U32jHJ.png"><img src="https://s1.ax1x.com/2020/07/12/U32jHJ.png" alt="U32jHJ.png"></a></p>
+<blockquote>
+<p><strong>思考一个问题: Antd 是否会将一些没用的代码(组件或者逻辑代码)引入, 造成代码包很大呢?</strong></p>
+<p><a target="_blank" rel="noopener" href="https://ant.design/docs/react/getting-started-cn#按需加载">官网有提到</a>: antd 的 JS 代码默认支持基于 ES modules 的 tree shaking, 对于 JS 部分, 直接引入<code>import &#123; Button &#125; from &#39;antd&#39;</code>就会有按需加载的效果</p>
+</blockquote>
+<h3 id="高级配置"><a href="#高级配置" class="headerlink" title="高级配置"></a>高级配置</h3><h4 id="认识-craco"><a href="#认识-craco" class="headerlink" title="认识 craco"></a>认识 craco</h4><p>上面的使用过程是无法对主题进行配置的, 若要对主题等相关的高级特性进行配置, 需要修改<code>create-react-app</code>的默认配置</p>
+<p>如何修改<code>create-react-app</code>的默认配置呢?</p>
+<ul>
+<li>可以通过<code>yarn run eject</code>来暴露出对应的配置信息进行修改</li>
+<li>但是对于 Webpack 不熟悉的人来说, 直接修改 CRA 的配置是否会给你的项目带来负担, 甚至会增加项目的隐患和不稳定性呢?</li>
+<li>所以, 在项目开发中是不建议大家直接去修改 CRA 的配置信息的</li>
+</ul>
+<p>那么如何来修改默认配置呢? 社区目前有两个比较常见的方案</p>
+<ol>
+<li><code>react-app-rewired</code>+<code>customize-cra</code>(这个是 antd 早期推荐的方案)</li>
+<li><code>craco</code> (目前 antd 推荐的方案)</li>
+</ol>
+<h5 id="安装-craco"><a href="#安装-craco" class="headerlink" title="安装 craco"></a>安装 craco</h5><pre><code class="lang-shell">yarn add @craco/craco
+</code></pre>
+<h5 id="修改-package-json-文件"><a href="#修改-package-json-文件" class="headerlink" title="修改 package.json 文件"></a>修改 package.json 文件</h5><ul>
+<li>原本启动时, 我们是通过<code>react-scripts</code>来管理的</li>
+<li>现在启动时, 我们通过<code>craco</code>来管理</li>
+</ul>
+<pre><code class="lang-json">&quot;scripts&quot;: &#123;
+-  &quot;start&quot;: &quot;react-scripts start&quot;,
+-  &quot;build&quot;: &quot;react-scripts build&quot;,
+-  &quot;test&quot;: &quot;react-scripts test&quot;,
++  &quot;start&quot;: &quot;craco start&quot;,
++  &quot;build&quot;: &quot;craco start&quot;,
++  &quot;test&quot;: &quot;craco test&quot;
+&#125;
+</code></pre>
+<h5 id="craco-config-js-配置"><a href="#craco-config-js-配置" class="headerlink" title="craco.config.js 配置"></a>craco.config.js 配置</h5><p>在根目录下创建<code>craco.config.js</code>文件用于修改默认配置</p>
+<pre><code class="lang-javascript">module.exports = &#123;
+  // 配置...
+&#125;
+</code></pre>
+<h4 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h4><p>按照<strong>配置主题</strong>的要求, 自定义主题需要用到类似<code>less-loader</code>提供的 less 变量覆盖功能</p>
+<ul>
+<li>我们可以引入<code>craco-less</code>来帮助加载 less 样式和修改变量</li>
+</ul>
+<h5 id="安装-craco-less"><a href="#安装-craco-less" class="headerlink" title="安装 craco-less"></a>安装 craco-less</h5><pre><code class="lang-shell">yarn add craco-less
+</code></pre>
+<h5 id="修改-craco-config-js-中的-plugins"><a href="#修改-craco-config-js-中的-plugins" class="headerlink" title="修改 craco.config.js 中的 plugins"></a>修改 craco.config.js 中的 plugins</h5><ul>
+<li>使用<code>modifyVars</code>可以在运行时修改 less 变量</li>
+</ul>
+<pre><code class="lang-javascript">const CracoLessPlugin = require(&#39;craco-less&#39;)
+
+module.exports = &#123;
+  plugins: [
+    &#123;
+      plugin: CracoLessPlugin,
+      options: &#123;
+        lessLoaderOptions: &#123;
+          lessOptions: &#123;
+            modifyVars: &#123; &#39;@primary-color&#39;: &#39;#1DA57A&#39; &#125;,
+            javascriptEnabled: true
+          &#125;
+        &#125;
+      &#125;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<p>引入 antd 的样式时, 引入<code>antd.less</code>文件</p>
+<pre><code class="lang-javascript">// import &#39;antd/dist/antd.css&#39;
+import &#39;antd/dist/antd.less&#39;
+</code></pre>
+<p>修改后重启<code>yarn start</code>, 如果看到一个绿色的按钮就说明配置成功了</p>
+<h4 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h4><p>在项目开发中, 某些组件或者文件的层级会较深</p>
+<ul>
+<li>如果我们通过上层目录去引入就会出现这样的情况: <code>../../../components/Button</code></li>
+<li>如果我们可以配置别名, 就可以直接从根目录下面开始查找文件: <code>@/components/Button</code>, 甚至是: <code>components/Button</code></li>
+</ul>
+<p>配置别名也需要修改 Webpack 的配置, 当然我们也可以借助于 craco 来完成</p>
+<pre><code class="lang-javascript">...
+
+const path = require(&#39;path&#39;)
+const resolve = dir =&gt; path.resolve(__dirnoame, dir)
+
+module.exports = &#123;
+  ...
+  ,
+  webpack: &#123;
+    alias: &#123;
+      &#39;@&#39;: resolve(&#39;src&#39;),
+      &#39;components&#39;: resolve(&#39;src/components&#39;)
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>在导入时就可以按照下面的方式来进行使用</p>
+<pre><code class="lang-javascript">import LionCommentInput from &#39;@/components/comment-input&#39;
+import LionCommentItem from &#39;components/comment-item&#39;
+</code></pre>
+<h2 id="AntDesign-案例"><a href="#AntDesign-案例" class="headerlink" title="AntDesign 案例"></a>AntDesign 案例</h2><p>我们通过 AntDesign 来编写一个留言板</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/12/U8SngK.png"><img src="https://s1.ax1x.com/2020/07/12/U8SngK.png" alt="U8SngK.png"></a></p>
+<h3 id="评论框"><a href="#评论框" class="headerlink" title="评论框"></a>评论框</h3><p>评论框有两部分组成</p>
+<ol>
+<li><code>TextArea</code>的输入框: <code>Input.TextArea</code></li>
+<li>提交评论的按钮: <code>Button</code></li>
+</ol>
+<pre><code class="lang-react">// comment-input
+import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+import moment from &#39;moment&#39;
+import &#123; Button, Input &#125; from &#39;antd&#39;
+
+export default class LionCommentInput extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      value: &#39;&#39;
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Input.TextArea
+          rows=&#123;4&#125;
+          onChange=&#123;e =&gt; this.onChange(e)&#125;
+          value=&#123;this.state.value&#125;
+        /&gt;
+        &lt;Button onClick=&#123;e =&gt; this.onSubmit()&#125; type=&quot;primary&quot;&gt;
+          添加评论
+        &lt;/Button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  onChange(e) &#123;
+    this.setState(&#123;
+      value: e.target.value
+    &#125;)
+  &#125;
+
+  onSubmit() &#123;
+    console.log(this.state.value, moment().fromNow())
+    const commentInfo = &#123;
+      id: Date.now(),
+      name: &#39;coderlion&#39;,
+      avatar: &#39;https://www.coderlion.com/images/user_img.jpeg&#39;,
+      content: &lt;p&gt;&#123;this.state.value&#125;&lt;/p&gt;,
+      datetime: moment()
+    &#125;
+
+    this.props.submitComment(commentInfo)
+    this.setState(&#123;
+      value: &#39;&#39;
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+<h3 id="评论列表"><a href="#评论列表" class="headerlink" title="评论列表"></a>评论列表</h3><p>评论列表主要是使用<code>Comment</code>组件, <code>Comment</code>组件有一些属性</p>
+<ul>
+<li><p><code>author</code>: 展示作者的名称</p>
+</li>
+<li><p><code>avatar</code>: 展示作者的头像</p>
+<ul>
+<li>可以使用<code>Avatar</code>的组件进行展示</li>
+</ul>
+</li>
+<li><p><code>content</code>: 展示评论的内容</p>
+</li>
+<li><p><code>datetime</code>: 展示评论的时间</p>
+<ul>
+<li>可以使用<code>Tooltip</code>组件, 当鼠标放在上面时, 会显示对应的<code>title</code>内容</li>
+</ul>
+</li>
+<li><p><code>actions</code>: 评论下方的操作按钮</p>
+<ul>
+<li>可以使用<code>DeleteOutlined</code>, 但是它来自<code>@ant-design/icons</code>, 需要我们进行安装</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-react">// comment-item.js
+import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+import &#123; Comment, Avatar, Tooltip &#125; from &#39;antd&#39;
+import &#123; DeleteOutlined &#125; from &#39;@ant-design/icons&#39;
+
+export default class LionCommentItem extends PureComponent &#123;
+  render() &#123;
+    const &#123; comment &#125; = this.props
+
+    return (
+      &lt;Comment
+        author=&#123;&lt;a href=&quot;/#&quot;&gt;&#123;comment.name&#125;&lt;/a&gt;&#125;
+        avatar=&#123;&lt;Avatar src=&#123;comment.avatar&#125; alt=&#123;comment.name&#125; /&gt;&#125;
+        content=&#123;comment.content&#125;
+        datetime=&#123;
+          &lt;Tooltip title=&#123;comment.datetime.format(&#39;YYYY-MM-DD HH:mm:ss&#39;)&#125;&gt;
+            &lt;span&gt;&#123;comment.datetime.fromNow()&#125;&lt;/span&gt;
+          &lt;/Tooltip&gt;
+        &#125;
+        actions=&#123;this.getActions()&#125;
+      /&gt;
+    )
+  &#125;
+
+  getActions() &#123;
+    return [
+      &lt;span onClick=&#123;this.props.removeItem&#125;&gt;
+        &lt;DeleteOutlined /&gt; 删除
+      &lt;/span&gt;
+    ]
+  &#125;
+&#125;
+</code></pre>
+<h3 id="App-组件"><a href="#App-组件" class="headerlink" title="App 组件"></a>App 组件</h3><p>我们在<code>App.js</code>中, 使用封装好的两个组件</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+import LionCommentInput from &#39;./comment-input&#39;
+import LionCommentItem from &#39;./comment-item&#39;
+
+export default class App extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      commentList: []
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div style=&#123;&#123; width: '500px', padding: '20px' &#125;&#125;&gt;
+        &#123;this.state.commentList.map((item, index) =&gt; &#123;
+          return (
+            &lt;LionCommentItem
+              key=&#123;item.id&#125;
+              comment=&#123;item&#125;
+              index=&#123;index&#125;
+              removeItem=&#123;e =&gt; this.removeItem(index)&#125;
+            /&gt;
+          )
+        &#125;)&#125;
+        &lt;LionCommentInput submitComment=&#123;this.submitComment.bind(this)&#125; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  submitComment(comment) &#123;
+    this.setState(&#123;
+      commentList: [...this.state.commentList, comment]
+    &#125;)
+  &#125;
+
+  removeItem(index) &#123;
+    const newCommentList = [...this.state.commentList]
+    newCommentList.splice(index, 1)
+    this.setState(&#123;
+      commentList: newCommentList
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

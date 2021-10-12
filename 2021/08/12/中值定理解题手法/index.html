@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 中值定理解题方法</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>中值定理解题方法 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/8/12
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/数学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数学
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/微分" style=color:#ff7d73>
+                    微分
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="型一-罗尔"><a href="#型一-罗尔" class="headerlink" title="型一: 罗尔"></a>型一: 罗尔</h2><h3 id="f-n-xi-0"><a href="#f-n-xi-0" class="headerlink" title="$f^{(n)}(\xi)=0$"></a>$f^{(n)}(\xi)=0$</h3><ol>
+<li>$f’(\xi)=0: f(a)=f(b)$</li>
+<li>$f’’(\xi)=0: \begin{cases}f(a)=f(c)=f(b)\f’(\xi_1)=f’(\xi_2)\end{cases}$</li>
+</ol>
+<h2 id="型二-仅有-xi-无其他字母"><a href="#型二-仅有-xi-无其他字母" class="headerlink" title="型二:仅有 $\xi$, 无其他字母"></a>型二:仅有 $\xi$, 无其他字母</h2><h3 id="Case-1-还原法"><a href="#Case-1-还原法" class="headerlink" title="Case 1: 还原法"></a>Case 1: 还原法</h3><p>$条件=\begin{cases}两项\导数差一阶\end{cases}$</p>
+<p>$\cfrac{f’(x)}{f(x)}=[\ln f(x)]’$</p>
+<span id="more"></span>
+<h3 id="Case-2-分组法"><a href="#Case-2-分组法" class="headerlink" title="Case 2: 分组法"></a>Case 2: 分组法</h3><blockquote>
+<p>$f(x) 二阶可导, \lim_\limits{x\to 0}\cfrac{f(x)}{x}=1, f(1)=1$, 证: $\exist\xi\in(0,1)$, 使得 $f’’(\xi)-f’(\xi)+1=0$</p>
+<p>[分析] $F(x)=[f’(x)-1]’-[f’(x)-1]=y’-y$, 再使用<strong>还原法</strong>即可</p>
+<script type="math/tex; mode=display">
+证: 令 \phi(x)=e^{-x}[f'(x)-1]\\
+\because f(0)=0, f(1)=1, f'(0)=1\\
+\therefore 由拉格朗日中值定理, \exist c\in(0,1), 使得\\
+f'(c)=f(1)-f(0)=1\\
+又由罗尔定理,\exist\xi\in(0,c)\subset(0,1), 使得\\
+\phi'(\xi)=0, 即 e^{-\xi}[f''(\xi)-f'(\xi)+1]=0\\
+\because e^{-\xi}\neq0\\
+\therefore f''(\xi)-f'(\xi)+1=0 成立</script></blockquote>
+<h2 id="型三-有-xi-有-a-b"><a href="#型三-有-xi-有-a-b" class="headerlink" title="型三: 有 $\xi$ 有 $a, b$"></a>型三: 有 $\xi$ 有 $a, b$</h2><h3 id="Case-1-xi-与-a-b-可分"><a href="#Case-1-xi-与-a-b-可分" class="headerlink" title="Case 1: $\xi$ 与 $a, b$ 可分"></a>Case 1: $\xi$ 与 $a, b$ 可分</h3><script type="math/tex; mode=display">
+\begin{cases}
+\cfrac{f(b)-f(a)}{b-a} \Rightarrow 拉格朗日中值定理 \\
+\cfrac{f(b)-f(a)}{g(b)-g(a)}\Rightarrow 柯西中值定理
+\end{cases}</script><h3 id="Case-2-xi-与-a-b-不可分"><a href="#Case-2-xi-与-a-b-不可分" class="headerlink" title="Case 2: $\xi$ 与 $a,b$ 不可分"></a>Case 2: $\xi$ 与 $a,b$ 不可分</h3><script type="math/tex; mode=display">
+\begin{cases}
+\xi \rightarrow x\\
+去分母、移项
+\end{cases}
+\Rightarrow f(x)=0
+\Rightarrow [g(x)]'=0</script><h2 id="型四-有-xi-eta"><a href="#型四-有-xi-eta" class="headerlink" title="型四: 有 $\xi,\eta$"></a>型四: 有 $\xi,\eta$</h2><h3 id="Case-1-仅有-f’-xi-f’-eta"><a href="#Case-1-仅有-f’-xi-f’-eta" class="headerlink" title="Case 1: 仅有 $f’(\xi), f’(\eta)$"></a>Case 1: 仅有 $f’(\xi), f’(\eta)$</h3><p>找三点、两次拉格朗日</p>
+<h3 id="Case-2-xi-eta-项复杂度不同"><a href="#Case-2-xi-eta-项复杂度不同" class="headerlink" title="Case 2: $\xi, \eta$ 项复杂度不同"></a>Case 2: $\xi, \eta$ 项复杂度不同</h3><script type="math/tex; mode=display">
+留复杂项\Rightarrow\begin{cases}()'\Rightarrow 拉格朗日中值定理\\\cfrac{()'}{()'}\Rightarrow 柯西中值定理\end{cases}</script><h2 id="型五-拉格朗日用法"><a href="#型五-拉格朗日用法" class="headerlink" title="型五: 拉格朗日用法"></a>型五: 拉格朗日用法</h2><ol>
+<li>$f(b)-f(a), \cfrac{f(b)-f(a)}{b-a}$ 使用拉格朗日</li>
+<li>$\begin{cases}f(a)、f(c)、f(b)\f’(a)、f’(c)、f’(b)\end{cases}$ 两次拉格朗日</li>
+<li>$f’\Rightarrow f$ 使用拉格朗日 </li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

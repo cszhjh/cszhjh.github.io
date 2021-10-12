@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 深入理解setState</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>深入理解setState </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/25
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/setState" style=color:#ff7d73>
+                    setState
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="为什么使用-setState"><a href="#为什么使用-setState" class="headerlink" title="为什么使用 setState"></a>为什么使用 setState</h2><p>回到最早的案例, 当点击一个<strong>改变文本</strong>的按钮时, 修改界面显示的内容</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIyydK.png"><img src="https://s1.ax1x.com/2020/06/10/tIyydK.png" alt="tIyydK.png"></a></p>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+    this.state = &#123;
+      message: &#39;Hello World&#39;
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;&#123;this.state.message&#125;&lt;/h2&gt;
+        &lt;button onClick=&#123;e =&gt; this.changeText()&#125;&gt;改变文本&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  changeText() &#123;
+    // ...
+  &#125;
+&#125;
+</code></pre>
+<span id="more"></span>
+<p><strong>关键是<code>changeText</code>中应该如何实现?</strong></p>
+<p>我们是否可以通过直接修改<code>state</code>中的<code>message</code>来修改界面呢?</p>
+<pre><code class="lang-react">changeText() &#123;
+  this.state.message = &#39;Hello React&#39;
+&#125;
+</code></pre>
+<ul>
+<li>点击不会有任何反应, 为什么呢?</li>
+<li>因为我们修改了<code>state</code>之后, 希望 React 根据最新的<code>state</code>来重新渲染界面, 但是这种方式的修改, React 并不知道数据发生了变化</li>
+<li>React 并没有实现类似于 Vue2 中的<code>Object.defineProperty</code>或者 Vue3 中的<code>Proxy</code>的方式来监听数据的变化</li>
+<li>我们必须通过<code>setState</code>来告知 React 数据已经发生了变化</li>
+</ul>
+<p>在组件中并没有实现<code>setState</code>的方法, 为什么可以直接调用呢?</p>
+<p>原因很简单, <code>setState</code>方法是从<code>Component</code>中继承过来的</p>
+<pre><code class="lang-react">Component.prototype.setState = function(partialState, callback) &#123;
+  invariant(
+    typeof partialState === &#39;object&#39; ||
+      typeof partialState === &#39;function&#39; ||
+      partialState == null,
+    &#39;setState(...): takes an object of state variables to update or a &#39; +
+      &#39;function which returns an object of state variables.&#39;,
+  );
+  this.updater.enqueueSetState(this, partialState, callback, &#39;setState&#39;);
+&#125;;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NB869s.png"><img src="https://s1.ax1x.com/2020/06/25/NB869s.png" alt="NB869s.png"></a></p>
+<p>所以, 我们可以通过调用<code>setState</code>来修改数据</p>
+<ul>
+<li>当我们调用<code>setState</code>时, 会重新执行<code>render</code>函数, 根据最新的<code>state</code>来创建<code>ReactElement</code>对象</li>
+<li>再根据最新的<code>ReactElement</code>对象, 对 DOM 进行修改</li>
+</ul>
+<pre><code class="lang-react">changeText() &#123;
+  this.setState(&#123;
+    message: &#39;Hello React&#39;
+  &#125;)
+&#125;
+</code></pre>
+<h2 id="setState-异步更新"><a href="#setState-异步更新" class="headerlink" title="setState 异步更新"></a>setState 异步更新</h2><pre><code class="lang-react">changeText() &#123;
+  this.setState(&#123;
+    message: &#39;Hello React&#39;
+  &#125;)
+  console.log(this.state.message) // Hello World
+&#125;
+</code></pre>
+<p>最终打印结果是“Hello World”, 可见<code>setState</code>是异步的操作, 我们并不能在执行完<code>setState</code>之后立刻拿到最新的<code>state</code></p>
+<p>为什么<code>setState</code>设计为异步呢?</p>
+<ul>
+<li><code>setState</code>设计为异步其实之前在 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 上也有很多的讨论</li>
+<li>React 核心成员(Redux 作者) Dan Abramov 也有对应的<a target="_blank" rel="noopener" href="https://github.com/facebook/react/issues/11527#issuecomment-360199710">回复</a></li>
+</ul>
+<p><strong>简单总结:</strong></p>
+<ul>
+<li><p><code>setState</code>设计为异步, 可以显著的提升性能</p>
+<ul>
+<li>如果每次调用<code>setState</code>都进行一次更新, 那么意味着<code>render</code>函数会被频繁调用, 界面重新渲染, 效率非常低下</li>
+<li>比较好的办法应该是获取到多个更新, 之后进行批量更新</li>
+</ul>
+</li>
+<li><p>如果同步更新, 但是还没有执行<code>render</code>函数, 那么<code>state</code>和<code>props</code>不能保持同步</p>
+<ul>
+<li><code>state</code>和<code>props</code>不能保持一致性, 会导致在开发中引发很多的问题</li>
+</ul>
+</li>
+</ul>
+<p>那么如何可以获取更新后的<code>state</code>呢?</p>
+<ul>
+<li><code>setState</code>接受两个参数: 第二个参数是一个回调函数, 这个回调函数会在更行后执行</li>
+<li>格式为: <code>setState(partialState, callback)</code></li>
+</ul>
+<pre><code class="lang-react">changeText() &#123;
+  this.setState(&#123;
+    message: &#39;Hello React&#39;
+  &#125;, () =&gt; console.log(this.state.message)) // Hello React
+&#125;
+</code></pre>
+<p>当然, 我们也可以在生命周期函数中获取更新后的<code>state</code></p>
+<pre><code class="lang-react">componentDidUpdate(prevProps, prevState, snapshot) &#123;
+  console.log(this.state.message) // Hello React
+&#125;
+</code></pre>
+<h2 id="setState-一定是异步吗"><a href="#setState-一定是异步吗" class="headerlink" title="setState 一定是异步吗?"></a>setState 一定是异步吗?</h2><p>验证一: 在<code>setTimeout</code>中的更新</p>
+<pre><code class="lang-react">changeText() &#123;
+  setTimeout(() =&gt; &#123;
+    this.setState(&#123;
+      message: &#39;Hello React&#39;
+    &#125;)
+    console.log(this.state.message) // Hello React
+  &#125;, 0)
+&#125;
+</code></pre>
+<p>验证二: 原生 DOM 事件</p>
+<pre><code class="lang-react">componentDidMount() &#123;
+  const btnEl = document.getElementById(&#39;btn&#39;)
+  btnEl.addEventListener(&#39;click&#39;, e =&gt; &#123;
+    this.setState(&#123;
+      message: &#39;Hello React&#39;
+    &#125;)
+    console.log(this.state.message) // Hello React
+  &#125;)
+&#125;
+</code></pre>
+<p>分成两种情况</p>
+<ul>
+<li>在组件<strong>生命周期</strong>、 <strong>React 合成事件</strong>中, <code>setState</code>是异步的</li>
+<li>在<code>setTimeout</code>、<strong>原生 DOM</strong> 事件中, <code>setState</code>是同步的</li>
+</ul>
+<p>React 中其实是通过一个函数来确定的: <code>enqueueSetState</code>部分实现</p>
+<pre><code class="lang-react">enqueueSetState(inst, payload, callback) &#123;
+  const fiber = getInstance(inst);
+
+  // 会根据 React 上下文计算一个当前时间
+  const currentTime = requestCurrentTimeForUpdate();
+  const suspenseConfig = requestCurrentSuspenseConfig();
+
+  // 这个函数会返回当前是同步还是异步更新(准确的说是优先级)
+  const expirationTime = computeExpirationForFiber(
+    currentTime,
+    fiber,
+    suspenseConfig,
+  );
+
+  const update = createUpdate(expirationTime, suspenseConfig);
+  update.payload = payload;
+  if (callback !== undefined &amp;&amp; callback !== null) &#123;
+    if (__DEV__) &#123;
+      warnOnInvalidCallback(callback, &#39;setState&#39;);
+    &#125;
+    update.callback = callback;
+  &#125;
+
+  enqueueUpdate(fiber, update);
+  scheduleWork(fiber, expirationTime);
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBdBfU.png"><img src="https://s1.ax1x.com/2020/06/25/NBdBfU.png" alt="NBdBfU.png"></a></p>
+<p><code>computeExpirationForFiber</code>函数的部分实现</p>
+<ul>
+<li><code>Sync</code>优先级最高, 即创建就更新</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NB6aJ1.png"><img src="https://s1.ax1x.com/2020/06/25/NB6aJ1.png" alt="NB6aJ1.png"></a></p>
+<h2 id="setState-的合并"><a href="#setState-的合并" class="headerlink" title="setState 的合并"></a>setState 的合并</h2><h3 id="数据的合并"><a href="#数据的合并" class="headerlink" title="数据的合并"></a>数据的合并</h3><p>假如我们有这样的数据</p>
+<pre><code class="lang-react">this.state = &#123;
+  name: &#39;coderlion&#39;,
+  message: &#39;Hello World&#39;
+&#125;
+</code></pre>
+<p>我们需要更新<code>message</code></p>
+<ul>
+<li>通过<code>setState</code>去修改<code>message</code>是不会对<code>name</code>产生影响的</li>
+</ul>
+<pre><code class="lang-react">changeText() &#123;
+  this.setState(&#123;
+    message: &#39;Hello React&#39;
+  &#125;)
+&#125;
+</code></pre>
+<p>为什么不会产生影响呢? 源码中其实是有对<strong>原对象</strong>和<strong>新对象</strong>进行合并的</p>
+<ul>
+<li>事实上就是使用<code>Object.assign(target, ...sources)</code>来完成的</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NB6qFs.png"><img src="https://s1.ax1x.com/2020/06/25/NB6qFs.png" alt="NB6qFs.png"></a></p>
+<h3 id="多个-setState-合并"><a href="#多个-setState-合并" class="headerlink" title="多个 setState 合并"></a>多个 setState 合并</h3><p>比如我们还是有一个<code>counter</code>属性, 记录当前的数字</p>
+<pre><code class="lang-react">increment() &#123;
+  this.setState(&#123;
+    counter: this.state.counter + 1
+  &#125;)
+
+  this.setState(&#123;
+    counter: this.state.counter + 1
+  &#125;)
+
+  this.setState(&#123;
+    counter: this.state.counter + 1
+  &#125;)
+&#125;
+</code></pre>
+<p>上面代码执行完之后<code>counter</code>会变成几呢? 答案是 1</p>
+<p>为什么呢? 因为它会对多个<code>state</code>进行合并</p>
+<p>其实在源码的<code>processUpdateQueue</code>中有一个<code>do...while</code>循环, 就是从队列中取出多个<code>state</code>进行合并的</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBcG1P.png"><img src="https://s1.ax1x.com/2020/06/25/NBcG1P.png" alt="NBcG1P.png"></a></p>
+<p>如何可以做到让<code>counter</code>最终变成 3 呢?</p>
+<pre><code class="lang-react">increment() &#123;
+  this.setState((state, props) =&gt; (&#123; counter: state.counter + 1 &#125;))
+
+  this.setState((state, props) =&gt; (&#123; counter: state.counter + 1 &#125;))
+
+  this.setState((state, props) =&gt; (&#123; counter: state.counter + 1 &#125;))
+&#125;
+</code></pre>
+<p>为什么传入一个函数就可以变成 3 呢?</p>
+<p>原因是多个<code>state</code>进行合并时, 每次遍历都会执行一次函数</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBgNgx.png"><img src="https://s1.ax1x.com/2020/06/25/NBgNgx.png" alt="NBgNgx.png"></a></p>
+<h2 id="React-更新机制"><a href="#React-更新机制" class="headerlink" title="React 更新机制"></a>React 更新机制</h2><p>我们在前面已经学习 React 的渲染流程</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBWN2n.png"><img src="https://s1.ax1x.com/2020/06/25/NBWN2n.png" alt="NBWN2n.png"></a></p>
+<p>那么 React 的更新流程是什么呢?</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBfOfJ.png"><img src="https://s1.ax1x.com/2020/06/25/NBfOfJ.png" alt="NBfOfJ.png"></a></p>
+<p>React 在<code>props</code>或<code>state</code>发生改变时, 会调用 React 的<code>render</code>方法, 创建出一颗不同的树</p>
+<p>React 需要基于这两棵不同的树之间的差别来判断如何有效的更新 UI</p>
+<ul>
+<li>如果一棵树参考另外一棵树进行完全比较更新, 那么即使是最先进的算法, 该算法的时间复杂度为 O(n^3), 其中<code>n</code>是树中元素的数量, 具体参照<a target="_blank" rel="noopener" href="https://grfia.dlsi.ua.es/ml/algorithms/references/editsurvey_bille.pdf">《A Survey on Tree Edit Distance and Related Problems》</a></li>
+<li>如果在 React 中使用了该算法, 那么展示 1000 个元素所需要执行的计算量将在十亿的量级范围</li>
+<li>这个开销太过昂贵了, React 的更新性能会变得非常低效</li>
+</ul>
+<p>于是, React 对于这个算法进行了优化, 将其优化成了 O(n), 如何优化的呢?</p>
+<ul>
+<li>同层节点之间相互比较, 不会垮节点比较</li>
+<li>不同类型的节点, 产生不同的树结构</li>
+<li>开发中, 可以通过<code>key</code>来指定哪些节点在不同的渲染下保持稳定</li>
+</ul>
+<h2 id="Diffing-算法"><a href="#Diffing-算法" class="headerlink" title="Diffing 算法"></a>Diffing 算法</h2><h3 id="对比不同类型的元素"><a href="#对比不同类型的元素" class="headerlink" title="对比不同类型的元素"></a>对比不同类型的元素</h3><p>当节点为不同的与安素, React 会拆卸原有的树, 并且建立起新的树</p>
+<ul>
+<li>当一个元素从<code>&lt;a&gt;</code>变成<code>&lt;img&gt;</code>, 从<code>&lt;article&gt;</code>变成<code>&lt;comment&gt;</code>, 或从<code>&lt;button&gt;</code>变成<code>&lt;div&gt;</code>都会触发一个完整的重建流程</li>
+<li>当卸载一棵树时, 对应的 DOM 节点也会被销毁, 组件实例将执行<code>componentWillUnmount()</code>方法</li>
+<li>当建立一棵新的树时, 对应的 DOM 节点会被创建及插入到 DOM 中, 组件实例将执行<code>componentWillMount()</code>方法, 紧接着执行<code>componentDidMount()</code>方法</li>
+</ul>
+<p>比如下面的代码更改</p>
+<ul>
+<li>React 会销毁<code>Counter</code>组件并重新装载一个新的组件, 而不会对<code>Counter</code>进行复用</li>
+</ul>
+<pre><code class="lang-jsx">&lt;div&gt;
+  &lt;Counter /&gt;
+&lt;/div&gt;
+
+&lt;span&gt;
+  &lt;Counter /&gt;
+&lt;/span&gt;
+</code></pre>
+<h3 id="对比同类型的元素"><a href="#对比同类型的元素" class="headerlink" title="对比同类型的元素"></a>对比同类型的元素</h3><p>当对比两个相同类型的 React 元素时, React 会保留 DOM 节点, 仅比对更新有改变的属性</p>
+<p>比如下面的代码更改</p>
+<ul>
+<li>通过比对这两个元素, React 知道只需要修改 DOM 元素上的<code>className</code>属性</li>
+</ul>
+<pre><code class="lang-jsx">&lt;div className=&quot;before&quot; title=&quot;stuff&quot; /&gt;
+
+&lt;div className=&quot;after&quot; title=&quot;stuff&quot; /&gt;
+</code></pre>
+<p>比如下面的代码更改</p>
+<ul>
+<li>当更新<code>style</code>属性时, React 仅更新有所改变的属性</li>
+<li>通过比对这两个元素, React 知道只需要修改 DOM 元素上的<code>color</code>样式, 无需修改<code>fontWeight</code></li>
+</ul>
+<pre><code class="lang-jsx">&lt;div style=&#123;&#123; color: 'red', fontWeight: 'bold' &#125;&#125; /&gt;
+
+&lt;div style=&#123;&#123; color: 'green', fontWeight: 'bold' &#125;&#125; /&gt;
+</code></pre>
+<p>如果是同类型的组件元素</p>
+<ul>
+<li>组件会保持不变, React 会更新该组件的<code>props</code>, 并且调用<code>componentWillReceiveProps()</code>和<code>componentWillUpdate()</code>方法</li>
+<li>下一步, 调用<code>render()</code>方法, diff 算法将在之前的结果以及新的结果中进行递归</li>
+</ul>
+<h3 id="对子节点进行递归"><a href="#对子节点进行递归" class="headerlink" title="对子节点进行递归"></a>对子节点进行递归</h3><p>在默认条件下, 当递归 DOM 节点的子元素时, React 会同时遍历两个子元素的列表, 当产生差异时, 生成一个<code>mutation</code></p>
+<p>在末尾插入一条数据的情况</p>
+<pre><code class="lang-jsx">&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;first&lt;/li&gt;
+  &lt;li&gt;second&lt;/li&gt;
+  &lt;li&gt;third&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<ul>
+<li>前面两个比较是完全相同的, 所以不会产生<code>mutation</code></li>
+<li>最后一个比较, 产生一个<code>mutation</code>, 将其插入到新的 DOM 树中即可</li>
+</ul>
+<p>但是如果我们是在中间插入一条数据</p>
+<pre><code class="lang-jsx">&lt;ul&gt;
+  &lt;li&gt;星际穿越&lt;/li&gt;
+  &lt;li&gt;盗梦空间&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;大话西游&lt;/li&gt;
+  &lt;li&gt;星际穿越&lt;/li&gt;
+  &lt;li&gt;盗梦空间&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<ul>
+<li>React 会对每一个子元素产生一个<code>mutation</code>, 而不是保持<code>&lt;li&gt;星际穿越&lt;/li&gt;</code>和<code>&lt;li&gt;盗梦空间&lt;/li&gt;</code>的不变</li>
+<li>这种低效的比较方式会带来一定的性能问题</li>
+</ul>
+<h2 id="keys-的优化"><a href="#keys-的优化" class="headerlink" title="keys 的优化"></a>keys 的优化</h2><p>我们在前面遍历列表时, 总是会提示一个警告, 让我们加入一个<code>key</code>属性</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/13/tvdTAA.png"><img src="https://s1.ax1x.com/2020/06/13/tvdTAA.png" alt="tvdTAA.png"></a></p>
+<pre><code>import React, &#123; Component &#125; from &#39;react&#39;
+
+export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      movies: [&#39;星际穿越&#39;, &#39;盗梦空间&#39;]
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;电影列表&lt;/h2&gt;
+        &lt;ul&gt;
+          &#123;
+            this.state.movies.map((item, index) =&gt; &#123;
+              return &lt;li&gt;&#123;item&#125;&lt;/li&gt;
+            &#125;)
+          &#125;
+        &lt;/ul&gt;
+        &lt;button onClick=&#123;e =&gt; this.insertMovie()&#125;&gt;插入数据&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  insertMovie() &#123;
+    // ...
+  &#125;
+&#125;
+</code></pre><p>方式一: 在最后位置插入数据</p>
+<ul>
+<li>这种情况, 有无<code>key</code>意义并不大</li>
+</ul>
+<pre><code>insertMovie() &#123;
+  const newMovies = [...this.state.movies, &#39;大话西游&#39;]
+  this.setState(&#123;
+    movies: newMovies
+  &#125;)
+&#125;
+</code></pre><p>方式二: 在前面插入数据</p>
+<ul>
+<li>这种做法, 在没有<code>key</code>的情况下, 所有的<code>li</code>都需要进行修改</li>
+</ul>
+<pre><code>insertMovie() &#123;
+  const newMovies = [&#39;大话西游&#39;, ...this.state.movies]
+  this.setState(&#123;
+    movies: newMovies
+  &#125;)
+&#125;
+</code></pre><p>当子元素(这里的<code>li</code>)拥有<code>key</code>时, React 使用<code>key</code>来匹配原有树上的子元素以及最新树上的子元素</p>
+<ul>
+<li>在下面这种场景下, <code>key</code>为<code>111</code>和<code>222</code>的元素仅仅进行位移, 不需要进行任何的修改</li>
+<li>将<code>key</code>为<code>333</code>的元素插入到最前面的位置即可</li>
+</ul>
+<pre><code>&lt;ul&gt;
+  &lt;li key=&quot;111&quot;&gt;星际穿越&lt;/li&gt;
+  &lt;li key=&quot;222&quot;&gt;盗梦空间&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul&gt;
+  &lt;li key=&quot;333&quot;&gt;Connecticut&lt;/li&gt;
+  &lt;li key=&quot;111&quot;&gt;星际穿越&lt;/li&gt;
+  &lt;li key=&quot;222&quot;&gt;盗梦空间&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p><code>key</code>的注意事项</p>
+<ul>
+<li><code>key</code>应该是<strong>唯一</strong>的</li>
+<li><code>key</code>不要使用随机数(随机数在下一次<code>render</code>时, 会重新生成一个数字)</li>
+<li>使用<code>index</code>作为<code>key</code>, 对性能是没有优化的</li>
+</ul>
+<h2 id="SCU-的优化"><a href="#SCU-的优化" class="headerlink" title="SCU 的优化"></a>SCU 的优化</h2><h3 id="render-函数被调用"><a href="#render-函数被调用" class="headerlink" title="render 函数被调用"></a>render 函数被调用</h3><p>我们使用之前的一个嵌套案例</p>
+<ul>
+<li>在<code>App</code>中, 我们增加了一个计数器的代码</li>
+<li>当点击<code>+1</code>时, 会重新调用<code>App</code>的<code>render</code>函数</li>
+<li>而当<code>App</code>的<code>render</code>函数被调用时, 所有的子组件的<code>render</code>函数都会被重新调用</li>
+</ul>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+function Header() &#123;
+  console.log(&#39;Header Render 被调用&#39;)
+  return &lt;h2&gt;Header&lt;/h2&gt;
+&#125;
+
+class Main extends Component &#123;
+  render() &#123;
+    console.log(&#39;Main Render 被调用&#39;)
+    return (
+      &lt;div&gt;
+        &lt;Banner /&gt;
+        &lt;ProductList /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+function Banner() &#123;
+  console.log(&#39;Banner Render 被调用&#39;)
+  return &lt;div&gt;Banner&lt;/div&gt;
+&#125;
+
+function ProductList() &#123;
+  console.log(&#39;ProductList Render 被调用&#39;)
+  return (
+    &lt;ul&gt;
+      &lt;li&gt;商品1&lt;/li&gt;
+      &lt;li&gt;商品2&lt;/li&gt;
+      &lt;li&gt;商品3&lt;/li&gt;
+      &lt;li&gt;商品4&lt;/li&gt;
+      &lt;li&gt;商品5&lt;/li&gt;
+    &lt;/ul&gt;
+  )
+&#125;
+
+function Footer() &#123;
+  console.log(&#39;Footer Render 被调用&#39;)
+  return &lt;h2&gt;Footer&lt;/h2&gt;
+&#125;
+
+export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      counter: 0
+    &#125;
+  &#125;
+
+  render() &#123;
+    console.log(&#39;App Render 被调用&#39;)
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: &#123;this.state.counter&#125;&lt;/h2&gt;
+        &lt;button onClick=&#123;e =&gt; this.increment()&#125;&gt;+1&lt;/button&gt;
+        &lt;Header /&gt;
+        &lt;Main /&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  increment() &#123;
+    this.setState(&#123;
+      counter: this.state.counter + 1
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/19/NKTpdO.png"><img src="https://s1.ax1x.com/2020/06/19/NKTpdO.png" alt="NKTpdO.png"></a></p>
+<p>那么, 我们可以思考一下, 在以后的开发中, 我们只要是修改了<code>App</code>中的数据, 所有的组件都需要重新<code>render</code>, 进行 diff 算法, 性能必然是很低的</p>
+<ul>
+<li>事实上, 很多的组件没有必须要重新<code>render</code></li>
+<li>它们调用<code>render</code>应该有一个前提, 就是依赖的数据(state、props)发生改变时, 再调用自己的<code>render</code>方法</li>
+</ul>
+<p>如何来控制<code>render</code>方法是否被调用呢?</p>
+<ul>
+<li>通过<code>shouldComponentUpdate</code>方法即可</li>
+</ul>
+<h3 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h3><p>React 给我们提供了一个生命周期方法<code>shouldComponentUpdate</code>(很多时候, 我们简称为SCU), 这个方法接受参数, 并且需要有返回值</p>
+<ul>
+<li><p>该方法有两个参数</p>
+<ol>
+<li><code>nextProps</code>修改之后, 最新的<code>props</code>属性</li>
+<li><code>nextState</code>修改之后, 最新的<code>state</code>属性</li>
+</ol>
+</li>
+<li><p>该方法返回值是一个<code>Boolean</code>类型</p>
+<ul>
+<li>返回值为<code>true</code>, 那么就需要调用<code>render</code>方法</li>
+<li>返回值为<code>false</code>, 那么就不需要调用<code>render</code>方法</li>
+<li>默认返回<code>true</code>, 也就是只要<code>state</code>发生改变, 就会调用<code>render</code>方法</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-react">shouldComponentUpdate(nextProps, nextState) &#123;
+  return true
+&#125;
+</code></pre>
+<p>我们可以控制它返回的内容, 来决定是否需要重新渲染</p>
+<p>比如我们在<code>App</code>中增加一个<code>message</code>属性</p>
+<ul>
+<li>JSX 中并没有依赖这个<code>message</code>, 那么它的改变不应该引起重新渲染</li>
+<li>但是因为<code>render</code>监听到<code>state</code>的改变, 就会重新<code>render</code>, 所以最后<code>render</code>方法还是被重新调用了</li>
+</ul>
+<pre><code class="lang-react">export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      counter: 0,
+      message: &#39;Hello World&#39;
+    &#125;
+  &#125;
+
+  render() &#123;
+    console.log(&#39;App Render 被调用&#39;)
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: &#123;this.state.counter&#125;&lt;/h2&gt;
+        &lt;button onClick=&#123;e =&gt; this.increment()&#125;&gt;+1&lt;/button&gt;
+        &lt;button onClick=&#123;e =&gt; this.changeText()&#125;&gt;改变文本&lt;/button&gt;
+        &lt;Header /&gt;
+        &lt;Main /&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  increment() &#123;
+    this.setState(&#123;
+      counter: this.state.counter + 1
+    &#125;)
+  &#125;
+
+  changeText() &#123;
+    this.setState(&#123;
+      message: &#39;Hello React&#39;
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+<p>这个时候, 我们可以通过实现<code>shouldComponentUpdate</code>来决定要不要重新调用<code>render</code>方法</p>
+<ul>
+<li>这个时候, 我们改变<code>counter</code>时, 会重新渲染</li>
+<li>如果, 我们改变的是<code>message</code>, 那么默认返回的是<code>false</code>, 那么就不会重新渲染</li>
+</ul>
+<pre><code class="lang-react">shouldComponentUpdate(nextProps, nextState) &#123;
+  if (nextState.counter !== this.state.counter) &#123;
+    return true
+  &#125;
+
+  return false
+&#125;
+</code></pre>
+<p>但是我们的代码依然没有优化到最好, 因为当<code>counter</code>改变时, 所有的子组件依然重新渲染了</p>
+<ul>
+<li>所以, 事实上我们应该实现所有的子组件的<code>shouldComponentUpdate</code></li>
+</ul>
+<p>比如<code>Main</code>组件, 可以进行如下实现</p>
+<ul>
+<li><code>shouldComponentUpdate</code>默认返回一个<code>false</code></li>
+<li>在特定情况下, 需要更新时, 我们在上面添加对应的条件即可</li>
+</ul>
+<pre><code class="lang-react">class Main extends Component &#123;
+
+  shouldComponentUpdate(nextProps, nextState) &#123;
+    return false
+  &#125;
+
+  render() &#123;
+    console.log(&#39;Main Render 被调用&#39;)
+    return (
+      &lt;div&gt;
+        &lt;Banner /&gt;
+        &lt;ProductList /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h3 id="PureComponent-和-memo"><a href="#PureComponent-和-memo" class="headerlink" title="PureComponent 和 memo"></a>PureComponent 和 memo</h3><p>如果所有的类, 我们都需要手动来实现<code>shouldComponentUpdate</code>, 那么会给我们开发者增加非常多的工作量</p>
+<p>我们来设想一下<code>shouldComponentUpdate</code>中的各种判断的目的是什么?</p>
+<ul>
+<li><code>props</code>或者<code>state</code>中的数据是否发生了改变, 来决定<code>shouldComponentUpdate</code>返回<code>true</code>或者<code>false</code></li>
+</ul>
+<p>事实上 React 已经考虑到了这一点, 所以 React 已经默认帮我们实现好了, 如何实现呢?</p>
+<ul>
+<li>将<code>class</code>继承自<code>PureComponent</code></li>
+</ul>
+<p>比如我们修改<code>Main</code>组件的代码</p>
+<pre><code class="lang-react">class Main extends PureComponent &#123;
+  render() &#123;
+    console.log(&#39;Main Render 被调用&#39;)
+    return (
+      &lt;div&gt;
+        &lt;Banner /&gt;
+        &lt;ProductList /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><code>PureComponent</code>的原理是什么呢?</p>
+<ul>
+<li>对<code>props</code>和<code>state</code>f进行浅层比较</li>
+</ul>
+<p><strong>查看<code>PureComponent</code>相关的源码</strong></p>
+<ul>
+<li>在<code>PureComponent</code>的原型上增加一个<code>isPureReactComponent</code>为<code>true</code>的属性</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBqkh6.png"><img src="https://s1.ax1x.com/2020/06/25/NBqkh6.png" alt="NBqkh6.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBq7vD.png"><img src="https://s1.ax1x.com/2020/06/25/NBq7vD.png" alt="NBq7vD.png"></a></p>
+<p>这个方法中, 调用<code>!shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState)</code>, 这个<code>shallowEqual</code>就是进行浅层比较</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBLEan.png"><img src="https://s1.ax1x.com/2020/06/25/NBLEan.png" alt="NBLEan.png"></a></p>
+<p><strong>那么, 如果是一个函数式组件呢?</strong></p>
+<p>我们需要使用一个高阶组件<code>memo</code></p>
+<ul>
+<li>我们将之前的<code>Header</code>、<code>Banner</code>、<code>ProductList</code>都通过<code>memo</code>函数进行一层包裹</li>
+<li><code>Footer</code>没有使用<code>memo</code>函数进行包裹</li>
+<li>最终的效果是, 当<code>counter</code>发生改变时, <code>Header</code>、<code>Banner</code>、<code>ProductList</code>的函数不会重新执行, 而<code>Footer</code>的函数会被重新执行</li>
+</ul>
+<pre><code class="lang-react">import React, &#123; Component, PureComponent, memo &#125; from &#39;react&#39;
+
+const MemoHeader = memo(function() &#123;
+  console.log(&#39;Header Render 被调用&#39;)
+  return &lt;h2&gt;Header&lt;/h2&gt;
+&#125;)
+
+class Main extends PureComponent &#123;
+  render() &#123;
+    console.log(&#39;Main Render 被调用&#39;)
+    return (
+      &lt;div&gt;
+        &lt;MemoBanner /&gt;
+        &lt;MemoProductList /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+const MemoBanner = memo(function() &#123;
+  console.log(&#39;Banner Render 被调用&#39;)
+  return &lt;div&gt;Banner&lt;/div&gt;
+&#125;)
+
+const MemoProductList = memo(function() &#123;
+  console.log(&#39;ProductList Render 被调用&#39;)
+  return (
+    &lt;ul&gt;
+      &lt;li&gt;商品1&lt;/li&gt;
+      &lt;li&gt;商品2&lt;/li&gt;
+      &lt;li&gt;商品3&lt;/li&gt;
+      &lt;li&gt;商品4&lt;/li&gt;
+      &lt;li&gt;商品5&lt;/li&gt;
+    &lt;/ul&gt;
+  )
+&#125;)
+
+function Footer() &#123;
+  console.log(&#39;Footer Render 被调用&#39;)
+  return &lt;h2&gt;Footer&lt;/h2&gt;
+&#125;
+
+export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      counter: 0,
+      message: &#39;Hello World&#39;
+    &#125;
+  &#125;
+
+  render() &#123;
+    console.log(&#39;App Render 被调用&#39;)
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: &#123;this.state.counter&#125;&lt;/h2&gt;
+        &lt;button onClick=&#123;e =&gt; this.increment()&#125;&gt;+1&lt;/button&gt;
+        &lt;button onClick=&#123;e =&gt; this.changeText()&#125;&gt;改变文本&lt;/button&gt;
+        &lt;MemoHeader /&gt;
+        &lt;Main /&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  increment() &#123;
+    this.setState(&#123;
+      counter: this.state.counter + 1
+    &#125;)
+  &#125;
+
+  shouldComponentUpdate(nextProps, nextState) &#123;
+    if (nextState.counter !== this.state.counter) &#123;
+      return true
+    &#125;
+
+    return false
+  &#125;
+
+  changeText() &#123;
+    this.setState(&#123;
+      message: &#39;Hello React&#39;
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+<p><strong><code>memo</code>的原理是什么呢?</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/25/NBLxeJ.png"><img src="https://s1.ax1x.com/2020/06/25/NBLxeJ.png" alt="NBLxeJ.png"></a></p>
+<p>最终返回一个对象, 这个对象中有一个<code>compare</code>函数</p>
+<h3 id="不可变数据的力量"><a href="#不可变数据的力量" class="headerlink" title="不可变数据的力量"></a>不可变数据的力量</h3><p>我们通过一个案例来演练我们之前说的不可变数据的重要性</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+
+export default class App extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      friends: [
+        &#123; name: &#39;lilei&#39;, age: 20, height: 1.76 &#125;,
+        &#123; name: &#39;lucy&#39;, age: 18, height: 1.65 &#125;,
+        &#123; name: &#39;tom&#39;, age: 30, height: 1.78 &#125;
+      ]
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;朋友列表&lt;/h2&gt;
+        &lt;ul&gt;
+          &#123;
+            this.state.friends.map((item, index) =&gt; &#123;
+              return (
+                &lt;li key=&#123;item.name&#125;&gt;
+                  &lt;span&gt;&#123;`姓名:$&#123;item.name&#125; 年龄: $&#123;item.age&#125;`&#125;&lt;/span&gt;
+                  &lt;button onClick=&#123;e =&gt; this.incrementAge(index)&#125;&gt;年龄+1&lt;/button&gt;
+                &lt;/li&gt;
+              )
+            &#125;)
+          &#125;
+        &lt;/ul&gt;
+        &lt;button onClick=&#123;e =&gt; this.insertFriend()&#125;&gt;添加新数据&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  insertFriend() &#123;
+
+  &#125;
+
+  incrementAge(index) &#123;
+
+  &#125;
+&#125;
+</code></pre>
+<p><strong>我们来思考一下<code>inertFriend</code>应该如何实现?</strong></p>
+<pre><code class="lang-react">insertFriend() &#123;
+  this.state.friends.push(&#123;name: &#39;lion&#39;, age: 18, height: 1.88&#125;);
+  this.setState(&#123;
+    friends: this.state.friends
+  &#125;)
+&#125;
+</code></pre>
+<ul>
+<li>这种方式会造成界面不会发生刷新, 添加新的数据</li>
+<li>原因是继承自<code>PureComponent</code>, 会进行浅层比较, 浅层比较过程中两个<code>friends</code>是相同的对象</li>
+</ul>
+<pre><code class="lang-react">insertFriend() &#123;
+  this.setState(&#123;
+    friends: [...this.state.friends, &#123;name: &#39;lion&#39;, age: 18, height: 1.88&#125;]
+  &#125;)
+&#125;
+</code></pre>
+<ul>
+<li><code>[...this.state.friends, &#123;name: &#39;lion&#39;, age: 18, height: 1.88&#125;]</code>会生成一个新的数组引用</li>
+<li>在进行浅层比较时, 两个引用的是不同的数组, 所以它们是不相同的</li>
+</ul>
+<p><strong>我们再来思考一下<code>incrementAge</code>应该如何实现?</strong></p>
+<pre><code class="lang-react">incrementAge(index) &#123;
+  this.state.friends[index].age += 1
+  this.setState(&#123;
+    friends: this.state.friends
+  &#125;)
+&#125;
+</code></pre>
+<p>和上面第一种方式类似</p>
+<pre><code class="lang-react">incrementAge(index) &#123;
+  const newFriends = [...this.state.friends]
+  newFriends[index].age += 1
+  this.setState(&#123;
+    friends: newFriends
+  &#125;)
+&#125;
+</code></pre>
+<p>和上面第二种方式类似</p>
+<p>所以, 在真实开发中, 我们要尽量保证<code>state</code>、<code>props</code>中的数据不可变性, 这样我们才能合理和安全的使用<code>PureComponent</code>和<code>memo</code></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

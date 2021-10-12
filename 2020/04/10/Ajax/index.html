@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Ajax</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Ajax </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/10
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/网络">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                网络
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Ajax" style=color:#00bcd4>
+                    Ajax
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="什么是-Ajax"><a href="#什么是-Ajax" class="headerlink" title="什么是 Ajax ?"></a>什么是 Ajax ?</h2><p>Ajax 就是浏览器提供的一套API, 可以通过 JavaScript 调用, 从而实现<strong>通过代码控制请求与相应, 实现网络编程</strong></p>
+<p>优点: 相比传统网络请求(数据写在 HTML 中), 请求只发生在页面区域内, <strong>不会重新加载整个页面(像一些引入内容等)</strong>, 请求速度会更快</p>
+<p>缺点: 不利于 SEO, 就是说不利于搜索引擎优化, 目前百度不支持抓取 JavaScript 里的内容, 只支持抓取 HTML 中的内容, 国外已经支持抓取 JavaScript 里的内容</p>
+<p><strong>注意: 涉及到 Ajax 操作的页面不能使用文件协议访问(文件的方法访问)</strong></p>
+<span id="more"></span>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><p><strong>发送 GET 请求</strong></p>
+<pre><code class="lang-javascript">// xhr 就类似于浏览器的作用(发送请求接收响应)
+var xhr = new XMLHttpRequest()
+
+// 获取相应状态码
+console.log(xhr.readyState) // ==&gt; 0 : 初始化, 请求代理对象
+
+// 以 GET 的方式发送请求
+xhr.open(&#39;GET&#39;, &#39;ajax.php&#39;)
+console.log(xhr.readyState) // ==&gt; 1 : open 方法已经调用, 建立一个与服务端特定端口的连接
+
+// 开始请求, 没有返回值
+xhr.send()    
+console.log(xhr.readyState)// ==&gt; 1 : 这里也是1
+
+// 接收请求(监听状态码改变事件)
+xhr.onreadystatechange = function () &#123;
+  /* 
+    ==&gt; 2,3,4 : 
+    2 指已经接受到相应报文的响应头, 此时只接受到了响应头
+    3 指正在下载相应报文的响应体, 有可能响应体为空, 有可能不完整
+    4 指一切ok, 可以执行后续的逻辑了
+  */
+  if (this.readyState !== 4) return
+
+  //获取相应状态描述
+  console.log(this.responseText)
+  console.log(xhr.readyState)
+&#125;
+</code></pre>
+<p><strong>发送 POST 请求</strong></p>
+<pre><code class="lang-javascript">// 设置请求信息
+
+var xhr = new XMLHttpRequest()
+
+xhr.open(&#39;POST&#39;, &#39;ajax.php&#39;) // 设置请求行
+
+xhr.setRequestHeader(&#39;Foo&#39;, &#39;Bar&#39;) // 设置一个请求头
+
+// 一旦你的请求体是 urlencoded 格式的内容, 一定要设置请求头中 Content-Type 为对应的格式
+xhr.setRequestHeader(&#39;content-Type&#39;,&#39;application/x-www-from-urlencoded&#39;)
+
+xhr.send(&#39;key1=value1&amp;key2=value2&#39;) // 以urlencoded 格式设置请求体
+
+xhr.onreadystatechange = function() &#123;
+  if (this.readyState !=== 4) return
+  console.log(this.responseText)
+&#125;
+</code></pre>
+<p><code>this.responseText</code> 永远获取的都是字符串形式的响应体</p>
+<h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><ol>
+<li>选择一个模板引擎<br><a target="_blank" rel="noopener" href="http://github.com/tj/consolidate.js#supported-template-engines">http://github.com/tj/consolidate.js#supported-template-engines</a></li>
+<li>下载模板引擎JS文件</li>
+<li>引入到页面中</li>
+<li>准备一个模板</li>
+<li>准备一个数据</li>
+<li>通过模板引擎的 JS 提供的一个函数将模板和数据整合得到渲染结果 HTML</li>
+<li>将渲染结果的 HTML 设置到默认元素的 <code>innerHTML</code> 中</li>
+</ol>
+<p>利用模板引擎动态生成表格数据 <strong>(客户端)</strong></p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;table id=&quot;demo&quot;&gt;&lt;/table&gt;
+
+  &lt;!-- 导入模板 JS 文件 --&gt;
+  &lt;script src=&quot;template-web.js&quot;&gt;&lt;/script&gt;
+  &lt;!-- 模板创建元素 --&gt;
+  &lt;script id=&quot;tmpl&quot; type=&quot;text/html&quot;&gt;
+    // each 遍历 comments 中的数据, 动态的生成表格数据 
+    &#123;&#123; each comments &#125;&#125;
+    // each 内部 $value 拿到的是当前被遍历的那个元素, $index拿到的是下标 
+    &lt;tr&gt;
+      &lt;td&gt;&#123;&#123;$value.name&#125;&#125;&lt;/td&gt;
+      &lt;td&gt;&#123;&#123;$value.age&#125;&#125;&lt;/td&gt;
+    &lt;/tr&gt;
+    &#123;&#123;/each&#125;&#125;
+  &lt;/script&gt;
+
+  &lt;!-- ajax获取服务端的json数据 --&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    var xhr = new XMLHttpRequest()
+    xhr.open(&#39;GET&#39;,&#39;art-template.php&#39;)
+    xhr.send()
+    xhr.onreadystatechange = function()&#123;
+      if (this.readyState !== 4) return
+      // 将获取的json数据解析
+      var res = JSON.parse(this.responseText)
+
+      // 模板所需数据
+      var context = &#123;comments:res&#125;
+      var html1 = template(&#39;tmpl&#39;,context)
+      console.log(html1)
+
+      document.getElementById(&#39;demo&#39;).innerHTML = html1
+    &#125;
+
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>服务端</strong></p>
+<pre><code class="lang-php">&lt;?php 
+  // 设置访问头格式
+  header(&#39;Content-Type: application/json&#39;);
+?&gt;
+
+// json数据
+[
+  &#123; &quot;name&quot;: &quot;张三&quot;, &quot;age&quot;: &quot;1&quot; &#125;,    
+  &#123; &quot;name&quot;: &quot;李四&quot;, &quot;age&quot;: &quot;2&quot; &#125;,    
+  &#123; &quot;name&quot;: &quot;王五&quot;, &quot;age&quot;: &quot;3&quot; &#125;    
+]
+</code></pre>
+<h2 id="jQuery-中-Ajax-的使用"><a href="#jQuery-中-Ajax-的使用" class="headerlink" title="jQuery 中 Ajax 的使用"></a>jQuery 中 Ajax 的使用</h2><p><strong>底层接口的使用</strong></p>
+<pre><code class="lang-javascript">$.ajax(&#123;
+  url: &#39;time.php&#39;,
+  type: &#39;get&#39;,
+  // 用于提交到服务端的参数, 如果是 get 请求就通过 url 传递, 如果是 post 请求就通过请求体传递
+  data: &#123; id: 1, name: &#39;张三&#39; &#125;,
+  // 用于设置响应体的类型, 和data参数没关系
+  dataType: &#39;json&#39;,
+  success: function (res) &#123;
+    console.log(res)
+  &#125;
+&#125;)
+</code></pre>
+<p><strong>相关函数</strong></p>
+<pre><code class="lang-javascript">$.ajax(&#123;
+  url: &#39;time.php&#39;,
+  type: &#39;get&#39;,
+  beforeSend: function(xhr) &#123;
+    // 在所有发送请求的操作(open, send)之前执行
+    console.log(xhr)
+  &#125;,
+  success: function(res) &#123;
+    // 隐藏 loading, 只有请求成功(状态码为200)才会执行
+    console.log(res)
+  &#125;,
+  error: function(xhr) &#123;
+  // 隐藏loading, 和success相反
+    console.log(xhr)
+  &#125;,
+  complete: function(xhr) &#123;
+    // 不管是成功还是失败都会执行这个函数, 相当于 success 和 error 的结合体
+    console.log(xhr)
+  &#125;
+&#125;)
+</code></pre>
+<p><strong>高度封装的函数</strong></p>
+<pre><code class="lang-javascript">$.get(&#39;json.php&#39;, &#123; id: 1 &#125;, function(res) &#123;
+  console.log(res)
+&#125;)
+
+$.post(&#39;json.php&#39;, &#123; id: 1 &#125;, function(res) &#123;
+  console.log(res)
+&#125;)
+
+// 转换成json对象
+$.getJSON(&#39;json.php&#39;, &#123; id: 1 &#125;, function(res) &#123;
+  console.log(res)
+&#125;)
+</code></pre>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>同源策略: 同源是指协议, 端口, 域名完全相同, 默认只有<strong>同源的地址才能相互通过 Ajax 发送请求</strong>, 不同源地址之间请求我们称之为跨域请求</p>
+<h2 id="JS-的方法"><a href="#JS-的方法" class="headerlink" title="JS 的方法"></a>JS 的方法</h2><ul>
+<li>所有的请求方式: <strong>ajax、img、link、script、iframe</strong></li>
+<li>校验目标<ol>
+<li>能发出去</li>
+<li>能收回来</li>
+</ol>
+</li>
+</ul>
+<pre><code class="lang-javascript">// ajax 的方式请求(默认不能发送跨域请求)
+
+// img的方式发送请求
+var img = new Image()
+img.src = &#39;不同源地址&#39;
+// 结论: 可以发送不同源地址之间的请求, 但是无法拿到响应结果
+
+// link 真正的定义: 链入一个文档, 通过 rel 属性申明链入的文档与当前文档之间的关系
+var link = document.createElement(&#39;link&#39;)
+link.rel = &#39;stylesheet&#39;
+link.src = &#39;地址&#39;
+document.body.appendChild(&#39;link&#39;) 
+// 结论: 可以发送不同源地址之间的请求, 但是无法拿到响应结果
+</code></pre>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p><strong>客户端</strong></p>
+<pre><code class="lang-javascript">var script = document.createElement(&#39;script&#39;)
+script.src = &#39;服务端地址&#39;
+document.body.appendChild(&#39;script&#39;) 
+function callback(data) &#123;
+  console.log(data)
+&#125;
+</code></pre>
+<p><strong>服务端</strong></p>
+<pre><code class="lang-php">&lt;?php
+header(&#39;Content-Type:applacation/javascript&#39;);
+$json = &#123; &quot;name&quot;: &quot;zhangsan&quot;, &quot;age&quot;: 14 &#125;;
+echo callback(&#123; $json &#125;);
+?&gt;
+</code></pre>
+<p>结论: 可以发送不同源地址之间的请求, 但是无法拿到相应结果, 可以借助于能够作为 JS 执行来拿到结果<br>服务端把 <strong>Content—Type 设置成 javascript</strong>, 并把结果包装在一个函数内, 且又服务端调用该函数, 客户端通过这个函数拿到结果, 这个过程叫做 <strong>JSONP</strong></p>
+<h2 id="jQuery-的方法"><a href="#jQuery-的方法" class="headerlink" title="jQuery 的方法"></a>jQuery 的方法</h2><p>jsonp 和 Ajax 没有必然的联系, 只需要把 dataType 设置成 jsonp 就可以跨域</p>
+<pre><code class="lang-javascript">$.ajax (&#123;
+  url: &#39;服务器地址&#39;,
+  dataType:&#39;jsonp&#39;,
+  success: function (res) &#123;
+    console.log(res)
+  &#125;
+&#125;)
+</code></pre>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p><strong>Cross Origin Resource Share(跨域资源共享)</strong></p>
+<p>这种方案无需客户端做出任何变化, 只是在被请求的服务端响应的时候添加一个 <strong>Access-Content-Allow-Origin</strong> 的响应头, 表示这个资源是否允许指定域请求</p>
+<pre><code class="lang-php">//允许远端访问
+header(&#39;Access-Content-Allow-Origin: *&#39;);
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

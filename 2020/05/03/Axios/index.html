@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Axios</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Axios </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/3
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/网络">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                网络
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Axios" style=color:#ffa2c4>
+                    Axios
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="什么是-Axios"><a href="#什么是-Axios" class="headerlink" title="什么是 Axios?"></a>什么是 Axios?</h2><p>Axios 是一个基于 <code>promise</code> 的 HTTP 库, 可以用在浏览器和 Node.js 中</p>
+<p>Axios 的作用是什么呢: <strong>Axios主要是用于向后台发起网络请求的</strong>, 并且可以在请求中做更多的可控操作</p>
+<p>简单来说: Axios 就是一种<strong>前端向后端发送网络请求</strong>的工具</p>
+<h2 id="网络模块的选择"><a href="#网络模块的选择" class="headerlink" title="网络模块的选择"></a>网络模块的选择</h2><h3 id="传统的-Ajax"><a href="#传统的-Ajax" class="headerlink" title="传统的 Ajax"></a>传统的 Ajax</h3><ul>
+<li>传统的 Ajax 基于 <code>XMLHttpRequest(XHR)</code></li>
+<li>之所以不用它, 是因为它配置和调用方式等非常混乱, 编码起来看起来令人十分头疼</li>
+<li>真实开发中很少直接使用传统的 <code>Ajax</code>, 而是使用 <strong>jQuery 版的 Ajax</strong></li>
+</ul>
+<span id="more"></span>
+<h3 id="jQuery-Ajax"><a href="#jQuery-Ajax" class="headerlink" title="jQuery-Ajax"></a>jQuery-Ajax</h3><ul>
+<li><code>jQuery-Ajax</code> 相对于传统的 <code>Ajax</code> 非常好用</li>
+<li>之所以不用它, 是因为 jQuery 是一个重量级的框架, <strong>代码有 1w+ 行</strong>, 而 <strong>Vue 的代码也是 1w+ 行</strong>, 所以没必要为了网络请求, 特意引用一个 <code>jQuery</code></li>
+</ul>
+<h3 id="Vue-Resource"><a href="#Vue-Resource" class="headerlink" title="Vue-Resource"></a>Vue-Resource</h3><ul>
+<li>官方在 <strong>Vue1.x</strong> 的时候, 推出了 <code>Vue-Resource</code><br><code>Vue-Resource</code> 的<strong>体积相对于 jQuery 小很多</strong></li>
+<li>之所以不用它, 是因为在 <strong>Vue2.0</strong> 推出后, Vue 的作者就在 GitHub 的 Issues 中说明了去掉 Vue-Resource, 并且以后也不会再更新, 意味着<strong>以后 Vue-Reource 不再支持新的 Vue 版本, 也不会再继续更新和维护</strong>, 对以后的项目开发和维护都存在很大的隐患</li>
+</ul>
+<h3 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h3><ul>
+<li>在说明不再继续更新和维护 Vue-Resource 的同时, <strong>作者(尤雨溪)</strong> 还推荐了一个框架: <code>Axios</code></li>
+<li><code>Axios</code> 有非常多的优点, 并且用起来也非常方便</li>
+</ul>
+<h2 id="Axios-使用"><a href="#Axios-使用" class="headerlink" title="Axios 使用"></a>Axios 使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="lang-shell">npm install axios --save
+</code></pre>
+<p>Axios 虽然是一个插件, 但是我们<strong>不需要通过 <code>Vue.use(axios)</code></strong> 来使用, 下载完成后, <strong>只需在项目中引入即可</strong>, 至于为什么, 我认为应该是因为开发者在封装 Axios 时, 没有写 <code>install</code> 这一步</p>
+<h3 id="Axios-的特性"><a href="#Axios-的特性" class="headerlink" title="Axios 的特性"></a>Axios 的特性</h3><ul>
+<li>在浏览器中发送 <strong><code>XMLHttpRequests</code> 请求</strong></li>
+<li>在 Node.js 中发送 <strong>HTTP 请求</strong></li>
+<li>支持 <strong>Promise API</strong></li>
+<li><strong>拦截</strong>请求和响应</li>
+<li><strong>转换</strong>请求和响应数据</li>
+</ul>
+<h3 id="Axios-请求方式"><a href="#Axios-请求方式" class="headerlink" title="Axios 请求方式"></a>Axios 请求方式</h3><ul>
+<li><code>axios(config)</code></li>
+<li><code>axios.request(config)</code></li>
+<li><code>axios.get(url[, config])</code></li>
+<li><code>axios.delete(url[, config])</code></li>
+<li><code>axios.head(url[, config])</code></li>
+<li><code>axios.post(url[, data[, config]])</code></li>
+<li><code>axios.put(url[, data[, config]])</code></li>
+<li><code>axios.patch(url[, data[, config]])</code></li>
+</ul>
+<h3 id="发送-get-请求"><a href="#发送-get-请求" class="headerlink" title="发送 get 请求"></a>发送 get 请求</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/te8Egf.png"><img src="https://s1.ax1x.com/2020/05/28/te8Egf.png" alt="te8Egf.png"></a></p>
+<h3 id="发送并发请求"><a href="#发送并发请求" class="headerlink" title="发送并发请求"></a>发送并发请求</h3><p>使用 <code>axios.all</code>, 可以放入多个请求的数组</p>
+<p><code>axios.all([])</code> 返回的结果是一个数组, 使用 <code>axios.spread</code> 可将数组 <code>[res1,res2]</code> 展开为 <code>res1, res2</code></p>
+<pre><code class="lang-javascript">axios.all([
+  axios.get(&#39;http://123.207.32.32:8000/home/multidata&#39;),
+  axios.get(&#39;http://123.207.32.32:8000/home/data&#39;, &#123;
+    params: &#123; 
+      type: &#39;sell&#39;,
+      page: 1 
+    &#125; 
+  &#125;)
+]).then(axios.spread((res1, res2) =&gt; &#123;
+  console.log(res1)   // 第一个请求的数据
+  console.log(res2)   // 第二个请求的数据
+&#125;))
+</code></pre>
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><p>在开发中, 可能很多参数都是固定的, 例如请求的 URL 前面某些部分总是一致的, 只是后面的参数或是 <code>query</code> 不同<br>这个时候, 我们可以进行一些抽取, 也可以利用 <code>Axios</code> 的全局配置</p>
+<p>例如:</p>
+<ul>
+<li><code>http://123.207.32.32:8000/home/multidata</code></li>
+<li><code>http://123.207.32.32:8000/home/data?type=sell&amp;page=1</code></li>
+</ul>
+<p>我们发现前面的 <code>http://123.207.32.32:8000</code> 总是一样的, 那么就可以进行全局配置</p>
+<p><strong>注: <code>/home</code> 并不是完全一致, <code>/home</code> 只是在某个页面的数据, 并不能代表全部, 有可能做某个页面的时候就不再是 <code>/home</code>, 而是 <code>/category</code></strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/te8eKS.png"><img src="https://s1.ax1x.com/2020/05/28/te8eKS.png" alt="te8eKS.png"></a></p>
+<h3 id="配置请求头-Content-Type"><a href="#配置请求头-Content-Type" class="headerlink" title="配置请求头 Content-Type"></a>配置请求头 Content-Type</h3><p><code>Axios</code> <strong>使用 <code>post</code> 发送数据时</strong>, 默认是直接把 json 放到请求体中提交到后端的<br>也就是说, 我们的 <code>Content-Type</code> 变成了 <code>application/json;charset=utf-8</code>, 这是 Axios <strong>默认的请求头 <code>content-type</code> 类型</strong><br>但是实际我们后端要求的 <code>‘Content-Type’: ‘application/x-www-form-urlencoded’</code> 为多见, 这就与我们不符合</p>
+<p>所以很多小伙伴在这里犯错误, 导致请求数据获取不到, 明明自己的请求地址和参数都对了却得不到数据</p>
+<p>我们现在来说说 <code>post</code> 请求常见的数据格式(<code>content-type</code>)</p>
+<ul>
+<li><code>Content-Type: application/json</code><ul>
+<li>请求体中的数据会以 <code>json</code> 字符串的形式发送到后端</li>
+</ul>
+</li>
+<li><code>Content-Type: application/x-www-form-urlencoded</code><ul>
+<li>请求体中的数据会以普通表单形式(键值对)发送到后端</li>
+</ul>
+</li>
+<li><code>Content-Type: multipart/form-data</code><ul>
+<li>它会将请求体的数据处理为一条消息, 以标签为单元, 用分隔符分开, 既可以上传键值对, 也可以上传文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见的配置选项"><a href="#常见的配置选项" class="headerlink" title="常见的配置选项"></a>常见的配置选项</h3><ul>
+<li><p><strong>请求地址</strong> : <code>url: &#39;/user&#39;</code></p>
+</li>
+<li><p><strong>请求类型</strong> : <code>method: &#39;get&#39;</code></p>
+</li>
+<li><p><strong>请求路径</strong> : <code>baseURL: &#39;http://&#39;</code></p>
+</li>
+<li><p><strong>请求的数据处理</strong> : <code>transformRequest: [function(data)&#123;&#125;]</code></p>
+</li>
+<li><p><strong>请求的数据处理</strong> : <code>transformResponse: [function(data)&#123;&#125;]</code></p>
+</li>
+<li><p><strong>自定义的请求头</strong> : <code>headers: &#123;&#39;x-Requested-With&#39; : * &#39;XMLHttpReqyest&#39;&#125;</code></p>
+</li>
+<li><p><strong>URL查询对象</strong> : <code>params: &#123;id: 12&#125;</code></p>
+</li>
+<li><p><strong>查询对象序列化函数</strong> : <code>paramsSerializer: function(params) &#123;&#125;</code></p>
+</li>
+<li><p><strong>request body</strong> : <code>data: &#123;key: &#39;aa&#39;&#125;</code></p>
+</li>
+<li><p><strong>超时设置</strong> : <code>timeout: 1000</code></p>
+</li>
+<li><p><strong>跨域是否带 token</strong> : <code>withCredentials: false</code></p>
+</li>
+<li><p><strong>自定义请求处理</strong> : <code>adapter: function(resolve, reject, * config) &#123;&#125;</code></p>
+</li>
+<li><p><strong>身份验证信息</strong> : <code>auth: &#123;uname: &#39;&#39;, pwd: &#39;12&#39;&#125;</code></p>
+</li>
+<li><p>响应的数据格式: <code>responseType : &#39;json&#39;</code></p>
+<ul>
+<li>json</li>
+</ul>
+</li>
+<li>blob<ul>
+<li>document</li>
+</ul>
+</li>
+<li>arraybuffer<ul>
+<li>text</li>
+</ul>
+</li>
+<li>stream</li>
+</ul>
+<h3 id="Axios-实例"><a href="#Axios-实例" class="headerlink" title="Axios 实例"></a>Axios 实例</h3><p>为什么要创建 Axios 的实例呢?</p>
+<p>当我们从 Axios 模块中导入对象时, 使用的实例是默认的实例, 当给该实例设置一些默认配置时, 这些配置就被固定下来了<br>但是后续开发中, 某些配置可能会不太一样, 比如某些请求需要使用<strong>特定的 <code>baseURL</code> 或者 <code>timeout</code> 或者 <code>content-Type</code> 等</strong>, 这时我们就可以创建新的实例, 并且传入属于该实例的配置信息, 这里推荐使用实例的方式, 而不使用全局的方式</p>
+<pre><code class="lang-javascript">import axios from &#39;axios&#39;
+
+// 创建新的实例
+const instance = axios.create(&#123;
+  baseURL: &#39;http://123.207.32.32:8000&#39;,
+  timeout: 5000,
+  headers: &#123;
+    &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;
+  &#125;
+&#125;)
+
+// 发送网络请求
+instance(&#123;
+  url: &#39;/category&#39;,
+  method: &#39;get&#39;
+&#125;).then(res =&gt; &#123;
+  console.log(res);
+&#125;).catch(err =&gt; &#123;
+  console.log(err);
+&#125;)
+</code></pre>
+<h3 id="Axios-封装"><a href="#Axios-封装" class="headerlink" title="Axios 封装"></a>Axios 封装</h3><p>为什么要封装呢? 万一哪天这个框架不维护了呢?<br>那维护项目就只能加班加点了 <strong>(通宵警告)</strong>, 所以封装后的代码更易维护</p>
+<p><strong>封装有多种方式, 这里展示个人认为比较优美的封装方式</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/te8A8P.png"><img src="https://s1.ax1x.com/2020/05/28/te8A8P.png" alt="te8A8P.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/te8kCt.png"><img src="https://s1.ax1x.com/2020/05/28/te8kCt.png" alt="te8kCt.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/te8mDg.png"><img src="https://s1.ax1x.com/2020/05/28/te8mDg.png" alt="te8mDg.png"></a></p>
+<h4 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h4><p>Axios 提供了拦截器, 用于我们每次<strong>发送请求或者得到请求响应后</strong>, 进行对应的处理, 例如有些页面或功能需要用户登陆模式才可以访问, 那此时就可以在用户请求页面时<strong>利用拦截器做登陆验证了</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/te8nbQ.png"><img src="https://s1.ax1x.com/2020/05/28/te8nbQ.png" alt="te8nbQ.png"></a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

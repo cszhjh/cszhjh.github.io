@@ -1,0 +1,1126 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || To strive, to seek, to find, and not to yield.</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('/home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Zhjh's Blog</h1>
+                <h3>To strive, to seek, to find, and not to yield.</h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2020/06/17/React脚手架/">
+        <h2>
+            React脚手架
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                React
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/17
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="认识脚手架"><a href="#认识脚手架" class="headerlink" title="认识脚手架"></a>认识脚手架</h2><p>如果我们只是开发几个小的 Demo 程序, 那么永远不需要考虑一些复杂的问题, 比如</p>
+<ul>
+<li>目录结构如何组织划分</li>
+<li>如何管理文件之间的相互依赖</li>
+<li>如何管理第三方模块的依赖</li>
+<li>项目发布前如何压缩、打包项目</li>
+</ul>
+<p>现代的前端项目已经越来越复杂了</p>
+<ul>
+<li>不会再是在 HTML 中引入几个 CSS 文件, 引入几个编写的 JS 文件或者第三方 JS 文件这么简单</li>
+<li>比如 CSS 可能是使用 Less、Sass 等预处理器进行编写, 我们需要将它们转成普通的 CSS 才能被浏览器解析</li>
+<li>比如 JavaScript 代码不再只是编写在几个文件中, 而是通过模块化的方式, 被组织在<strong>成百上千</strong>个文件中, 我们需要通过模块化的技术来管理他们之间的相互依赖</li>
+<li>比如项目需要依赖多个第三方库, 如何更好的管理它们(比如管理它们的依赖、版本升级等)</li>
+</ul>
+<p>为了解决上面这些问题, 我们需要再去学习一些工具</p>
+<ul>
+<li>比如 Babel、Webpack、Gulp, 配置它们转换规则、打包依赖、热更新等等一些内容</li>
+<li>你会发现, 你还没有开始做项目就面临一系列的工程化问题</li>
+</ul>
+<p><strong>脚手架的出现, 就是帮助我们解决这一系列的问题</strong></p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/React-CLI" style=color:#03a9f4>
+                React-CLI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/17/React脚手架/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/06/13/JSX原理解析/">
+        <h2>
+            JSX原理解析
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                React
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/13
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="JSX-转换本质"><a href="#JSX-转换本质" class="headerlink" title="JSX 转换本质"></a>JSX 转换本质</h2><p>实际上, JSX 仅仅只是<code>React.createElement(component, props, ...children)</code>函数的语法糖</p>
+<ul>
+<li>所有的 JSX 最终都会被转换成<code>React.createElement</code>的函数调用</li>
+</ul>
+<p><code>React.createElement</code>在源码的什么位置呢?</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/JSX" style=color:#ffa2c4>
+                JSX
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/13/JSX原理解析/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/06/10/JSX语法解析/">
+        <h2>
+            JSX语法解析
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                React
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/10
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="认识-JSX-语法"><a href="#认识-JSX-语法" class="headerlink" title="认识 JSX 语法"></a>认识 JSX 语法</h2><pre><code class="lang-react">&lt;script type=&quot;text/babel&quot;&gt;
+  const element = &lt;h2&gt;Hello World&lt;/h2&gt;
+  ReactDOM.render(element, document.getElementById(&#39;app&#39;))
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><p>这段 <code>element</code> 变量声明赋值的标签语法是什么呢?</p>
+<ul>
+<li>它不是一段字符串(因为没有使用引号包裹), 它看起来像一段<code>HTML</code>元素, 但是我们能在 JS 中直接给一个变量赋值<code>HTML</code>吗?</li>
+<li>其实是不可以的, 如果我们将<code>type=&quot;text/babel&quot;</code>去除掉, 那么就会出现语法错误</li>
+<li>它到底是什么呢? 其实它是一段 JSX 的语法</li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/JSX" style=color:#03a9f4>
+                JSX
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/10/JSX语法解析/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/06/09/HelloReact/">
+        <h2>
+            Hello React
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                React
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/9
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="React-是什么"><a href="#React-是什么" class="headerlink" title="React 是什么?"></a>React 是什么?</h2><blockquote>
+<p>A JavaScript library for building user interfaces(用于构建用户界面的 JavaScript 库)</p>
+</blockquote>
+<ul>
+<li>我们知道对于前端来说, 主要的任务就是构建用户界面, 而构建用户界面离不开三个技术<ul>
+<li>HTML: 构建页面的结构</li>
+<li>CSS: 构建页面的样式</li>
+<li>JavaScript: 页面动态内容和交互</li>
+</ul>
+</li>
+<li>那么使用最原生的 HTML、CSS、JavaScript 可以构建完整的用户界面吗? 当然可以, 但是会存在很多问题<ul>
+<li>操作 DOM 兼容性的问题</li>
+<li>过多兼容性代码的冗余问题</li>
+<li>代码组织和规范的问题</li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/React" style=color:#ff7d73>
+                React
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/09/HelloReact/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/05/05/mall项目随笔/">
+        <h2>
+            mall项目随笔
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/5
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p><strong>技术栈</strong></p>
+<ul>
+<li>Vue2.0 (核心框架)</li>
+<li>Vue-CLI 4.0 (Vue 脚手架)</li>
+<li>Vue-Router (SPA 页面路由)</li>
+<li>Vuex (状态管理)</li>
+<li>Axios (网络请求)</li>
+<li>ES 6 (JavaScript 语言的下一代标准)</li>
+<li>Less (CSS 预处理器)</li>
+<li>Better-Scroll (让移动端的滚动更为流畅)</li>
+<li>FastClick (解决移动端点击 300ms 延迟)</li>
+<li>Vue-Lazyload (懒加载工具)</li>
+<li>PostCss (css 代码转化工具)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://mall.coderlion.com/">在线预览</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cszhjh/mall">GitHub 地址</a></p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/项目" style=color:#00a596>
+                项目
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/05/mall项目随笔/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/05/04/异步编程/">
+        <h2>
+            异步编程
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/JavaScript">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                JavaScript
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/4
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="什么是同步和异步"><a href="#什么是同步和异步" class="headerlink" title="什么是同步和异步?"></a>什么是同步和异步?</h2><p>你可能知道, <strong>JavaScript 语言</strong> 的执行环境是“单线程”</p>
+<p>所谓“单线程”, 就是指一次只能完成一件任务, 如果有多个任务, 就必须排队, 前面一个任务完成, 再执行后面一个任务, 以此类推<br>例如现实生活中的<strong>排队</strong></p>
+<p>这种模式的好处是实现起来比较简单, 执行环境相对单纯, 坏处是只要有一个任务耗时很长, 后面的任务都必须排队等着, 会拖延整个程序的执行<br>常见的浏览器无响应(假死), 往往就是因为某一段 JavaScript 代码长时间运行(比如死循环), 导致整个页面卡在这个地方, 其他任务无法执行</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Promise" style=color:#00a596>
+                Promise
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/04/异步编程/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/05/03/Axios/">
+        <h2>
+            Axios
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/网络">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                网络
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/3
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="什么是-Axios"><a href="#什么是-Axios" class="headerlink" title="什么是 Axios?"></a>什么是 Axios?</h2><p>Axios 是一个基于 <code>promise</code> 的 HTTP 库, 可以用在浏览器和 Node.js 中</p>
+<p>Axios 的作用是什么呢: <strong>Axios主要是用于向后台发起网络请求的</strong>, 并且可以在请求中做更多的可控操作</p>
+<p>简单来说: Axios 就是一种<strong>前端向后端发送网络请求</strong>的工具</p>
+<h2 id="网络模块的选择"><a href="#网络模块的选择" class="headerlink" title="网络模块的选择"></a>网络模块的选择</h2><h3 id="传统的-Ajax"><a href="#传统的-Ajax" class="headerlink" title="传统的 Ajax"></a>传统的 Ajax</h3><ul>
+<li>传统的 Ajax 基于 <code>XMLHttpRequest(XHR)</code></li>
+<li>之所以不用它, 是因为它配置和调用方式等非常混乱, 编码起来看起来令人十分头疼</li>
+<li>真实开发中很少直接使用传统的 <code>Ajax</code>, 而是使用 <strong>jQuery 版的 Ajax</strong></li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Axios" style=color:#03a9f4>
+                Axios
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/03/Axios/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/05/02/Vuex/">
+        <h2>
+            Vuex
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/2
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="Vuex-是什么"><a href="#Vuex-是什么" class="headerlink" title="Vuex 是什么?"></a>Vuex 是什么?</h2><ul>
+<li>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式<ul>
+<li>它采用<strong>集中式存储管理</strong>应用的所有组件的状态, 并以相应的规则保证状态以一种可预测的方式发生变化</li>
+<li>Vuex 也集成到 Vue 的官方调试工具 <strong>devtools extension</strong> 中, 提供了诸如零配置的 <strong>time-travel</strong> 调试、<strong>状态快照导入导出</strong>等高级调试功能</li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vuex" style=color:#ff7d73>
+                Vuex
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/02/Vuex/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/05/01/Vue-Router/">
+        <h2>
+            Vue-Router
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/1
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="前端路由-Vue-Router-介绍"><a href="#前端路由-Vue-Router-介绍" class="headerlink" title="前端路由 Vue-Router 介绍"></a>前端路由 Vue-Router 介绍</h2><h3 id="什么是路由"><a href="#什么是路由" class="headerlink" title="什么是路由?"></a>什么是路由?</h3><blockquote>
+<p>路由（routing）就是通过互联的网络把信息从源地址传输到目的地址的活动 — 维基百科</p>
+</blockquote>
+<p>路由器提供了两种机制, 路由和转发</p>
+<ul>
+<li>路由是决定数据包从来源到目的地的路径</li>
+<li>转发将输入端的数据转移到合适的输出端</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue-Router" style=color:#ff7d73>
+                Vue-Router
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/01/Vue-Router/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/05/01/Vue文件的 “export default”/">
+        <h2>
+            Vue 文件的 “export  default”
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/1
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="“export-default”-究竟导出了什么"><a href="#“export-default”-究竟导出了什么" class="headerlink" title="“export default” 究竟导出了什么?"></a>“export default” 究竟导出了什么?</h2><ul>
+<li>.vue 文件, 这个文件会被 <strong>vue-loader(如果你用的是 Webpack 的话) 加工处理</strong></li>
+<li>其中 <code>&lt;template&gt;</code> 部分会被 <strong>vue-template-compiler 编译成 render 函数</strong>, 并插入到 <code>export default &#123; render() &#125;</code>中被导出的 JS 对象中</li>
+<li><code>&lt;style&gt;</code> 部分会被转换成样式函数或提取为<strong>独立的 CSS 文件(取决于你的 Webpack 配置)</strong></li>
+<li>所以在尽管<code>&lt;template&gt;</code>和<code>&lt;style&gt;</code>不在 <code>export default</code> 中仍然会被导出</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue" style=color:#00a596>
+                Vue
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/01/Vue文件的 “export default”/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/2/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+
+            
+
+            
+            <a href="/">
+                <span class="page-num">1</span>
+            </a>
+            
+
+            
+
+            
+            <a href="/page/2/">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            3
+        </span>
+
+        
+        <span>
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+            
+            <a href="/page/5">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+            
+
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/4/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/images/avatar.jpg " alt="头像">
+        </div>
+        <div class="name">
+            Zhjh
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                越努力越幸运!
+            </div>
+            
+            <div class="description">
+                付出总会有回报!
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/cszhjh" target="_blank">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=15444087&site=qq&menu=yes" target="_blank">
+
+                    
+                    <a-icon type="qq"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="/images/wechat.jpeg" target="_blank">
+
+                    
+                    <a-icon type="wechat"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="mailto:cszhjh@icloud.com" target="_blank">
+
+                    
+                    <a-icon type="mail"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://coderlion.com">
+                    国内博客
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a href="https://cszhjh.github.io">
+                    Github博客
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+
+</body>
+
+</html>

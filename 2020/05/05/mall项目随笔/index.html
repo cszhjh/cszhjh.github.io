@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || mall项目随笔</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>mall项目随笔 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/5
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Vue
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/项目" style=color:#00bcd4>
+                    项目
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p><strong>技术栈</strong></p>
+<ul>
+<li>Vue2.0 (核心框架)</li>
+<li>Vue-CLI 4.0 (Vue 脚手架)</li>
+<li>Vue-Router (SPA 页面路由)</li>
+<li>Vuex (状态管理)</li>
+<li>Axios (网络请求)</li>
+<li>ES 6 (JavaScript 语言的下一代标准)</li>
+<li>Less (CSS 预处理器)</li>
+<li>Better-Scroll (让移动端的滚动更为流畅)</li>
+<li>FastClick (解决移动端点击 300ms 延迟)</li>
+<li>Vue-Lazyload (懒加载工具)</li>
+<li>PostCss (css 代码转化工具)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://mall.coderlion.com/">在线预览</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cszhjh/mall">GitHub 地址</a></p>
+<span id="more"></span>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><p>通过 <strong>Vue-CLI 4.2.3</strong> 创建项目</p>
+<pre><code class="lang-shell">vue create mall
+</code></pre>
+<h2 id="目录划分及相关配置"><a href="#目录划分及相关配置" class="headerlink" title="目录划分及相关配置"></a>目录划分及相关配置</h2><h3 id="划分目录结构-父级目录为-src"><a href="#划分目录结构-父级目录为-src" class="headerlink" title="划分目录结构 (父级目录为 src)"></a>划分目录结构 <strong>(父级目录为 src)</strong></h3><ul>
+<li><p><code>assets</code>: 创建 <code>img</code>、<code>css</code> 文件夹</p>
+</li>
+<li><p><code>common</code>: 存放一些公共的 JS 文件, 例如公共的<strong>常量</strong>、<strong>方法</strong>、<strong>工具类</strong></p>
+</li>
+<li><p><code>components</code>: 存放一些公共的组件, 这里还可以分成两个文件夹: <code>common</code> 和 <code>content</code></p>
+</li>
+<li><p><code>common</code>: 存放一些完全公共的组件, 完全独立的组件内容, 即使存放在下一个项目也能用的组件</p>
+<ul>
+<li><code>content</code>: 对本项目业务来说是公共的, 存放在下一个项目里时不能使用的组件</li>
+</ul>
+</li>
+<li><p><code>views</code>: 主要存放一些视图的相关业务和代码</p>
+</li>
+<li><p><code>router</code>: 存放一些路由相关的代码</p>
+</li>
+<li><p><code>store</code>: 存放一些 Vuex 公共状态管理相关的内容</p>
+</li>
+<li><p><code>network</code>: 存放一些网络相关的代码</p>
+</li>
+</ul>
+<h3 id="引入两个初始化-CSS-文件-父级目录为-assets-css"><a href="#引入两个初始化-CSS-文件-父级目录为-assets-css" class="headerlink" title="引入两个初始化 CSS 文件 (父级目录为 assets/css)"></a>引入两个初始化 CSS 文件 <strong>(父级目录为 assets/css)</strong></h3><ul>
+<li><p>初始化 CSS 文件, 让样式在各大浏览器显示统一的样式</p>
+<ul>
+<li>创建一个 <code>normalize.css</code> 文件, 这里推荐使用 <a target="_blank" rel="noopener" href="https://github.com/necolas/normalize.css">normalize</a></li>
+<li>也可以通过 <code>npm install normalize.css</code> 来进行下载</li>
+</ul>
+</li>
+<li><p>创建一个 <code>base.css</code> 文件用来对项目进行统一初始化</p>
+<ul>
+<li>在这个文件里引用 <code>normalize</code> 文件, 然后再在 <code>App.vue</code> 文件内引入这个文件</li>
+</ul>
+</li>
+</ul>
+<p><strong><code>base.css</code> 文件</strong></p>
+<pre><code class="lang-css">@import &#39;./normalize.css&#39;;
+</code></pre>
+<p><strong><code>App.vue</code> 文件</strong></p>
+<pre><code class="lang-javascript">@import &#39;./assets/css/base.css&#39;;
+</code></pre>
+<h3 id="路径配置别名"><a href="#路径配置别名" class="headerlink" title="路径配置别名"></a>路径配置别名</h3><p>在<strong>项目根目录</strong>下创建一个 <code>vue.config.js</code> 配置文件, 到时候会将这个文件和公共配置进行一个合并</p>
+<pre><code class="lang-javascript">module.exports = &#123;
+  configureWebpack: &#123;
+    // 表明你要配置的是哪个配置文件
+    resolve: &#123;
+      // resolve 可以解决一些路径相关的问题
+      alias: &#123;
+        // 配置别名
+        // &#39;@&#39;: &#39;src&#39; 默认已经配置了这个别名
+        &#39;assets&#39;: &#39;@/assets&#39;,
+        &#39;common&#39;: &#39;@/common&#39;,
+        &#39;components&#39;: &#39;@/components&#39;,
+        &#39;network&#39;: &#39;@/network&#39;,
+        &#39;store&#39;: &#39;@/store&#39;,
+        &#39;views&#39;: &#39;@/views&#39;
+      &#125;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<h3 id="统一代码风格"><a href="#统一代码风格" class="headerlink" title="统一代码风格"></a>统一代码风格</h3><p>在<strong>项目根目录</strong>下创建一个 <code>.editorconfig</code> 配置文件, 统一代码风格</p>
+<pre><code class="lang-ini">root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+</code></pre>
+<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><p>上面我们已经为路径配置了别名, 但在使用时应注意以下几点:</p>
+<ul>
+<li><p>在 JS 中使用可直接使用别名</p>
+<pre><code class="lang-javascript">import &#39;components/HelloWorld.vue&#39;
+</code></pre>
+</li>
+<li><p>在含有 <code>src</code>、<code>href</code> 等路径属性时需在其别名前加上 <code>~</code></p>
+<pre><code class="lang-vue">&lt;img src=&quot;~asstes/logo.png&quot; /&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="公共组件"><a href="#公共组件" class="headerlink" title="公共组件"></a>公共组件</h2><p>制作前要想好组件是否可复用, 是<strong>完全公共的组件</strong>还是<strong>仅项目公共组件</strong></p>
+<h3 id="完全公共组件"><a href="#完全公共组件" class="headerlink" title="完全公共组件"></a>完全公共组件</h3><p><code>tabbar</code> : 页面底部切换组件</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJOCn.png"><img src="https://s1.ax1x.com/2020/05/28/teJOCn.png" alt="teJOCn.png"></a></p>
+<p><code>navbar</code> : 顶部导航</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJX3q.png"><img src="https://s1.ax1x.com/2020/05/28/teJX3q.png" alt="teJX3q.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJq4s.png"><img src="https://s1.ax1x.com/2020/05/28/teJq4s.png" alt="teJq4s.png"></a></p>
+<p><code>swiper</code> : 轮播图</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJbNj.png"><img src="https://s1.ax1x.com/2020/05/28/teJbNj.png" alt="teJbNj.png"></a></p>
+<p><code>toast</code> : 提示框</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJvvV.png"><img src="https://s1.ax1x.com/2020/05/28/teJvvV.png" alt="teJvvV.png"></a></p>
+<p><code>scroll</code> : <code>better-scroll</code> 组件</p>
+<h3 id="仅项目公共组件"><a href="#仅项目公共组件" class="headerlink" title="仅项目公共组件"></a>仅项目公共组件</h3><p><code>mainTabBar</code> : 使用 <code>tabbar</code> 插槽的组件</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJOCn.png"><img src="https://s1.ax1x.com/2020/05/28/teJOCn.png" alt="teJOCn.png"></a></p>
+<p><code>tabControl</code> : 分类菜单</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teJzuT.png"><img src="https://s1.ax1x.com/2020/05/28/teJzuT.png" alt="teJzuT.png"></a></p>
+<p><code>backTop</code> : 回到顶部按钮</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYSDU.png"><img src="https://s1.ax1x.com/2020/05/28/teYSDU.png" alt="teYSDU.png"></a></p>
+<p><code>goods</code> : 商品展示</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYpbF.png"><img src="https://s1.ax1x.com/2020/05/28/teYpbF.png" alt="teYpbF.png"></a></p>
+<h2 id="tabControl-的下拉吸顶效果"><a href="#tabControl-的下拉吸顶效果" class="headerlink" title="tabControl 的下拉吸顶效果"></a>tabControl 的下拉吸顶效果</h2><ol>
+<li>获取到 <code>tabControl</code> 的 <code>offsetTop</code><ul>
+<li>必须知道滚动到多少时, 开始有吸顶效果, 这个时候就需要获取距离顶部的距离是多少</li>
+<li>如果直接获取到 <code>tabControl</code> 的 <code>offsetTop</code> 的值是不正确的, 因为<strong>图片加载比较慢的原因</strong></li>
+<li>监听 <strong>HomeSwipper(轮播图)</strong> 中的任意一个 <code>img</code> 的加载完成后发出<strong>自定义事件</strong>, 在 <code>Home.vue</code> 监听事件后获取正确的值 <code>this.$refs.tabControl.$el.offsetTop</code></li>
+</ul>
+</li>
+<li>判断滚动的距离为元素添加 <code>fixed</code> 样式<ul>
+<li>但是 <strong><code>better-scroll</code> 是通过改变 <code>translate</code> 来实现滚动的</strong>, <code>fixed</code> 样式依然会被滚到上面, 所以这个方法不管用</li>
+</ul>
+</li>
+<li>通过复制一个相同的组件, <strong>放在 <code>better-scroll</code> 外面</strong>, 默认隐藏, 当组件重叠的时候显示, 并设置 <strong>层级(<code>z-index</code>)</strong> 就可以了</li>
+<li>这里有一个问题, 两个组件的点击事件是不同步的, 要解决这个问题只需要在点击事件里让这两个组件的当前状态的值一致就可以了</li>
+</ol>
+<h2 id="backTop"><a href="#backTop" class="headerlink" title="backTop"></a>backTop</h2><p>点击回到顶部, 这里设置整个组件为点击事件, 一般情况下直接为组件添加原生事件是不行的, <strong>可以使用修饰符 <code>.native</code> 来实现绑定原生事件</strong></p>
+<pre><code class="lang-vue">&lt;back-top @click=&quot;backClick&quot; /&gt;  // 这样是没有效果的
+&lt;back-top @click.native=&quot;backClick&quot; /&gt;  // 有效果
+</code></pre>
+<p>使用 <code>better-scroll</code> 对象里的方法 <code>scrollTo(0,0)</code> 来实现回到页面的顶部</p>
+<p>这里直接在滚动组件 <code>Scroll.vue</code> 里封装了一个 <strong><code>scrollTo</code> 方法</strong></p>
+<pre><code class="lang-javascript">/**
+ * 设置跳转位置, 默认跳转时间300ms
+ */
+scrollTo(x, y, time = 300) &#123;
+  this.scroll &amp;&amp; this.scroll.scrollTo &amp;&amp; this.scroll.scrollTo(x, y, time);
+&#125;,
+</code></pre>
+<p>点击事件</p>
+<pre><code class="lang-javascript">&lt;scroll ref=&quot;scroll&quot;&gt;
+  滚动的组件
+&lt;/scroll&gt;
+&lt;back-top @click.native=&quot;backTop&quot; v-show=&quot;isShowBackTop&quot; /&gt;
+
+/**
+  * 回到顶部
+  */
+backTop() &#123;
+  this.$refs.scroll.scrollTo(0, 0);
+&#125;,
+
+/**
+  * 监听 better-scroll 的滚动事件
+  * 1. 显示/隐藏backTop
+  * 2. 是否吸顶tabControl
+  */
+contentScroll(position) &#123;
+  // 判断BackTop是否显示
+  this.listenerShowBackTop(position.y);
+
+  // 决定tabControl是否吸顶(position: fixed)
+  this.isTabFixed = Math.abs(position.y) &gt;= this.tabOffsetTop;
+&#125;
+
+/**
+  * 显示/隐藏BackTop
+  */
+listenerShowBackTop(positionY) &#123;
+  this.isShowBackTop = Math.abs(positionY) &gt;= BACK_POSITION;
+&#125;
+</code></pre>
+<p><code>this.$refs.scroll</code> 获取的就是滚动组件里的 <code>scroll</code> 对象, 然后直接调用里面定义的方法就可以了</p>
+<h2 id="better-scroll"><a href="#better-scroll" class="headerlink" title="better-scroll"></a>better-scroll</h2><h3 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h3><p>这里使用的原生的滚动效果, 在手机上使用可能会有延迟感, 卡顿感, 给用户的体验并不是很好, 所以推荐使用 <a target="_blank" rel="noopener" href="https://github.com/ustbhuangyi/better-scroll/blob/master/README_zh-CN.md">Better-Scroll</a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYCE4.png"><img src="https://s1.ax1x.com/2020/05/28/teYCE4.png" alt="teYCE4.png"></a></p>
+<p><code>Better-Scroll</code> 是作用在外层 <code>wrapper</code> 容器上的, 滚动的部分是 <code>content</code> 元素</p>
+<p><strong>注意</strong></p>
+<ul>
+<li><code>wrapper</code> 必须定高, 并且设置 <code>overflow: hidden</code></li>
+<li><code>Better-Scroll</code> 只处理容器(<code>wrapper</code>)的第一个子元素(<code>content</code>)的滚动, 其它的元素都会被忽略</li>
+</ul>
+<p>某些情况下, 我们希望 <strong><code>wrapper</code> 高度自适应</strong>, 例如本项目中 <strong>顶部导航栏和底部导航栏高度固定</strong>, 中间可滚动区域的 <code>wrapper</code> 高度自适应, 那么可以采取以下方案</p>
+<pre><code class="lang-css">/* .scroll-content的父元素 */
+#home &#123;
+  position: relative;
+  height: 100vh;
+&#125;
+
+.scroll-content &#123;
+  position: absolute;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+&#125;
+</code></pre>
+<p>最简单的初始化代码如下</p>
+<pre><code class="lang-javascript">import BScroll from &#39;better-scroll&#39;
+let wrapper = document.querySelector(&#39;.wrapper&#39;)
+let scroll = new BScroll(wrapper)
+</code></pre>
+<p><code>Better-Scroll</code> 提供了一个类, 实例化的第一个参数是一个原生的 DOM 对象<br>当然, 如果传递的是一个字符串, <code>Better-Scroll</code> 内部会尝试调用 <code>querySelector</code> 去获取这个 DOM 对象</p>
+<p>如果是在 Vue 中使用, <strong>推荐使用 <code>ref</code> 的方式拿到 DOM 对象</strong>, 防止类名相同而拿不到对象</p>
+<ul>
+<li><code>ref</code> 如果是绑定在组件中的, 那么通过 <code>this.$refs.refname</code> 获取到的是一个组件对象</li>
+<li><code>ref</code> 如果是绑定在普通的元素中, 那么通过 <code>this.$refs.refname</code> 获取到的是一个元素对象</li>
+</ul>
+<h3 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h3><p>默认情况下 <code>BScroll</code> 是不可以实时的监听滚动位置, 如果你想监听滚动, 可以传递第二个参数</p>
+<pre><code class="lang-javascript">import BScroll from &#39;better-scroll&#39;
+
+let wrapper = document.querySelector(&#39;.wrapper&#39;)
+let scroll = new BScroll(wrapper, &#123;
+  probeType: 3,
+  pullUpLoad: true,
+  click: true
+&#125;)
+
+scroll.on(&#39;scroll&#39;, position =&gt; &#123;
+  console.log(position) // 这里就可以打印监听的滚动的位置了
+&#125;)
+
+scroll.on(&#39;pullingUp&#39;, () =&gt; &#123;
+  console.log(&#39;上拉加载更多&#39;)
+
+  //scroll.finishPullUp()
+  setTimeout(() =&gt; &#123;
+    scroll.finishPullUp()
+  &#125;, 2000)
+&#125;)
+</code></pre>
+<p><code>probeType</code> : 侦测类型</p>
+<ul>
+<li>这里可以传递的参数有 0 、1 、2 、3</li>
+<li>0 和 1 都是不侦测实时的位置</li>
+<li>2 是在手指滚动的过程中侦测, 手指离开后的惯性滚动过程中不侦测</li>
+<li>3 是只要是滚动都会侦测</li>
+</ul>
+<p><code>pullUpLoad</code> : 监听滚动到底部事件</p>
+<ul>
+<li>默认只会触发一次, 如果想多次触发, 必须要在每次触发事件后调用 <code>scroll.finishPullUp()</code> 来结束这次事件, 这样就可以进行多次监听滚动到底部事件了</li>
+<li>如果不想太过频繁的触发事件, 可以将调用包裹在一个定时器中</li>
+</ul>
+<p><code>click</code> : 监听点击事件</p>
+<ul>
+<li>如果滑动区域内有除了 <code>button</code> 按钮以外的点击事件, 要加上这个才能点击, 否则点击事件会失效</li>
+<li><code>button</code> 按钮无论该属性为 <code>true</code> | <code>false</code> 都会生效</li>
+</ul>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>这里用的是 <code>@1.13.2</code> 版本的, 如果是 <code>@2.0</code> 版本以上的要参考官方的方式</p>
+<p>在 Vue 中使用的封装</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div class=&quot;wrapper&quot; ref=&quot;wrapper&quot;&gt;
+    &lt;div class=&quot;content&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  import BScroll from &#39;better-scroll&#39;
+
+  export default &#123;
+    name: &#39;Scroll&#39;,
+    props: &#123;
+      // 由使用者决定侦测类型和是否监听滚动到底部事件
+      probeType: &#123;
+        type: Number,
+        default: 0
+      &#125;,
+      pullUpLoad: &#123;
+        type: Boolean,
+        default: false
+      &#125;
+    &#125;,
+    data() &#123;
+      return &#123;
+        scroll: null
+      &#125;
+    &#125;,
+    mounted() &#123;
+      // 创建 BScroll 对象
+      this.scroll = new BScroll(this.$refs.wrapper, &#123;
+        click: true,
+        probeType: this.probeType,
+        pullUpLoad: this.pullUpLoad
+      &#125;)
+      // 监听滚动的位置
+      if (this.probeType == 2 || this.probeType == 3) &#123;
+        this.scroll.on(&#39;scroll&#39;, position =&gt; &#123;
+          this.$emit(&#39;scroll&#39;, position)
+        &#125;)
+      &#125;
+
+      // 监听scroll滚动到底部
+      if (this.pullUpLoad) &#123;
+        this.scroll.on(&#39;pullingUp&#39;, () =&gt; &#123;
+          this.$emit(&#39;pullingUp&#39;)
+        &#125;)
+      &#125;
+    &#125;,
+    methods: &#123;
+      /**
+       * 设置跳转位置
+       */
+      scrollTo(x, y, time = 300) &#123;
+        this.scroll &amp;&amp; this.scroll.scrollTo &amp;&amp; this.scroll.scrollTo(x, y, time)
+      &#125;,
+
+      /**
+       * 刷新底部上拉事件
+       */
+      finishPullUp() &#123;
+        this.scroll &amp;&amp; this.scroll.finishPullUp &amp;&amp; this.scroll.finishPullUp()
+      &#125;,
+
+      /**
+       * 刷新scroll可滚动高度
+       */
+      refresh() &#123;
+        this.scroll &amp;&amp; this.scroll.refresh &amp;&amp; this.scroll.refresh()
+      &#125;,
+
+      /**
+       * 获取当前scroll的y值
+       */
+      getScrollY() &#123;
+        return this.scroll.y ? this.scroll.y : 0
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>使用时将封装好的组件导入, 并将要滑动的区域用标签包裹起来</p>
+<pre><code class="lang-vue">&lt;scroll
+  class=&quot;scroll-content&quot;
+  ref=&quot;scroll&quot;
+  :probe-type=&quot;3&quot;
+  :pull-up-load=&quot;true&quot;
+  @scroll=&quot;contentScroll&quot;
+  @pullingUp=&quot;loadMore&quot;
+&gt;
+  &lt;div&gt;需要包裹的内容&lt;/div&gt;
+&lt;/scroll&gt;
+</code></pre>
+<h3 id="better-scroll-有时不能滚动-bug"><a href="#better-scroll-有时不能滚动-bug" class="headerlink" title="better-scroll 有时不能滚动 bug"></a>better-scroll 有时不能滚动 bug</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYPUJ.png"><img src="https://s1.ax1x.com/2020/05/28/teYPUJ.png" alt="teYPUJ.png"></a></p>
+<p><code>better-scroll</code> 对象的 <code>scrollerHeight</code> 方法里面记录了可滚动内容的高度, 这个属性是根据放在 <code>content</code> 中的子组件的高度来决定的, 但是在刚开始计算 <code>scrollerHeight</code> 属性时, <strong>由于图片加载比较慢, 所以没有将图片高度计算在内, 所以得到的可滚动高度是错误的</strong>, 后面图片加载进来之后高度被撑开了, 但是 <code>scrollerHeight</code> 属性并<strong>没有进行更新</strong>, 所以滚动出现了问题</p>
+<p><strong>解决方案:</strong></p>
+<p>监听每一张图片是否加载完成, 只要有一张图片加载完成, 就执行一次 <code>refresh()</code></p>
+<ul>
+<li><p>原生的 JS 监听图片加载完成的方式: <code>img.onload = function() &#123;&#125;</code></p>
+</li>
+<li><p>Vue 中监听: <code>@load=imageLoad</code>, 这里是非父子组件通信</p>
+<ol>
+<li><p>通过 <code>Vuex</code> 传递方法</p>
+</li>
+<li><p>通过<strong>事件总线</strong> <code>$bus</code> 的方式</p>
+<ul>
+<li>因为有多个页面都用到 <code>better-scroll</code>, 为了方便管理, 这里使用事件总线 <code>$bus</code> 的方式传递方法</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p>在 (<code>main.js</code>) Vue 原型上添加 <code>$bus</code></p>
+<pre><code class="lang-javascript">Vue.prototype.$bus = new Vue()
+</code></pre>
+</li>
+<li><p>将方法发送到 <code>$bus</code> 中</p>
+<pre><code class="lang-javascript">imageLoad() &#123; this.$bus.$emit(&#39;itemImageLoad&#39;) &#125;
+</code></pre>
+</li>
+<li><p>通过 <code>$bus</code> 监听图片加载完成, 并调用 <code>refresh</code></p>
+<pre><code class="lang-javascript">this.$bus.$on(&#39;itemImageLoad&#39;, () =&gt; &#123;
+  调用refresh
+&#125;)
+</code></pre>
+</li>
+</ol>
+<p><code>$bus</code> 取消事件监听</p>
+<pre><code class="lang-javascript">this.$bus.$off(&#39;方法名&#39;, &#39;对应的处理函数&#39;)
+</code></pre>
+<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><p>每张图片加载完之后都会立刻调用一次 <code>refresh</code>, 这对于性能上来说无异于是负担, 所以, 通过<strong>防抖</strong>对性能进行优化</p>
+<pre><code class="lang-javascript">/**
+ * 防抖
+ */
+function debounce(func, delay = 100) &#123;
+  let timer = null
+  return function (...args) &#123;
+    clearTimeout(timer)
+    timer = setTimeout(() =&gt; &#123;
+      func &amp;&amp; func.apply(this, args)
+    &#125;, delay)
+  &#125;
+&#125;
+</code></pre>
+<h3 id="解决移动端-URL-栏-和-底部工具栏-显示-隐藏-时高度-Bug"><a href="#解决移动端-URL-栏-和-底部工具栏-显示-隐藏-时高度-Bug" class="headerlink" title="解决移动端 URL 栏 和 底部工具栏 显示/隐藏 时高度 Bug"></a>解决移动端 URL 栏 和 底部工具栏 显示/隐藏 时高度 Bug</h3><p><strong>Bug 原因</strong></p>
+<p>移动端下浏览器对 100vh 的定义不考虑 URL 栏 和 底部工具栏 的高度(无论显示还是隐藏), 可以用下面这张图直观地体现问题</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYi59.png"><img src="https://s1.ax1x.com/2020/05/28/teYi59.png" alt="teYi59.png"></a></p>
+<p>当地址栏可见时, 由于移动浏览器不正确地将 <code>100vh</code> 设置为屏幕高度而没有显示地址栏, 因此屏幕底部被切断<br>在上图中, 应该在屏幕底部的按钮被隐藏了<br>更糟糕的是, 当用户第一次使用手机访问网站时, 地址栏会显示在页面顶部, 因此用户体验是很糟糕的</p>
+<p>设置 <code>home</code> 高度也不能直接使用 <code>100%</code>, 因为 <code>100%</code> 是相对与父元素, 而 <code>home</code> 的父元素的高度又没有固定, 而是依赖与 <code>home</code> 的高度撑开, 所以百分比无效</p>
+<p><strong>解决方案 (<code>window.innerHeight</code>)</strong></p>
+<p>解决这个问题的一种方法是依赖 <strong>JavaScript</strong> 而不是 CSS, 当页面加载时, 将高度设置为 <code>window.innerHeight</code> 将正确地将高度设置为窗口的可见部分</p>
+<p>使用 <code>window.innerHeight</code> 动态设置高度<br>当窗口大小改变时重新设置高度为 <code>window.innerHeight</code>, 因为 <code>window.innerHeight</code> 的高度<strong>不包括地址栏和工具栏</strong></p>
+<ul>
+<li>如果地址栏是可见的, 那么 <code>window.innerHeight</code> 将是屏幕可见部分的高度, 正如你所期望的那样</li>
+<li>如果地址栏是隐藏的, 那么 <code>window.innerHeight</code> 是全屏的高度</li>
+</ul>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;home&quot; :style=&quot;&#123; height: homeHeight &#125;&quot;&gt;&lt;div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      homeHeight: window.innerHeight + &#39;px&#39;
+    &#125;
+  &#125;
+  mounted() &#123;
+    window.addEventListener(&quot;resize&quot;, () =&gt; &#123;
+      this.homeHeight = window.innerHeight + &quot;px&quot;
+    &#125;)
+  &#125;
+&#125;
+&lt;/script&gt;
+
+&lt;style&gt;
+  #home &#123;
+    position: relative;
+    /* height: 100vh */
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h2 id="让-Home-不销毁-destroyed-并在路由来回切换后回到离开时的位置"><a href="#让-Home-不销毁-destroyed-并在路由来回切换后回到离开时的位置" class="headerlink" title="让 Home 不销毁(destroyed), 并在路由来回切换后回到离开时的位置"></a>让 Home 不销毁(destroyed), 并在路由来回切换后回到离开时的位置</h2><p><strong>让 <code>home</code> 不要随意销毁掉</strong></p>
+<p>添加 <code>keep-alive</code> 就可以了</p>
+<p><strong>让 <code>home</code> 中的内容保持原来的位置</strong></p>
+<pre><code class="lang-javascript">data() &#123;
+  return &#123;
+    saveY: 0
+  &#125;
+&#125;,
+activated() &#123;
+  // 当路由处于活跃状态时, 将页面回到离开时的位置, 且刷新一次 scroll 的高度
+  this.$refs.scroll.scrollTo(0, this.saveY, 0)
+  this.$refs.scroll.refresh()
+&#125;,
+deactivated() &#123;
+  // 当路由处于不活跃状态时, 保存 scroll 的 y 值
+  this.saveY = this.$refs.scroll.getScrollY()
+
+  // 取消该路由的图片加载事件监听
+  this.$bus.$off(&quot;itemImageLoad&quot;, this.itemImageListener);
+&#125;
+</code></pre>
+<h2 id="详情页"><a href="#详情页" class="headerlink" title="详情页"></a>详情页</h2><p><code>this.$nextTick(() =&gt; &#123;&#125;)</code> 在 <code>created</code> 中这个函数意思是: 等模板渲染完后就执行这个函数, 从这里就可以拿到一些数据, 这个时候对应的 DOM 已经报备渲染出来了, 但是图片依然是没有加载完</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYkCR.png"><img src="https://s1.ax1x.com/2020/05/28/teYkCR.png" alt="teYkCR.png"></a></p>
+<p>一定要将详情页销毁</p>
+<pre><code class="lang-vue">&lt;keep-alive exclude=&quot;Detail&quot;&gt;
+  &lt;router-view /&gt;
+&lt;/keep-alive&gt;
+</code></pre>
+<p>如何判断一个对象是不是一个空的对象</p>
+<pre><code class="lang-javascript">const obj = &#123;&#125;
+Object.keys(obj).length === 0
+</code></pre>
+<h3 id="混入-mixin-的使用"><a href="#混入-mixin-的使用" class="headerlink" title="混入(mixin)的使用"></a>混入(mixin)的使用</h3><p>创建混入对象: <code>const mixin = &#123;&#125;</code></p>
+<p>组件中导入: <code>mixins: [mixin]</code></p>
+<h3 id="点击标题，滚动到对应的主题"><a href="#点击标题，滚动到对应的主题" class="headerlink" title="点击标题，滚动到对应的主题"></a>点击标题，滚动到对应的主题</h3><ul>
+<li>获取标题的 <code>offsetTop</code></li>
+<li>在哪里才能获取到正确的 <code>offsetTop</code> ?<ol>
+<li><code>created</code> 肯定不行, DOM 还没渲染</li>
+<li><code>mounted</code> 也不行, 图片数据还没有加载完</li>
+<li><code>nextTick</code> 也不行, 虽然 DOM 改变触发 <code>nextTick</code> 钩子, 但图片不一定加载完, 导致 <code>offsetTop</code> 是错误的值</li>
+</ol>
+</li>
+</ul>
+<p><strong>方案一</strong></p>
+<p>在 <code>created</code> 中事先通过<strong>防抖</strong>获得处理函数, 等待图片加载完毕之后再调用该函数</p>
+<pre><code class="lang-javascript">created() &#123;
+  /**
+  * 通过防抖获得 getThemeTopY 函数, 等待图片加载完之后再调用
+  */
+  this.getThemeTopY = debounce(() =&gt; &#123;
+    this.$nextTick(() =&gt; &#123;
+      this.themeTopYs = [];
+      this.themeTopYs.push(0);
+      this.themeTopYs.push(this.$refs.params.$el.offsetTop);
+      this.themeTopYs.push(this.$refs.comment.$el.offsetTop);
+      this.themeTopYs.push(this.$refs.recommend.$el.offsetTop);
+    &#125;)
+  &#125;, 100);
+&#125;,
+methods: &#123;
+  /**
+   * 刷新scroll高度, 且获得各个标题的 offsetTop
+   */
+  detailImageLoad() &#123;
+    this.refresh();
+    this.getThemeTopY();
+  &#125;
+&#125;
+</code></pre>
+<p><strong>方案二</strong></p>
+<p>等待所有图片加载完毕</p>
+<pre><code class="lang-javascript">methods: &#123;
+  detailImageLoad() &#123;
+    // 判断所有的图片都加载完了, 进行一次回调
+    if (++this.counter === this.imageLength) &#123;
+      this.refresh();
+      this.$emit(&quot;detailImageLoad&quot;);
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p><code>mutations</code> 唯一的目的就是修改 <code>state</code> 中状态, 最好是其中的每个方法尽可能完成得事件比较单一一点, 否则每次执行的时候执行的方法名字一样, 不知道到底执行的是哪个</p>
+<p>如果有逻辑判断推荐放到 <code>actions</code> 里, 执行的方法可以放到 <code>mutations</code> 里, 这样就可以跟踪每个想要调试的点</p>
+<pre><code class="lang-javascript">const store = new Vuex.Store(&#123;
+  state: &#123;
+    cartList: []
+  &#125;,
+  mutations: &#123;
+    addCount(state, payload) &#123;
+      payload.count++
+    &#125;,
+    addToCart(state, payload) &#123;
+      state.cartList.unshift(payload)
+    &#125;
+  &#125;,
+  actions: &#123;
+    addToCart(&#123; state, commit &#125;, payload) &#123;
+      return new Promise((resolve, reject) =&gt; &#123;
+        let oldProduct = state.cartList.find(item =&gt; item.iid === payload.iid)
+
+        if (oldProduct) &#123;
+          commit(&#39;addCount&#39;, oldProduct)
+          resolve(&#39;当前商品已被添加到购物车+1&#39;)
+        &#125; else &#123;
+          payload.count = 1
+          payload.checked = true
+          commit(&#39;addToCart&#39;, payload)
+          resolve(&#39;已添加至购物车&#39;)
+        &#125;
+      &#125;)
+    &#125;
+  &#125;
+&#125;)
+</code></pre>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>建议分类成一个一个的文件, 这样方便管理, 还可以封装常量文件</p>
+<p><code>index.js</code></p>
+<pre><code class="lang-javascript">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+import mutations from &#39;./mutations&#39;
+import actions from &#39;./actions&#39;
+import getters from &#39;./getters&#39;
+
+Vue.use(Vuex)
+
+const state = &#123;
+  cartList: []
+&#125;
+
+export default new Vuex.Store(&#123;
+  state,
+  mutations,
+  actions,
+  getters
+&#125;)
+</code></pre>
+<h2 id="toast-插件封装"><a href="#toast-插件封装" class="headerlink" title="toast 插件封装"></a>toast 插件封装</h2><p>在 <strong><code>components/common/toast</code> 文件夹</strong>下新建两个文件</p>
+<ul>
+<li><code>index.js</code></li>
+<li><code>Toast.vue</code></li>
+</ul>
+<p><code>index.js</code></p>
+<pre><code class="lang-javascript">import Toast from &#39;./Toast.vue&#39;
+
+export default &#123;
+  install(Vue) &#123;
+    const toastConstructor = Vue.extend(Toast)
+    const toast = new toastConstructor()
+    toast.$mount(document.createElement(&#39;div&#39;))
+    document.body.appendChild(toast.$el)
+    Vue.prototype.$toast = toast
+  &#125;
+&#125;
+</code></pre>
+<p><code>Toast.vue</code></p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div v-show=&quot;isShow&quot; class=&quot;toast&quot;&gt;
+    &lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    name: &#39;Toast&#39;,
+    data() &#123;
+      return &#123;
+        message: &#39;&#39;,
+        isShow: false
+      &#125;
+    &#125;,
+    methods: &#123;
+      show(message, duration = 2000) &#123;
+        this.isShow = true
+        this.message = message
+
+        setTimeout(() =&gt; &#123;
+          this.isShow = false
+          this.message = &#39;&#39;
+        &#125;, duration)
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
+&lt;style scoped&gt;
+  .toast &#123;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 10px;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    z-index: 9999;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<p><code>main.js</code></p>
+<pre><code class="lang-javascript">import toast from &#39;./components/common/toast/index&#39;
+
+Vue.use(toast) // 这里会去执行 index.js 里的 install 方法
+</code></pre>
+<p>使用的时候, 只需要: <code>this.$toast.show(&quot;需要显示的文字&quot;, 2000)</code> 就可以了</p>
+<h2 id="细节处理"><a href="#细节处理" class="headerlink" title="细节处理"></a>细节处理</h2><h3 id="FastClick"><a href="#FastClick" class="headerlink" title="FastClick"></a>FastClick</h3><p>使用 <code>FastClick</code> 解决移动端点击 <code>300ms</code> 的延迟</p>
+<p><strong>安装</strong></p>
+<pre><code class="lang-shell">npm install fastclick --save
+</code></pre>
+<p><strong>使用 (在 <code>main.js</code> 中安装插件)</strong></p>
+<pre><code class="lang-javascript">import FastClick from &#39;fastclick&#39;
+
+FastClick.attach(document.body)
+</code></pre>
+<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><p>图片需要显示在屏幕上时再加载</p>
+<p><strong>安装</strong></p>
+<pre><code class="lang-shell">npm install vue-lazyload --save
+</code></pre>
+<p><strong>使用 (在 <code>main.js</code> 中安装插件)</strong></p>
+<pre><code class="lang-javascript">import VueLazyLoad from &#39;vue-lazyload&#39;
+
+Vue.use(VueLazyLoad, &#123;
+  // 显示占位图
+  loading: require(&#39;./assets/img/common/placeholder.jpg&#39;)
+&#125;)
+// 修改组件中 img 的属性 :src =&gt; v-lazy
+</code></pre>
+<h2 id="快捷修改-CSS-单位-适配不同设备"><a href="#快捷修改-CSS-单位-适配不同设备" class="headerlink" title="快捷修改 CSS 单位(适配不同设备)"></a>快捷修改 CSS 单位(适配不同设备)</h2><p>项目直接是使用的 <code>px</code> 单位进行开发的, 这里改成 <code>vm</code> 单位</p>
+<p>使用插件, 有很多类似的插件, 这里使用的 <code>postcss-px-to-viewport</code>, 这是开发时依赖</p>
+<p><strong>安装</strong></p>
+<pre><code class="lang-shell">npm install postcss-px-to-viewport --save-dev
+</code></pre>
+<p><strong>配置(在项目根目录下创建 <code>postcss.config.js</code> 配置文件)</strong></p>
+<pre><code class="lang-json">module.exports = &#123;
+  plugins: &#123;
+    autoprefixer: &#123;&#125;,
+    &#39;postcss-px-to-viewport&#39;: &#123;
+      viewportWidth: 375, // 视口宽度, 对应的是设计稿宽度
+      viewportHeight: 667, // 视口高度, 对应的是设计稿的高度
+      unitPrecision: 5, // 指定&#39;px&#39;转换为视口单位值的小数位数(保留5位小数)
+      viewportUnit: &#39;vw&#39;, // 指定需要转换成的视口单位, 建议使用vw
+      selectorBlackList: [&#39;ignore&#39;], // 指定不需要转换的类
+      minPixelValue: 1, // 小于或等于&#39;1px&#39;不转换为视口单位
+      mediaQuery: false, // 允许在媒体查询中转换&#39;px&#39;
+      exclude: [/TabMenu\.vue/] // 排除文件名包含 TabBar 的文件，必须是正则来匹配文件
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>这样项目中所有的 <code>px</code> 单位就会变成 <code>vm</code> 单位</p>
+<h2 id="项目部署到远程服务器"><a href="#项目部署到远程服务器" class="headerlink" title="项目部署到远程服务器"></a>项目部署到远程服务器</h2><p>使用 Webpack 打包项目</p>
+<pre><code class="lang-shell">npm run build
+</code></pre>
+<p>使用服务器软件: <code>tomcat</code>、<code>nginx</code>, 这里使用 <code>nginx</code></p>
+<p>将 <code>build</code> 文件中的所有<strong>文件、文件夹、图片</strong>拷贝到站点根目录下</p>
+<h3 id="刷新页面-404"><a href="#刷新页面-404" class="headerlink" title="刷新页面 404"></a>刷新页面 404</h3><p><strong>问题</strong><br>将项目部署到远程服务器上后, 在页面中一旦刷新, 会出现 <code>404</code></p>
+<p><strong>原因</strong></p>
+<p>使用 <code>history</code> 模式时, 还需要后台配置支持<br>因为我们的应用是个单页客户端应用, 如果后台没有正确的配置, 当直接访问 <a target="_blank" rel="noopener" href="http://mall.coderlion.com/home">http://mall.coderlion.com/home</a> 就会报 <code>404</code> 的错误</p>
+<p>所以需要在服务端增加一个覆盖所有情况的候选资源: 如果 URL 匹配不到任何静态资源, 则应该返回同一个 <code>index.html</code> 页面, 这个页面就是 <code>home</code> 页面</p>
+<p><strong>解决方案</strong></p>
+<p>为 nginx 服务器添加<strong>重定向</strong>配置</p>
+<pre><code class="lang-nginx">location / &#123;
+  try_files $uri $uri/ /index.html;
+&#125;
+</code></pre>
+<p>其他服务器配置参照<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/history-mode.html#后端配置例子">官方文档</a></p>
+<h2 id="Vue-响应式原理"><a href="#Vue-响应式原理" class="headerlink" title="Vue 响应式原理"></a>Vue 响应式原理</h2><ol>
+<li>当数据发生修改时, Vue 内部是如何监听 <code>message</code> 数据的改变<ul>
+<li><strong>Object.defineProperty</strong> $\rightarrow$ 监听对象属性的改变</li>
+</ul>
+</li>
+<li>当数据发生改变, Vue 是如何知道要通知那些人, 界面发生刷新<ul>
+<li><h1 id="发布订阅者模式"><a href="#发布订阅者模式" class="headerlink" title="发布订阅者模式"></a><strong>发布订阅者模式</strong></h1></li>
+</ul>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teYA81.png"><img src="https://s1.ax1x.com/2020/05/28/teYA81.png" alt="teYA81.png"></a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

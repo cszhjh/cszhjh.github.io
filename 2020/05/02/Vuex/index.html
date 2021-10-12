@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Vuex</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Vuex </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/2
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Vue
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Vuex" style=color:#ff7d73>
+                    Vuex
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="Vuex-是什么"><a href="#Vuex-是什么" class="headerlink" title="Vuex 是什么?"></a>Vuex 是什么?</h2><ul>
+<li>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式<ul>
+<li>它采用<strong>集中式存储管理</strong>应用的所有组件的状态, 并以相应的规则保证状态以一种可预测的方式发生变化</li>
+<li>Vuex 也集成到 Vue 的官方调试工具 <strong>devtools extension</strong> 中, 提供了诸如零配置的 <strong>time-travel</strong> 调试、<strong>状态快照导入导出</strong>等高级调试功能</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h3 id="什么是状态管理"><a href="#什么是状态管理" class="headerlink" title="什么是状态管理?"></a>什么是状态管理?</h3><ul>
+<li><strong>状态管理模式、集中式存储管理</strong>这些名词听起来就非常高大上, 让人琢磨不透</li>
+<li>其实, 你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面</li>
+<li>然后, 将这个对象放在<strong>顶层的 Vue 实例</strong>中, 让其他组件可以使用</li>
+<li>那么, 多个组件是不是就可以共享这个对象中的所有变量属性了呢?</li>
+<li>如果只是这样的话, 为什么官方还要专门出一个插件 Vuex呢? 难道我们不能自己封装一个对象来管理吗?<ul>
+<li>当然可以, 只是我们要先想想 Vue.js 带给我们<strong>最大的便利</strong>是什么呢? 没错, 就是<strong>响应式</strong></li>
+<li>如果你自己封装实现一个对象能不能保证它里面所有的属性做到响应式呢? 当然也可以, 只是自己封装可能稍微麻烦一些</li>
+<li>不用怀疑, Vuex 就是为了提供这样一个在多个组件间共享状态的插件, 用它就可以了(盘它~)</li>
+</ul>
+</li>
+</ul>
+<p>简单理解: 把需要<strong>多个组件共享的变量</strong>全部存储在一个对象里面, 然后将这个对象<strong>放在顶层的 Vue 实例中</strong>, 让其他组件可以使用, 共享这个对象中的所有变量属性, <strong>并且是响应式的</strong></p>
+<h4 id="管理什么状态呢"><a href="#管理什么状态呢" class="headerlink" title="管理什么状态呢?"></a>管理什么状态呢?</h4><p>有什么状态是需要我们在多个组件间共享的呢?</p>
+<p>例如: 多个状态在多个页面间的共享</p>
+<ul>
+<li>比如用户的登录状态、用户名称、头像、地理位置信息等等</li>
+<li>比如商品的收藏、购物车的物品等等</li>
+<li>这些状态信息, 我们都可以放在统一的地方, 对它进行保存和管理, 而且他们还是响应式的</li>
+</ul>
+<h4 id="单界面状态管理"><a href="#单界面状态管理" class="headerlink" title="单界面状态管理"></a>单界面状态管理</h4><p>在单个组件中进行状态管理是一件非常简单的事情, 如图:</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teBWCD.png"><img src="https://s1.ax1x.com/2020/05/28/teBWCD.png" alt="teBWCD.png"></a></p>
+<p><strong>State</strong> : 状态(姑且可以当做是 <code>data</code> 中的属性)<br><strong>View</strong> : 视图层, 可以针对 State 的变化, 显示不同的信息 <strong>(响应式)</strong><br><strong>Actions</strong> : 用户的各种操作: 点击、输入等, 会导致状态的改变</p>
+<h4 id="多界面状态管理"><a href="#多界面状态管理" class="headerlink" title="多界面状态管理"></a>多界面状态管理</h4><p>Vue 已经帮我们做好了单个界面的状态管理, 但是如果是多个界面呢?</p>
+<p>多个视图都依赖同一个状态 <strong>(一个状态被修改了, 多个界面需要进行更新)</strong></p>
+<p><strong>全局单例模式(大管家)</strong></p>
+<p>现在要做的就是将共享的状态抽取出来, 交给 <strong>“大管家”</strong> 统一进行管理, 之后每个试图按照规定进行访问和修改等操作, 这就是 Vuex 的基本思想</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teBgUK.png"><img src="https://s1.ax1x.com/2020/05/28/teBgUK.png" alt="teBgUK.png"></a></p>
+<h2 id="使用-Vuex"><a href="#使用-Vuex" class="headerlink" title="使用 Vuex"></a>使用 Vuex</h2><p><strong>安装</strong></p>
+<pre><code class="lang-shell">npm install vuex --save
+</code></pre>
+<p>接下来, 如同 <strong>Vue-Router</strong> 一般, 它也有独立的文件夹, 以及相应的文件</p>
+<p>在 <code>src</code> 文件夹下创建 <code>store</code> 文件夹, 在 <code>store</code> 文件夹下创建 <code>index.js</code></p>
+<p>对 <code>index.js</code> 使用 <code>Vuex</code></p>
+<pre><code class="lang-javascript">import Vue from &#39;vue&#39;
+import Vuex from &#39;vuex&#39;
+
+Vue.use(Vuex)
+
+export default new Vuex.Store(&#123;
+  state: &#123;
+    counter: 0
+  &#125;,
+  mutations: &#123;
+    // 同步操作
+    increment(state, getters) &#123;
+      // 参数自动传入
+      state.counter++;
+    &#125;,
+    decrement(state, getters) &#123;
+      state.counter--;
+    &#125;
+  &#125;,
+  actions: &#123;
+    // 异步操作
+  &#125;,
+  getters: &#123;
+    // 类似于组件中的computed
+    getCounter(state, getters) &#123;
+      return state.counter * 2;
+    &#125;
+  &#125;,
+  modules: &#123;
+    // 模块
+  &#125;
+&#125;)
+</code></pre>
+<p><strong>挂载到 Vue 实例中</strong></p>
+<p>我们让所有的 Vue 组件都可以使用这个 <code>store</code> 对象</p>
+<p>来到 <code>main.js</code> 文件, <strong>导入 <code>store</code> 对象</strong>, 并且<strong>放在 <code>new Vue</code> 中</strong></p>
+<pre><code class="lang-javascript">import Vue from &#39;vue&#39;
+import App from &#39;./App&#39;
+import router from &#39;./router&#39;
+import store from &#39;./store&#39;
+
+Vue.config.productionTip = false
+
+new Vue(&#123;
+  render: h =&gt; h(App),
+  router,
+  store
+&#125;).$mount(&#39;#app&#39;)
+</code></pre>
+<p>此后, 在其他 Vue 组件中, 可以通过 <code>this.$store</code> 的方式, 获取到 <code>store</code> 对象</p>
+<p>在组件中使用 <code>vuex</code></p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;h3&gt;&#123;&#123; $store.state.counter &#125;&#125;&lt;/h3&gt;
+    &lt;button @click=&quot;increment&quot;&gt;+&lt;/button&gt;
+    &lt;button @click=&quot;decrement&quot;&gt;-&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    name: &#39;App&#39;,
+    data() &#123;
+      return &#123;
+        message: &quot;App&quot;,
+      &#125;
+    &#125;,
+    methods: &#123;
+      increment() &#123;
+        // commit提交, 参数为mutations中的方法名
+        this.$store.commit(&#39;increment&#39;);
+      &#125;,
+      decrement() &#123;
+        this.$store.commit(&#39;decrement&#39;);
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<p>这就是使用 Vuex 最简单的使用方式了:</p>
+<ol>
+<li>提取出一个公共的 <code>store</code> 对象, 用于保存在多个组件中共享的状态<br>将 <code>store</code> 对象放置在 <code>new Vue</code> 对象中, 这样可以保证在所有的组件中都可以使用到</li>
+<li>在其他组件中使用 <code>store</code> 对象中保存的状态即可</li>
+<li>通过 <code>this.$store.state.属性</code> 的方式来访问状态</li>
+<li>通过 <code>this.$store.commit(“Mutations中方法”)</code> 来修改状态</li>
+</ol>
+<p><strong>注意:</strong></p>
+<p>我们通过提交 <code>Mutations</code> 的方式, 而非直接改变 <code>store.state.count</code>, 这是因为 Vuex 可以更明确的追踪状态的变化, 如果是由多个组件修改同一个状态, 可以知道是由哪个组件修改的什么状态, 便于调试, 所以<strong>不要直接改变 <code>store.state.count</code> 的值</strong></p>
+<h2 id="Vuex-核心概念"><a href="#Vuex-核心概念" class="headerlink" title="Vuex 核心概念"></a>Vuex 核心概念</h2><h3 id="State-单一状态树"><a href="#State-单一状态树" class="headerlink" title="State 单一状态树"></a>State 单一状态树</h3><p>Vuex 提出使用<strong>单一状态树(Single Source of Truth)</strong>, 也可以翻译成单一数据源</p>
+<p>如果状态信息是保存到多个 Store 对象中的, 那么之后的管理和维护等等都会变得特别困难, 所以 Vuex 使用了单一状态树来管理应用层级的全部状态</p>
+<p>单一状态树能够让我们以最直接的方式找到某个状态的片段, 而且在之后的维护和调试过程中, 也可以非常方便的管理和维护</p>
+<p><strong>即仅使用一个 <code>Vuex.Store</code> 对象</strong></p>
+<h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>有时候, 我们需要从 <code>store</code> 中获取一些 <code>state</code>, 则可以使用 <code>getters</code>, 它相当于计算属性, 一些复杂的计算和操作可以写到这里</p>
+<h4 id="Getters-的基本使用"><a href="#Getters-的基本使用" class="headerlink" title="Getters 的基本使用"></a>Getters 的基本使用</h4><p>比如, 现在 <code>Store</code> 中有这样的学生信息</p>
+<pre><code class="lang-javascript">const store = new Vuex.Store(&#123;
+  state: &#123;
+    count: 0,
+      students: [
+        &#123; id: 1001, name: &#39;lyy&#39;, age: 18 &#125;,
+        &#123; id: 1002, name: &#39;sss&#39;, age: 17 &#125;,
+        &#123; id: 1003, name: &#39;lin&#39;, age: 28 &#125;,
+        &#123; id: 1004, name: &#39;jack&#39;, age: 24 &#125;
+      ]
+  &#125;
+&#125;)
+</code></pre>
+<p>现要求获取<code>年龄小于 20</code>的学生个数, 可以在 <code>Store</code> 中定义 <code>getters</code></p>
+<pre><code class="lang-javascript">const store = new Vuex.Store(&#123;
+  state: &#123;
+    count: 0,
+    students: [
+      &#123; id: 1001, name: &#39;lyy&#39;, age: 18 &#125;,
+      &#123; id: 1002, name: &#39;sss&#39;, age: 17 &#125;,
+      &#123; id: 1003, name: &#39;lin&#39;, age: 28 &#125;,
+      &#123; id: 1004, name: &#39;jack&#39;, age: 24 &#125;
+    ]
+  &#125;,
+  getters: &#123;
+    getAgeLess20Count(state) &#123;
+      // 注意:
+      // state由Vuex自动传入
+      // 我们推荐使用state对象, 而不是 this 来访问 state 中的状态
+
+      return state.students.filter(stu =&gt; stu.age &lt; 20).length
+    &#125;
+  &#125;
+&#125;)
+</code></pre>
+<p>之后, 在各个组件中想要使用这个 <code>getters</code>, 那就变得非常简单了</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;h3&gt;&#123;&#123; this.$store.getters.getAgeLess20Count &#125;&#125;&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="Getters-作为参数"><a href="#Getters-作为参数" class="headerlink" title="Getters 作为参数"></a>Getters 作为参数</h4><p>如果我们已经有了一个获取所有年龄小于20岁学生列表的 <code>getters</code>, 那么可以这样来写</p>
+<pre><code class="lang-javascript">getters: &#123;
+  // 获取年龄小于20的学生
+  getAgeLess20(state) &#123;
+    return state.students.filter(stu =&gt; stu.age &lt; 20)
+  &#125;,
+  // 获取年龄小于20的学生人数
+  getAgeLess20Count(state, getters) &#123;
+    return getters.getAgeLess20.length
+  &#125;
+&#125;
+</code></pre>
+<h4 id="Getters-传递参数"><a href="#Getters-传递参数" class="headerlink" title="Getters 传递参数"></a>Getters 传递参数</h4><p><strong>getters 默认是不能传递参数的</strong>, 如果希望传递参数, 那么只能让 <code>getters</code> 本身返回一个函数, 在这个函数中即可获取到参数, <strong>实际上就是利用了“闭包”的原理</strong></p>
+<p>比如上面的案例中, 我们希望根据 <code>ID</code> 获取用户的信息</p>
+<pre><code class="lang-javascript">getters: &#123;
+  // 根据id查找学生
+  getStuByID(state) &#123;
+    // return id =&gt; state.students.find(stu =&gt; stu.id === id)
+
+    // 如果对 ES6 语法不熟悉的话, 以下代码可能更好理解
+    return function (id) &#123;
+      return state.students.find(stu =&gt; stu.id === id)
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>在组件中使用</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;h3&gt;&#123;&#123; this.$store.getters.getStuByID(1002) &#125;&#125;&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h3><p>Vuex 的 <code>store</code> 状态的更新唯一方式: <strong>提交 <code>Mutation</code></strong></p>
+<h4 id="Mutations-组成"><a href="#Mutations-组成" class="headerlink" title="Mutations 组成"></a>Mutations 组成</h4><ul>
+<li>字符串的事件类型(<code>type</code>)</li>
+<li>一个回调函数(<code>handler</code>), 该回调函数的第一个参数就是 <code>state</code></li>
+</ul>
+<h4 id="Mutations-定义方式"><a href="#Mutations-定义方式" class="headerlink" title="Mutations 定义方式"></a>Mutations 定义方式</h4><pre><code class="lang-javascript">const store = new Vuex.Store(&#123;
+  state: &#123;&#125;,    // 略
+  getters: &#123;&#125;,  // 略
+  mutations: &#123;
+    increment(state) &#123;
+      state.count++
+    &#125;,
+    decrement(state) &#123;
+      state.count--
+    &#125;
+  &#125;
+&#125;)
+</code></pre>
+<h4 id="通过-Mutations-更新状态"><a href="#通过-Mutations-更新状态" class="headerlink" title="通过 Mutations 更新状态"></a>通过 Mutations 更新状态</h4><p>在组件中, 通过 <code>$store</code> 提交相应的更新方法即可</p>
+<pre><code class="lang-javascript">methods:&#123;
+  increment() &#123;
+    this.$store.commit(&#39;increment&#39;)
+  &#125;,
+  decrement() &#123;
+    this.$store.commit(&#39;decrement&#39;)
+  &#125;
+&#125;
+</code></pre>
+<h4 id="Mutations-传递参数"><a href="#Mutations-传递参数" class="headerlink" title="Mutations 传递参数"></a>Mutations 传递参数</h4><p>在通过 <code>Mutations</code> 更新数据的时候, 有时候希望携带一些额外的参数, 这种参数被称为 <code>Mutations</code> 的 <strong>载荷(Payload)</strong></p>
+<p>比如之前的计数器案例, 每次都是加减 1, 现在想让加减的数字作为一个参数, 传到 <code>Mutations</code> 的方法中</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teBcE6.png"><img src="https://s1.ax1x.com/2020/05/28/teBcE6.png" alt="teBcE6.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teB24O.png"><img src="https://s1.ax1x.com/2020/05/28/teB24O.png" alt="teB24O.png"></a></p>
+<p>如果有很多参数需要传递, 通常会以对象的形式传递, 也就是 <code>payload</code> 是一个对象, 再从对象中取出相关的信息</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teByHx.png"><img src="https://s1.ax1x.com/2020/05/28/teByHx.png" alt="teByHx.png"></a></p>
+<h4 id="Mutations-提交风格"><a href="#Mutations-提交风格" class="headerlink" title="Mutations 提交风格"></a>Mutations 提交风格</h4><p>上面的通过 <code>commit</code> 进行提交是一种普通的方式</p>
+<p>Vue 还提供了另外一种风格, 它是一个包含 <code>type</code> 属性的对象</p>
+<pre><code class="lang-javascript">incrementCount(num) &#123;
+  this.$store.commit(&#123;
+    type: &#39;incrementCount&#39;,
+    num
+  &#125;)
+&#125;
+</code></pre>
+<p><code>Mutations</code> 中的处理方式是将整个 <code>commit</code> 的对象作为 <code>payload</code> 使用, 所以代码没有改变, 依然如下</p>
+<pre><code class="lang-javascript">incrementCount(state, payload) &#123;
+  state.count += paload.num;
+&#125;
+</code></pre>
+<h4 id="Mutations-响应规则"><a href="#Mutations-响应规则" class="headerlink" title="Mutations 响应规则"></a>Mutations 响应规则</h4><p>Vuex 的 <code>store</code> 中的 <code>state</code> 是响应式的, 当 <code>state</code> 中的数据发生改变时, Vue 组件会自动更新</p>
+<p>这就要求我们必须遵守一些 Vuex 对应的规则</p>
+<ul>
+<li>提前在 <code>store</code> 中初始化好所需的属性</li>
+<li>当给 <code>state</code> 中的对象添加新属性时, 使用下面的方式<ol>
+<li>使用 <code>Vue.set(obj, ‘newProp’, 123)</code></li>
+<li>用新对象给旧对象重新赋值</li>
+</ol>
+</li>
+</ul>
+<p>我们来看一个例子</p>
+<p>当我们点击更新信息时, 界面并没有发生对应改变</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teBf8e.png"><img src="https://s1.ax1x.com/2020/05/28/teBf8e.png" alt="teBf8e.png"></a></p>
+<p>以上代码给 <code>state</code> 中的对象添加新属性时, 由于不是响应式添加, 所以界面不会更新, 要想让界面更新, 可以参考以下方式</p>
+<pre><code class="lang-javascript">updateInfo(state, payload) &#123;
+  // state.info[&#39;height&#39;] = payload.height
+
+  // 方式一：Vue.set()
+  // Vue.set(state.info, &#39;height&#39;, payload.height)
+  // 方式二：给 info 赋值一个新的对象
+  state.info = &#123; ...state.info, &#39;height&#39;: payload.height &#125;
+&#125;
+</code></pre>
+<h4 id="Mutations-常量类型"><a href="#Mutations-常量类型" class="headerlink" title="Mutations 常量类型"></a>Mutations 常量类型</h4><p>在 <code>Mutations</code> 中, 我们定义了很多事件类型(也就是其中的方法名称), 当我们的项目不断增大时, 可能会出现诸如以下一些问题</p>
+<ul>
+<li>Vuex 管理的状态越来越多, 需要更新状态的情况越来越多</li>
+<li><code>Mutations</code> 中的方法越来越多, 使用者需要花费大量精力去记住这些方法, 甚至是多个文件间来回切换, 查看方法名称, 甚至出现写错的情况</li>
+</ul>
+<p>如何避免上述的问题呢?</p>
+<p>在各种 <code>Flux</code> 实现中, 一种很常见的方案是</p>
+<ul>
+<li>使用常量替代 <code>Mutations</code> 事件的类型</li>
+<li>将这些常量放在一个单独的文件中, 方便管理以及让整个 <code>app</code> 所有的事件类型一目了然</li>
+</ul>
+<p>在 <code>store/index.js</code> 同级目录下, 创建文件 <code>mutation-types.js</code>, 并且在其中定义我们的常量</p>
+<pre><code class="lang-javascript">export const UPDATE_INFO = &#39;update_info&#39;
+</code></pre>
+<p>定义常量时, 我们可以使用 ES2015 中的风格, 使用一个常量来作为函数的名称</p>
+<p><strong>使用定义的常量</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teBhgH.png"><img src="https://s1.ax1x.com/2020/05/28/teBhgH.png" alt="teBhgH.png"></a></p>
+<h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>通常情况下, Vuex 要求 <code>Mutations</code> 中的方法必须是<strong>同步方法</strong>, 因为当我们使用 <strong>devtools</strong> 时, <code>devtools</code> 可以帮助我们捕捉 <strong>Mutations 的快照</strong>, 但如果是异步操作, 那么 <code>devtools</code> 将不能很好的追踪这个操作什么时候会被完成</p>
+<p>比如之前的代码, 当执行修改信息操作时, <code>devtools</code> 中会有如下信息</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teB4vd.png"><img src="https://s1.ax1x.com/2020/05/28/teB4vd.png" alt="teB4vd.png"></a></p>
+<p>但是, 如果 Vuex 中的代码使用了异步函数</p>
+<pre><code class="lang-javascript">mutations: &#123;
+  [UPDATE_INFO](state, payload) &#123;
+    setTimeout(() =&gt; &#123;
+      state.info = &#123;
+        ...state.info, 
+        &#39;height&#39;: payload.height
+      &#125;
+    &#125;, 1000);
+  &#125;
+&#125;
+</code></pre>
+<p>这时会发现 state 中的 info 数据一直没有被改变</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/terefS.png"><img src="https://s1.ax1x.com/2020/05/28/terefS.png" alt="terefS.png"></a></p>
+<p>这是因为 <strong>devtools 无法追踪到异步操作</strong></p>
+<p>虽然强调不要再 <code>Mutations</code> 中进行异步操作, 但某些情况, 又确实希望在 Vuex 中进行一些异步操作, <strong>比如网络请求, 这时可以使用 <code>Actions</code></strong></p>
+<p><code>Actions</code> 类似于 <code>Mutations</code>, 是用来代替 <code>Mutations</code> 进行异步操作的</p>
+<p>在 <code>Actions</code> 中, 可以将异步操作放在一个 <code>Promise</code> 中, 并且在成功或者失败后, 调用对应的 <code>resolve</code> 或 <code>reject</code></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/ter6fO.png"><img src="https://s1.ax1x.com/2020/05/28/ter6fO.png" alt="ter6fO.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/terytK.png"><img src="https://s1.ax1x.com/2020/05/28/terytK.png" alt="terytK.png"></a></p>
+<p>这里的 <code>context</code> 可以当成 <code>store</code> 对象,也可以通过 <code>payload</code> 传递参数</p>
+<p><strong>context 可以使用对象的解构方式的写法</strong></p>
+<pre><code class="lang-javascript">actions: &#123;
+  [UPDATE_INFO](&#123; state, commit &#125;, payload) &#123;
+    return Promise((resolve, reject) =&gt; &#123;
+      setTimeout(() =&gt; &#123;
+        commit(UPDATE_INFO, payload)
+        resolve(&#39;access&#39;)
+      &#125;, 1000)
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+<h3 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h3><p><code>Modules</code> 是模块的意思，为什么在 Vuex 中我们要使用模块呢?</p>
+<p>Vue 使用单一状态树, 意味着很多状态都会交给 Vuex 来管理, 当应用变得非常复杂时, <code>store</code> 对象就有可能变得相当臃肿, 为了解决这个问题, Vuex 允许我们将 <code>store</code> 分割成模块(Module), 每个模块拥有自己的 <code>state</code>、<code>mutations</code>、<code>actions</code>、<code>getters</code> 等</p>
+<h4 id="Modules-基本使用"><a href="#Modules-基本使用" class="headerlink" title="Modules 基本使用"></a>Modules 基本使用</h4><p>我们按照什么样的方式来组织模块呢?</p>
+<pre><code class="lang-javascript">const ModuleA = &#123;
+  state:&#123;&#125;,
+  mutations:&#123;&#125;,
+  // 这里的 context 指的是本模块内 mutations 里的内容
+  actions:&#123;&#125;,
+  // 模块里的getters可以有第三个参数 rootState, 意思是可以拿到根模块中的数据
+  getters:&#123;&#125;
+&#125;
+
+const ModuleB = &#123;
+  state:&#123;&#125;,
+  mutations:&#123;&#125;,
+  actions:&#123;&#125;,
+  getters:&#123;&#125;
+&#125;
+
+const store = new Vuex.Store(&#123;
+  modules:&#123;
+    a:ModuleA,
+    b:ModuleB
+  &#125;
+&#125;)
+// 拿取 state 里的数据的时候要.对应的模块来拿取，其它的使用方法都一样
+$store.state.a // ModuleA 的状态
+$store.state.b // ModuleB 的状态
+</code></pre>
+<h4 id="Modules-中的-state"><a href="#Modules-中的-state" class="headerlink" title="Modules 中的 state"></a>Modules 中的 state</h4><p>要想知道如何调用 Modules 中的 <code>state</code>, 需要先了解一下 Modules 中的 <code>module</code> 真实位置</p>
+<p>其实, 在 <code>store</code> 实例的 <code>modules</code> 中定义的 <code>a</code> 和 <code>b</code> 会被放到 <code>store</code> 的 <code>state</code> 中</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tesw8S.png"><img src="https://s1.ax1x.com/2020/05/28/tesw8S.png" alt="tesw8S.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tesdC8.png"><img src="https://s1.ax1x.com/2020/05/28/tesdC8.png" alt="tesdC8.png"></a></p>
+<p>既然 Module 被放到了 <code>store</code> 的 <code>state</code> 中，那么在其他组件中就可以使用 <code>this.$store.state</code> 来调用了</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tesU4f.png"><img src="https://s1.ax1x.com/2020/05/28/tesU4f.png" alt="tesU4f.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tesNUP.png"><img src="https://s1.ax1x.com/2020/05/28/tesNUP.png" alt="tesNUP.png"></a></p>
+<h4 id="Modules-中的-mutations"><a href="#Modules-中的-mutations" class="headerlink" title="Modules 中的 mutations"></a>Modules 中的 mutations</h4><p>虽然 <code>mutations</code> 是定义在模块中的, 但是在组件中提交时还是使用: <code>this.$store.commit</code></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tesgU0.png"><img src="https://s1.ax1x.com/2020/05/28/tesgU0.png" alt="tesgU0.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tesWCT.png"><img src="https://s1.ax1x.com/2020/05/28/tesWCT.png" alt="tesWCT.png"></a></p>
+<h4 id="Modules-中的-getters"><a href="#Modules-中的-getters" class="headerlink" title="Modules 中的 getters"></a>Modules 中的 getters</h4><p><strong>注意 : <code>rootState</code> 可以拿到根模块中的数据, 即全局状态</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tes25V.png"><img src="https://s1.ax1x.com/2020/05/28/tes25V.png" alt="tes25V.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tescEq.png"><img src="https://s1.ax1x.com/2020/05/28/tescEq.png" alt="tescEq.png"></a></p>
+<h4 id="Modules-中的-actions"><a href="#Modules-中的-actions" class="headerlink" title="Modules 中的 actions"></a>Modules 中的 actions</h4><p>几乎与之前的 <code>actions</code> 无区别</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teyYM4.png"><img src="https://s1.ax1x.com/2020/05/28/teyYM4.png" alt="teyYM4.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tey8RU.png"><img src="https://s1.ax1x.com/2020/05/28/tey8RU.png" alt="tey8RU.png"></a></p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>当 Vuex 帮助我们管理过多的内容时, 好的项目结构可以让我们的代码更加清晰</p>
+<p>这里建议: <code>state</code> 的内容可以写在 <code>index</code> 里, 其它所有的都抽离成一个模块</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teyGzF.png"><img src="https://s1.ax1x.com/2020/05/28/teyGzF.png" alt="teyGzF.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tey3GT.png"><img src="https://s1.ax1x.com/2020/05/28/tey3GT.png" alt="tey3GT.png"></a></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

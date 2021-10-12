@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || React脚手架</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>React脚手架 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/17
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/React-CLI" style=color:#00bcd4>
+                    React-CLI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="认识脚手架"><a href="#认识脚手架" class="headerlink" title="认识脚手架"></a>认识脚手架</h2><p>如果我们只是开发几个小的 Demo 程序, 那么永远不需要考虑一些复杂的问题, 比如</p>
+<ul>
+<li>目录结构如何组织划分</li>
+<li>如何管理文件之间的相互依赖</li>
+<li>如何管理第三方模块的依赖</li>
+<li>项目发布前如何压缩、打包项目</li>
+</ul>
+<p>现代的前端项目已经越来越复杂了</p>
+<ul>
+<li>不会再是在 HTML 中引入几个 CSS 文件, 引入几个编写的 JS 文件或者第三方 JS 文件这么简单</li>
+<li>比如 CSS 可能是使用 Less、Sass 等预处理器进行编写, 我们需要将它们转成普通的 CSS 才能被浏览器解析</li>
+<li>比如 JavaScript 代码不再只是编写在几个文件中, 而是通过模块化的方式, 被组织在<strong>成百上千</strong>个文件中, 我们需要通过模块化的技术来管理他们之间的相互依赖</li>
+<li>比如项目需要依赖多个第三方库, 如何更好的管理它们(比如管理它们的依赖、版本升级等)</li>
+</ul>
+<p>为了解决上面这些问题, 我们需要再去学习一些工具</p>
+<ul>
+<li>比如 Babel、Webpack、Gulp, 配置它们转换规则、打包依赖、热更新等等一些内容</li>
+<li>你会发现, 你还没有开始做项目就面临一系列的工程化问题</li>
+</ul>
+<p><strong>脚手架的出现, 就是帮助我们解决这一系列的问题</strong></p>
+<span id="more"></span>
+<h3 id="脚手架是什么"><a href="#脚手架是什么" class="headerlink" title="脚手架是什么?"></a>脚手架是什么?</h3><p>传统的脚手架指的是建筑学的一种结构: 在搭建楼房、建筑物时, 临时搭建出来的一个框架</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NEjxhj.jpg"><img src="https://s1.ax1x.com/2020/06/17/NEjxhj.jpg" alt="NEjxhj.jpg"></a></p>
+<p>编程中提到的脚手架(<code>Scaffold</code>), 其实是一种工具, 可以帮助我们快速生成项目有的工程化结构</p>
+<ul>
+<li>每个项目作出的效果不同, 但是它们的基本工程化结构是相似的</li>
+<li>既然相似, 就没有必要每次都从零开始搭建, 完全可以使用一些工具, 帮助我们生产基本的工程化模版</li>
+<li>不同的项目, 在这个模板的基础之上进行项目开发或者进行一些配置的简单修改即可</li>
+<li>这样也可以间接保证项目的基本结构的一致性, 方便后期的维护</li>
+</ul>
+<p><strong>总结: 脚手架让项目从搭建到开发, 再到部署, 整个流程变得快速和便捷</strong></p>
+<p>对于现在比较流行的三大框架都有属于自己的脚手架</p>
+<ul>
+<li>Vue 的脚手架: <code>vue-cli</code></li>
+<li>Angular 的脚手架: <code>angular-cli</code></li>
+<li>React 的脚手架: <code>create-react-app</code></li>
+</ul>
+<p>它们的作用都是帮助我们生成一个通用的目录结构, 并且已经将我们所需的工程环境配置好</p>
+<p>使用这些脚手架需要依赖什么呢?</p>
+<ul>
+<li>目前这些脚手架都是使用 Node.JS 编写的, 并且都是基于 Webpack</li>
+<li>所以我们必须在自己的计算机上<strong>安装 Node 环境</strong></li>
+</ul>
+<h2 id="安装相关的依赖"><a href="#安装相关的依赖" class="headerlink" title="安装相关的依赖"></a>安装相关的依赖</h2><h3 id="安装-Node"><a href="#安装-Node" class="headerlink" title="安装 Node"></a>安装 Node</h3><p>React 脚手架本身需要依赖 Node, 所以我们需要安装 Node 环境</p>
+<ul>
+<li>无论是 Windows 还是 Mac OS, 都可以通过 <a target="_blank" rel="noopener" href="http://nodejs.cn/download/">Node 官网直接下载</a></li>
+<li>注意: 这里推荐下载 LTS (<em>Long-term support</em>)版本, 它是长期支持版本, 会比较稳定</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVSg8H.png"><img src="https://s1.ax1x.com/2020/06/17/NVSg8H.png" alt="NVSg8H.png"></a></p>
+<p>下载后, 双击安装即可</p>
+<ol>
+<li>安装的过程中, 会自动配置环境变量</li>
+<li>安装时, 会同时帮助我们安装 NPM 管理工具</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVpAMR.png"><img src="https://s1.ax1x.com/2020/06/17/NVpAMR.png" alt="NVpAMR.png"></a></p>
+<p>你的版本可能跟我不一致, 这是很正常的, 如果你输入<code>node -v</code>或<code>npm -v</code>之后没有显示版本信息, 那么你可能需要重新安装</p>
+<h3 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h3><p><strong>什么是 NPM?</strong></p>
+<p>全称 <strong>Node Package Manager</strong>, 即 “Node 包管理器”</p>
+<p>作用是帮助我们管理一些依赖的工具包(比如 React、React-DOM、Axios、Babel、Webpack 等等)</p>
+<p>作者开发的目的就是为了解决<strong>模块管理很糟糕</strong>的问题</p>
+<p><strong>另外, 还有一个大名鼎鼎的 Node 包管理工具 Yarn</strong></p>
+<p>Yarn 是由 Facebook、Google、Exponent 和 Tilde 联合推出的一个新的 JS 包管理工具</p>
+<p>Yarn 是为了弥补 NPM 的一些缺陷而出现的</p>
+<p>早起的 NPM 存在很多的缺陷, 比如安装依赖速度很慢、版本依赖混乱等等一系列问题</p>
+<p>虽然从 NPM5 版本开始, 进行了很多的升级和改进, 但是依然由很多人喜欢使用 Yarn</p>
+<p>React 脚手架默认也是使用 Yarn</p>
+<p><strong>安装 Yarn</strong></p>
+<pre><code class="lang-shell">npm install -g yarn
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVCwKs.png"><img src="https://s1.ax1x.com/2020/06/17/NVCwKs.png" alt="NVCwKs.png"></a></p>
+<p><strong>Yarn 和 NPM 的命令对比</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">NPM</th>
+<th style="text-align:left">Yarn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">npm install</td>
+<td style="text-align:left">yarn install</td>
+</tr>
+<tr>
+<td style="text-align:left">npm install [package]</td>
+<td style="text-align:left">yarn add [package]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm install —save [package]</td>
+<td style="text-align:left">yarn add [package]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm install —save-dev [package]</td>
+<td style="text-align:left">yarn add [package] [—dev/-D]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm rebuild</td>
+<td style="text-align:left">yarn install —force</td>
+</tr>
+<tr>
+<td style="text-align:left">npm uninstall [package]</td>
+<td style="text-align:left">yarn remove [package]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm uninstall —save [package]</td>
+<td style="text-align:left">yarn remove [package]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm uninstall —save-dev [package]</td>
+<td style="text-align:left">yarn remove [package]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm uninstall —save-optional [package]</td>
+<td style="text-align:left">yarn remove [package]</td>
+</tr>
+<tr>
+<td style="text-align:left">npm cache clean</td>
+<td style="text-align:left">yarn cache clean</td>
+</tr>
+<tr>
+<td style="text-align:left">rm -rf node_modules &amp;&amp; npm install</td>
+<td style="text-align:left">yarn upgrade</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>CNPM 的使用</strong></p>
+<p>在国内, 某些情况使用 <code>NPM</code> 和 <code>Yarn</code> 可能无法正常安装一个库, 这个时候我们可以选择使用 <code>CNPM</code></p>
+<pre><code class="lang-shell">npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre>
+<h3 id="安装-create-react-app"><a href="#安装-create-react-app" class="headerlink" title="安装 create-react-app"></a>安装 create-react-app</h3><p>最后一个需要安装的是创建 React 项目的脚手架</p>
+<pre><code class="lang-shell">npm install -g create-react-app
+</code></pre>
+<h2 id="使用-create-react-app"><a href="#使用-create-react-app" class="headerlink" title="使用 create-react-app"></a>使用 create-react-app</h2><h3 id="创建-React-项目"><a href="#创建-React-项目" class="headerlink" title="创建 React 项目"></a>创建 React 项目</h3><p>现在, 我们就可以通过脚手架来创建 React 项目了</p>
+<p>创建 React 项目的命令如下</p>
+<ul>
+<li>注意: 项目名称不能包含大写字母</li>
+</ul>
+<pre><code class="lang-shell">create-react-app 项目名称
+</code></pre>
+<p>另外还有更多创建项目的方式, 可以参考<a target="_blank" rel="noopener" href="https://github.com/facebook/create-react-app">官方 GitHub 文档</a></p>
+<ul>
+<li>上面的创建方式, 默认使用的是 Yarn 来管理整个项目包相关的依赖</li>
+<li>如果希望使用 NPM, 也可以在参数后面加上<code>--use-npm</code></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVAG9K.png"><img src="https://s1.ax1x.com/2020/06/17/NVAG9K.png" alt="NVAG9K.png"></a></p>
+<p>创建完成后, 进入对应的目录, 就可以将项目跑起来</p>
+<pre><code class="lang-shell">cd demo
+yarn start
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVE1bj.png"><img src="https://s1.ax1x.com/2020/06/17/NVE1bj.png" alt="NVE1bj.png"></a></p>
+<h3 id="目录结构分析"><a href="#目录结构分析" class="headerlink" title="目录结构分析"></a>目录结构分析</h3><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVVsOg.png"><img src="https://s1.ax1x.com/2020/06/17/NVVsOg.png" alt="NVVsOg.png"></a></p>
+<p><strong>目录结构分析</strong></p>
+<pre><code>test-react
+├─ README.md // readme 说明文档
+├─ package.json // 对整个应用程序的描述: 包括应用名称、版本号、一些依赖包、以及项目的启动、打包等等（Node 管理项目必备文件）
+├─ public
+│    ├─ favicon.ico // 应用程序顶部的 icon 图标
+│    ├─ index.html // 应用的 index.html 入口文件
+│    ├─ logo192.png // 被在 manifest.json 中使用
+│    ├─ logo512.png // 被在 manifest.json 中使用
+│    ├─ manifest.json // 和 Web app 配置相关
+│    └─ robots.txt // 指定搜索引擎可以或者无法爬取哪些文件
+├─ src
+│    ├─ App.css // App 组件相关的样式
+│    ├─ App.js // App 组件的代码文件
+│    ├─ App.test.js // App 组件的测试代码文件
+│    ├─ index.css // 全局的样式文件
+│    ├─ index.js // 整个应用程序的入口文件
+│    ├─ logo.svg // 刚才启动项目, 所看到的 React 图标
+│    ├─ serviceWorker.js // 默认帮助我们写好的注册 PWA 相关的代码
+│    └─ setupTests.js // 测试初始化文件
+└─ yarn.lock
+</code></pre><p>整个目录都非常好理解, 只是有一个 PWA 相关的概念</p>
+<ul>
+<li>PWA 全称 Progressive Web App, 即渐进式 Web 应用</li>
+<li>一个 PWA 应用首先是一个网页, 可以通过 Web 技术编写出一个网页应用, 随后添加上 App Manifest 和 Service Worker 来实现 PWA 的安装和离线等功能</li>
+<li>这种 Web 存在的形式, 我们也称之为 Web App</li>
+</ul>
+<p>PWA 解决了哪些问题?</p>
+<ul>
+<li>可以添加至主屏幕, 点击主屏幕图标可以实现启动动画以及隐藏地址栏</li>
+<li>实现离线缓存功能, 即使用户手机没有网络, 依然可以使用一些离线功能</li>
+<li>实现消息推送等等一系列类似于 Native App 相关的功能</li>
+</ul>
+<h3 id="Webpack-配置"><a href="#Webpack-配置" class="headerlink" title="Webpack 配置"></a>Webpack 配置</h3><p>我们说过 React 的脚手架是基于 Webpack 来配置的</p>
+<ul>
+<li>Webpack 是一个现代 JavaScript 应用程序的<strong>静态模块打包工具(module bundler)</strong></li>
+<li>当 Webpack 处理应用程序时, 它会递归地构建一个<strong>依赖关系图(dependency graph)</strong>, 其中包含应用程序需要的每个模块, 然后将所有模块打包成一个或多个 bundle</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVmWtA.jpg"><img src="https://s1.ax1x.com/2020/06/17/NVmWtA.jpg" alt="NVmWtA.jpg"></a></p>
+<p>但是很奇怪, 我们并没有在目录结构中看到任何 Webpack 相关的内容</p>
+<ul>
+<li>原因是 create-react-app 将 Webpack 相关的配置隐藏起来了(其实从 Vue-CLI3 开始, 也进行了隐藏)</li>
+</ul>
+<p>如果我们希望看到 Webpack 的配置信息, 应该怎么来做呢?</p>
+<ul>
+<li>我们可以执行一个<code>package.json</code>文件中的一个脚本<code>&quot;eject&quot;: &quot;react-scripts eject&quot;</code></li>
+<li>这个操作是不可逆的, 所以在执行过程中会给予我们提示</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NV3uRJ.png"><img src="https://s1.ax1x.com/2020/06/17/NV3uRJ.png" alt="NV3uRJ.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NV3OSJ.png"><img src="https://s1.ax1x.com/2020/06/17/NV3OSJ.png" alt="NV3OSJ.png"></a></p>
+<h2 id="从零编写项目"><a href="#从零编写项目" class="headerlink" title="从零编写项目"></a>从零编写项目</h2><h3 id="文件的删减"><a href="#文件的删减" class="headerlink" title="文件的删减"></a>文件的删减</h3><p>通过脚手架创建完项目, 我们可以将一些不需要的文件删掉</p>
+<ol>
+<li>将 src 下的所有文件删除</li>
+<li>将 public 下<strong>除了</strong><code>favicon.ico</code>和<code>index.html</code>之外的文件删除</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NV8x3Q.png"><img src="https://s1.ax1x.com/2020/06/17/NV8x3Q.png" alt="NV8x3Q.png"></a></p>
+<p>修改<code>index.html</code>文件</p>
+<ul>
+<li>我们需要删除选中的内容</li>
+<li>这两行内容是我们之前引入的一个图标和<code>manifest</code>文件</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVGBUf.png"><img src="https://s1.ax1x.com/2020/06/17/NVGBUf.png" alt="NVGBUf.png"></a></p>
+<h3 id="开始编写代码"><a href="#开始编写代码" class="headerlink" title="开始编写代码"></a>开始编写代码</h3><p>在 src 目录下, 创建一个<code>index.js</code>文件, 因为这是 Webpack 打包的入口</p>
+<p>在<code>index.js</code>中开始编写 React 代码</p>
+<ul>
+<li>在模块化开发中, 我们需要手动的导入<code>react</code>、<code>react-dom</code>, 因为它们都是在我们安装的模块中</li>
+</ul>
+<pre><code class="lang-react">import React from &#39;react&#39;
+import ReactDOM from &#39;react-dom&#39;
+
+ReactDOM.render(&lt;h2&gt;Hello React&lt;/h2&gt;, document.getElementById(&#39;root&#39;))
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/17/NVYKk6.png"><img src="https://s1.ax1x.com/2020/06/17/NVYKk6.png" alt="NVYKk6.png"></a></p>
+<p>如果我们不希望直接在<code>ReactDOM.render</code>中编写过多的代码, 就可以单独抽取一个组件<code>App.js</code></p>
+<pre><code class="lang-react">// App.js
+import React, &#123; Component &#125; from &#39;react&#39;
+
+export default class App extends React.Component &#123;
+  render() &#123;
+    return &lt;h2&gt;Hello React&lt;/h2&gt;
+  &#125;
+&#125;
+</code></pre>
+<p>在<code>index.js</code>中引入 App 组件, 并且使用它</p>
+<pre><code class="lang-react">// index.js
+import React from &#39;react&#39;
+import ReactDOM from &#39;react-dom&#39;
+
+import App from &#39;./App&#39;
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;))
+</code></pre>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVYKk6.png" alt="NVYKk6.png"></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,443 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Vue-CLI</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Vue-CLI </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/1
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Vue
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Vue-CLI" style=color:#ff7d73>
+                    Vue-CLI
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="Vue-CLI-Vue-脚手架-介绍"><a href="#Vue-CLI-Vue-脚手架-介绍" class="headerlink" title="Vue-CLI (Vue 脚手架) 介绍"></a>Vue-CLI (Vue 脚手架) 介绍</h2><ul>
+<li><strong>Vue-CLI</strong> 是一个专门为<strong>单页面应用快速搭建繁杂的脚手架</strong>, 它可以轻松的创建新的应用程序而且可用于<strong>自动生成Vue和webpack的项目模板</strong></li>
+<li>如果只是简单的写几个 Vue 的 <strong>Demo 程序</strong>, 那么不需要 <strong>Vue-CLI</strong></li>
+<li>如果你在<strong>开发大型项目</strong>, 那么你需要, 并且必然<strong>需要使用 Vue-CLI</strong></li>
+<li><strong>Vue-CLI 使用前提</strong><ul>
+<li>Node.js</li>
+<li>Webpack</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h2 id="安装-Vue-脚手架"><a href="#安装-Vue-脚手架" class="headerlink" title="安装 Vue 脚手架"></a>安装 Vue 脚手架</h2><p><strong>Vue-CLI</strong> 的安装</p>
+<pre><code class="lang-shell">npm install -g @vue/cli
+</code></pre>
+<ul>
+<li>注意:<ul>
+<li>上面安装的是 Vue-CLI 的最新版本</li>
+<li>如果想按照 <strong>Vue-CLI2</strong> 的方式初始化项目时是不可以的</li>
+<li>如果使用 <strong>npm</strong> 安装比较慢的话可以使用 <strong>cnpm</strong> 进行安装</li>
+</ul>
+</li>
+</ul>
+<h3 id="cnpm-安装"><a href="#cnpm-安装" class="headerlink" title="cnpm 安装"></a>cnpm 安装</h3><p>由于国内直接使用 npm 的官方镜像时非常慢的, 所以推荐使用淘宝 npm 镜像</p>
+<pre><code class="lang-shell">npm install -g cnpm --registry=&quot;https://registry.npm.taobao.org&quot;
+</code></pre>
+<p>安装之后就可以使用 cnpm 命令来安装模块了</p>
+<h3 id="拉取-2-x-模版-Vue-CLI-旧版本"><a href="#拉取-2-x-模版-Vue-CLI-旧版本" class="headerlink" title="拉取 2.x 模版 (Vue-CLI 旧版本)"></a>拉取 2.x 模版 (Vue-CLI 旧版本)</h3><p><strong>Vue-CLI 3</strong> 和旧版本使用了相同的 Vue 命令, 所以 <strong>Vue-CLI 2</strong> 被覆盖了, 如果你仍想使用旧版本的 <code>vue init</code> 功能, 你可以全局安装一个桥接工具:</p>
+<pre><code class="lang-shell">npm install -g @vue/cli-init
+## &#39;vue init&#39; 的运行效果将会跟 &#39;Vue-CLI@2.x&#39; 相同
+</code></pre>
+<h2 id="Vue-CLI-的使用"><a href="#Vue-CLI-的使用" class="headerlink" title="Vue-CLI 的使用"></a>Vue-CLI 的使用</h2><h3 id="Vue-CLI-2"><a href="#Vue-CLI-2" class="headerlink" title="Vue-CLI 2"></a>Vue-CLI 2</h3><p>初始化项目</p>
+<pre><code class="lang-shell">vue init webpack 项目名称
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tetay6.jpg"><img src="https://s1.ax1x.com/2020/05/28/tetay6.jpg" alt="tetay6.jpg"></a></p>
+<ul>
+<li><strong>Project name</strong>: 项目名称(一般和初始化的项目名称一致)</li>
+<li><strong>Project description</strong>: 项目描述</li>
+<li><strong>Author</strong>: 作者(姓名, 邮箱)</li>
+<li><strong>Vue build</strong>: 构建项目时使用 <strong>Runtime-Compiler</strong> 还是 <strong>Runtime-only</strong></li>
+<li><strong>Install vue-router?</strong> 是否安装 Vue 的路由</li>
+<li>Use ESLint to lint your code? 是否使用 ESlint 限制代码规范<ul>
+<li>如果<strong>选择了 ESLint</strong>, 那么需要选择 ESLint 规范</li>
+<li><strong>Pick an ESLint preset (Use arrow keys)</strong> 选择规范</li>
+</ul>
+</li>
+<li><strong>Set up unit tests</strong>: 是否使用单元测试</li>
+<li><strong>Setup e2e tests with Nightwatch?</strong> 是否端到端测试, 且安装 Nightwatch?</li>
+<li><strong>Should we run <code>npm install</code> for you after the project has been created? (recommended)</strong>: 你准备管理项目时使用 NPM 还是 Yarn 呢?</li>
+</ul>
+<h4 id="runtime-compiler-和-runtime-only-的区别"><a href="#runtime-compiler-和-runtime-only-的区别" class="headerlink" title="runtime-compiler 和 runtime-only 的区别"></a>runtime-compiler 和 runtime-only 的区别</h4><p>无论是使用 <strong>runtime-compiler</strong> 还是使用 <strong>runtime-only</strong> 只要 <strong>(template 或 render函数) 与 el 一起使用</strong>, 都会替换掉 el 挂载的标签</p>
+<p><strong>唯一不同: main.js</strong></p>
+<p>此为 <code>runtime-compiler</code> 的 <code>main.js</code></p>
+<pre><code class="lang-javascript">import Vue from &quot;vue&quot;;
+import App from &quot;./App&quot;;
+
+Vue.config.productionTip = false;
+
+new Vue(&#123;
+  el: &quot;#app&quot;,
+  components: &#123; App &#125;,
+  template: &quot;&lt;App/&gt;&quot;
+&#125;);
+</code></pre>
+<p>此为 <code>runtime-only</code> 的 <code>main.js</code></p>
+<pre><code class="lang-javascript">import Vue from &quot;vue&quot;;
+import App from &quot;./App&quot;;
+
+Vue.config.productionTip = false;
+
+new Vue(&#123;
+  el: &quot;#app&quot;,
+  render: h =&gt; h(App)
+&#125;);
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tetUQx.png"><img src="https://s1.ax1x.com/2020/05/28/tetUQx.png" alt="tetUQx.png"></a></p>
+<ul>
+<li><strong>runtime-compiler 的运行过程</strong><ul>
+<li><code>template</code> $\rightarrow$ 解析 $\rightarrow$ <code>ast</code> $\rightarrow$ 编译 $\rightarrow$ <code>render</code> $\rightarrow$ <code>virtual dom</code> $\rightarrow$ <code>UI</code></li>
+</ul>
+</li>
+<li><strong>runtime-only 的运行过程</strong><ul>
+<li>rander $\rightarrow$ virtual dom $\rightarrow$ UI</li>
+</ul>
+</li>
+</ul>
+<p><strong>区别</strong></p>
+<ul>
+<li><code>runtime-only</code> 性能更高</li>
+<li><code>runtime-only</code> 文件更小 (比 <code>runtime-compiler</code> 轻 <code>10kb</code> 左右), 因为 <code>template</code> 的解析, <code>ast</code> 编译都会有相应的代码</li>
+</ul>
+<p><strong>简单总结</strong></p>
+<ul>
+<li>如果在之后的开发中, 你依然使用 <code>template</code>, 就需要选择 <strong>runtime-compiler</strong></li>
+<li>如果你之后的开发中, 使用的是 <code>.vue</code> 文件开发, 那么可以选择 <strong>runtime-only</strong></li>
+</ul>
+<h4 id="render-函数"><a href="#render-函数" class="headerlink" title="render 函数"></a>render 函数</h4><pre><code class="lang-javascript">render: function (createElement) &#123;
+  // 1. createElement(&quot;标签&quot;, &#123;标签的属性&#125;, [&quot;内容&quot;])
+  // return createElement(&quot;div&quot;, &#123; class: &quot;box&quot; &#125;, [&quot;hello world&quot;]);
+  // 2. createElement(组件)
+  return createElement(App)
+&#125;
+</code></pre>
+<p><strong>.vue 文件里的 template 需不需要解析呢?</strong></p>
+<ul>
+<li>答案是不需要</li>
+<li>因为在 <code>.vue</code> 文件中的 <code>template</code> 由 <strong>vue-template-compiler</strong> 解析成 <code>render</code> 函数</li>
+</ul>
+<h3 id="Vue-CLI-3"><a href="#Vue-CLI-3" class="headerlink" title="Vue-CLI 3"></a>Vue-CLI 3</h3><p><strong>Vue-CLI 3 及以上版本</strong>号称”零配置”, 它将大部分配置文件都藏在 <strong>.git文件夹中</strong>, 仅有少部分是需要开发者自行配置的</p>
+<p>初始化项目</p>
+<pre><code class="lang-shell">vue create my-project
+</code></pre>
+<p><strong>Please pick a preset</strong>: 选择配置(默认配置 || 手动选择一些特性)</p>
+<ul>
+<li><p>如果选择<strong>手动设置</strong> >&gt; <strong>Check the features needed for your project</strong>: 选择特性(按空格 选中|取消选中)</p>
+<ul>
+<li><strong>Where do you prefer placing config for Babel, ESLint, etc.?</strong>: (将某些配置文件放到独立的文件中 || 将某些配置放在<strong>package.json</strong>中)</li>
+<li><strong>Save this as a preset for future projects?</strong>: 是否将刚才的配置保存为将来项目的预置</li>
+</ul>
+</li>
+<li><p>如果选择 yes</p>
+</li>
+<li><p><strong>Save preset as</strong>: 保存的名字</p>
+</li>
+<li><strong>Pick the package manager to use when istalling dependencies</strong>: 选择 NPM 或 Yarn</li>
+</ul>
+<p><strong>main.js 变化(最终版本)</strong></p>
+<pre><code class="lang-javascript">new Vue(&#123;
+  render: h =&gt; h(App)
+&#125;).$mount(&quot;#app&quot;);
+</code></pre>
+<p><strong>用 $mount(“#app”) 取缔了 el</strong></p>
+<ul>
+<li><code>el</code> 最终还是会通过 <code>$mount()</code> 进行挂载</li>
+</ul>
+<h4 id="配置-Vue-CLI3-的方式"><a href="#配置-Vue-CLI3-的方式" class="headerlink" title="配置 Vue CLI3 的方式"></a>配置 Vue CLI3 的方式</h4><p>启动配置服务器: <code>vue ui</code> 指令, 安装<code>@vue/cli</code> 同时安装了 <strong>vue</strong> 和 <strong>vue ui</strong></p>
+<ul>
+<li>运行<code>vue ui</code>命令</li>
+<li>在项目根目录创建文件名为 <strong>“vue.config.js”</strong>, 然后运行<code>git commit -m &#39;添加一个配置文件&#39;</code></li>
+</ul>
+<h2 id="Vue-CLI-2-和-Vue-CLI-3-的区别"><a href="#Vue-CLI-2-和-Vue-CLI-3-的区别" class="headerlink" title="Vue-CLI 2 和 Vue-CLI 3 的区别"></a>Vue-CLI 2 和 Vue-CLI 3 的区别</h2><ul>
+<li>Vue-CLI 3 是基于 webpack4 打造, Vue-CLI 2 还是 webpack3</li>
+<li>Vue-CLI 3 的<strong>设计原则是“零配置”</strong>, 移除的配置文件根目录下的, <strong>build 和 config 等目录</strong></li>
+<li>Vue-CLI 3 提供了 <code>vue ui</code> 命令, 提供了可视化配置, 更加人性化</li>
+<li>Vue-CLI 3 <strong>移除了 static 文件夹, 新增了 public 文件夹, 并且 index.html 移动到 public 中</strong></li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

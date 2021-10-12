@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || To strive, to seek, to find, and not to yield.</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('/home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Zhjh's Blog</h1>
+                <h3>To strive, to seek, to find, and not to yield.</h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2020/04/07/浏览器请求过程/">
+        <h2>
+            浏览器请求过程
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/网络">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                网络
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/7
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ol>
+<li>用户在浏览器中输入 URL 网址</li>
+<li>浏览器解析用户输入的 <strong>URL 地址 $\Rightarrow$ 域名 + 端口</strong></li>
+<li>浏览器会先检查本地缓存中有没有这个域名 $\Rightarrow$ IP<ul>
+<li>如果有, 则直接使用 IP 进行访问</li>
+<li>如果没有, 则浏览器发起一个 DNS 系统调用(操作系统进行查找)<ul>
+<li>操作系统检查自己的缓存里有没有这个域名</li>
+<li>没有的话找系统的 <strong>hosts 文件</strong>中有没有这个域名</li>
+<li>如果都没有找到, 会对 DNS 服务器发起一个系统调用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>浏览器通过一个本机的随机端口建立一个与服务器指定端口(80)之间的连接通道</li>
+<li>浏览器会将客户端的一些信息打上一个“包”, 将这个“包”通过这个连接通道发送到服务端</li>
+<li>打开服务端返回过来的“包”, 找到 <strong>Content-type</strong>, 决定如何处理响应的内容</li>
+<li>如果是 HTML 则渲染到界面上</li>
+<li>“包”的概念是请求报文</li>
+</ol>
+<p>注: 谷歌使用 <strong>chrome://net-intermals</strong> 查看浏览器缓存</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/浏览器" style=color:#ff7d73>
+                浏览器
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/07/浏览器请求过程/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/06/防抖节流/">
+        <h2>
+            防抖节流
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/JavaScript">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                JavaScript
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/6
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h2><p>因频繁执行 DOM 操作, 资源加载等行为, 导致 UI 停顿甚至浏览器崩溃</p>
+<ul>
+<li>window 对象频繁的 <code>onresize</code>, <code>onscroll</code>等事件</li>
+<li>拖拽的<code>mousemove</code>事件</li>
+<li>资源加载的<code>load</code>事件</li>
+<li>文字输入, 自动完成的<code>keyup</code>事件</li>
+</ul>
+<p>比如每次搜索框内每输入一下就会向服务器发送一个请求, 这样既没有意义, 也很浪费资源</p>
+<p>实际上我们更希望搜索框内当有一段时间内没有再发生输入事件时, 此时再向服务器发送请求会更有利与页面性能和缓解服务器压力</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Utils" style=color:#00a596>
+                Utils
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/06/防抖节流/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/05/深度克隆和浅度克隆/">
+        <h2>
+            深度克隆和浅度克隆
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/JavaScript">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                JavaScript
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/5
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="浅度克隆"><a href="#浅度克隆" class="headerlink" title="浅度克隆"></a>浅度克隆</h2><p>浅度克隆实际上就是<strong>深度克隆第一维变量</strong>, 其他维度的变量不进行特殊处理, <strong>当克隆出来的对象中有引用类型的属性, 那么原对象和克隆对象将使用同一个引用值</strong></p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Utils" style=color:#ff7d73>
+                Utils
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/05/深度克隆和浅度克隆/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/4/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/3">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/4/">
+                <span class="page-num">
+                    4
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            5
+        </span>
+
+        
+
+    </div>
+
+    <div class="next">
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/images/avatar.jpg " alt="头像">
+        </div>
+        <div class="name">
+            Zhjh
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                越努力越幸运!
+            </div>
+            
+            <div class="description">
+                付出总会有回报!
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/cszhjh" target="_blank">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=15444087&site=qq&menu=yes" target="_blank">
+
+                    
+                    <a-icon type="qq"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="/images/wechat.jpeg" target="_blank">
+
+                    
+                    <a-icon type="wechat"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="mailto:cszhjh@icloud.com" target="_blank">
+
+                    
+                    <a-icon type="mail"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://coderlion.com">
+                    国内博客
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a href="https://cszhjh.github.io">
+                    Github博客
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+
+</body>
+
+</html>

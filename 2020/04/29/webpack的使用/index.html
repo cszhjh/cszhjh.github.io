@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Webpack 的使用</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Webpack 的使用 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/29
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Webpack">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Webpack
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Webpack" style=color:#00a596>
+                    Webpack
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="打包命令"><a href="#打包命令" class="headerlink" title="打包命令"></a>打包命令</h2><ul>
+<li>在当前项目路径下, 输入命令</li>
+<li><code>$ webpack 入口 出口</code></li>
+<li><strong>注意: webpack 命令是全局命令</strong></li>
+</ul>
+<pre><code class="lang-shell">webpack ./src/main.js ./dist/bundle.js
+</code></pre>
+<span id="more"></span>
+<h2 id="配置-webpack-config-js-文件"><a href="#配置-webpack-config-js-文件" class="headerlink" title="配置 webpack.config.js 文件"></a>配置 webpack.config.js 文件</h2><ul>
+<li>通过 <strong>Node.js</strong> 导入 <code>pash</code> 包</li>
+<li>使用 <strong>Node.js</strong> 前, 初始化 <code>npm</code></li>
+</ul>
+<pre><code class="lang-shell">npm init
+</code></pre>
+<p>倒入模块路径</p>
+<pre><code class="lang-javascript">const path = require(&quot;path&quot;);
+</code></pre>
+<p>配置</p>
+<pre><code class="lang-javascript">module.exports = &#123;
+  entry: &quot;./src/main.js&quot;, // 入口
+  output: &#123;
+    // 出口对象
+    path: path.resolve(__dirname, &quot;dist&quot;), // 出口文件路径
+    filename: &quot;bundel.js&quot;, // 出口文件名字
+    publicPath: &quot;dist/&quot; // 打包资源后自动为url、src添加文件路径
+  &#125;
+&#125;
+</code></pre>
+<h2 id="配置-package-json-文件"><a href="#配置-package-json-文件" class="headerlink" title="配置 package.json 文件"></a>配置 package.json 文件</h2><p>通过 <code>npm init</code> 得到的 <code>json</code> 文件配置</p>
+<pre><code class="lang-json">&#123;
+  &quot;name&quot;: &quot;meetwebpack&quot;,  // 项目名称
+  &quot;version&quot;: &quot;1.0.0&quot;,   // 项目版本
+  &quot;description&quot;: &quot;&quot;,    // 描述
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: &#123;    // 脚本命令映射
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;build&quot;: &quot;webpack&quot;
+  &#125;,
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;  // 是否开源
+&#125;
+</code></pre>
+<ul>
+<li><p>将 <code>webpack</code> 命令映射到 <code>npm run build</code> 上</p>
+<ul>
+<li>且优先在项目中寻找本地命令, 如果本地没有该命令再去全局找此命令</li>
+</ul>
+</li>
+</ul>
+<h2 id="Webpack-打包-ES6-TS-转-ES5-Less-转-css-vue-转-js-等"><a href="#Webpack-打包-ES6-TS-转-ES5-Less-转-css-vue-转-js-等" class="headerlink" title="Webpack 打包 (ES6/TS 转 ES5, Less 转 css, vue 转 js 等)"></a>Webpack 打包 (ES6/TS 转 ES5, Less 转 css, vue 转 js 等)</h2><ul>
+<li>在入口 js 中导入此文件<ul>
+<li>例如: <code>require(&quot;./css/normal.css&quot;)</code>;</li>
+</ul>
+</li>
+<li>为 Webpack 扩展 <code>loader</code><ul>
+<li>更多 <code>loader</code> 请上 <a target="_blank" rel="noopener" href="https://www.webpackjs.com/loaders/">Webpack官方文档</a> 查询</li>
+</ul>
+</li>
+</ul>
+<h3 id="loader-使用"><a href="#loader-使用" class="headerlink" title="loader 使用"></a>loader 使用</h3><ul>
+<li>通过 <code>npm</code> 安装需要使用的 <code>loader</code></li>
+<li>在官网上查找对应的 <code>loader</code>, 例如 <code>css</code> 的 <code>loader</code>: <code>css-loader</code></li>
+<li>在<code>webpack.config.js</code> 中的 <code>module</code> 关键字下进行配置</li>
+</ul>
+<p>安装</p>
+<pre><code class="lang-shell">npm install css-loader --save-dev
+</code></pre>
+<p>配置</p>
+<pre><code class="lang-json">module: &#123;
+  rules: [
+    &#123;
+      test: /\.css\$/,
+      use: [&quot;style-loader&quot;, &quot;css-loader&quot;]
+    &#125;
+  ]
+&#125;
+</code></pre>
+<ul>
+<li><code>css-loader</code> 只负责加载 CSS 文件, 不会帮助我们解析文件</li>
+<li>所以我们还需要安装解析 CSS 文件的 <code>loader</code></li>
+</ul>
+<pre><code class="lang-shell">npm install style-loader --save-dev
+</code></pre>
+<ul>
+<li>然后在 <code>use</code> 属性中添加<code>style-loader</code></li>
+</ul>
+<pre><code class="lang-json">module: &#123;
+  rules: [
+    &#123;
+      test: /\.css$/,
+      use: [&quot;style-loader&quot;, &quot;css-loader&quot;]
+    &#125;
+  ];
+&#125;
+</code></pre>
+<ul>
+<li><p>注意: 在使用多个 <code>loader</code> 时, Webpack 从右向左执行</p>
+<ul>
+<li>即添加<code>style-loader</code>必须放在<code>css-loader</code>左边</li>
+</ul>
+</li>
+</ul>
+<h2 id="ES6-转-ES5"><a href="#ES6-转-ES5" class="headerlink" title="ES6 转 ES5"></a>ES6 转 ES5</h2><ul>
+<li>需要使用 <code>babel</code> 的 <code>loader</code></li>
+</ul>
+<p>安装</p>
+<pre><code class="lang-shell">npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+</code></pre>
+<p>配置</p>
+<pre><code class="lang-json">module: &#123;
+  rules: [
+    &#123;
+      test: /\.js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: &#123;
+        loader: &quot;babel-loader&quot;,
+        options: &#123;
+          presets: [&quot;es2015&quot;]
+        &#125;
+      &#125;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<h2 id="配置-Vue"><a href="#配置-Vue" class="headerlink" title="配置 Vue"></a>配置 Vue</h2><p>安装</p>
+<pre><code class="lang-shell">npm install vue --save
+</code></pre>
+<p>导入 vue</p>
+<pre><code class="lang-javascript">import Vue from &quot;vue&quot;
+</code></pre>
+<ul>
+<li><strong>runtime-only</strong> 代码中, 不可以使用任何的 <code>template</code></li>
+<li><strong>runtime-compiler</strong> 代码中, 可以使用 <code>template</code>, 因为有 <code>compiler</code> 可以用于编译 <code>template</code></li>
+<li><strong>解决方案:</strong> 指定版本, 在 <strong>webpack.config.js</strong> 中配置</li>
+</ul>
+<pre><code class="lang-json">resolve: &#123;
+  alias: &#123; // 别名
+    &quot;vue$&quot;: &quot;vue/dist/vue.esm.js&quot;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="编译-vue-文件"><a href="#编译-vue-文件" class="headerlink" title="编译 .vue 文件"></a>编译 .vue 文件</h2><ul>
+<li>想要编译 Vue, 需要安装两个 <code>loader</code> 和相应的 <code>loader</code> 配置</li>
+<li><code>vue-loader</code>(14.x 版本开始, 要想使用该 <code>loader</code> 还需要配置一个插件, 或降低版本, 降低版本后需要重新 <code>npm install</code>)</li>
+<li><code>vue-template-compiler</code> (用于解析 <code>.vue</code> 文件中的 <code>template</code>)</li>
+</ul>
+<h2 id="Plugin-插件"><a href="#Plugin-插件" class="headerlink" title="Plugin 插件"></a>Plugin 插件</h2><h3 id="添加版权的-Plugin"><a href="#添加版权的-Plugin" class="headerlink" title="添加版权的 Plugin"></a>添加版权的 Plugin</h3><ul>
+<li>该插件名字叫 <strong>BannerPlugin</strong>, 属于 Webpack 自带的插件</li>
+<li>按照下面的方式来修改 <strong>webpack.config.js</strong> 文件</li>
+</ul>
+<pre><code class="lang-javascript">const webpack = require(&quot;webpack&quot;)
+module.exports = &#123;
+  plugins: [new webpack.BannerPlugin(&quot;版权归 coerlion 所有&quot;)]
+&#125;
+</code></pre>
+<h3 id="打包-HTML-的-plugin"><a href="#打包-HTML-的-plugin" class="headerlink" title="打包 HTML 的 plugin"></a>打包 HTML 的 plugin</h3><ul>
+<li>如何将 <code>index.html</code> 打包到 <code>dist</code> 文件夹中呢?<ul>
+<li><strong>HtmlWebpackPlugin</strong> 插件可以为我们做这些事情</li>
+<li>自动生成一个 <code>index.html</code> 文件(可以指定模板来生成)</li>
+<li>将打包的 JS 文件, 自动通过 <code>script</code> 标签插入到 <code>body</code> 中</li>
+</ul>
+</li>
+</ul>
+<p>安装 <code>html-webpack-plugin</code> 插件</p>
+<pre><code class="lang-shell">npm install html-webpack-plugin --save-dev
+</code></pre>
+<ul>
+<li>使用插件, 修改 <strong>webpack.config.js</strong> 文件中的 <strong>plugins</strong> 部分内容如下</li>
+</ul>
+<p>先导入 <code>html-webpack-plugin</code></p>
+<pre><code class="lang-shell">const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;)
+</code></pre>
+<p>再到 <code>module.exports</code> 下进行配置</p>
+<pre><code class="lang-json">plugins: [
+  new htmlWebpackPlugin(&#123;
+    template: &quot;index.html&quot;
+  )&#125;
+]
+</code></pre>
+<ul>
+<li>这里的 <code>template</code> 表示根据什么模版来生成 <code>index.html</code><ul>
+<li>在当前目录下, 根据 <code>index.html</code> 模板文件来生成一个在 dist 文件夹下的 <code>index.html</code> 文件</li>
+</ul>
+</li>
+<li>另外, 我们需要删除之前在 <strong>output</strong> 中添加的 <strong>publicPath</strong> 属性, 否则插入的 <code>script</code> 标签中的 <code>src</code> 可能会有问题</li>
+</ul>
+<h3 id="js-压缩的-Plugin"><a href="#js-压缩的-Plugin" class="headerlink" title="js 压缩的 Plugin"></a>js 压缩的 Plugin</h3><p>使用第三方插件<code>uglifyjs-webpack-plugin</code>, 并且版本号指定 1.1.1, 和 CLI2 保持一致</p>
+<pre><code class="lang-shell">npm install uglifyjs-webpack-plugin@1.1.1 --save-dev
+</code></pre>
+<ul>
+<li>修改 <strong>webpack.config.js</strong> 文件, 并且使用</li>
+</ul>
+<p>先导入<code>uglifyjs-webpack-plugin</code></p>
+<pre><code class="lang-javascript">const uglifyJsPlugin = require(&quot;uglifyjs-webpack-plugin&quot;);
+</code></pre>
+<p>再到 <code>module.exports</code> 下进行配置</p>
+<pre><code class="lang-json">plugins: &#123;
+  new uglifyJsPlugin()
+&#125;
+</code></pre>
+<h2 id="搭建本地服务器"><a href="#搭建本地服务器" class="headerlink" title="搭建本地服务器"></a>搭建本地服务器</h2><ul>
+<li>Webpack 提供了一个可选的本地开发服务器, 这个本地服务器基于 <strong>Node.js</strong> 搭建, 内部使用 <code>express</code> 框架</li>
+<li>它可以实现我们想要的让浏览器自动刷新显示我们修改后的结果(它不会编译文件到磁盘中, 而是存储在内存中)</li>
+</ul>
+<p>安装</p>
+<pre><code class="lang-shell">npm install --save-dev webpack-dev-server@2.9.3
+</code></pre>
+<ul>
+<li><code>devServer</code> 也是作为 <code>module.exports</code> 中的一个选项, 选项本身可以设置如下属性:<ol>
+<li><code>contentBase</code>: 为哪一个文件夹提供本地服务, 默认是根文件夹, 我们这里要填写 <code>./dist</code></li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><code>port</code>: 端口号<ol>
+<li><code>inline</code>: 页面是否实时刷新</li>
+</ol>
+</li>
+<li><code>historyApiFallback</code>: 在 SPA 页面中, 依赖 HTML 的 <code>history</code> 模式</li>
+</ol>
+<p><code>module.exports</code> 配置修改如下:</p>
+<pre><code class="lang-json">devServer: &#123;
+  contentBase: &quot;./dist&quot;,
+  inline: true
+&#125;
+</code></pre>
+<p>使用</p>
+<ul>
+<li><p>方法 1: <code>node_modules/.bin/webpack-dev-server</code></p>
+</li>
+<li><p>方法 2: 在 <strong>package.json</strong> 中添加 scripts 属性<code>&quot;dev&quot;: &quot;webpack-dev-server&quot;</code>, 即可通过<code>npm run dev</code>的方式直接使用</p>
+<ul>
+<li><code>webpack-dev-server</code> 命令参数<ul>
+<li>例如 <code>&quot;dev&quot;: &quot;webpack-dev-server --open&quot;</code></li>
+<li><strong>open</strong> 参数表示直接打开浏览器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Webpack-配置文件分离"><a href="#Webpack-配置文件分离" class="headerlink" title="Webpack 配置文件分离"></a>Webpack 配置文件分离</h2><ol>
+<li>开发时配置文件 和 运行时配置文件的分离</li>
+<li>创建文件夹 <strong>build</strong></li>
+<li>创建文件 <strong>base.config.js</strong> 存放开发时和运行时依赖</li>
+<li>创建文件 <strong>dev.config.js</strong> 存放开发时依赖</li>
+<li>创建文件 <strong>prod.config.js</strong> 存放运行时依赖</li>
+</ol>
+<p>安装 <code>webpack-marge</code></p>
+<pre><code class="lang-shell">npm install webpack-merge --save-dev
+</code></pre>
+<p><strong>合并三个文件</strong></p>
+<ul>
+<li>修改 <strong>base.config.js</strong> 配置文件</li>
+<li>将所有开发时、运行时依赖存放到该文件之后修改 <code>path</code> 路径</li>
+</ul>
+<pre><code class="lang-javascript">path: path.resolve(__dirname, &quot;../dist&quot;)
+</code></pre>
+<p>修改 <strong>prod.config.js</strong> 配置文件</p>
+<pre><code class="lang-javascript">// 运行时依赖
+const UglifyjsWebpackPlugin = require(&quot;uglifyjs-webpack-plugin&quot;)
+const webpackMerge = require(&quot;webpack-merge&quot;)
+const baseConfig = require(&quot;./base.config&quot;)
+
+module.exports = webpackMerge(baseConfig, &#123;
+  plugins: [new UglifyjsWebpackPlugin()]
+&#125;)
+</code></pre>
+<p>修改 <strong>dev.config.js</strong> 配置文件</p>
+<pre><code class="lang-javascript">// 开发时依赖
+const webpackMerge = require(&quot;webpack-merge&quot;)
+const baseConfig = require(&quot;./base.config&quot;)
+
+module.exports = webpackMerge(baseConfig, &#123;
+  devServer: &#123;
+    contentBase: &quot;./dist&quot;,
+    inline: true
+  &#125;
+&#125;)
+</code></pre>
+<p>修改 <strong>package.json</strong> 中的 scripts 下的 <strong>build</strong> 和 <strong>dev</strong> 属性为:</p>
+<pre><code class="lang-javascript">&quot;build&quot;: &quot;webpack --config ./build/prod.config.js&quot;,
+&quot;dev&quot;: &quot;webpack-dev-server --open --config ./build/dev.config.js&quot;
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

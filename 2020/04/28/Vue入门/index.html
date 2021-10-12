@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Vue 入门</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Vue 入门 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/28
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Vue
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Vue" style=color:#03a9f4>
+                    Vue
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="Vue-是什么"><a href="#Vue-是什么" class="headerlink" title="Vue 是什么?"></a>Vue 是什么?</h2><ul>
+<li>Vue (读音 /vjuː/, 类似于 view)</li>
+<li>Vue是一套用于构建用户界面的渐进式框架。</li>
+<li>与其它大型框架不同的是, Vue 被设计为可以自底向上逐层应用。</li>
+<li>Vue 的核心库只关注视图层, 不仅易于上手, 还便于与第三方库或既有项目整合。</li>
+<li>另一方面, 当与<strong>现代化的工具链</strong>以及各种<strong>支持类库</strong>结合使用时, Vue 也完全能够为复杂的单页应用提供驱动。</li>
+</ul>
+<span id="more"></span>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/">出自 Vue.js 官方文档</a></p>
+<ul>
+<li>Vue 有很多特点和 Web 开发中常见的高级功能<ul>
+<li>解耦视图和数据</li>
+<li>可复用的组件</li>
+<li>前端路由技术</li>
+<li>状态管理</li>
+<li>虚拟 DOM</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vue-实例"><a href="#Vue-实例" class="headerlink" title="Vue 实例"></a>Vue 实例</h2><pre><code class="lang-javascript">new Vue(options)
+options = &#123;
+  el: &quot;value&quot; // &quot;value - 元素选择器&quot; 进行数据绑定(实际上调用了$mount())
+  data: &#123;
+    // 数据
+    // 实例对象可直接使用Object的方式定义数据
+    // 组件必须通过return一个Object的方式来定义数据
+  &#125;,
+  computed: &#123;
+    // 计算属性
+    // 优点: 
+    //      在template中调用时可省略&quot;()&quot;, 即调用get函数
+    //      当不发生set时, 每次get都不会重新计算, 效率提高
+    attr: &#123;
+      set: function(newValue) &#123;&#125;
+      get: function() &#123;&#125;
+    &#125;
+  &#125;
+  methods: &#123;
+    // 方法
+    // 在template中使用时需要&quot;()&quot;来调用
+    attr: function() &#123;&#125;
+  &#125;,
+  filters: &#123;
+    // 过滤器方法:
+    // 使用时: data | function, 会自动把 data 作为参数传入 function 中
+    attr: function(data) &#123;&#125;
+  &#125;,
+  components: &#123;
+    // 局部组件:
+    // &quot;组件标签名&quot;: 组件构造器
+  &#125;,
+  watch: &#123;
+    // 监听Vue中数据发生改变的事件
+    attr(newValue, oldValue) &#123;
+
+    &#125;
+  &#125;,
+
+  /** 以下均为 生命周期函数 **/
+
+  created() &#123;
+    // 当组件被创建后回调该函数
+    // 注意: 组件被创建后DOM并不一定创建完成, 即不能在created中操作DOM元素
+  &#125;,
+  mounted() &#123;
+    // 当组件的template挂载到DOM之后回调该函数
+  &#125;,
+  updated() &#123;
+    // 当页面发生更新后回调该函数
+  &#125;,
+  destroyed() &#123;
+    // 组件销毁后回调
+  &#125;
+&#125;
+</code></pre>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tewvFS.png"><img src="https://s1.ax1x.com/2020/05/28/tewvFS.png" alt="tewvFS.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tewxJg.png"><img src="https://s1.ax1x.com/2020/05/28/tewxJg.png" alt="tewxJg.png"></a></p>
+<h2 id="计算属性详细"><a href="#计算属性详细" class="headerlink" title="计算属性详细"></a>计算属性详细</h2><ul>
+<li>在<code>template</code>中使用时不需要<code>()</code>, 会默认调用<code>get</code>函数</li>
+<li>使用时<code>attr</code>即调用<code>get</code>方法, 为<code>attr</code>赋值即调用<code>set</code>方法</li>
+<li>计算属性一般没有<code>set</code>方法, 所以计算属性也称只读属性</li>
+</ul>
+<p>即可以简写:</p>
+<pre><code class="lang-javascript">computed: &#123;
+  attr: function() &#123;&#125;
+
+  /** 或以下 es6 语法 **/
+  attr: () =&gt; &#123;&#125;
+&#125;
+</code></pre>
+<h2 id="computed-和-methods-的对比"><a href="#computed-和-methods-的对比" class="headerlink" title="computed 和 methods 的对比"></a>computed 和 methods 的对比</h2><ul>
+<li>computed 的属性如果没有变化, 则 computed 有缓存, 即 computed 只执行一次, 而 methods 没有缓存, 调用几次执行几次<ul>
+<li>相比之下, 如果某个元素<code>get</code>比较多的话推荐使用<strong>computed</strong></li>
+<li>反之, 如果逻辑比较复杂, 那么使用<strong>methods</strong></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

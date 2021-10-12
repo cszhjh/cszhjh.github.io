@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || To strive, to seek, to find, and not to yield.</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('/home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Zhjh's Blog</h1>
+                <h3>To strive, to seek, to find, and not to yield.</h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2020/05/01/Vue-CLI/">
+        <h2>
+            Vue-CLI
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/1
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="Vue-CLI-Vue-脚手架-介绍"><a href="#Vue-CLI-Vue-脚手架-介绍" class="headerlink" title="Vue-CLI (Vue 脚手架) 介绍"></a>Vue-CLI (Vue 脚手架) 介绍</h2><ul>
+<li><strong>Vue-CLI</strong> 是一个专门为<strong>单页面应用快速搭建繁杂的脚手架</strong>, 它可以轻松的创建新的应用程序而且可用于<strong>自动生成Vue和webpack的项目模板</strong></li>
+<li>如果只是简单的写几个 Vue 的 <strong>Demo 程序</strong>, 那么不需要 <strong>Vue-CLI</strong></li>
+<li>如果你在<strong>开发大型项目</strong>, 那么你需要, 并且必然<strong>需要使用 Vue-CLI</strong></li>
+<li><strong>Vue-CLI 使用前提</strong><ul>
+<li>Node.js</li>
+<li>Webpack</li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue-CLI" style=color:#ffa2c4>
+                Vue-CLI
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/01/Vue-CLI/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/29/webpack的使用/">
+        <h2>
+            Webpack 的使用
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Webpack">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Webpack
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/29
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="打包命令"><a href="#打包命令" class="headerlink" title="打包命令"></a>打包命令</h2><ul>
+<li>在当前项目路径下, 输入命令</li>
+<li><code>$ webpack 入口 出口</code></li>
+<li><strong>注意: webpack 命令是全局命令</strong></li>
+</ul>
+<pre><code class="lang-shell">webpack ./src/main.js ./dist/bundle.js
+</code></pre>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Webpack" style=color:#00a596>
+                Webpack
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/29/webpack的使用/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/29/template分离/">
+        <h2>
+            template 分离
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/29
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="第一步分离"><a href="#第一步分离" class="headerlink" title="第一步分离"></a>第一步分离</h2><pre><code class="lang-javascript">const App = &#123;
+  template: `
+    &lt;div&gt;
+      &lt;h2&gt;message&lt;/h2&gt;
+      &lt;button @click=&quot;btnClick&quot;&gt;button&lt;/button&gt;
+      &lt;h2&gt;&#123;&#123;name&#125;&#125;&lt;/h2&gt;
+    &lt;/div&gt;
+  `,
+  data() &#123;
+    return &#123;
+      message: &quot;hello world&quot;,
+      name: &quot;zjh&quot;
+    &#125;;
+  &#125;,
+  methods: &#123;
+    btnClick() &#123;
+      console.log(&quot;click&quot;);
+    &#125;
+  &#125;
+&#125;;
+
+const app = new Vue(&#123;
+  el: &quot;#app&quot;,
+  template: &quot;&lt;App&gt;&lt;/App&gt;&quot;,
+  components: &#123;
+    App
+  &#125;
+&#125;);
+</code></pre>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue" style=color:#ff7d73>
+                Vue
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/29/template分离/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/29/el和template的区别/">
+        <h2>
+            el 和 template 的区别
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/29
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="el-和-template-同时出现"><a href="#el-和-template-同时出现" class="headerlink" title="el 和 template 同时出现"></a>el 和 template 同时出现</h2><ul>
+<li>当一个实例同时拥有 <code>el</code> 和 <code>template</code>, Vue 在编译的时候<ul>
+<li>Vue会把 <strong>template 的实例全部替换到 el 挂载的内容上, 包括挂载的标签也会被替换掉</strong></li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue" style=color:#ff7d73>
+                Vue
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/29/el和template的区别/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/28/Vue组件-插槽/">
+        <h2>
+            Vue 组件-插槽
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/28
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="为什么使用-slot"><a href="#为什么使用-slot" class="headerlink" title="为什么使用 slot"></a>为什么使用 slot</h2><ul>
+<li>插槽的目的是让我们原来的设备具备更多的扩展性<ul>
+<li>比如电脑的 USB 插槽, 可以扩展 U 盘、硬盘、手机、音响、键盘、鼠标等</li>
+</ul>
+</li>
+</ul>
+<h2 id="组件的插槽"><a href="#组件的插槽" class="headerlink" title="组件的插槽"></a>组件的插槽</h2><ul>
+<li>组件的插槽也是为了让我们封装的组件更加具有扩展性<ul>
+<li>让使用者可以决定组件内部的一些内容到底展示什么</li>
+</ul>
+</li>
+<li>例如:<ul>
+<li>移动开发中, 几乎每个页面都有导航栏</li>
+<li>导航栏我们必然会封装成一个插件, 比如 <code>nav-bar</code> 组件</li>
+<li>一旦有了这个组件, 我们就可以在多个页面中复用了</li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue-Components" style=color:#00bcd4>
+                Vue-Components
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/28/Vue组件-插槽/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/28/Vue组件化开发/">
+        <h2>
+            Vue 组件化开发
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/28
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="Vue-组件化介绍"><a href="#Vue-组件化介绍" class="headerlink" title="Vue 组件化介绍"></a>Vue 组件化介绍</h2><ul>
+<li><strong>组件化</strong>是 Vue 的<strong>精髓</strong>, Vue 就是由一个一个的组件构成的</li>
+<li><strong>组件化思想</strong>是笔者认为世界上最美丽的思想, 此时不学, 更待何时!!!<ul>
+<li><strong>(别再跟我说面向对象思想了, 我没有对象~~)</strong></li>
+</ul>
+</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue-Components" style=color:#00a596>
+                Vue-Components
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/28/Vue组件化开发/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/28/Vue基础语法/">
+        <h2>
+            Vue基础语法
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/28
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="mustache-语法"><a href="#mustache-语法" class="headerlink" title="mustache 语法"></a>mustache 语法</h2><ul>
+<li><code>\&#123;\&#123;\&#125;\&#125;</code> mustache 语法</li>
+<li>将 <code>data</code> 中的数据在 DOM 元素上展示</li>
+<li>在元素的内容区书写, 该形式为单向绑定</li>
+<li>在 DOM 中修改变量的值并不会影响到 <code>data</code> 中的值, 只能由Vue实例中改变该值才会让 DOM 元素的内容发生改变</li>
+</ul>
+<p>写法例如:</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue" style=color:#ffa2c4>
+                Vue
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/28/Vue基础语法/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/28/Vue入门/">
+        <h2>
+            Vue 入门
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/28
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="Vue-是什么"><a href="#Vue-是什么" class="headerlink" title="Vue 是什么?"></a>Vue 是什么?</h2><ul>
+<li>Vue (读音 /vjuː/, 类似于 view)</li>
+<li>Vue是一套用于构建用户界面的渐进式框架。</li>
+<li>与其它大型框架不同的是, Vue 被设计为可以自底向上逐层应用。</li>
+<li>Vue 的核心库只关注视图层, 不仅易于上手, 还便于与第三方库或既有项目整合。</li>
+<li>另一方面, 当与<strong>现代化的工具链</strong>以及各种<strong>支持类库</strong>结合使用时, Vue 也完全能够为复杂的单页应用提供驱动。</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue" style=color:#00bcd4>
+                Vue
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/28/Vue入门/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/10/Ajax/">
+        <h2>
+            Ajax
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/网络">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                网络
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/10
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="什么是-Ajax"><a href="#什么是-Ajax" class="headerlink" title="什么是 Ajax ?"></a>什么是 Ajax ?</h2><p>Ajax 就是浏览器提供的一套API, 可以通过 JavaScript 调用, 从而实现<strong>通过代码控制请求与相应, 实现网络编程</strong></p>
+<p>优点: 相比传统网络请求(数据写在 HTML 中), 请求只发生在页面区域内, <strong>不会重新加载整个页面(像一些引入内容等)</strong>, 请求速度会更快</p>
+<p>缺点: 不利于 SEO, 就是说不利于搜索引擎优化, 目前百度不支持抓取 JavaScript 里的内容, 只支持抓取 HTML 中的内容, 国外已经支持抓取 JavaScript 里的内容</p>
+<p><strong>注意: 涉及到 Ajax 操作的页面不能使用文件协议访问(文件的方法访问)</strong></p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Ajax" style=color:#03a9f4>
+                Ajax
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/10/Ajax/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2020/04/08/git和github的使用/">
+        <h2>
+            git 和 github 的使用
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Git">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Git
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/4/8
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><h3 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库(Repository)"></a>仓库(Repository)</h3><p>仓库用来存放项目代码, 每个项目对应一个仓库, 多个开源项目则有多个仓库</p>
+<h3 id="收藏-Star"><a href="#收藏-Star" class="headerlink" title="收藏(Star)"></a>收藏(Star)</h3><p>收藏项目, 方便下次查看, 同点赞 + 收藏</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Git" style=color:#ffa2c4>
+                Git
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/04/08/git和github的使用/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+        <a href="/page/3/">
+            <span class="page-num">
+                <a-icon type="caret-left" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+    <div class="page-index">
+
+        
+        <span>
+
+            
+            <a href="/"><span class="page-num">1</span></a>
+            <span class="page-omit">...</span>
+            
+
+            
+
+            
+
+            
+            <a href="/page/2">
+                <span class="page-num">
+                    2
+                </span>
+            </a>
+            
+
+            
+            <a href="/page/3/">
+                <span class="page-num">
+                    3
+                </span>
+            </a>
+        </span>
+        
+
+        <span class="current">
+            4
+        </span>
+
+        
+        <span>
+            <a href="/page/5/">
+                <span class="page-num">
+                    5
+                </span>
+            </a>
+            
+
+            
+
+        </span>
+        
+
+    </div>
+
+    <div class="next">
+        
+        <a href="/page/5/ ">
+            <span class="page-num">
+                <a-icon type="caret-right" theme="filled" />
+            </span>
+        </a>
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/images/avatar.jpg " alt="头像">
+        </div>
+        <div class="name">
+            Zhjh
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                越努力越幸运!
+            </div>
+            
+            <div class="description">
+                付出总会有回报!
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="https://github.com/cszhjh" target="_blank">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=15444087&site=qq&menu=yes" target="_blank">
+
+                    
+                    <a-icon type="qq"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="/images/wechat.jpeg" target="_blank">
+
+                    
+                    <a-icon type="wechat"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="mailto:cszhjh@icloud.com" target="_blank">
+
+                    
+                    <a-icon type="mail"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://coderlion.com">
+                    国内博客
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a href="https://cszhjh.github.io">
+                    Github博客
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+
+</body>
+
+</html>

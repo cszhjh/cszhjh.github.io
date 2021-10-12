@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Hello React</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Hello React </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/9
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/React" style=color:#03a9f4>
+                    React
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="React-是什么"><a href="#React-是什么" class="headerlink" title="React 是什么?"></a>React 是什么?</h2><blockquote>
+<p>A JavaScript library for building user interfaces(用于构建用户界面的 JavaScript 库)</p>
+</blockquote>
+<ul>
+<li>我们知道对于前端来说, 主要的任务就是构建用户界面, 而构建用户界面离不开三个技术<ul>
+<li>HTML: 构建页面的结构</li>
+<li>CSS: 构建页面的样式</li>
+<li>JavaScript: 页面动态内容和交互</li>
+</ul>
+</li>
+<li>那么使用最原生的 HTML、CSS、JavaScript 可以构建完整的用户界面吗? 当然可以, 但是会存在很多问题<ul>
+<li>操作 DOM 兼容性的问题</li>
+<li>过多兼容性代码的冗余问题</li>
+<li>代码组织和规范的问题</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<h3 id="常见的-JavaScript-库"><a href="#常见的-JavaScript-库" class="headerlink" title="常见的 JavaScript 库"></a>常见的 JavaScript 库</h3><ul>
+<li><p>一直以来前端开发人员都在寻求可以让自己开发更方便的 JavaScript 库</p>
+<ul>
+<li>在过去很长一段时间内, <strong>jQuery 是被使用最多的 JavaScript 库</strong></li>
+<li>在过去的一份调查中显示, 全球前 <strong>10000</strong> 个访问最高的网站中, 有 <strong>65%</strong> 使用了 jQuery, 它是<strong>当时最受欢迎的 JavaScript 库</strong></li>
+<li>但是越来越多的公司开始慢慢不再使用 jQuery, 包括程序员使用最多的 <strong>GitHub</strong></li>
+</ul>
+</li>
+<li><p>现在前端领域最为流行的是</p>
+<p>三大框架</p>
+<ul>
+<li>Vue</li>
+<li>React</li>
+<li>Angular</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/09/tIPhuQ.png"><img src="https://s1.ax1x.com/2020/06/09/tIPhuQ.png" alt="tIPhuQ.png"></a></p>
+<ul>
+<li>而 Angular 在国内并不是特别受欢迎, 尤其是 Angular 目前的版本对 <strong>TypeScript</strong> 还有要求的情况下</li>
+<li>Vue 和 React 是国内最为流行的两个框架, 而他们都是帮助我们来构建用户界面的 <strong>JavaScript 库</strong></li>
+</ul>
+<h2 id="React-的起源"><a href="#React-的起源" class="headerlink" title="React 的起源"></a>React 的起源</h2><p>React 是 <strong>2013 年</strong>, <strong>Facebook</strong> 开源的 JavaScript 框架, 那么当时为什么 Facebook 要退出这样一款框架呢?</p>
+<p>这个源于一个需求所产生的 BUG</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/09/tIii8K.png"><img src="https://s1.ax1x.com/2020/06/09/tIii8K.png" alt="tIii8K.png"></a></p>
+<ul>
+<li>该功能上线后总是出现 BUG</li>
+<li>三个消息的数字在发生变化时, 过多的操作很容易产生 BUG</li>
+</ul>
+<p>BUG 是否可以修复呢? 当然可以修复, 但是 Facebook 的工程师并不满足于此</p>
+<ul>
+<li>他们开始思考为什么会产生这样的问题</li>
+<li>在传统的开发模式中, 我们过多的去操作界面的细节(前端、IOS、Android)<ul>
+<li>并且需要掌握和使用大量 DOM 的 API, 当然我们可以通过 jQuery 来简化和适配一些 API 的使用</li>
+</ul>
+</li>
+<li>另外关于数据(状态), 往往会分散到各个地方, 不方便管理和维护</li>
+</ul>
+<p>他们就去思考, 是否有一种新的模式来解决上面的问题</p>
+<ol>
+<li>以组件的方式去划分一个个功能模块</li>
+<li>组件内以 <code>JSX</code> 来描述 UI 的样子, 以 <code>state</code> 来存储组件内的状态</li>
+<li>当应用的状态发生改变时, 通过 <code>setState</code> 来修改状态, 状态发生变化时, UI 会自动发生更新</li>
+</ol>
+<h2 id="React-的特点"><a href="#React-的特点" class="headerlink" title="React 的特点"></a>React 的特点</h2><h3 id="声明式编程"><a href="#声明式编程" class="headerlink" title="声明式编程"></a>声明式编程</h3><p>声明式编程是目前整个大前端开发的模式: Vue、React、Flutter、SwiftUI</p>
+<p>它允许我们只需要维护自己的状态, 当状态发生改变时, React 可以根据最新的状态去渲染我们的 UI 界面</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/09/tIlgPS.png"><img src="https://s1.ax1x.com/2020/06/09/tIlgPS.png" alt="tIlgPS.png"></a></p>
+<h3 id="组件化开发"><a href="#组件化开发" class="headerlink" title="组件化开发"></a>组件化开发</h3><p>组件化开发页面是目前前端的<strong>流行趋势</strong>, 我们会将重复的界面拆分成一个个小的组件</p>
+<p>如何合理的进行组件的划分和设计也是学习 React 的一个重点</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/09/tINKne.png"><img src="https://s1.ax1x.com/2020/06/09/tINKne.png" alt="tINKne.png"></a></p>
+<h3 id="多平台适配"><a href="#多平台适配" class="headerlink" title="多平台适配"></a>多平台适配</h3><ul>
+<li>2013年, React 发布之初主要是开发 Web 页面</li>
+<li>2015年, Facebook 推出 ReactNative, 用于开发移动端跨平台(虽然目前 Flutter 非常火爆, 但还是有很多公司在使用 ReactNative)</li>
+<li>2017年, Facebook 推出 ReactVR, 用于开发虚拟现实 Web 应用程序(随着 5G 的普及, VR 也会是一个非常火爆的应用场景)</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIrOAS.png"><img src="https://s1.ax1x.com/2020/06/10/tIrOAS.png" alt="tIrOAS.png"></a></p>
+<h2 id="掌握最先进的思想和技术"><a href="#掌握最先进的思想和技术" class="headerlink" title="掌握最先进的思想和技术"></a>掌握最先进的思想和技术</h2><p>React 由 Facebook 来更新和维护, 它是大量优秀程序员的思想结晶</p>
+<ul>
+<li>React 的流行不仅仅局限于普通开发工程师对它的认可, 大量流行的其他框架也借鉴了 React 的思想</li>
+</ul>
+<p>Vue.js 框架的设计之初, 有很多的灵感来自 Angular 和 React</p>
+<p>包括 Vue 3 的很多新特性, 也是借鉴和学习了 React</p>
+<ul>
+<li>比如 React Hooks 是开创性的新功能</li>
+<li>Vue Function Based API 学习了 React Hooks 的思想</li>
+</ul>
+<p>Flutter 的很多灵感都来自 React, 来自官网的一段话</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIsI5F.png"><img src="https://s1.ax1x.com/2020/06/10/tIsI5F.png" alt="tIsI5F.png"></a></p>
+<ul>
+<li>事实上 Flutter 中的 <code>Widget - Element - RenderObject</code>, 对应的就是<code>JSX - 虚拟DOM - 真实DOM</code></li>
+</ul>
+<p>所以 React 可以说是<strong>前端的先驱者</strong>, 它总是会引领整个前端的潮流</p>
+<h2 id="React-现状"><a href="#React-现状" class="headerlink" title="React 现状"></a>React 现状</h2><p>在 <strong>HackerRank</strong> 中, 2020年有一份调查, 你更想学习的 <strong>framework(框架)</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIyeIS.png"><img src="https://s1.ax1x.com/2020/06/10/tIyeIS.png" alt="tIyeIS.png"></a></p>
+<p>国内外很多<strong>知名网站使用 React 开发</strong></p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIyNiF.png"><img src="https://s1.ax1x.com/2020/06/10/tIyNiF.png" alt="tIyNiF.png"></a></p>
+<h2 id="原生-Hello-React-案例"><a href="#原生-Hello-React-案例" class="headerlink" title="原生 Hello React 案例"></a>原生 Hello React 案例</h2><p>为了演练 React, 我们可以提出一个小的需求</p>
+<ul>
+<li>在界面显示一个文本<code>Hello World</code></li>
+<li>点击下方的按钮, 点击后文本改变为<code>Hello React</code></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIyydK.png"><img src="https://s1.ax1x.com/2020/06/10/tIyydK.png" alt="tIyydK.png"></a></p>
+<p>在使用 React 之前, 我们希望你先使用<strong>原生代码来实现</strong>, 这样更方便对比 React 和原生</p>
+<ul>
+<li>当然, 你也可以使用 jQuery 和 Vue 来实现, 对他们分别进行对比学习</li>
+</ul>
+<pre><code class="lang-html">&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;h2 class=&quot;title&quot;&gt;&lt;/h2&gt;
+    &lt;button class=&quot;change-btn&quot;&gt;change&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    // 1. 获取 DOM 节点
+    const titleEl = document.getElementsByClassName(&#39;title&#39;)[0]
+    const btnEl = document.getElementsByClassName(&#39;change-btn&#39;)[0]
+
+    // 2. 获取数据
+    let message = &#39;Hello World&#39;
+
+    // 3. 将数据显示到 UI 中
+    titleEl.innerText = message
+
+    // 4. 修改文本内容
+    btnEl.addEventlistener(&#39;click&#39;, e =&gt; &#123;
+      message = &#39;Hello React&#39;
+      titleEl.innerText = message
+    &#125;)
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<h2 id="React-开发依赖"><a href="#React-开发依赖" class="headerlink" title="React 开发依赖"></a>React 开发依赖</h2><p>开发 React 必须<strong>依赖三个库</strong></p>
+<ul>
+<li><code>react</code>: 包含 React 所必须的核心代码</li>
+<li><code>react-dom</code>: React 渲染在不同平台所需要的核心代码</li>
+<li><code>babel</code>: 将<code>JSX</code>转换成 React 代码的工具</li>
+</ul>
+<p>第一次接触 React 容易被它繁琐的依赖搞蒙, 对于 Vue 来说, 我们只是依赖一个<code>vue.js</code>文件即可, 但是 React 居然要依赖三个库</p>
+<ul>
+<li>其实, 这三个库是<strong>各司其职</strong>的, 目的就是让每一个库单纯的做自己的事情</li>
+<li>在 React 的 <strong>0.14</strong> 版本之前是没有<code>react-dom</code>这个概念的, 所有功能都包含在<code>react</code>里</li>
+<li>为什么要进行拆分呢? 原因就是<code>react-native</code></li>
+<li><code>react</code>包中包含了<code>react</code>和<code>react-native</code>所共同拥有的核心代码</li>
+</ul>
+<p><code>react-dom</code>针对 Web 和 Native 所完成的事情不同</p>
+<ul>
+<li>Web 端: <code>react-dom</code>会将<code>JSX</code>最终渲染成真实的 DOM 显示在浏览器中</li>
+<li>Native 端: <code>react-dom</code>会将<code>JSX</code>最终渲染成原生的控件(比如 Android 中的<code>Button</code>, IOS 中的<code>UIButton</code>)</li>
+</ul>
+<h2 id="认识-Babel"><a href="#认识-Babel" class="headerlink" title="认识 Babel"></a>认识 Babel</h2><p>Babel 是什么?</p>
+<ul>
+<li>Babel, 又名 <strong>Babel.js</strong></li>
+<li>它是目前前端使用非常广泛的编辑器、转移器</li>
+<li>比如当下很多浏览器并不支持 ES6 的语法, 但是确实 ES6 的语法非常的简洁和方便, 我们<strong>开发时</strong>非常希望使用它</li>
+<li>那么编写源码时, 我们就可以使用 ES6 来编写, 之后通过 Babel 工具, 将 ES6 转成<strong>大部分浏览器都支持的 ES5 语法</strong></li>
+</ul>
+<p>React 和 Babel 的关系</p>
+<ul>
+<li>默认情况下开发 React 其实可以不使用 Babel</li>
+<li>但是前提是我们自己使用<code>React.createElement</code>来编写源代码, 它编写的代码非常繁琐和可读性差</li>
+<li>那么我们就可以直接编写<code>JSX(JavaScript XML)</code>的语法, 并且让 Babel 帮助我们转换成<code>React.createElement</code></li>
+</ul>
+<h2 id="引入-React-依赖"><a href="#引入-React-依赖" class="headerlink" title="引入 React 依赖"></a>引入 React 依赖</h2><p>如何添加三个依赖?</p>
+<ul>
+<li>方式一: 直接 CDN 引入</li>
+<li>方式二: 下载源文件, 添加本地依赖</li>
+<li>方式三: 通过<code>npm</code>管理(后续脚手架再使用)</li>
+</ul>
+<p>暂时我们直接通过 CDN 引入, 来演练下面的示例程序</p>
+<ul>
+<li>这里有一个<code>crossorigin</code>的属性, 这个属性的目的是为了拿到跨域脚本的错误信息</li>
+</ul>
+<pre><code class="lang-html">&lt;script src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot; crossorigin&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot; crossorigin&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>第一步: 在界面上通过 React 显示一个<code>Hello World</code></p>
+<ul>
+<li>注意: 这里我们编写 React 的<code>script</code>代码中, 必须添加行间属性<code>type=&quot;text/babel&quot;</code>, 作用是可以让 Babel 解析<code>JSX</code>语法</li>
+</ul>
+<pre><code class="lang-react">&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+  &lt;script src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot;&gt;
+    // 1. 将数据定义到变量中
+    let message = &#39;Hello World&#39;
+
+    // 2. 通过 ReactDOM 对象渲染内容
+    ReactDOM.render(&lt;h2&gt;&#123;message&#125;&lt;/h2&gt;, document.getElementById(&#39;app&#39;))
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><code>ReactDOM.render</code>函数</p>
+<ul>
+<li><p>参数一: 传递要渲染的内容, 这个内容可以是 <code>HTML</code> 元素, 也可以是 React 的组件</p>
+<ul>
+<li>这里我们传入了一个<code>h2</code>元素, 后面我们就会使用 React 组件</li>
+</ul>
+</li>
+<li><p>参数二: 将渲染的内容挂载到某一个 <code>HTML</code> 元素上</p>
+<ul>
+<li>这里我们挂载到已经定义好的 id 为<code>app</code>的<code>div</code>上</li>
+</ul>
+</li>
+</ul>
+<p>我们可以通过<code>&#123;&#125;</code>语法来引入外部的变量或<code>JavaScript</code>表达式</p>
+<h3 id="错误的方式"><a href="#错误的方式" class="headerlink" title="错误的方式"></a>错误的方式</h3><pre><code class="lang-react">&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;button class=&quot;change-btn&quot;&gt;change&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;script src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot;&gt;
+    // 1. 将数据定义到变量中
+    let message = &#39;Hello World&#39;
+
+    // 2. 通过 ReactDOM 对象渲染内容
+    ReactDOM.render(&lt;h2&gt;&#123;message&#125;&lt;/h2&gt;, document.getElementById(&#39;app&#39;))
+
+    // 3. 监听按钮点击
+    const btnEl = document.getElementsByClassName(&#39;change-btn&#39;)[0]
+    btnEl.addEventListener(&#39;click&#39;, e =&gt; console.log(e))
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>上面的代码会报错</p>
+<ul>
+<li>原因是默认情况下<code>ReactDOM.render</code>会<strong>覆盖</strong>挂载对象元素中的所有内容</li>
+<li>所以在执行完<code>ReactDOM.render</code>之后, 就不存在<code>button</code>元素了</li>
+</ul>
+<h3 id="正确的方式"><a href="#正确的方式" class="headerlink" title="正确的方式"></a>正确的方式</h3><pre><code class="lang-react">&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+  &lt;script src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot;&gt;
+    // 1. 将数据定义到变量中
+    let message = &#39;Hello World&#39;
+
+    // 2. 调用封装的 render 函数
+    render()
+
+    // 3. 修改文本, 并重新调用 render 函数更新界面
+    function btnClick() &#123;
+      message = &#39;hello React&#39;
+      render()
+    &#125;
+
+    function render() &#123;
+      ReactDOM.render((
+        &lt;div&gt;
+          &lt;h2&gt;&#123;message&#125;&lt;/h2&gt;
+          &lt;button onClick=&#123;btnClick&#125;&gt;change&lt;/button&gt;
+        &lt;/div&gt;
+      ), document.getElementById(&#39;app&#39;))
+    &#125;
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>上面的方法虽然可以实现, 但是整个代码的流程过于<strong>繁琐</strong></p>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>使用<code>JSX</code>语法渲染时必须有且仅有一个根元素(类似于 Vue 的<code>template</code>)</li>
+<li>当数据发生改变时, 需要重新调用<code>ReactDOM.render</code>才会使界面发生更新</li>
+</ul>
+</blockquote>
+<h3 id="组件的方式"><a href="#组件的方式" class="headerlink" title="组件的方式"></a>组件的方式</h3><p>实现的整个逻辑其实可以看作一个整体, 那么我们就可以将其封装成一个组件</p>
+<ul>
+<li><code>ReactDOM.render</code>函数的第一个参数是一个<code>HTML</code>元素或是一个<strong>组件</strong></li>
+<li>所以我们可以先将之前的业务逻辑封装到一个组件中, 然后传入到<code>ReactDOM.render</code>函数中的第一个参数</li>
+</ul>
+<p>在 React 中, 如何封装一个组件呢?</p>
+<ul>
+<li>这里我们暂时使用类(<code>class</code>)的方式封装组件<ul>
+<li><code>render</code>当中返回的<code>JSX</code>内容, 就是之后 React 会帮助我们渲染的内容</li>
+<li>定义一个类, 继承自<code>React.Component</code></li>
+<li>实现当前组件的<code>render</code>函数</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-react">class App extends React.Component &#123;
+  render() &#123;
+    return (&lt;h2&gt;Hello World&lt;/h2&gt;)
+  &#125;
+&#125;
+
+ReactDOM.render(&lt;App/&gt;, document.getElementById(&#39;app&#39;))
+</code></pre>
+<p>如果我们的<code>Hello World</code>是依赖变量的, 并且会根据按钮的点击而改变呢? 这里涉及到几个核心点</p>
+<ol>
+<li><p>数据在哪里定义</p>
+<ul>
+<li><p>在组件中的数据, 我们可以分成两类</p>
+<ul>
+<li>参与界面更新的数据: 当数据改变时, 需要更新组件渲染的内容</li>
+<li>不参与界面更新的数据: 当数据改变时, 不需要更新组件渲染的内容</li>
+</ul>
+</li>
+<li><p>参与界面更新的数据我们也可以称之为参与数据流, 这个数据的定义在当前对象的 <code>state</code> 中</p>
+<ul>
+<li>我们可以通过在<strong>构造函数</strong>中<code>this.state = &#123;&#125;</code>定义数据</li>
+</ul>
+</li>
+<li>当我们的数据发生变化时, 我们可以调用<code>this.setState</code>来更新数据, 并且通知 React 进行<code>update</code>操作<ul>
+<li>在进行<code>update</code>操作时, 就会重新调用<code>render</code>函数, 并且使用最新的数据来渲染页面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>事件绑定中的 <code>this</code></p>
+<ul>
+<li><p>在类中直接定义一个函数, 并且将这个函数绑定到<code>HTML</code>元素的<code>onClick</code>事件上, 当前这个函数的<code>this</code>指向的是谁呢?</p>
+</li>
+<li><p>默认情况下是 <code>undefined</code></p>
+<ul>
+<li>很奇怪, 居然是<code>undefined</code></li>
+</ul>
+</li>
+<li>因为在正常的 DOM 操作中, 监听点击, 监听函数中的<code>this</code>其实是节点对象(比如这里是<code>button</code>对象)<ul>
+<li>这是因为 React 并不是直接渲染成真实的 DOM, 我们所编写的<code>button</code>只是一个<strong>语法糖</strong>, 它的本质是 React 的 <code>Element</code> 对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>那么在这里发生监听的时候, React 给我们函数绑定的<code>this</code>, 默认情况下就是一个<code>undefined</code>(<code>this.changeText.apply(undefined)</code>)</li>
+</ul>
+<p>我们在绑定的函数中, 可能想要使用当前对象, 比如执行<code>this.setState</code>函数, 就必须拿到当前对象的<code>this</code></p>
+<ul>
+<li>我们就需要在传入函数时, 给这个函数直接绑定<code>this</code></li>
+<li>类似于这种的写法: <code>&lt;button onClick=&#123;this.changeText.bind(this)&#125;&gt;change&lt;/button&gt;</code></li>
+</ul>
+<pre><code class="lang-react">&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+  &lt;script src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot; crossorigin&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/babel&quot;&gt;
+    class App extends React.Component &#123;
+      constructor() &#123;
+        super()
+        this.state = &#123;
+          message: &#39;Hello World&#39;
+        &#125;
+      &#125;
+
+      render() &#123;
+        return (
+          &lt;div&gt;
+            &lt;h2&gt;&#123;this.state.message&#125;&lt;/h2&gt;
+            &lt;button onClick=&#123;this.changeText.bind(this)&#125;&gt;change&lt;/button&gt;
+          &lt;/div&gt;
+        )
+      &#125;
+
+      changeText() &#123;
+        this.setState(&#123; message: &#39;Hello React&#39; &#125;)
+      &#125;
+    &#125;
+
+    ReactDOM.render(&lt;App/&gt;, document.getElementById(&#39;app&#39;))
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<h2 id="案例练习"><a href="#案例练习" class="headerlink" title="案例练习"></a>案例练习</h2><h3 id="列表展示"><a href="#列表展示" class="headerlink" title="列表展示"></a>列表展示</h3><p>真实开发中, 我们的数据通常会从服务器获取, 比较常见的是获取一个列表数据, 保存到一个数组中进行展示</p>
+<p>比如现在有一个歌曲列表, 我们如何通过 React 进行展示呢?</p>
+<pre><code class="lang-react">class App extends React.Component &#123;
+  constructor() &#123;
+    super()
+      this.state = &#123;
+        title: &#39;music&#39;,
+        musics: [&#39;不浪漫罪名&#39;, &#39;浪子回头&#39;, &#39;风的季节&#39;, &#39;让一切随风&#39;]
+      &#125;
+
+  render() &#123;
+    const &#123; title, musics &#125; = this.state
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;&#123;title&#125;&lt;/h2&gt;
+        &lt;ul&gt;
+          &#123;musics.map(item =&gt; (&lt;li key=&#123;item&#125;&gt;&#123;item&#125;&lt;/li&gt;))&#125;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;app&#39;))
+</code></pre>
+<p>同 Vue 的<code>v-for</code>一样, 这里循环也需要绑定一个 <code>key</code> 值 <code>state</code> 中的属性可以通过 ES6 的<strong>解构赋值</strong>到 <code>render</code> 函数中, 这样可以省略 <code>this.state</code></p>
+<h3 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h3><pre><code class="lang-react">class App extends React.Component &#123;
+  constructor() &#123;
+    super()
+    this.state = &#123;
+      counter: 0
+    &#125;
+  &#125;
+
+  render() &#123;
+    const &#123; counter &#125; = this.state
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: &#123;counter&#125;&lt;/h2&gt;
+        &lt;button onClick=&#123;this.increment.bind(this)&#125;&gt;+&lt;/button&gt;
+        &lt;button onClick=&#123;this.decrement.bind(this)&#125;&gt;-&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  increment() &#123;
+    this.setState(&#123; counter: this.state.counter + 1 &#125;)
+  &#125;
+
+  decrement() &#123;
+    this.setState(&#123; counter: this.state.counter - 1 &#125;)
+  &#125;
+&#125;
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;app&#39;))
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

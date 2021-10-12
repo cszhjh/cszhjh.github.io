@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || React父子组件通信</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>React父子组件通信 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/19
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/React-Components" style=color:#00bcd4>
+                    React-Components
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="认识组件的嵌套"><a href="#认识组件的嵌套" class="headerlink" title="认识组件的嵌套"></a>认识组件的嵌套</h2><p>组件之间存在嵌套关系</p>
+<ul>
+<li>在之前的案例中, 我们只是创建了一个组件<code>App</code></li>
+<li>如果我们一个应用程序将所有的逻辑都放在一个组件中, 那么这个组件就会变得非常臃肿和难以维护</li>
+<li>所以组件化的核心思想应该是对组件进行拆分, 拆分成一个个小的组件</li>
+<li>再将这些组件组合嵌套在一起, 最终形成我们的应用程序</li>
+</ul>
+<span id="more"></span>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+function Header() &#123;
+  return &lt;h2&gt;Header&lt;/h2&gt;
+&#125;
+
+function Main() &#123;
+  return (
+    &lt;div&gt;
+      &lt;Banner /&gt;
+      &lt;ProductList /&gt;
+    &lt;/div&gt;
+  )
+&#125;
+
+function Banner() &#123;
+  return &lt;div&gt;Banner&lt;/div&gt;
+&#125;
+
+function ProductList() &#123;
+  return (
+    &lt;ul&gt;
+      &lt;li&gt;商品1&lt;/li&gt;
+      &lt;li&gt;商品2&lt;/li&gt;
+      &lt;li&gt;商品3&lt;/li&gt;
+      &lt;li&gt;商品4&lt;/li&gt;
+      &lt;li&gt;商品5&lt;/li&gt;
+    &lt;/ul&gt;
+  )
+&#125;
+
+function Footer() &#123;
+  return &lt;h2&gt;Footer&lt;/h2&gt;
+&#125;
+
+export default class App extends Component &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Header /&gt;
+        &lt;Main /&gt;
+        &lt;Footer /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>上面代码嵌套的逻辑及它们存在的关系如下</p>
+<ul>
+<li><code>App</code>组件是<code>Header</code>、<code>Main</code>、<code>Footer</code>组件的父组件</li>
+<li><code>Main</code>组件是<code>Banner</code>、<code>ProductList</code>组件的父组件</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/19/NKTpdO.png"><img src="https://s1.ax1x.com/2020/06/19/NKTpdO.png" alt="NKTpdO.png"></a></p>
+<p>在开发过程中, 我们经常遇到需要组件之间相互进行通信</p>
+<ul>
+<li>比如<code>App</code>可能使用了多个<code>Header</code>, 每个地方的<code>Header</code>展示的内容不同, 那么我们就需要使用者传递给<code>Header</code>一些数据, 让其进行展示</li>
+<li>又比如我们在<code>Main</code>中一次性请求了<code>Banner</code>数据和<code>ProductList</code>数据, 那么就需要传递给他们相应的数据来进行展示</li>
+<li>也可能是子组件中发生了<strong>事件</strong>, 需要由父组件来完成某些操作, 那就需要子组件向父组件传递事件</li>
+</ul>
+<p>总之, 在一个 React 项目中, 组件之间的通信是非常重要的环节</p>
+<p>父组件在展示子组件, 可能会传递一些数据给子组件</p>
+<ul>
+<li>父组件通过<strong>属性=值</strong>的形式来传递给子组件数据</li>
+<li>子组件通过 <code>props</code> 参数获取父组件传递过来的数据</li>
+</ul>
+<h2 id="父组件传递子组件"><a href="#父组件传递子组件" class="headerlink" title="父组件传递子组件"></a>父组件传递子组件</h2><h3 id="子组件是-class-组件"><a href="#子组件是-class-组件" class="headerlink" title="子组件是 class 组件"></a>子组件是 class 组件</h3><pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+// 1.类子组件
+class ChildCpn1 extends Component &#123;
+  constructor(props) &#123;
+    super()
+    this.props = props
+  &#125;
+
+  render() &#123;
+    const &#123; name, age, height &#125; = this.props
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;我是class的组件&lt;/h2&gt;
+        &lt;p&gt;展示父组件传递过来的数据: &#123;name + &#39; &#39; + age + &#39; &#39; + height&#125;&lt;/p&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+export default class App extends Component &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;ChildCpn1 name=&quot;lion&quot; age=&quot;20&quot; height=&quot;1.80&quot; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>按照上面的结构, 我们每一个子组件都需要写构造器来完成: <code>this.props = props</code></p>
+<p>其实大可不必这样做, 因为我们可以调用<code>super(props)</code>, 我们来看一下<code>Component</code>的源码</p>
+<pre><code class="lang-react">function Component(props, context, updater) &#123;
+  this.props = props
+  this.context = context
+  // If a component has string refs, we will assign a different object later.
+  this.refs = emptyObject
+  // We initialize the default updater but the real one gets injected by the
+  // renderer.
+  this.updater = updater || ReactNoopUpdateQueue
+&#125;
+</code></pre>
+<ul>
+<li>这里我们先不关心<code>context</code>、<code>updater</code></li>
+<li>我们发现传入的<code>props</code>会被<code>Component</code>设置到<code>this</code>中(父类的对象), 那么子类就可以继承过来</li>
+</ul>
+<p>所以, 我们的构造方法可以换成下面的写法</p>
+<pre><code class="lang-react">constructor(props) &#123;
+  super(props)
+&#125;
+</code></pre>
+<p>甚至我们可以省略, 为什么可以省略呢?</p>
+<p>如果不指定构造方法, 则使用默认构造函数, 对于基类, 默认构造函数是</p>
+<pre><code class="lang-react">constructor() &#123;&#125;
+</code></pre>
+<p>对于派生类, 默认构造函数是</p>
+<pre><code class="lang-react">constructor(...args) &#123;
+  super(...args)
+&#125;
+</code></pre>
+<h3 id="子组件是-function-组件"><a href="#子组件是-function-组件" class="headerlink" title="子组件是 function 组件"></a>子组件是 function 组件</h3><pre><code class="lang-react">function ChildCpn2(props) &#123;
+  const &#123; name, age, height &#125; = props
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;我是function的组件&lt;/h2&gt;
+      &lt;p&gt;展示父组件传递过来的数据: &#123;name + &#39; &#39; + age + &#39; &#39; + height&#125;&lt;/p&gt;
+    &lt;/div&gt;
+  )
+&#125;
+
+export default class App extends Component &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;ChildCpn2 name=&quot;lion&quot; age=&quot;20&quot; height=&quot;1.80&quot; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p><code>function</code>组件相对来说比较简单, 因为不需要由构造方法, 也不需要有<code>this</code></p>
+<h3 id="参数验证-propTypes"><a href="#参数验证-propTypes" class="headerlink" title="参数验证 propTypes"></a>参数验证 propTypes</h3><p>对于传递给子组件的数据, 有时候我们可能希望进行验证, 特别是对于大型项目来说</p>
+<ul>
+<li>当然, 如果你的项目中默认继承了 Flow 或者 TypeScript, 那么就可以直接进行类型验证</li>
+<li>但是, 即使我们没有使用 Flow 或者 TypeScript, 也可以通过<code>prop-types</code>库来进行参数验证</li>
+</ul>
+<blockquote>
+<p>注意: 自 React v15.5 起, <code>React.PropTypes</code> 已移入另一个包中, 请使用 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/prop-types"><code>prop-types</code> 库</a> 代替</p>
+</blockquote>
+<p>我们对之前的 <code>class</code> 组件进行验证</p>
+<pre><code class="lang-react">import PropTypes from &#39;prop-types&#39;
+
+ChildCpn1.propTypes = &#123;
+  name: PropTypes.string,
+  age: PropTypes.number,
+  height: PropTypes.number
+&#125;
+</code></pre>
+<p>这个时候, 控制台就会报警告</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/19/NKqbvj.png"><img src="https://s1.ax1x.com/2020/06/19/NKqbvj.png" alt="NKqbvj.png"></a></p>
+<p>此时, 我们就得传入正确的类型才能避免警告</p>
+<pre><code class="lang-jsx">&lt;ChildCpn1 name=&quot;lion&quot; age=&#123;18&#125; height=&#123;1.80&#125; /&gt;
+</code></pre>
+<p>更多的验证方式, 可以参考<a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html">官网</a></p>
+<ul>
+<li>比如验证数组, 并且数组中包含哪些元素</li>
+<li>比如验证对象, 并且对象中包含哪些<code>key</code>及<code>value</code>是什么类型</li>
+<li>比如某个元素是必须的, 使用<code>requiredFunc: PropTypes.func.isRequired</code></li>
+</ul>
+<p>如果父组件没有传递数据, 而我们希望子组件有默认值呢?</p>
+<ul>
+<li>那么使用<code>defaultProps</code>就可以了</li>
+</ul>
+<pre><code class="lang-react">ChildCpn1.defaultProps = &#123;
+  name: &#39;lion&#39;,
+  age: 20,
+  height: 1.80
+&#125;
+</code></pre>
+<h2 id="子组件传递父组件"><a href="#子组件传递父组件" class="headerlink" title="子组件传递父组件"></a>子组件传递父组件</h2><p>某些情况, 我们也需要子组件向父组件传递数据</p>
+<ul>
+<li>在 Vue 中是通过自定义事件来完成的</li>
+<li>在 React 中同样是通过<code>props</code>传递消息, 只是让<strong>父组件</strong>给<strong>子组件</strong>传递一个<strong>回调函数</strong>, 在子组件中调用这个函数即可</li>
+</ul>
+<p>我们这里来完成一个案例</p>
+<ul>
+<li>将计数器案例进行拆解</li>
+<li>将按钮封装到子组件中: <code>CounterButton</code></li>
+<li><code>CounterButton</code>发生点击事件, 将内容传递到父组件中, 父组件修改<code>counter</code>的值</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/19/NKXbxe.png"><img src="https://s1.ax1x.com/2020/06/19/NKXbxe.png" alt="NKXbxe.png"></a></p>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+function CounterButton(props) &#123;
+  const &#123; operator, btnClick &#125; = props
+  return &lt;button onClick=&#123;btnClick&#125;&gt;&#123;operator&#125;&lt;/button&gt;
+&#125;
+
+export default class App extends Component &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      counter: 0
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: &#123;this.state.counter&#125;&lt;/h2&gt;
+        &lt;CounterButton operator=&quot;+&quot; btnClick=&#123;e =&gt; this.changeCounter(1)&#125; /&gt;
+        &lt;CounterButton operator=&quot;-&quot; btnClick=&#123;e =&gt; this.changeCounter(-1)&#125; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  changeCounter(num) &#123;
+    this.setState(&#123;
+      counter: this.state.counter + num
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+<p>由子组件监听按钮事件, 事件触发后调用父组件传递的<code>btnClick</code>函数, 父组件向子组件传递函数时使用的是<strong>箭头函数</strong>, 所以不必担心<code>this</code>指向问题</p>
+<h2 id="React-插槽实现"><a href="#React-插槽实现" class="headerlink" title="React 插槽实现"></a>React 插槽实现</h2><h3 id="为什么使用插槽"><a href="#为什么使用插槽" class="headerlink" title="为什么使用插槽?"></a>为什么使用插槽?</h3><p>在开发中, 我们抽取了一个组件, 但是为了让这个组件具备更强的通用性, 我们不能将组件中的内容限制为固定的<code>div</code>、<code>span</code>等元素</p>
+<p>我们应该让组件使用者可以决定某一块区域的存放内容</p>
+<p>举个例子: 假如我们定制一个通用的导航组件<code>NavBar</code></p>
+<ul>
+<li>这个组件分成三块区域: 左边-中间-右边, 每块区域的内容是不固定的</li>
+<li>左边区域可能是一个菜单图标, 也可能是一个返回按钮, 也可能什么都不显示</li>
+<li>中间区域可能是一个搜索框, 也可能是一个列表, 也可能是一个标题等等</li>
+<li>右边可能是一个文字, 也可能是一个图标, 也可能什么都不显示</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/19/NMpr5R.png"><img src="https://s1.ax1x.com/2020/06/19/NMpr5R.png" alt="NMpr5R.png"></a></p>
+<p>这种需求在 Vue 当中有一个固定的做法就是通过<code>slot</code>来完成的, React 呢?</p>
+<ul>
+<li>React 对于这种需要插槽的情况非常灵活</li>
+<li>有两种方案可以实现: <code>children</code>和<code>props</code></li>
+</ul>
+<h3 id="children-实现"><a href="#children-实现" class="headerlink" title="children 实现"></a>children 实现</h3><p>每个组件都可以获取到<code>props.children</code>: 它包含组件的开始标签和结束标签之间的内容</p>
+<pre><code class="lang-jsx">&lt;Welcome&gt;Hello React&lt;/Welcome&gt;
+</code></pre>
+<p>在<code>Welcome</code>组件中获取<code>props.children</code>, 就可以得到字符串<code>Hello React</code></p>
+<pre><code class="lang-react">function Welcome(props) &#123;
+  return &lt;p&gt;&#123;props.children&#125;&lt;/p&gt;
+  // &lt;p&gt;Hello React&lt;/p&gt;
+&#125;
+</code></pre>
+<ul>
+<li>如果只有一个元素, 那么<code>children</code>指向该元素</li>
+<li>如果有多个与安素, 那么<code>children</code>指向的是数组, 数组中包含多个元素</li>
+</ul>
+<p>那么, 我们的<code>NavBar</code>可以进行如下实现</p>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+class NavBar extends Component &#123;
+  render() &#123;
+    return (
+      &lt;div className=&quot;nav-bar&quot;&gt;
+        &lt;div className=&quot;item left&quot;&gt;&#123;this.props.children[0]&#125;&lt;/div&gt;
+        &lt;div className=&quot;item center&quot;&gt;&#123;this.props.children[1]&#125;&lt;/div&gt;
+        &lt;div className=&quot;item right&quot;&gt;&#123;this.props.children[2]&#125;&lt;/div&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+export default class App extends Component &#123;
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;NavBar&gt;
+          &lt;div&gt;返回&lt;/div&gt;
+          &lt;div&gt;购物街&lt;/div&gt;
+          &lt;div&gt;更多&lt;/div&gt;
+        &lt;/NavBar&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h3 id="props-实现"><a href="#props-实现" class="headerlink" title="props 实现"></a>props 实现</h3><p>通过<code>children</code>实现的方案虽然可行, 但是有一个弊端: 通过索引值获取传入的元素很容易出错, 不能精准的获取传入的元素</p>
+<p>另外一种方案就是使用<code>props</code>实现</p>
+<ul>
+<li>通过具体的属性名, 可以让我们在传入和获取时更加精准</li>
+</ul>
+<pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
+
+class NavBar extends Component &#123;
+  render() &#123;
+    const &#123; leftSlot, centerSlot, rightSlot &#125; = this.props
+
+    return (
+      &lt;div className=&quot;nav-bar&quot;&gt;
+        &lt;div className=&quot;item left&quot;&gt;&#123;leftSlot&#125;&lt;/div&gt;
+        &lt;div className=&quot;item center&quot;&gt;&#123;centerSlot&#125;&lt;/div&gt;
+        &lt;div className=&quot;item right&quot;&gt;&#123;rightSlot&#125;&lt;/div&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+
+export default class App extends Component &#123;
+  render() &#123;
+    const navLeft = &lt;div&gt;返回&lt;/div&gt;
+    const navCenter = &lt;div&gt;购物街&lt;/div&gt;
+    const navRight = &lt;div&gt;更多&lt;/div&gt;
+
+    return (
+      &lt;div&gt;
+        &lt;NavBar leftSlot=&#123;navLeft&#125; centerSlot=&#123;navCenter&#125; rightSlot=&#123;navRight&#125; /&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>为什么 constructor 中不传入 props 也能在别处使用</strong></p>
+<p>在进行 React 开发中, 有一个很奇怪的现象</p>
+<ul>
+<li>在调用<code>super()</code>的时候, 不传入<code>props</code>, 但是在下面的<code>render</code>函数中我们依然可以使用<code>props</code></li>
+<li>如果你自己编写一个基础的类, 可以尝试一下: 理论上来说这种情况<code>props</code>应该是<code>undefined</code>, 但是结果却不是<code>undefined</code></li>
+</ul>
+<pre><code class="lang-react">class ChildCpn extends Component &#123;
+  constructor(props) &#123;
+    super()
+  &#125;
+
+  render() &#123;
+    const &#123; name, age, height &#125; = this.props // coderlion 20 1.80
+    return (
+      &lt;h2&gt;子组件展示数据: &#123;name + &#39; &#39; + age + &#39; &#39; + height&#125;&lt;/h2&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>为什么这么神奇呢?</p>
+<p>因为 React 担心你有时会忘了为<code>super()</code>传入<code>props</code>而进行了一些操作</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/21/N8B03V.png"><img src="https://s1.ax1x.com/2020/06/21/N8B03V.png" alt="N8B03V.png"></a></p>
+<p>我们来看一下这个组件时怎么被创建出来的</p>
+<p>我们找到其中的<code>render</code>函数</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/21/N8DSKS.png"><img src="https://s1.ax1x.com/2020/06/21/N8DSKS.png" alt="N8DSKS.png"></a></p>
+<p><code>render</code>函数中有这样一段代码</p>
+<p>这个<code>_instance</code>实例就是组件对象</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/21/N8DpDg.png"><img src="https://s1.ax1x.com/2020/06/21/N8DpDg.png" alt="N8DpDg.png"></a></p>
+<p>我们再来看一下, 它在哪里重新赋值</p>
+<p>这里还包括通过<code>this._instance</code>的方式回调生命周期函数</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/21/N8DE80.png"><img src="https://s1.ax1x.com/2020/06/21/N8DE80.png" alt="N8DE80.png"></a></p>
+<p><strong>结论: 仅当你想在<code>constructor</code>内使用<code>props</code>才将<code>props</code>传入<code>super()</code>, 你无论是否手动的将<code>props</code>保存到组件的实例上, React 内部都会帮你保存</strong></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

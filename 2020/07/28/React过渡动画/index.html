@@ -1,0 +1,557 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || React过渡动画</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>React过渡动画 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/28
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Animation" style=color:#ff7d73>
+                    Animation
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>在开发中, 我们想要给一个组件的 show/hidden 添加某种过渡动画, 可以很好的增加用户体验</p>
+<p>当然, 我们可以通过原生的 CSS 来实现这些过渡动画, 但是 React 社区为我们提供了<code>react-transition-group</code>用来完成过渡动画</p>
+</blockquote>
+<h2 id="react-transition-group-介绍"><a href="#react-transition-group-介绍" class="headerlink" title="react-transition-group 介绍"></a>react-transition-group 介绍</h2><p>React 曾为开发者提供过动画插件<code>react-addons-css-transition-group</code>, 后由社区维护, 形成了现在的<code>react-transition-group</code></p>
+<span id="more"></span>
+<p>这个库可以帮助我们方便的实现组件的<strong>入场</strong>和<strong>离场</strong>动画, 使用时需要进行额外的安装</p>
+<pre><code class="lang-shell">## npm
+npm install react-transition-group --save
+
+## yarn
+yarn add react-transition-group
+</code></pre>
+<p><code>react-transition-group</code>本身非常小, 不会为我们应用程序增加过多的负担</p>
+<p><code>react-transition-group</code>主要包含四个组件:</p>
+<ul>
+<li><p><code>Transition</code></p>
+<ul>
+<li>该组件是一个和平台无关的组件(不一定要结合 CSS)</li>
+<li>在前端开发中, 我们一般是结合 CSS 来完成样式, 所以比较常用的是<code>CSSTransition</code></li>
+</ul>
+</li>
+<li><p><code>CSSTransition</code></p>
+<ul>
+<li>在前端开发中, 通常使用<code>CSSTransition</code>来完成过渡动画效果</li>
+</ul>
+</li>
+<li><p><code>SwitchTransition</code></p>
+<ul>
+<li>两个组件显示和隐藏切换时, 使用该组件</li>
+</ul>
+</li>
+<li><p><code>TransitionGroup</code></p>
+<ul>
+<li>将多个动画组件包裹在其中, 一般用于列表中元素的动画</li>
+</ul>
+</li>
+</ul>
+<h2 id="react-transition-group-使用"><a href="#react-transition-group-使用" class="headerlink" title="react-transition-group 使用"></a>react-transition-group 使用</h2><h3 id="CSSTransition"><a href="#CSSTransition" class="headerlink" title="CSSTransition"></a>CSSTransition</h3><p><code>CSSTransition</code>是基于<code>Transition</code>组件构建的</p>
+<ul>
+<li><code>CSSTransition</code>执行过程中, 有三个状态: <strong>appear</strong>、<strong>enter</strong>、<strong>exit</strong></li>
+<li>它们有三种状态, 需要定义对应的 CSS 样式<ul>
+<li>第一类: 开始状态, 对应的类是<code>-appear</code>、<code>-enter</code>、<code>exit</code></li>
+<li>第二类: 执行动画, 对应的类是<code>-appear-active</code>、<code>-enter-active</code>、<code>-exit-active</code></li>
+<li>第三类: 执行结束, 对应的类是<code>-appear-done</code>、<code>-enter-done</code>、<code>-exit-done</code></li>
+</ul>
+</li>
+</ul>
+<p><code>CSSTransition</code>常见对应的属性</p>
+<ul>
+<li><p><code>in</code>: 触发进入或退出状态</p>
+<ul>
+<li>如果添加了<code>unmountOnExit=&#123;true&#125;</code>, 那么该组件会在执行退出动画结束后被移除掉</li>
+<li>当<code>in</code>为<code>true</code>时, 触发进入状态, 会添加<code>-enter</code>、<code>-enter-active</code>的 class 开始执行动画, 当动画执行结束后, 会移除两个 class, 并且添加<code>-enter-done</code>的 class</li>
+<li>当<code>in</code>为<code>false</code>时, 触发退出状态, 会添加<code>-exit</code>、<code>-exit-active</code>的 class 开始执行动画, 当动画执行结束后, 会移除两个 class, 并且添加<code>-enter-done</code> 的 class</li>
+</ul>
+</li>
+<li><p><code>classNames</code>: 动画<code>class</code>的名称</p>
+<ul>
+<li>决定了在编写 CSS 时, 对应的 class 名称: 比如<code>card-enter</code>、<code>card-enter-active</code>、<code>card-enter-done</code></li>
+</ul>
+</li>
+<li><p><code>timeout</code>: 过渡动画的时间</p>
+</li>
+<li><p><code>appear</code>: 是否在初次进入时添加动画(需要和<code>in</code>同时为<code>true</code>)</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://reactcommunity.org/react-transition-group/transition">更多属性</a></p>
+</li>
+</ul>
+<p><code>CSSTransition</code>对应的钩子函数: 主要为了检测动画的执行过程, 来完成一些 JavaScript 的操作</p>
+<ul>
+<li><code>onEnter</code>: 在进入动画之前被触发</li>
+<li><code>onEntering</code>: 在应用进入动画时被触发</li>
+<li><code>onEntered</code>: 在应用进入动画结束后被触发</li>
+</ul>
+<pre><code class="lang-react">import &#39;./App.css&#39;
+
+import &#123; CSSTransition &#125; from &#39;react-transition-group&#39;
+
+import &#123; Card, Avatar, Button &#125; from &#39;antd&#39;
+import &#123; EditOutlined, EllipsisOutlined, SettingOutlined &#125; from &#39;@ant-design/icons&#39;
+
+const &#123; Meta &#125; = Card
+
+export default class App extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      isShowCard: true
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;Button type=&quot;primary&quot; onClick=&#123;e =&gt; this.setState(&#123; isShowCard: !this.state.isShowCard &#125;)&#125;&gt;
+          显示/隐藏
+        &lt;/Button&gt;
+        &lt;CSSTransition
+          in=&#123;this.state.isShowCard&#125;
+          classNames=&quot;card&quot;
+          timeout=&#123;1000&#125;
+          unmountOnExit=&#123;true&#125;
+          onEnter=&#123;el =&gt; console.log(&#39;进入动画前&#39;)&#125;
+          onEntering=&#123;el =&gt; console.log(&#39;进入动画&#39;)&#125;
+          onEntered=&#123;el =&gt; console.log(&#39;进入动画后&#39;)&#125;
+          onExit=&#123;el =&gt; console.log(&#39;退出动画前&#39;)&#125;
+          onExiting=&#123;el =&gt; console.log(&#39;退出动画&#39;)&#125;
+          onExited=&#123;el =&gt; console.log(&#39;退出动画后&#39;)&#125;
+        &gt;
+          &lt;Card
+            style=&#123;&#123; width: 300 &#125;&#125;
+            cover=&#123;&lt;img alt=&quot;example&quot; src=&quot;https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png&quot; /&gt;&#125;
+            actions=&#123;[
+              &lt;SettingOutlined key=&quot;setting&quot; /&gt;,
+              &lt;EditOutlined key=&quot;edit&quot; /&gt;,
+              &lt;EllipsisOutlined key=&quot;ellipsis&quot; /&gt;
+            ]&#125;
+          &gt;
+            &lt;Meta
+              avatar=&#123;&lt;Avatar src=&quot;https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png&quot; /&gt;&#125;
+              title=&quot;Card title&quot;
+              description=&quot;This is the description&quot;
+            /&gt;
+          &lt;/Card&gt;
+        &lt;/CSSTransition&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+&#125;
+</code></pre>
+<p>对应的 CSS 样式如下</p>
+<pre><code class="lang-css">.card-enter, .card-appear &#123;
+  opacity: 0;
+  transform: scale(.8);
+&#125;
+
+.card-enter-active, .card-appear-active &#123;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+&#125;
+
+.card-exit &#123;
+  opacity: 1;
+&#125;
+
+.card-exit-active &#123;
+  opacity: 0;
+  transform: scale(.8);
+  transition: opacity 300ms, transform 300ms;
+&#125;
+</code></pre>
+<h3 id="SwitchTransition"><a href="#SwitchTransition" class="headerlink" title="SwitchTransition"></a>SwitchTransition</h3><p><code>SwitchTransition</code>可以完成两个组件之间切换的炫酷动画</p>
+<ul>
+<li>比如我们有一个按钮需要在<code>on</code>和<code>off</code>之间切换, 我们希望看到<code>on</code>先从左侧退出, <code>off</code>再从右侧进入</li>
+<li>这个动画在 Vue 中被称之为 Vue Transition Modes</li>
+<li><code>react-transition-group</code>中使用<code>SwitchTransition</code>来实现该动画</li>
+</ul>
+<p><code>SwitchTransition</code>中主要有一个属性: <code>mode</code>, 它有两个值</p>
+<ol>
+<li><code>in-out</code>: 表示新组件先进入, 旧组件再移除</li>
+<li><code>out-in</code>: 表示旧组件先移除, 新组件再进入</li>
+</ol>
+<p>如何使用<code>SwitchTransition</code>呢?</p>
+<ul>
+<li><code>SwitchTransition</code>组件里面要有<code>CSSTransition</code>或者<code>Transition</code>组件, <strong>不能直接包裹你想要切换的组件</strong></li>
+<li><code>SwitchTransition</code>里面的<code>CSSTransition</code>或<code>Transition</code>组件不再像以前那样接受<code>in</code>属性来判断元素是何种状态, 取而代之的是<code>key</code>属性</li>
+</ul>
+<p>下面代码为按钮的<strong>入场</strong>和<strong>出场</strong>效果</p>
+<pre><code class="lang-react">import &#123; SwitchTransition, CSSTransition &#125; from &#39;react-transition-group&#39;
+
+export default class SwitchAnimation extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      isOn: true
+    &#125;
+  &#125;
+
+  render() &#123;
+    const &#123; isOn &#125; = this.state
+
+    return (
+      &lt;SwitchTransition mode=&quot;out-in&quot;&gt;
+        &lt;CSSTransition classNames=&quot;btn&quot; timeout=&#123;500&#125; key=&#123;isOn ? &#39;on&#39; : &#39;off&#39;&#125;&gt;
+          &#123;&lt;button onClick=&#123;this.btnClick.bind(this)&#125;&gt;&#123;isOn ? &#39;on&#39; : &#39;off&#39;&#125;&lt;/button&gt;&#125;
+        &lt;/CSSTransition&gt;
+      &lt;/SwitchTransition&gt;
+    )
+  &#125;
+
+  btnClick() &#123;
+    this.setState(&#123; isOn: !this.state.isOn &#125;)
+  &#125;
+&#125;
+</code></pre>
+<p>对应的 CSS 样式如下</p>
+<pre><code class="lang-css">.btn-enter &#123;
+  transform: translate(100%, 0);
+  opacity: 0;
+&#125;
+
+.btn-enter-active &#123;
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: all 500ms;
+&#125;
+
+.btn-exit &#123;
+  transform: translate(0, 0);
+  opacity: 1;
+&#125;
+
+.btn-exit-active &#123;
+  transform: translate(-100%, 0);
+  opacity: 0;
+  transition: all 500ms;
+&#125;
+</code></pre>
+<h3 id="TransitionGroup"><a href="#TransitionGroup" class="headerlink" title="TransitionGroup"></a>TransitionGroup</h3><p>当我们有一组动画时, 需要将这些<code>CSSTransition</code>放入到一个<code>TransitionGroup</code>中来完成动画</p>
+<pre><code class="lang-react">import React, &#123; PureComponent &#125; from &#39;react&#39;
+import &#123; CSSTransition, TransitionGroup &#125; from &#39;react-transition-group&#39;
+
+export default class GroupAnimation extends PureComponent &#123;
+  constructor(props) &#123;
+    super(props)
+
+    this.state = &#123;
+      friends: []
+    &#125;
+  &#125;
+
+  render() &#123;
+    return (
+      &lt;div&gt;
+        &lt;TransitionGroup&gt;
+          &#123;this.state.friends.map((item, index) =&gt; &#123;
+            return (
+              &lt;CSSTransition classNames=&quot;friend&quot; timeout=&#123;300&#125; key=&#123;index&#125;&gt;
+                &lt;div&gt;&#123;item&#125;&lt;/div&gt;
+              &lt;/CSSTransition&gt;
+            )
+          &#125;)&#125;
+        &lt;/TransitionGroup&gt;
+        &lt;button onClick=&#123;e =&gt; this.addFriend()&#125;&gt;+friend&lt;/button&gt;
+      &lt;/div&gt;
+    )
+  &#125;
+
+  addFriend() &#123;
+    this.setState(&#123;
+      friends: [...this.state.friends, &#39;coderlion&#39;]
+    &#125;)
+  &#125;
+&#125;
+</code></pre>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

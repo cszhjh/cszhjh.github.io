@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 邂逅Redux</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>邂逅Redux </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/7/28
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                React
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Redux" style=color:#00bcd4>
+                    Redux
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>在 React 的开发过程中, Redux 对于我们是非常重要的</p>
+<p>但是对于很多人来说, 初次接触 Redux 会感觉 Redux 的学习坡度非常陡峭, 难度比较大</p>
+<p>在接下来的过程中, 我会通过一个系列的方式循循渐进、层层深入的方式来讲解 Redux: 从 Redux 的独立使用过程、到 Redux 的结构划分、到 Redux 结合 React 的过程、到 Redux 中异步操作、到复杂数据的结构处理、到结合 immutable 的使用</p>
+<p>整个过程都是在现有知识的基础上层层递增、一步步掌握 Redux 的使用</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="Redux-是什么"><a href="#Redux-是什么" class="headerlink" title="Redux 是什么?"></a>Redux 是什么?</h2><h3 id="JavaScript-纯函数"><a href="#JavaScript-纯函数" class="headerlink" title="JavaScript 纯函数"></a>JavaScript 纯函数</h3><p>函数式编程中有一个概念叫纯函数, JavaScript 符合函数式编程的范式, 所以也有纯函数的概念</p>
+<p>在 React 中, 纯函数的概念非常重要, 在接下来我们学习的 Redux 中也非常重要, 所以我们有必须来回顾(如果你之前没有学习过, 那么你可以花时间学习一下<strong>纯函数</strong>)</p>
+<blockquote>
+<p>在程序设计中, 若一个函数符合以下条件, 那么这个函数被称为纯函数</p>
+<ul>
+<li>词函数在相同的输入值时, 需产生相同的输出, 函数的输出和输入值以外的其他隐藏信息或状态无关, 也和由 I/O 设备产生的外部输出无关</li>
+<li>该函数不能有语义上可观察的函数副作用, 注入“触发事件”, 使用输出设备输出, 或更改输出值以外物件的内容等</li>
+</ul>
+<p>——维基百科</p>
+</blockquote>
+<p>简单总结:</p>
+<ul>
+<li>确定的输入, 一定会产生确定的输出</li>
+<li>函数在执行过程中, 不能产出副作用</li>
+</ul>
+<p>那么我们来看几个函数是否是纯函数:</p>
+<p>案例一</p>
+<pre><code class="lang-javascript">function sum(a, b) &#123;
+  return a + b
+&#125;
+</code></pre>
+<ul>
+<li>很明显, 下面的函数是一个纯函数</li>
+<li>它的输出是依赖我们的输入内容, 并且中间没有产生任何副作用</li>
+</ul>
+<p>案例二</p>
+<pre><code class="lang-javascript">let foo = 5
+
+function add(num) &#123;
+  return foo + num
+&#125;
+
+console.log(add(5))
+foo = 10
+console.log(add(5))
+</code></pre>
+<ul>
+<li><code>add</code>函数不是一个纯函数</li>
+<li>函数依赖一个外部的变量, 变量发送改变时, 会影响: 确定的输入, 产生确定的输出</li>
+<li>能否改进成纯函数呢? <code>const foo = 5</code>即可</li>
+</ul>
+<p>案例三</p>
+<pre><code class="lang-javascript">function printInfo(info) &#123;
+  console.log(info.name, info.age)
+  info.name = &#39;哈哈哈&#39;
+&#125;
+</code></pre>
+<ul>
+<li><code>printInfo</code>不是一个纯函数</li>
+<li>虽然无论输入什么, 最终输出的都是<code>undefined</code>, 但是它产生了副作用, 修改了传入的对象</li>
+</ul>
+<p>当然纯函数还有很多的变种, 但是我们只需要理解它的核心就可以了</p>
+<p>为什么纯函数在函数式编程中非常重要呢?</p>
+<ul>
+<li>因为你可以<strong>安心的写</strong>和<strong>安心的用</strong></li>
+<li>你在写的时候保证了函数的纯度, 只有但是实现自己的业务逻辑即可, 不需要关心传入的内容或者依赖其他的外部变量</li>
+<li>你在用的时候, 需要确定你的输入内容不会被任意篡改, 并且自己确定的输入, 一定会有确定的输出</li>
+</ul>
+<p>React 中要求我们无论是函数还是 class 声明一个组件, 这个组件都必须像纯函数一样, 保护它们的<code>props</code>不会被修改</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/28/aEPxds.png"><img src="https://s1.ax1x.com/2020/07/28/aEPxds.png" alt="aEPxds.png"></a></p>
+<p>在之后学习 Redux 中, <code>reducer</code>也被要求是一个纯函数</p>
+<h3 id="认识-Redux"><a href="#认识-Redux" class="headerlink" title="认识 Redux"></a>认识 Redux</h3><h4 id="为什么需要-Redux"><a href="#为什么需要-Redux" class="headerlink" title="为什么需要 Redux?"></a>为什么需要 Redux?</h4><p>JavaScript 开发的应用程序, 已经变得越来越复杂了</p>
+<ul>
+<li>JavaScript 需要管理的状态越来越多, 越来越复杂</li>
+<li>这些状态包括服务器返回的数据、缓存数据、用户操作产生的数据等等, 也包括一些 UI 的状态, 比如某些元素是否被选中, 是否显示加载动效, 当前分页</li>
+</ul>
+<p>管理不断变化的<code>state</code>是非常困难的</p>
+<ul>
+<li>状态之间相互会存在依赖, 一个状态的变化会引起另一个状态的变化, View 页面也有可能会引起状态的变化</li>
+<li>当应用程序复杂时, <code>state</code>在什么时候, 因为什么原而发生了变化, 发生了怎么样的变化, 会变得非常难以控制和追踪</li>
+</ul>
+<p>React 是在视图层帮助我们解决了 DOM 的渲染过程, 但是<code>state</code>依然是留给我们自己来管理</p>
+<ul>
+<li>无论是组件定义自己的<code>state</code>, 还是组件之间的通信通过<code>props</code>进行传递, 也包括通过<code>Context</code>进行数据之间的共享</li>
+<li>React 主要负责帮助我们管理视图, <code>state</code>如何维护最终还是我们自己来决定</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/28/aEknxK.png"><img src="https://s1.ax1x.com/2020/07/28/aEknxK.png" alt="aEknxK.png"></a></p>
+<p>Redux 就是一个帮助我们管理<code>state</code>的容器: Redux 是 JavaScript 的状态容器, 提供了可预测的状态管理</p>
+<p>Redux 除了和 React 一起使用之外, 它也可以和其他界面库一起来使用(比如 Vue), 并且它非常小(包括依赖在内, 只有<code>2kb</code>)</p>
+<h4 id="Redux-核心理念"><a href="#Redux-核心理念" class="headerlink" title="Redux 核心理念"></a>Redux 核心理念</h4><p>Redux 的核心理念非常简单</p>
+<p>比如我们有一个朋友列表需要管理</p>
+<pre><code class="lang-javascript">const initialState = &#123;
+  friends: [
+    &#123; name: &#39;lion&#39;, age: 18 &#125;,
+    &#123; name: &#39;kobe&#39;, age: 40 &#125;,
+    &#123; name: &#39;lilei&#39;, age: 30 &#125;
+  ]
+&#125;
+</code></pre>
+<ul>
+<li>比如我们没有定义统一的规范来操作这段数据, 那么整个数据的变化就是无法追踪的</li>
+<li>比如页面的某处通过<code>products.push</code>的方式增加了一条数据</li>
+<li>比如另一个页面通过<code>products[0].age = 25</code>修改了一条数据</li>
+<li>整个应用程序错综复杂, 当出现 Bug 时, 很难跟踪到哪里发生的变化</li>
+</ul>
+<p>Redux 要求我们通过<code>action</code>来更新数据</p>
+<ul>
+<li>所有数据的变化, 必须通过派发(dispatch)<code>action</code>来更新</li>
+<li><code>action</code>是一个普通的 JavaScript 对象, 用来描述这次更新的<code>type</code>和<code>content</code></li>
+</ul>
+<p>比如下面就是几个更新<code>friends</code>的<code>action</code></p>
+<pre><code class="lang-javascript">const action1 = &#123; type: &#39;ADD_FRIEND&#39;, info: &#123; name: &#39;lucy&#39;, age: 20 &#125; &#125;
+const action2 = &#123; type: &#39;INC_AGE&#39;, index: 0 &#125;
+const action3 = &#123; type: &#39;CHANGE_NAME&#39;, playload: &#123; index: 0, newName: &#39;coderlion&#39; &#125; &#125;
+</code></pre>
+<ul>
+<li>强制使用<code>action</code>的好处是可以清晰的知道数据到底发生了什么样的变化, 所有的数据变化都是可跟踪、可预测的</li>
+<li>当然, 目前我们的<code>action</code>是固定的对象, 真实应用中, 我们会通过函数来定义, 返回一个<code>action</code></li>
+</ul>
+<p>但是如何将<code>state</code>和<code>action</code>联系在一起呢? 答案就是 <strong>reducer</strong></p>
+<ul>
+<li><code>reducer</code>是一个纯函数</li>
+<li><code>reducer</code>做的事情就是将传入的<code>state</code>和<code>action</code>结合起来生成一个新的<code>state</code></li>
+</ul>
+<pre><code class="lang-javascript">function reducer(state = initialState, action) &#123;
+  switch (action.type) &#123;
+    case &#39;ADD_FRIEND&#39;:
+      return &#123; ...state, friends: [...state.friends, action.info] &#125;
+    case &#39;INC_AGE&#39;:
+      return &#123;
+        ...state,
+        friends: state.friends.map((item, index) =&gt; &#123;
+          if (index === action.index) &#123;
+            return &#123; ...item, age: item.age + 1 &#125;
+          &#125;
+          return item
+        &#125;)
+      &#125;
+    case &#39;CHANGE_NAME&#39;:
+      return &#123;
+        ...state,
+        friends: state.friends.map((item, index) =&gt; &#123;
+          if (index === action.index) &#123;
+            return &#123; ...item, name: action.newName &#125;
+          &#125;
+          return item
+        &#125;)
+      &#125;
+    default:
+      return state
+  &#125;
+&#125;
+</code></pre>
+<h4 id="Redux-的三大原则"><a href="#Redux-的三大原则" class="headerlink" title="Redux 的三大原则"></a>Redux 的三大原则</h4><h5 id="单一数据源"><a href="#单一数据源" class="headerlink" title="单一数据源"></a>单一数据源</h5><p>整个应用程序的<code>state</code>被存储在一颗 Object Tree 中, 并且这个 Object Tree 只存储在一个<code>store</code>中</p>
+<ul>
+<li>Redux 并没有强制让我们不能创建多个<code>store</code>, 但是那样做并不利于数据的维护</li>
+<li>单一的数据源可以让整个应用程序的<code>state</code>变得方便维护、追踪、修改</li>
+</ul>
+<h5 id="State-是只读的"><a href="#State-是只读的" class="headerlink" title="State 是只读的"></a>State 是只读的</h5><p>唯一修改<code>State</code>的方法一定是触发<code>action</code>, 不要试图在其他地方通过其他的方式来修改<code>State</code></p>
+<ul>
+<li>这样就确保了 View 或网络请求都不能直接修改<code>state</code>, 它们只能通过<code>action</code>来描述自己想要如何修改<code>state</code></li>
+<li>这样可以保证所有的修改都被集中化管理, 并且按照严格的顺序来执行, 所以不需要担心 race condition(竞态)的问题</li>
+</ul>
+<h5 id="使用纯函数来执行修改"><a href="#使用纯函数来执行修改" class="headerlink" title="使用纯函数来执行修改"></a>使用纯函数来执行修改</h5><p>通过<code>reducer</code>将<code>old state</code>和<code>action</code>联系在一起, 并且返回一个新的<code>State</code></p>
+<ul>
+<li>随着应用程序的复杂度增加, 我们可以将<code>reducer</code>拆分成多个小的<code>reducers</code>, 分别操作不同的 state tree 的一部分</li>
+<li>但是所有的<code>reducer</code>都应该是纯函数, 不能产生任何副作用</li>
+</ul>
+<h2 id="Redux-的基本使用"><a href="#Redux-的基本使用" class="headerlink" title="Redux 的基本使用"></a>Redux 的基本使用</h2><h3 id="Redux-使用过程"><a href="#Redux-使用过程" class="headerlink" title="Redux 使用过程"></a>Redux 使用过程</h3><h4 id="安装-Redux"><a href="#安装-Redux" class="headerlink" title="安装 Redux"></a>安装 Redux</h4><pre><code class="lang-shell">## npm
+npm install redux --save
+
+## yarn
+yarn add redux
+</code></pre>
+<p>这里通过传家一个简单的<code>js</code>文件, 我们来简单学习一下 Redux</p>
+<h4 id="搭建项目结构"><a href="#搭建项目结构" class="headerlink" title="搭建项目结构"></a>搭建项目结构</h4><ol>
+<li>创建一个新的项目文件夹: <code>learn-redux</code></li>
+</ol>
+<pre><code class="lang-shell">## 执行初始化操作
+yarn init
+
+## 安装 redux
+yarn add redux
+</code></pre>
+<ol>
+<li>创建<code>src</code>目录, 并且创建<code>index.js</code>文件</li>
+<li>修改<code>package.json</code>, 令其可以执行<code>index.js</code></li>
+</ol>
+<pre><code class="lang-json">&quot;scripts&quot;: &#123;
+  &quot;start&quot;: &quot;node src/index.js&quot;
+&#125;
+</code></pre>
+<h4 id="开始在-index-js-中编写代码"><a href="#开始在-index-js-中编写代码" class="headerlink" title="开始在 index.js 中编写代码"></a>开始在 index.js 中编写代码</h4><ol>
+<li>创建一个对象, 作为我们要保存的状态</li>
+</ol>
+<pre><code class="lang-react">const redux = require(&#39;redux&#39;)
+
+const initialState = &#123;
+  counter: 0
+&#125;
+</code></pre>
+<ol>
+<li>创建<code>store</code>来存储这个<code>state</code><ul>
+<li>创建<code>store</code>时必须创建<code>reducer</code></li>
+<li>我们可以通过<code>store.getState</code>来获取当前的<code>state</code></li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-react">// 创建 reducer
+const reducer = (state = initialState, action) =&gt; state
+
+// 根据 reducer 创建 store
+const store = redux.createStore(reducer)
+
+console.log(store.getState())
+</code></pre>
+<ol>
+<li>通过<code>action</code>来修改<code>state</code><ul>
+<li>通过<code>dispatch</code>来派发<code>action</code></li>
+<li>通常<code>action</code>都会有<code>type</code>属性, 也可以携带其他的数据</li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-react">store.dispatch(&#123;
+  type: &#39;INCREMENT&#39;
+&#125;)
+
+store.dispatch(&#123;
+  type: &#39;DECREMENT&#39;
+&#125;)
+
+store.dispatch(&#123;
+  type: &#39;ADD_NUMBER&#39;,
+  number: 5
+&#125;)
+</code></pre>
+<ol>
+<li><p>修改<code>reducer</code>中的处理代码</p>
+<ul>
+<li>这里一定要记住, <code>reducer</code>是一个纯函数, 不需要直接修改<code>state</code></li>
+<li>后面我们会解释直接修改<code>state</code>带来的问题</li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-react">const reducer = (state = initialState, action) =&gt; &#123;
+  switch (action.type) &#123;
+    case &#39;INCREMENT&#39;:
+      return &#123; ...state, counter: state.counter + 1 &#125;
+    case &#39;DECREMENT&#39;:
+      return &#123; ...state, counter: state.counter - 1 &#125;
+    case &#39;ADD_NUMBER&#39;:
+      return &#123; ...state, counter: state.counter + action.number &#125;
+    default:
+      return state
+  &#125;
+&#125;
+</code></pre>
+<ol>
+<li>可以在派发<code>action</code>之前, 监听<code>store</code>的变化</li>
+</ol>
+<pre><code class="lang-react">store.subscribe(() =&gt; console.log(store.getState()))
+</code></pre>
+<p>完整的案例代码如下</p>
+<pre><code class="lang-react">const redux = require(&#39;redux&#39;)
+
+const initialState = &#123;
+  counter: 0
+&#125;
+
+// 创建 reducer
+const reducer = (state = initialState, action) =&gt; &#123;
+  switch (action.type) &#123;
+    case &#39;INCREMENT&#39;:
+      return &#123; ...state, counter: state.counter + 1 &#125;
+    case &#39;DECREMENT&#39;:
+      return &#123; ...state, counter: state.counter - 1 &#125;
+    case &#39;ADD_NUMBER&#39;:
+      return &#123; ...state, counter: state.counter + action.number &#125;
+    default:
+      return state
+  &#125;
+&#125;
+
+// 根据 reducer 创建 store
+const store = redux.createStore(reducer)
+
+store.subscribe(() =&gt; &#123;
+  console.log(store.getState())
+&#125;)
+
+// 修改 store 中的 state
+store.dispatch(&#123;
+  type: &#39;INCREMENT&#39;
+&#125;)
+// console.log(store.getState())
+
+store.dispatch(&#123;
+  type: &#39;DECREMENT&#39;
+&#125;)
+// console.log(store.getState())
+
+store.dispatch(&#123;
+  type: &#39;ADD_NUMBER&#39;,
+  number: 5
+&#125;)
+// console.log(store.getState())
+</code></pre>
+<h3 id="Redux-结构划分"><a href="#Redux-结构划分" class="headerlink" title="Redux 结构划分"></a>Redux 结构划分</h3><p>如果我们将所有的逻辑代码写到一起, 那么当 Redux 变得复杂时代码将难以维护</p>
+<p>接下来, 我会对代码进行拆分, 将<code>store</code>、<code>reducer</code>、<code>action</code>、<code>constants</code>拆分称一个个文件</p>
+<p><strong>注意: node 中对 ES6 模块化的支持</strong></p>
+<p>目前我使用的 node 版本是<code>v12.17.0</code>, 从 node <code>v13.2.0</code>开始, node 才对 ES6 模块化提供了支持</p>
+<ul>
+<li><p>node <code>v13.2.0</code>之前, 需要进行如下操作</p>
+<ul>
+<li>在<code>package.json</code>中添加属性: <code>&quot;type&quot;: &quot;module&quot;</code></li>
+<li>在执行命令中添加如下选项: <code>node --experimental-modules src/index.js</code></li>
+</ul>
+</li>
+<li><p>node <code>v13.2.0</code>之后, 只需要进行如下操作</p>
+<ul>
+<li>在<code>package.json</code>中添加属性: <code>&quot;type&quot;: &quot;module&quot;</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>注意: 导入文件时, 需要跟上<code>.js</code>后缀</strong></p>
+<h4 id="对-Redux-结构进行划分"><a href="#对-Redux-结构进行划分" class="headerlink" title="对 Redux 结构进行划分"></a>对 Redux 结构进行划分</h4><p>创建<code>store/index.js</code>文件</p>
+<pre><code class="lang-react">import redux from &#39;redux&#39;
+import reducer from &#39;./reducer.js&#39;
+
+const store = redux.createStore(reducer)
+
+export default store
+</code></pre>
+<p>创建<code>store/reducer.js</code>文件</p>
+<pre><code class="lang-react">import &#123; ADD_NUMBER, SUB_NUMBER &#125; from &#39;./constants.js&#39;
+
+const initialState = &#123;
+  counter: 0
+&#125;
+
+function reducer(state = initialState, action) &#123;
+  switch (action.type) &#123;
+    case ADD_NUMBER:
+      return &#123; ...state, counter: state.counter + action.num &#125;
+    case SUB_NUMBER:
+      return &#123; ...state, counter: state.counter - action.num &#125;
+    default:
+      return state
+  &#125;
+&#125;
+
+export default reducer
+</code></pre>
+<p>创建<code>store/actionCreators.js</code>文件</p>
+<pre><code class="lang-react">import &#123; ADD_NUMBER, SUB_NUMBER &#125; from &#39;./constants.js&#39;
+
+const addAction = count =&gt; (&#123;
+  type: ADD_NUMBER,
+  num: count
+&#125;)
+
+const subAction = count =&gt; (&#123;
+  type: SUB_NUMBER,
+  num: count
+&#125;)
+
+export &#123; addAction, subAction &#125;
+</code></pre>
+<p>创建<code>store/constants.js</code>文件</p>
+<pre><code class="lang-react">const ADD_NUMBER = &#39;ADD_NUMBER&#39;
+const SUB_NUMBER = &#39;SUB_NUMBER&#39;
+
+export &#123; ADD_NUMBER, SUB_NUMBER &#125;
+</code></pre>
+<h3 id="Redux-流程图"><a href="#Redux-流程图" class="headerlink" title="Redux 流程图"></a>Redux 流程图</h3><p>我们已经知道了 Redux 的基本使用过程, 那么我们就更加清晰来认识一下 Redux 在实际开发中的流程</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/07/28/aEd3Ps.png"><img src="https://s1.ax1x.com/2020/07/28/aEd3Ps.png" alt="aEd3Ps.png"></a></p>
+<ol>
+<li>全局通常只有一个 Store, 存储我们的 State</li>
+<li>Component 中在某些情况会派发 Action(这些 Action 是我们提前定义好的)</li>
+<li>Reducer 会接收到这些 Action, 并且在 Reducer 中会返回一个新的 State, 作为 Store 的 State</li>
+<li>State 发生更新之后会触发通知, 告知订阅者数据发生了改变</li>
+<li>订阅者拿到最新的数据(在<code>props</code>中), 更新到 JSX 中, 界面发生改变</li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>

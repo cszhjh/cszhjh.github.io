@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || Vue-Router</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Vue-Router </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/1
+        </span>
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                Vue
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/Vue-Router" style=color:#03a9f4>
+                    Vue-Router
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="前端路由-Vue-Router-介绍"><a href="#前端路由-Vue-Router-介绍" class="headerlink" title="前端路由 Vue-Router 介绍"></a>前端路由 Vue-Router 介绍</h2><h3 id="什么是路由"><a href="#什么是路由" class="headerlink" title="什么是路由?"></a>什么是路由?</h3><blockquote>
+<p>路由（routing）就是通过互联的网络把信息从源地址传输到目的地址的活动 — 维基百科</p>
+</blockquote>
+<p>路由器提供了两种机制, 路由和转发</p>
+<ul>
+<li>路由是决定数据包从来源到目的地的路径</li>
+<li>转发将输入端的数据转移到合适的输出端</li>
+</ul>
+<span id="more"></span>
+<h3 id="网站发展的几个阶段"><a href="#网站发展的几个阶段" class="headerlink" title="网站发展的几个阶段"></a>网站发展的几个阶段</h3><h4 id="后端路由阶段"><a href="#后端路由阶段" class="headerlink" title="后端路由阶段"></a>后端路由阶段</h4><h5 id="什么是后端路由"><a href="#什么是后端路由" class="headerlink" title="什么是后端路由"></a>什么是后端路由</h5><p>早期的网站开发, 整个 HTML 页面都是是由服务器来渲染的, 服务器直接生产渲染好对应的 HTML 页面, 返回给客户端进行展示</p>
+<p>但是, 服务器如何处理一个网站的诸多页面呢?</p>
+<p>首先, 一个页面会有自己对应的网址, 也就是 URL, 客户端发生请求时, URL 会发送到服务器, 服务器通过<strong>正则表达式</strong>对该 URL 进行匹配且最后交给 <strong>Controller</strong> 进行处理, <strong>Controller</strong> 进行各种处理后, 最终生成 HTML 或者数据, 返回给前端, 这就完成了一个IO操作, 这种操作, 就是 <strong>后端路由</strong></p>
+<h5 id="后端路由的优点"><a href="#后端路由的优点" class="headerlink" title="后端路由的优点"></a>后端路由的优点</h5><p>当页面中需要请求不同的路径内容时, 交给服务器来进行处理, 服务器渲染好整个页面, 并且将页面返回给客户端, 这种情况下渲染好的页面, <strong>不需要单独加载任何的 JavaScript 和 CSS</strong>, 可以直接交给浏览器展示, 这样也<strong>有利于 SEO 的优化</strong></p>
+<h5 id="后端路由的缺点"><a href="#后端路由的缺点" class="headerlink" title="后端路由的缺点"></a>后端路由的缺点</h5><ul>
+<li>整个页面的模块都要由后端人员来编写和维护, <strong>工作量太大</strong></li>
+<li>前端开发人员如果要开发页面, 需要通过 <strong>PHP</strong> 和 <strong>Java</strong> 等语言来编写页面代码, <strong>增加了额外的学习成本</strong></li>
+<li><strong>HTML</strong> 代码和数据以及对应的逻辑混在一起, <strong>不利于编写和维护</strong></li>
+</ul>
+<h4 id="前端路由阶段"><a href="#前端路由阶段" class="headerlink" title="前端路由阶段"></a>前端路由阶段</h4><p>前端路由的核心: 改变URL, 但是页面不进行整体的刷新</p>
+<h4 id="前后端分离阶段"><a href="#前后端分离阶段" class="headerlink" title="前后端分离阶段"></a>前后端分离阶段</h4><p>随着 <strong>Ajax</strong> 的出现, 有了前后端分离的开发模式: <strong>后端只提供 API</strong> 来返回数据, 前端通过 <strong>Ajax</strong> 获取数据, 并且可以通过 <strong>JavaScript</strong> 将数据渲染到页面中</p>
+<p><strong>优点:</strong></p>
+<ul>
+<li>前后端责任变得很清晰, 后端专注于数据上, 前端专注于交互和可视化上</li>
+<li>当移动端(IOS / Android)出现后, 后端不需要进行任何处理, 依然使用之前的一套API即可</li>
+</ul>
+<h4 id="单页面富应用阶段"><a href="#单页面富应用阶段" class="headerlink" title="单页面富应用阶段"></a>单页面富应用阶段</h4><p>单页面富应用, 即<strong>单页Web应用(single page web application, SPA)</strong>, 就是只有一张 Web 页面的应用, 是加载单个 HTML 页面并在用户与应用程序交互时动态更新该页面的 Web 应用程序</p>
+<p>简单理解: 就是在前后端分离的基础上加了一层前端路由</p>
+<p><strong>SPA 的特点</strong></p>
+<ul>
+<li>速度: 更好的用户体验, 让用户在 web app 感受 native app 的速度和流畅</li>
+<li>MVVM: 经典 MVVM 开发模式, 前后端各负其责</li>
+<li>ajax: 重前端, 业务逻辑全部在本地操作, 数据都需要<strong>通过 Ajax 同步、提交</strong></li>
+<li>路由: 在 URL 中采用 ## 号来作为当前视图的地址, 改变 ## 号后的参数, 页面并不会重载</li>
+</ul>
+<h5 id="SPA-的优点"><a href="#SPA-的优点" class="headerlink" title="SPA 的优点"></a>SPA 的优点</h5><p><strong>良好的交互体验:</strong></p>
+<ul>
+<li>用户不需要重新刷新页面, 获取数据也是通过 Ajax 异步获取, 页面显示流畅</li>
+</ul>
+<p><strong>良好的前后端工作分离模式:</strong></p>
+<ul>
+<li>单页 Web 应用可以和 RESTful 规约一起使用, 通过 REST API 提供接口数据, 并使用 Ajax 异步获取</li>
+<li>这样有助于分离客户端和服务器端工作, 更进一步, 可以在客户端也可以分解为静态页面和页面交互两个部分</li>
+</ul>
+<p><strong>减轻服务器压力:</strong></p>
+<ul>
+<li>服务器只用出数据就可以, 不用管展示逻辑和页面合成, 吞吐能力会提高几倍</li>
+</ul>
+<p><strong>共用一套后端程序代码:</strong></p>
+<ul>
+<li>不用修改后端程序代码就可以同时用于 Web 界面、手机、平板等多种客户端</li>
+</ul>
+<h5 id="SPA-的缺点"><a href="#SPA-的缺点" class="headerlink" title="SPA 的缺点"></a>SPA 的缺点</h5><p><strong>首屏渲染等待时长</strong></p>
+<ul>
+<li>必须等待加载完毕, 才能渲染出首屏</li>
+</ul>
+<p><strong>seo不友好:</strong></p>
+<ul>
+<li>爬虫只能拿到一个 <code>div</code>, 认为页面是空的, 不利于 <code>seo</code></li>
+</ul>
+<p><strong>初次加载耗时多:</strong></p>
+<ul>
+<li>为实现单页 Web 应用功能及显示效果, 需要在加载页面的时候将 JavaScript、CSS 统一加载, 部分页面可以在需要的时候加载</li>
+<li>所以必须对 JavaScript 及 CSS 代码进行合并压缩处理, 如果使用第三方库, 建议使用一些大公司的 CDN, 因此带宽的消耗是必然的</li>
+</ul>
+<h3 id="改变-URL-页面不刷新"><a href="#改变-URL-页面不刷新" class="headerlink" title="改变 URL, 页面不刷新"></a>改变 URL, 页面不刷新</h3><h4 id="URL-的-hash"><a href="#URL-的-hash" class="headerlink" title="URL 的 hash"></a>URL 的 hash</h4><p>URL 的 hash 也就是锚点(#), 本质上是改变 <strong>window.location</strong> 的 <code>href</code> 属性, 可以通过直接赋值 <code>location.hash</code> 来改变 <code>href</code>, 但是页面不发生刷新</p>
+<p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tetokQ.png"><img src="https://s1.ax1x.com/2020/05/28/tetokQ.png" alt="tetokQ.png"></a></p>
+<h4 id="HTML5-的-history-模式"><a href="#HTML5-的-history-模式" class="headerlink" title="HTML5 的 history 模式"></a>HTML5 的 history 模式</h4><p><code>history</code> 接口是 HTML5 新增的, 它有五种模式改变 URL 而不刷新页面 <strong>(具体有点像浏览器的前进和后退)</strong></p>
+<ul>
+<li><code>history.pushState(Object, “title”, “url”)</code><ul>
+<li>相当于<strong>入栈</strong>的操作(出入栈相当于往一个杯子里加东西, 只有一个出入口, 后进的会在先进的上面), 遵循<strong>后进先出</strong>的规则, <strong>会保存历史记录, 可以返回</strong><br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tet40S.png"><img src="https://s1.ax1x.com/2020/05/28/tet40S.png" alt="tet40S.png"></a></li>
+</ul>
+</li>
+<li><code>history.replaceState(Objectj, “title”, “url”)</code><ul>
+<li>同 <code>pushState()</code></li>
+<li>区别是: 它不是栈结构, 所以<strong>不保存历史记录, 不能返回</strong></li>
+</ul>
+</li>
+<li><code>history.go(Number)</code><ul>
+<li>功能等价于 <code>history.back()</code>, 但是可以通过参数来进行具体的跳转</li>
+<li><code>Number</code> 负数: 表示<strong>出栈</strong>几次</li>
+<li><code>Number</code> 正数: 表示把之前<strong>出栈掉的</strong> <code>Number</code> 个数据重新 <code>push</code> 进去<br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tetWOf.png"><img src="https://s1.ax1x.com/2020/05/28/tetWOf.png" alt="tetWOf.png"></a></li>
+</ul>
+</li>
+<li><code>history.forward()</code><ul>
+<li>可以前进到下一个记录的地址</li>
+<li>等价于 <code>history.go(1)</code></li>
+</ul>
+</li>
+<li><code>history.back()</code><ul>
+<li>相当于<strong>出栈</strong>的操作, 遵循<strong>后进先出</strong>的规则, 可以返回上一个记录的地址</li>
+<li>等价于 <code>history.go(-1)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Vue-Router-基本使用"><a href="#Vue-Router-基本使用" class="headerlink" title="Vue-Router 基本使用"></a>Vue-Router 基本使用</h2><p>目前前端流行的三大框架, 都有自己的路由实现:</p>
+<ul>
+<li>Angular: ngRouter</li>
+<li>React: ReactRouter</li>
+<li>Vue: Vue-Router</li>
+</ul>
+<p>Vue-Router 是 Vue.js 官方的路由插件, 它和 Vue.js 是深度集成的, <strong>适合用于构建单页面富应用程序</strong></p>
+<p>Vue-Router 是<strong>基于路由和组件的</strong>, 路由用于设定访问路径, 将路径和组件映射起来, 在 Vue-Router 的单页面应用中, 页面路径的改变就是组件的切换</p>
+<h3 id="安装-Vue-Router"><a href="#安装-Vue-Router" class="headerlink" title="安装 Vue-Router"></a>安装 Vue-Router</h3><p>安装</p>
+<pre><code class="lang-shell">npm install vue-router --save
+</code></pre>
+<p>在模块化工程中使用它(因为是一个插件, 所以可以通过<code>Vue.use()</code>来安装路由功能)</p>
+<p>在 <strong>src</strong> 目录下创建 <strong>router</strong> 文件夹, 并在 router 文件夹中创建 <strong>index.js</strong>, 并在 <strong>index.js</strong> 中进行如下配置 <strong>(第一步、第二步均在此文件中配置)</strong></p>
+<ol>
+<li><p>导入 <code>Vue、Vue-Router</code>对象, 并且调用 <code>Vue.use(VueRouter)</code></p>
+<pre><code class="lang-javascript">// 导入vue对象
+import Vue from &#39;vue&#39;
+
+// 导入vue-router对象
+import VueRouter from &#39;vue-router&#39;
+
+// 注入插件
+Vue.use(VueRouter)
+</code></pre>
+</li>
+<li><p>创建路由实例, 并且传入路由映射配置</p>
+<pre><code class="lang-javascript">//定义路由
+const routes = [
+  // 里面是映射配置
+]
+
+// 创建路由实例
+const router = new VueRouter(&#123;
+  routes
+&#125;)
+
+// 导出 router 实例
+export default router
+</code></pre>
+</li>
+<li><p>在<strong>Vue 实例</strong>中<strong>挂载</strong>创建的<strong>路由实例</strong><br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tet5Tg.png"><img src="https://s1.ax1x.com/2020/05/28/tet5Tg.png" alt="tet5Tg.png"></a></p>
+</li>
+</ol>
+<h3 id="使用-Vue-Router"><a href="#使用-Vue-Router" class="headerlink" title="使用 Vue-Router"></a>使用 Vue-Router</h3><ol>
+<li><strong>创建路由组件</strong><br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teNtAg.png"><img src="https://s1.ax1x.com/2020/05/28/teNtAg.png" alt="teNtAg.png"></a></li>
+<li><strong>配置路由映射: 组件和路径的映射关系</strong><br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teNNNQ.png"><img src="https://s1.ax1x.com/2020/05/28/teNNNQ.png" alt="teNNNQ.png"></a></li>
+<li>使用路由: 通过<code>&lt;router-link&gt;</code> 和 <code>&lt;roter-view&gt;</code>(该标签为 router 内部已经注册的两个全局组件)<ul>
+<li><code>&lt;router-link&gt;</code>: 该标签是一个 <strong>Vue-Router</strong> 中已经内置的组件, 它默认会被渲染成一个 <code>&lt;a&gt;</code> 标签, <a target="_blank" rel="noopener" href="https://www.coderlion.com/2020/05/01/Vue-Router的安装和使用/#router-link">详情请看“router-link”章节</a></li>
+<li><code>&lt;router-view&gt;</code>: 该标签会根据当前的路径, 动态渲染出不同的组件, 放置的位置决定渲染的位置<br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/teNJHS.png"><img src="https://s1.ax1x.com/2020/05/28/teNJHS.png" alt="teNJHS.png"></a></li>
+</ul>
+</li>
+</ol>
+<p><strong>最终效果如下</strong><br><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/05/28/tethm8.png"><img src="https://s1.ax1x.com/2020/05/28/tethm8.png" alt="tethm8.png"></a></p>
+<h3 id="router-link标签"><a href="#router-link标签" class="headerlink" title="router-link标签"></a>router-link标签</h3><p>该标签是一个 <strong>Vue-Router</strong> 中已经内置的组件, 它默认会被渲染成一个 <code>&lt;a&gt;</code> 标签</p>
+<p>它有如下属性</p>
+<ul>
+<li><code>to</code>: (URL)<ul>
+<li>用于指定跳转的路径</li>
+</ul>
+</li>
+<li><code>tag</code>: (tagName)<ul>
+<li>最终渲染成 <code>tagName</code> 标签</li>
+</ul>
+</li>
+<li><code>replace</code>: (无值)<ul>
+<li>跳转时使用 <code>history.replaceState()</code>, 即页面不能前进和后退</li>
+</ul>
+</li>
+<li><code>active-class</code>: (className)<ul>
+<li>当 <code>&lt;router-link&gt;</code> 对应的路由匹配成功时, 会自动给当前元素设置一个 <strong>router-link-active</strong> 的 <strong>class</strong> , 设置 <strong>active-class</strong> 可以修改默认的名称</li>
+<li>在进行<strong>高亮显示的导航栏菜单或者底部 tabbar 时</strong>, 会使用到该类</li>
+<li>但是通常不会修改类的属性, 会直接使用默认的 <strong>router-link-active</strong> 即可</li>
+<li>简便写法: 该属性可以在 <strong>VueRouter</strong> 实例中添加属性为 <code>linkActiveClass</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="设置默认路径-重定向"><a href="#设置默认路径-重定向" class="headerlink" title="设置默认路径(重定向)"></a>设置默认路径(重定向)</h3><p>如何让<strong>路径</strong>默认跳到<strong>首页</strong>, 并且 <code>&lt;router-view&gt;</code>渲染首页组件呢?</p>
+<p>非常简单, 我们只需要配置多一个映射就可以了</p>
+<pre><code class="lang-javascript">const routes = [
+  &#123;
+    path: &#39;/&#39;,
+    redirect: &#39;/home&#39;
+  &#125;,
+  &#123;
+    path: &#39;/home&#39;,
+    component: Home
+  &#125;,
+  &#123;
+    path: &#39;/about&#39;,
+    component: About
+  &#125;
+];
+</code></pre>
+<p><strong>配置解析:</strong></p>
+<ul>
+<li>我们在 <code>routes</code> 中又配置了一个映射</li>
+<li><code>path</code> 配置的是根路径</li>
+<li><code>redirect</code> 是重定向, 也就是我们将根路径重定向到 <code>/home</code> 的路径下, 这样就可以得到我们想要的结果了</li>
+</ul>
+<h3 id="将-URL-的模式-hash-默认-改为-HTML5-的-history"><a href="#将-URL-的模式-hash-默认-改为-HTML5-的-history" class="headerlink" title="将 URL 的模式 hash(默认) 改为 HTML5 的 history"></a>将 URL 的模式 hash(默认) 改为 HTML5 的 history</h3><p>前面说过改变路径的方式有两种：</p>
+<ul>
+<li>URL 的 <code>hash</code></li>
+<li>HTML5 的 <code>history</code></li>
+</ul>
+<p>默认情况下, Vue 路径的改变使用的是 <strong>URL 的 hash</strong>, 这样显示出的页面的地址中有一个 <code>#</code> 号, 不太美观</p>
+<p>可以使用 HTML5 的 <code>history</code> 模式来进行改变, 进行如下配置即可:</p>
+<p>为 <strong>VueRouter</strong> 实例对象添加属性 <strong>mode(模式)</strong>, 值为 <code>history</code></p>
+<pre><code class="lang-javascript">const router = new VueRouter(&#123;
+  routes,
+  mode: &quot;history&quot;
+&#125;);
+</code></pre>
+<h3 id="路由代码跳转-不通过-router-link-实现同样的功能"><a href="#路由代码跳转-不通过-router-link-实现同样的功能" class="headerlink" title="路由代码跳转(不通过 router-link 实现同样的功能)"></a>路由代码跳转(不通过 router-link 实现同样的功能)</h3><p><strong>$router</strong> : VueRouter 实例对象, Vue 在所有组件中都添加了该属性<br><strong>$router == VueRouter</strong></p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;button @click=&quot;homeClick&quot;&gt;home&lt;/button&gt;
+    &lt;button @click=&quot;aboutClick&quot;&gt;about&lt;/button&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default &#123;
+  name: &quot;App&quot;,
+  methods: &#123;
+    homeClick() &#123;
+      // push --&gt; pushState
+      // replace --&gt; repalceState
+      this.$router.push(&quot;/home&quot;).catch(err =&gt; &#123;
+        console.log(err)
+      &#125;)
+    &#125;,
+    aboutClick() &#123;
+      this.$router.push(&quot;/about&quot;).catch(err =&gt; &#123;
+        console.log(err)
+      &#125;)
+    &#125;
+  &#125;
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><p>在某些情况下, 一个页面的 <strong>path</strong> 可能是不确定的, 比如我们进入用户界面时, 希望是如下路径</p>
+<ul>
+<li><code>/user/Sunny</code> 或 <code>/user/kobe</code></li>
+<li>除了有前面的 <code>/user</code> 之外, 后面还跟上了用户的 <code>id</code></li>
+<li>这种 <strong>path 和 Component 的匹配关系</strong>, 我们称之为 <strong>动态路由</strong> (也就是路由传递数据的一种方式)</li>
+</ul>
+<p><strong>步骤一: 路由映射</strong></p>
+<pre><code class="lang-javascript">import User from &quot;../components/User.vue&quot;;
+
+const routes = [
+  &#123;
+    path: &quot;/user/:userId&quot;,
+    component: User
+  &#125;
+];
+</code></pre>
+<p><strong>步骤二: 使用子组件路由, 且通过 <code>v-bind</code> 动态设置属性</strong></p>
+<pre><code class="lang-javascript">&lt;router-link :to=&quot;&#39;/user/&#39; + userId&quot;&gt;My&lt;/router-link&gt;
+
+&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        userId: &quot;Sunny&quot;
+      &#125;;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<p>步骤三: 在子组件 <code>User.vue</code> 中, 通过 <code>$route.params.userId</code> 获得当前用户 <code>id</code></p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;&#123;&#123; $route.params.userId &#125;&#125;&lt;/h1&gt;
+    &lt;h2&gt;User Interface&lt;/h2&gt;
+    &lt;p&gt;User information&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h3><p>当打包构建应用时, <strong>Javascript</strong> 包会变得非常大, 影响页面加载, 如果我们能把不同路由对应的组件分割成不同的代码块, 然后当路由被访问的时候才加载对应组件, 这样就更加高效了</p>
+<p>为了实现这种效果, 我们可以使用路由的懒加载</p>
+<p>路由懒加载的主要作用就是将路由对应的组件打包成一个个的 js 代码块, 只有在这个路由被访问到的时候, 才加载对应的组件</p>
+<p>js 包为什么大?</p>
+<ul>
+<li>首先, 我们知道路由通常会定义很多不同的页面</li>
+<li>这个页面最后被打包放在哪里呢? 一般情况下, 是放在一个 js 文件中</li>
+<li>但是, 页面这么多放在一个 js 文件中, 必然会造成这个页面非常的大</li>
+<li>如果我们一次性从服务器请求下来这个页面, 可能需要花费一定的时间, 甚至用户电脑上还出现了短暂空白的情况</li>
+<li>如何避免这种情况呢? 使用路由懒加载就可以了</li>
+<li>路由懒加载做了什么?<ul>
+<li>路由懒加载的主要作用就是将路由对应的组件打包成一个个 js 代码块</li>
+<li>只有在这个路由被访问到的时候, 才加载对应的组件</li>
+</ul>
+</li>
+</ul>
+<h4 id="懒加载的三种方式"><a href="#懒加载的三种方式" class="headerlink" title="懒加载的三种方式"></a>懒加载的三种方式</h4><p>方式一(早期): 结合 Vue 的异步组件和 webpack 的代码分析</p>
+<pre><code class="lang-javascript">const Home = resolve =&gt; &#123;
+  require.ensure([&quot;../components/Home.vue&quot;], () =&gt; &#123;
+    resolve(require(&quot;../components/Home.vue&quot;))
+  &#125;)
+&#125;
+</code></pre>
+<p>方式二: AMD 写法</p>
+<pre><code class="lang-javascript">const Aoubt = resolve =&gt; require([&quot;../components/About.vue&quot;], resolve);
+</code></pre>
+<p>方式三(推荐): 在 ES6 中, 我们可以有更加简单的写法来组织 Vue 异步组件和 webpack 的代码分割</p>
+<pre><code class="lang-javascript">const Home = () =&gt; import(&quot;../components/Home.vue&quot;);
+</code></pre>
+<h3 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h3><p>嵌套有路是一个很常见的功能</p>
+<ul>
+<li>比如在 <code>home</code> 页面中, 我们希望通过 <code>/home/news</code> 和 <code>/home/message</code> 访问一些内容</li>
+<li>一个路径映射一个组件, 访问这两个路径也会分别渲染两个组件</li>
+</ul>
+<p>实现嵌套路由有两个步骤:</p>
+<ol>
+<li>创建对应的子组件, 并且在路由映射中配置对应的子路由</li>
+<li>在组件内部使用<code>&lt;router-view&gt;</code>标签</li>
+</ol>
+<p>创建对应的子组件</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;消息1&lt;/li&gt;
+      &lt;li&gt;消息2&lt;/li&gt;
+      &lt;li&gt;消息3&lt;/li&gt;
+      &lt;li&gt;消息4&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    name: &quot;HomeMessage&quot;
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<p>在路由映射中配置对应的子路由</p>
+<pre><code class="lang-javascript">// 注意: 子路由的path前面不能带&#39;/&#39;
+const routes = [
+  &#123;
+    path: &#39;/home&#39;,
+    component: Home,
+    children: [
+      &#123;
+        path: &#39;&#39;,
+        redirect: &#39;news&#39;
+        // 默认路径为/home/news
+      &#125;,
+      &#123;
+        path: &#39;news&#39;,
+        component: HomeNews
+      &#125;,
+      &#123;
+        path: &#39;message&#39;,
+        component: HomeMessage
+      &#125;
+    ]
+  &#125;,
+]
+</code></pre>
+<p>在组件内部使用<code>&lt;router-view&gt;</code>标签</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;Home&lt;/h2&gt;
+    &lt;p&gt;I&#39;am is Home&lt;/p&gt;
+    &lt;router-link to=&quot;/home/news&quot;&gt;news&lt;/router-link&gt;
+    &lt;router-link to=&quot;/home/message&quot;&gt;message&lt;/router-link&gt;
+    &lt;router-view&gt;&lt;/router-view&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    name: &quot;Home&quot;
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="嵌套路由默认路径"><a href="#嵌套路由默认路径" class="headerlink" title="嵌套路由默认路径"></a>嵌套路由默认路径</h3><p>在子路由中设置重定向</p>
+<pre><code class="lang-javascript">const routes = [
+  &#123;
+    path: &quot;/&quot;,
+    redirect: &quot;/home&quot;
+  &#125;,
+  &#123;
+    path: &quot;/home&quot;,
+    component: Home,
+    children: [
+      &#123;
+        path: &quot;&quot;,
+        redirect: &quot;news&quot;
+      &#125;,
+      &#123;
+        path: &quot;news&quot;,
+        component: HomeNews
+      &#125;
+    ]
+  &#125;
+];
+</code></pre>
+<h3 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h3><p><strong>keep-alive</strong> 是 Vue 内置的一个组件, 可以使被包含的组件保留状态, 或避免重新渲染<br><strong>router-view</strong> 也是一个组件, 如果直接被包在<strong>keep-alive</strong>里面, 所有路径匹配到的视图组件都会被缓存</p>
+<p><strong>通过 create 生命周期函数来验证</strong></p>
+<p>可以通过 <strong>keep-alive</strong>, 监听一个组件 “活跃” 和 “不活跃” 的状态</p>
+<ul>
+<li><code>activated()</code> 活跃状态自动调用该函数</li>
+<li><code>deactivated()</code> 不活跃状态自动调用该函数</li>
+</ul>
+<p><strong>keep-alive</strong>属性:</p>
+<ul>
+<li><p><code>include</code> : 字符串或正则, 只有匹配的组件才会被缓存</p>
+</li>
+<li><p><code>exclude</code>: 字符串或正则, 任何匹配的组件都不会被缓存</p>
+<ul>
+<li><strong>可以使用组件导出时的 name 作为匹配</strong></li>
+<li>注意: 如果有多个匹配, 用 <strong>, (逗号)</strong> 分开, 且逗号两边不能存在空格</li>
+</ul>
+</li>
+</ul>
+<h3 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h3><p><strong>传递参数主要有两种类型: <code>params</code> 和 <code>query</code></strong></p>
+<ul>
+<li><p><code>params($route.params)</code> 的类型:</p>
+<ul>
+<li>配置路由格式: <code>/router/:id</code></li>
+<li>传递的方式: <strong>在 <code>path</code> 后面跟上对应的值</strong></li>
+<li>传递后形成的路径: <code>/router/123, /router/abc</code></li>
+</ul>
+</li>
+<li><p><code>query ($route.query)</code> 的类型:</p>
+<ul>
+<li>配置路由格式: <code>/router</code></li>
+<li>传递的方式: 对象中使用 <strong>query 的 <code>key</code> 作为传递方式</strong></li>
+<li>传递后形成的路径: <code>/router?id=123, /router?id=abc</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-vue">&lt;router-link
+  :to=&quot;&#123;
+        path: &#39;/profile&#39;,
+        query: &#123;
+          name: &#39;Sunny&#39;,
+          age: 20,
+          height: 1.7
+        &#125;
+      &#125;&quot;&gt;
+  Profile
+&lt;/router-link&gt;
+</code></pre>
+<p>这里获取并打印这些数据:</p>
+<pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;&#123;&#123; $route.query.name &#125;&#125;&lt;/h1&gt;
+    &lt;h2&gt;Profile&lt;/h2&gt;
+    &lt;p&gt;I&#39;am is Profile&lt;/p&gt;
+    &lt;p&gt;&#123;&#123; $route.query &#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="不使用-router-link-实现-query"><a href="#不使用-router-link-实现-query" class="headerlink" title="不使用 router-link 实现 query"></a>不使用 router-link 实现 query</h4><pre><code class="lang-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;profileClick&quot;&gt;profile&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default &#123;
+    mathods: &#123;
+      profileClick() &#123;
+        this.$router.push(&#123;
+          path: &#39;/profile&#39;,
+            query: &#123;
+              name: &#39;Sunny&#39;,
+              age: 20,
+              height: 1.7
+            &#125;
+        &#125;)
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<h3 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h3><p>在 SPA 应用中, 如何改变页面的标题呢?</p>
+<ul>
+<li><p>网页标题是通过 <code>&lt;title&gt;</code> 来显示的, 但是 SPA 只有一个固定的 HTML, 切换不同的页面时, 标题并不会改变</p>
+</li>
+<li><p>但是我们可以通过 js 来修改 <code>&lt;title&gt;</code> 的内容, <code>document.title = &#39;new title&#39;</code></p>
+</li>
+<li><p>那么在 Vue 项目中, 我们可以通过<strong>生命周期</strong>的 <code>created</code> 函数来实现</p>
+</li>
+<li><p>或调用 <code>VueRouter</code>实例的 <code>.beforeEach()</code> 函数</p>
+<pre><code class="lang-javascript">const routes = [
+  &#123;
+    path: &quot;/about&quot;,
+    component: About,
+    meta: &#123;
+      title: &quot;About&quot;
+    &#125;
+  &#125;
+];
+
+/**
+ * to: 即将要进入的目标的路由对象
+ * from: 当前导航即将要离开的路由对象
+ * next: 调用该方法后, 才能进入下一个钩子
+ */
+router.beforeEach((to, from, next) =&gt; &#123;
+  document.title = to.matched[0].meta.title;
+  next();
+&#125;);
+</code></pre>
+</li>
+</ul>
+<h4 id="beforeEach-前置守卫"><a href="#beforeEach-前置守卫" class="headerlink" title="beforeEach 前置守卫"></a>beforeEach 前置守卫</h4><p>通过 VueRouter 实例对象调用<br><code>beforeEach(function (to, from, next) &#123;&#125;);</code></p>
+<ul>
+<li><code>to</code>: 即将要进入的目标路由对象</li>
+<li><code>from</code>: 当前导航即将要离开的路由对象</li>
+<li><code>next</code>: 调用该方法后, 才能进入下一个路由对象</li>
+</ul>
+<h4 id="afterEach-后置守卫"><a href="#afterEach-后置守卫" class="headerlink" title="afterEach 后置守卫"></a>afterEach 后置守卫</h4><p>通过 VueRouter 实例对象调用<br><code>afterEach(function (to, from) &#123;&#125;);</code></p>
+<ul>
+<li><code>to</code>: 已经进入的目标路由对象</li>
+<li><code>from</code>: 已经离开的路由对象</li>
+</ul>
+<h4 id="导航守卫补充"><a href="#导航守卫补充" class="headerlink" title="导航守卫补充"></a>导航守卫补充</h4><ul>
+<li>如果是后置钩子, 也就是 <code>afterEach</code>, 不需要主动调用 <strong><code>next()</code> 函数</strong></li>
+<li><code>beforEach</code> 必须要调用 <strong><code>next()</code> 函数</strong>, 不然就会终止, 不会往下执行</li>
+<li>上面使用的导航守卫, 被称之为全局守卫, 除此之外, 还有路由独享的守卫、组件内的守卫</li>
+</ul>
+<h3 id="router-和-route-的区别"><a href="#router-和-route-的区别" class="headerlink" title="$router 和 $route 的区别"></a>$router 和 $route 的区别</h3><ul>
+<li><code>$router</code> == <code>Vue-Router</code> 实例对象</li>
+<li><code>$route</code> == 当前处于活跃状态的路由</li>
+</ul>
+<p><strong>所有组件都继承自 Vue 的原型</strong>, 所以, 所有组件都拥有 <strong>$router 和 $route</strong></p>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+        
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: decodeURI('ce37b7d644656285b3f6'),
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+</body>
+
+</html>
