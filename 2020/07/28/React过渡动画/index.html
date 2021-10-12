@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Animation" style=color:#00bcd4>
+                <a href="/tags/Animation" style=color:#ffa2c4>
                     Animation
                 </a>
             </span>
@@ -546,7 +546,7 @@ export default class GroupAnimation extends PureComponent &#123;
         owner: 'cszhjh',
         admin: ['cszhjh'],
         language: 'zh-CN',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
         distractionFreeMode: true  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')

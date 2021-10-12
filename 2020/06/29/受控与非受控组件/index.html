@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/React-Components" style=color:#00bcd4>
+                <a href="/tags/React-Components" style=color:#ff7d73>
                     React-Components
                 </a>
             </span>
@@ -733,7 +733,7 @@ export default class App extends PureComponent &#123;
         owner: 'cszhjh',
         admin: ['cszhjh'],
         language: 'zh-CN',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
         distractionFreeMode: true  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')

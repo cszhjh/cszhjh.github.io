@@ -407,7 +407,7 @@ V_y=2\pi\int_a^bx|y_1(x)-y_2(x)|dx</script><h3 id="平均值"><a href="#平均�
         owner: 'cszhjh',
         admin: ['cszhjh'],
         language: 'zh-CN',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
         distractionFreeMode: true  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')

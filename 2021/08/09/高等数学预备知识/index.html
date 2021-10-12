@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/高数" style=color:#00bcd4>
+                <a href="/tags/高数" style=color:#00a596>
                     高数
                 </a>
             </span>
@@ -475,7 +475,7 @@ x-1\geq \ln x(x>0)</script><script type="math/tex; mode=display">
         owner: 'cszhjh',
         admin: ['cszhjh'],
         language: 'zh-CN',
-        id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
         distractionFreeMode: true  // Facebook-like distraction free mode
     })
     gitalk.render('gitalk-container')
