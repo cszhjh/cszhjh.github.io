@@ -181,6 +181,71 @@
 
 <div class="post">
 
+    <a href="/2020/06/18/React组件化开发/">
+        <h2>
+            React组件化开发
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/React">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                React
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/6/18
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="认识组件化开发"><a href="#认识组件化开发" class="headerlink" title="认识组件化开发"></a>认识组件化开发</h2><h3 id="什么是组件化"><a href="#什么是组件化" class="headerlink" title="什么是组件化?"></a>什么是组件化?</h3><p>人面对复杂问题的处理方式:</p>
+<ul>
+<li>任何一个人处理信息的逻辑能力都是有限的</li>
+<li>所以, 当面对一个非常复杂的问题时, 我们不太可能一次性搞定一大堆内容</li>
+<li>但是, 我们人有一种天生的能力, 就是将问题进行拆解</li>
+<li>如果将一个复杂的问题, 拆分成很多个可以处理的小问题, 再将其放在整体当中, 你会发现大的问题也会迎刃而解</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/React-Components" style=color:#03a9f4>
+                React-Components
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/06/18/React组件化开发/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
     <a href="/2020/06/17/React脚手架/">
         <h2>
             React脚手架
@@ -245,7 +310,7 @@
         
         <span class="tag">
             
-            <a href="/tags/React-CLI" style=color:#03a9f4>
+            <a href="/tags/React-CLI" style=color:#ff7d73>
                 React-CLI
             </a>
         </span>
@@ -308,7 +373,7 @@
         
         <span class="tag">
             
-            <a href="/tags/JSX" style=color:#00bcd4>
+            <a href="/tags/JSX" style=color:#ffa2c4>
                 JSX
             </a>
         </span>
@@ -380,7 +445,7 @@
         
         <span class="tag">
             
-            <a href="/tags/JSX" style=color:#00a596>
+            <a href="/tags/JSX" style=color:#ff7d73>
                 JSX
             </a>
         </span>
@@ -455,7 +520,7 @@
         
         <span class="tag">
             
-            <a href="/tags/React" style=color:#ff7d73>
+            <a href="/tags/React" style=color:#00a596>
                 React
             </a>
         </span>
@@ -590,7 +655,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Promise" style=color:#03a9f4>
+            <a href="/tags/Promise" style=color:#00bcd4>
                 Promise
             </a>
         </span>
@@ -656,7 +721,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Axios" style=color:#00bcd4>
+            <a href="/tags/Axios" style=color:#ffa2c4>
                 Axios
             </a>
         </span>
@@ -721,7 +786,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Vuex" style=color:#00bcd4>
+            <a href="/tags/Vuex" style=color:#ffa2c4>
                 Vuex
             </a>
         </span>
@@ -795,70 +860,6 @@
     </div>
 
     <a href="/2020/05/01/Vue-Router/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/05/01/Vue文件的 “export default”/">
-        <h2>
-            Vue 文件的 “export  default”
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-        <span class="category">
-            <a href="/categories/Vue">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                Vue
-            </a>
-        </span>
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/5/1
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h2 id="“export-default”-究竟导出了什么"><a href="#“export-default”-究竟导出了什么" class="headerlink" title="“export default” 究竟导出了什么?"></a>“export default” 究竟导出了什么?</h2><ul>
-<li>.vue 文件, 这个文件会被 <strong>vue-loader(如果你用的是 Webpack 的话) 加工处理</strong></li>
-<li>其中 <code>&lt;template&gt;</code> 部分会被 <strong>vue-template-compiler 编译成 render 函数</strong>, 并插入到 <code>export default &#123; render() &#125;</code>中被导出的 JS 对象中</li>
-<li><code>&lt;style&gt;</code> 部分会被转换成样式函数或提取为<strong>独立的 CSS 文件(取决于你的 Webpack 配置)</strong></li>
-<li>所以在尽管<code>&lt;template&gt;</code>和<code>&lt;style&gt;</code>不在 <code>export default</code> 中仍然会被导出</li>
-</ul>
-            
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Vue" style=color:#03a9f4>
-                Vue
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/05/01/Vue文件的 “export default”/ " class="go-post">
         阅读全文
     </a>
 </div>

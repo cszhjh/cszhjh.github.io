@@ -181,6 +181,70 @@
 
 <div class="post">
 
+    <a href="/2020/05/01/Vue文件的 “export default”/">
+        <h2>
+            Vue 文件的 “export  default”
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/Vue">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                Vue
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/1
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="“export-default”-究竟导出了什么"><a href="#“export-default”-究竟导出了什么" class="headerlink" title="“export default” 究竟导出了什么?"></a>“export default” 究竟导出了什么?</h2><ul>
+<li>.vue 文件, 这个文件会被 <strong>vue-loader(如果你用的是 Webpack 的话) 加工处理</strong></li>
+<li>其中 <code>&lt;template&gt;</code> 部分会被 <strong>vue-template-compiler 编译成 render 函数</strong>, 并插入到 <code>export default &#123; render() &#125;</code>中被导出的 JS 对象中</li>
+<li><code>&lt;style&gt;</code> 部分会被转换成样式函数或提取为<strong>独立的 CSS 文件(取决于你的 Webpack 配置)</strong></li>
+<li>所以在尽管<code>&lt;template&gt;</code>和<code>&lt;style&gt;</code>不在 <code>export default</code> 中仍然会被导出</li>
+</ul>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Vue" style=color:#ffa2c4>
+                Vue
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/01/Vue文件的 “export default”/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
     <a href="/2020/05/01/Vue-CLI/">
         <h2>
             Vue-CLI
@@ -235,7 +299,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Vue-CLI" style=color:#00a596>
+            <a href="/tags/Vue-CLI" style=color:#00bcd4>
                 Vue-CLI
             </a>
         </span>
@@ -300,7 +364,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Webpack" style=color:#ffa2c4>
+            <a href="/tags/Webpack" style=color:#03a9f4>
                 Webpack
             </a>
         </span>
@@ -387,7 +451,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#ff7d73>
+            <a href="/tags/Vue" style=color:#03a9f4>
                 Vue
             </a>
         </span>
@@ -451,7 +515,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#00a596>
+            <a href="/tags/Vue" style=color:#ff7d73>
                 Vue
             </a>
         </span>
@@ -527,7 +591,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue-Components" style=color:#ffa2c4>
+            <a href="/tags/Vue-Components" style=color:#00a596>
                 Vue-Components
             </a>
         </span>
@@ -592,7 +656,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue-Components" style=color:#ff7d73>
+            <a href="/tags/Vue-Components" style=color:#ffa2c4>
                 Vue-Components
             </a>
         </span>
@@ -657,7 +721,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#ff7d73>
+            <a href="/tags/Vue" style=color:#ffa2c4>
                 Vue
             </a>
         </span>
@@ -722,7 +786,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#00a596>
+            <a href="/tags/Vue" style=color:#00bcd4>
                 Vue
             </a>
         </span>
@@ -784,7 +848,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Ajax" style=color:#ffa2c4>
+            <a href="/tags/Ajax" style=color:#00bcd4>
                 Ajax
             </a>
         </span>
@@ -792,66 +856,6 @@ const app = new Vue(&#123;
     </div>
 
     <a href="/2020/04/10/Ajax/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/04/08/git和github的使用/">
-        <h2>
-            git 和 github 的使用
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-        <span class="category">
-            <a href="/categories/Git">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                Git
-            </a>
-        </span>
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/4/8
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><h3 id="仓库-Repository"><a href="#仓库-Repository" class="headerlink" title="仓库(Repository)"></a>仓库(Repository)</h3><p>仓库用来存放项目代码, 每个项目对应一个仓库, 多个开源项目则有多个仓库</p>
-<h3 id="收藏-Star"><a href="#收藏-Star" class="headerlink" title="收藏(Star)"></a>收藏(Star)</h3><p>收藏项目, 方便下次查看, 同点赞 + 收藏</p>
-            
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Git" style=color:#ffa2c4>
-                Git
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/04/08/git和github的使用/ " class="go-post">
         阅读全文
     </a>
 </div>
