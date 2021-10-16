@@ -1,6 +1,7 @@
 ---
 title: 深入理解setState
 date: 2020-06-25 16:14:51
+toc: true
 tags: setState
 categories: 
 - React

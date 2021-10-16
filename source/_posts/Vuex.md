@@ -2,6 +2,7 @@
 title: Vuex
 date: 2020-05-02 10:12:45
 tags: Vuex
+toc: true
 categories:
 - Vue
 ---

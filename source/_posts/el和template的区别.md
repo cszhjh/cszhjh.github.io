@@ -1,6 +1,7 @@
 ---
 title: el 和 template 的区别
 date: 2020-04-29 12:01:54
+toc: true
 tags: Vue
 categories:
 - Vue

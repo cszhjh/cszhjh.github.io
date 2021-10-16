@@ -1,6 +1,7 @@
 ---
 title: Vue基础语法
 date: 2020-04-28 13:14:55
+toc: true
 tags: Vue
 categories:
 - Vue

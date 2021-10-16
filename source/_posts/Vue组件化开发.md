@@ -2,6 +2,7 @@
 title: Vue 组件化开发
 date: 2020-04-28 20:14:29
 tags: Vue-Components
+toc: true
 categories:
 - Vue
 ---

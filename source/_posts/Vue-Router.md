@@ -1,6 +1,7 @@
 ---
 title: Vue-Router
 date: 2020-05-01 15:35:19
+toc: true
 tags: Vue-Router
 categories:
 - Vue

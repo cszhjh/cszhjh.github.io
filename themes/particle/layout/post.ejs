@@ -51,6 +51,12 @@
     </div>
 
     <div class="content" v-pre>
+        <% if (page.toc){ %>
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <%- toc(page.content) %>
+        </div>
+        <% } %>
         <%- page.content %>
     </div>
 

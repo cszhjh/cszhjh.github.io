@@ -2,6 +2,7 @@
 title: template 分离
 date: 2020-04-29 15:34:29
 tags: Vue
+toc: true
 categories:
 - Vue
 ---

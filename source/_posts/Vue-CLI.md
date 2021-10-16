@@ -2,6 +2,7 @@
 title: Vue-CLI
 date: 2020-05-01 08:05:51
 tags: Vue-CLI
+toc: true
 categories:
 - Vue
 ---
