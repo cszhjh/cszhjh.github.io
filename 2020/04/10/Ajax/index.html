@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Ajax" style=color:#00bcd4>
+                <a href="/tags/Ajax" style=color:#ff7d73>
                     Ajax
                 </a>
             </span>
@@ -193,6 +193,12 @@
     </div>
 
     <div class="content" v-pre>
+        
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Ajax"><span class="toc-number">1.</span> <span class="toc-text">什么是 Ajax ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-number">2.</span> <span class="toc-text">快速上手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="toc-number">3.</span> <span class="toc-text">模板引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-%E4%B8%AD-Ajax-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">jQuery 中 Ajax 的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F"><span class="toc-number">5.</span> <span class="toc-text">跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JS-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">JS 的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-number">7.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jQuery-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">jQuery 的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS"><span class="toc-number">9.</span> <span class="toc-text">CORS</span></a></li></ol>
+        </div>
+        
         <h2 id="什么是-Ajax"><a href="#什么是-Ajax" class="headerlink" title="什么是 Ajax ?"></a>什么是 Ajax ?</h2><p>Ajax 就是浏览器提供的一套API, 可以通过 JavaScript 调用, 从而实现<strong>通过代码控制请求与相应, 实现网络编程</strong></p>
 <p>优点: 相比传统网络请求(数据写在 HTML 中), 请求只发生在页面区域内, <strong>不会重新加载整个页面(像一些引入内容等)</strong>, 请求速度会更快</p>
 <p>缺点: 不利于 SEO, 就是说不利于搜索引擎优化, 目前百度不支持抓取 JavaScript 里的内容, 只支持抓取 HTML 中的内容, 国外已经支持抓取 JavaScript 里的内容</p>

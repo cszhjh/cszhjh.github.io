@@ -193,6 +193,12 @@
     </div>
 
     <div class="content" v-pre>
+        
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9Cexport-default%E2%80%9D-%E7%A9%B6%E7%AB%9F%E5%AF%BC%E5%87%BA%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">“export default” 究竟导出了什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%8F%AF%E4%BB%A5%E7%94%A8-%E2%80%9Cexport%E2%80%9D-%E4%BB%A3%E6%9B%BF-%E2%80%9Cexport-default%E2%80%9D"><span class="toc-number">2.</span> <span class="toc-text">为什么不可以用 “export” 代替 “export default”</span></a></li></ol>
+        </div>
+        
         <h2 id="“export-default”-究竟导出了什么"><a href="#“export-default”-究竟导出了什么" class="headerlink" title="“export default” 究竟导出了什么?"></a>“export default” 究竟导出了什么?</h2><ul>
 <li>.vue 文件, 这个文件会被 <strong>vue-loader(如果你用的是 Webpack 的话) 加工处理</strong></li>
 <li>其中 <code>&lt;template&gt;</code> 部分会被 <strong>vue-template-compiler 编译成 render 函数</strong>, 并插入到 <code>export default &#123; render() &#125;</code>中被导出的 JS 对象中</li>

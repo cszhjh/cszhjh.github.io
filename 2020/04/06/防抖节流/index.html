@@ -193,6 +193,12 @@
     </div>
 
     <div class="content" v-pre>
+        
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#debounce"><span class="toc-number">1.</span> <span class="toc-text">debounce</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#throttle"><span class="toc-number">2.</span> <span class="toc-text">throttle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%88%B3%E7%89%88"><span class="toc-number">2.1.</span> <span class="toc-text">时间戳版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8%E7%89%88"><span class="toc-number">2.2.</span> <span class="toc-text">定时器版</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">防抖与节流的区别</span></a></li></ol>
+        </div>
+        
         <h2 id="debounce"><a href="#debounce" class="headerlink" title="debounce"></a>debounce</h2><p>因频繁执行 DOM 操作, 资源加载等行为, 导致 UI 停顿甚至浏览器崩溃</p>
 <ul>
 <li>window 对象频繁的 <code>onresize</code>, <code>onscroll</code>等事件</li>

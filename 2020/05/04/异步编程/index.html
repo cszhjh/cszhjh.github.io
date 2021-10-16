@@ -183,7 +183,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Promise" style=color:#00bcd4>
+                <a href="/tags/Promise" style=color:#ffa2c4>
                     Promise
                 </a>
             </span>
@@ -193,6 +193,12 @@
     </div>
 
     <div class="content" v-pre>
+        
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-number">1.</span> <span class="toc-text">什么是同步和异步?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise"><span class="toc-number">3.</span> <span class="toc-text">Promise</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Promise"><span class="toc-number">3.1.</span> <span class="toc-text">什么是 Promise ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">3.2.</span> <span class="toc-text">Promise 的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-%E7%9A%84%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="toc-number">3.3.</span> <span class="toc-text">Promise 的三种状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">Promise 基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8"><span class="toc-number">3.5.</span> <span class="toc-text">Promise 链式调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Promise-%E9%93%BE%E5%BC%8F%E8%B0%83%E7%94%A8%E7%AE%80%E5%86%99"><span class="toc-number">3.5.1.</span> <span class="toc-text">Promise 链式调用简写</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-prototype-finally"><span class="toc-number">3.6.</span> <span class="toc-text">Promise.prototype.finally()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-all"><span class="toc-number">3.7.</span> <span class="toc-text">Promise.all()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise-race"><span class="toc-number">3.8.</span> <span class="toc-text">Promise.race()</span></a></li></ol></li></ol>
+        </div>
+        
         <h2 id="什么是同步和异步"><a href="#什么是同步和异步" class="headerlink" title="什么是同步和异步?"></a>什么是同步和异步?</h2><p>你可能知道, <strong>JavaScript 语言</strong> 的执行环境是“单线程”</p>
 <p>所谓“单线程”, 就是指一次只能完成一件任务, 如果有多个任务, 就必须排队, 前面一个任务完成, 再执行后面一个任务, 以此类推<br>例如现实生活中的<strong>排队</strong></p>
 <p>这种模式的好处是实现起来比较简单, 执行环境相对单纯, 坏处是只要有一个任务耗时很长, 后面的任务都必须排队等着, 会拖延整个程序的执行<br>常见的浏览器无响应(假死), 往往就是因为某一段 JavaScript 代码长时间运行(比如死循环), 导致整个页面卡在这个地方, 其他任务无法执行</p>
