@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 矩阵</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>矩阵 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/10/16
+        </span>
+        
+        <span class="category">
+            <a href="/categories/数学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数学
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/矩阵" style=color:#00a596>
+                    矩阵
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="矩阵定义及其基本运算"><a href="#矩阵定义及其基本运算" class="headerlink" title="矩阵定义及其基本运算"></a>矩阵定义及其基本运算</h2><h3 id="矩阵的定义"><a href="#矩阵的定义" class="headerlink" title="矩阵的定义"></a>矩阵的定义</h3><p>由  $m\times n$ 个数 $a_{ij}(i=1,2,\cdots,n)$ 排成的 $m$ 行 $n$ 列的矩形表格</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}</script><p>称为一个 $m\times n$ 矩阵, 简记为 $A$ 或 $(a_{ij})_{m\times n}(i=1,2,\cdots,m;j=1,2,\cdots,n)$, 当 $m=n$ 时, 称 $A$ 为 $n$ 阶<strong>方阵</strong></p>
+<p>两个矩阵 $A=(a_{ij})_{m\times n}, B=(b_{ij})_{s\times k}$, 若 $m=s, n=k$, 则称 $A$ 与 $B$ 为同型矩阵</p>
+<span id="more"></span>
+<h3 id="矩阵的基本运算"><a href="#矩阵的基本运算" class="headerlink" title="矩阵的基本运算"></a>矩阵的基本运算</h3><h4 id="相等"><a href="#相等" class="headerlink" title="相等"></a>相等</h4><p>$A=(a_{ij})_{m\times n}=B=(b_{ij})_{s\times k} \Longleftrightarrow m=s,n=k$, 且 $a_{ij}=b_{ij}(i=1,2,\cdots,m;j=1,2,\cdots,n)$, 即 $A, B$ 是同型矩阵, 且对应元素相等</p>
+<h4 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h4><p>两个矩阵是同型矩阵时, 可以相加, 即</p>
+<script type="math/tex; mode=display">
+C=A+B=(a_{ij})_{m\times n}+(b_{ij})_{m\times n}=(c_{ij})_{m\times n}</script><p>其中, $c_{ij}=a_{ij}+b_{ij}(i=1,2,\cdots,m;j=1,2,\cdots,n)$, 即对应元素相加</p>
+<h4 id="数乘矩阵"><a href="#数乘矩阵" class="headerlink" title="数乘矩阵"></a>数乘矩阵</h4><p>设 $k$ 是一个数, $A$ 是一个 $m\times n$ 矩阵, 数 $k$ 和 $A$ 的乘积为数乘矩阵, 即</p>
+<script type="math/tex; mode=display">
+kA=Ak=k
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+ka_{11} & ka_{12} & \cdots & ka_{1n} \\
+ka_{21} & ka_{22} & \cdots & ka_{2n} \\
+\vdots & \vdots & & \vdots \\
+ka_{m1} & ka_{m2} & \cdots & ka_{mn}
+\end{bmatrix}
+= (ka_{ij})_{m\times n}</script><p>即 $A$ 的每个元素都乘以 $k$</p>
+<p>加法运算和数乘运算统称为矩阵的<strong>线性运算</strong>, 满足下列运算规律</p>
+<ol>
+<li>交换律 $A+B=B+A$</li>
+<li>结合律 $(A+B)+C=A+(B+C)$</li>
+<li>分配律 $k(A+B)=kA+kB, (k+l)A=kA+lA$</li>
+<li>数和矩阵相乘的结合律 $k(lA)=(kl)A=l(kA)$</li>
+</ol>
+<p>其中, $A,B,C$ 是同型矩阵, $k,l$ 是任意常数</p>
+<p>当 $n$ 阶方阵 $A$ 计算行列式时, 记成 $|A|$</p>
+<blockquote>
+<p>[注]</p>
+<ol>
+<li>$|kA|=k^n|A|\ne k|A|(n\ge 2, k\ne 0,1)$</li>
+<li>一般, $|A+B|\ne |A|+|B|$</li>
+<li>$A\ne O \nRightarrow |A| \ne 0$</li>
+<li>$A\ne B \nRightarrow |A| \ne |B|$</li>
+</ol>
+</blockquote>
+<h4 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h4><p>设 $A$ 是 $m\times s$ 矩阵, $B$ 是 $s\times n$ 矩阵 (矩阵 $A$ 的列数必须与矩阵 $B$ 的行数相等), 则 $A,B$ 可乘, 乘积 $AB$ 是 $m\times n$ 矩阵, 记 $C=AB=(c_{ij})_{m\times n}$, $C$ 的第 $i$ 行第 $j$ 列元素 $c_{ij}$ 是 $A$ 的第 $i$ 行的 $s$ 个元素与 $B$ 的第 $j$ 列的 $s$ 个对应元素两两乘积之和, 即</p>
+<script type="math/tex; mode=display">
+c_{ij}=\sum_{k=1}^s a_{ik}b_{kj}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}(i=1,2,\cdots,m;j=1,2,\cdots,n)</script><p>矩阵乘法满足下列运算规律</p>
+<ol>
+<li>结合律<ul>
+<li>$(A_{m\times s}B_{s\times r})C_{r\times n}=A_{m\times s}(B_{s\times r}C_{r\times n})$</li>
+</ul>
+</li>
+<li>分配律<ul>
+<li>$A_{m\times s}(B_{s\times n} + C_{s\times n})=A_{m\times s}B_{s\times n} + A_{m\times s}C_{s\times n}$</li>
+<li>$(A_{m\times s}+B_{m\times s})C_{s\times n}=A_{m\times s}C_{s\times n} + B_{m\times s}C_{s\times n}$</li>
+</ul>
+</li>
+<li>数乘与矩阵乘积的结合律<ul>
+<li>$(kA_{m\times s}B_{s\times n})=A_{m\times s}(kB_{s\times n})=k(A_{m\times s}B_{s\times n})$</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>[注]</p>
+<ol>
+<li><p>矩阵的乘法一般情况下不满足交换律, 即 $AB\ne BA$</p>
+<p>例如</p>
+<script type="math/tex; mode=display">
+A=\begin{bmatrix}
+1 & 1\\
+-1 & -1
+\end{bmatrix},
+B = \begin{bmatrix}
+1 & -1\\
+-1 & 1
+\end{bmatrix}\\
+AB=\begin{bmatrix}
+1 & 1\\
+-1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+1 & -1\\
+-1 & 1
+\end{bmatrix}
+=\begin{bmatrix}
+0 & 0\\
+0 & 0
+\end{bmatrix}
+=O\\
+BA=\begin{bmatrix}
+1 & -1\\
+-1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 1\\
+-1 & -1
+\end{bmatrix}
+=\begin{bmatrix}
+2 & 2\\
+-2 & -2
+\end{bmatrix}
+AB\ne BA</script></li>
+<li><p>由上面的例子知, 存在 $A\ne O, B\ne O$, 而 $AB=O$, 故 $AB=O\nRightarrow A=O$ 或 $B=O$</p>
+</li>
+<li>$AB=AC,A\ne O\Rightarrow A(B-C)=O$ 及 $A\ne O\nRightarrow B=C$</li>
+</ol>
+</blockquote>
+<h4 id="转置矩阵"><a href="#转置矩阵" class="headerlink" title="转置矩阵"></a>转置矩阵</h4><p>将 $m\times n$ 矩阵 $A=(a_{ij})_{m\times n}$ 的行与列互换得到的 $n\times m$ 矩阵, 称为矩阵 $A$ 的转置矩阵, 记为 $A^T$, 即</p>
+<script type="math/tex; mode=display">
+A^T=\begin{bmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\
+a_{12} & a_{22} & \cdots & a_{m2} \\
+\vdots & \vdots & & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{mn} \\
+\end{bmatrix}</script><p>转置矩阵满足下列运算规律</p>
+<ol>
+<li>$(A^T)^T=A$</li>
+<li>$(kA)^T=kA^T$</li>
+<li>$(A+B)^T=A^T+B^T$</li>
+<li>$(AB)^T=B^TA^T$</li>
+<li>当 $m=n$ 时, $|A^T|=|A|$</li>
+</ol>
+<h4 id="向量的内积与正交"><a href="#向量的内积与正交" class="headerlink" title="向量的内积与正交"></a>向量的内积与正交</h4><h5 id="内积"><a href="#内积" class="headerlink" title="内积"></a>内积</h5><p>设 $\alpha=[a_1,a_2,\cdots, a_n]^T, \beta=[b_1,b_2,\cdots,b_n]^T$, 则称</p>
+<script type="math/tex; mode=display">
+\alpha^T\beta=\sum_{i=1}^na_ib_i=a_1b_1+a_2b_2+\cdots+a_nb_n</script><p>为向量 $\alpha, \beta$ 的内积, 记作 $(\alpha, \beta)$, 即 $(\alpha,\beta)=\alpha^T\beta$</p>
+<h5 id="正交"><a href="#正交" class="headerlink" title="正交"></a>正交</h5><p>当 $\alpha^T\beta=0$ 时, 称向量 $\alpha, \beta$ 是正交向量</p>
+<h5 id="模"><a href="#模" class="headerlink" title="模"></a>模</h5><p>$||\alpha||=\sqrt{\sum_\limits{i=1}^na_i^2}$ 称为向量 $\alpha$ 的模 (长度)</p>
+<p>$||\alpha||=1$ 时, 称 $\alpha$ 为单位向量</p>
+<h5 id="标准正交向量组"><a href="#标准正交向量组" class="headerlink" title="标准正交向量组"></a>标准正交向量组</h5><p>若列向量组 $\alpha_1, \alpha_2, \cdots, \alpha_s$ 满足 $\alpha_i^T\alpha_j=\begin{cases}0, &amp; i\ne j \\ 1, &amp; i=j\end{cases}$</p>
+<p>则称 $\alpha_1, \alpha_2, \cdots, \alpha_s$ 为标准或单位正交向量组</p>
+<h5 id="施密特标准正交化-又称正交规范化-过程"><a href="#施密特标准正交化-又称正交规范化-过程" class="headerlink" title="施密特标准正交化 (又称正交规范化) 过程"></a>施密特标准正交化 (又称正交规范化) 过程</h5><p>线性无关向量组 $\alpha_1, \alpha_2$ 的标准正交化 (又称正交规范化) 公式为</p>
+<script type="math/tex; mode=display">
+\beta_1=\alpha_1\\
+\beta_2=\alpha_2-\frac{(\alpha_2,\beta_1)}{(\beta_1,\beta_1)}\beta_1</script><p>得到的 $\beta_1,\beta_2$ 是正交向量组</p>
+<p>将 $\beta_1,\beta_2$ 单位化, 得</p>
+<script type="math/tex; mode=display">
+\eta_1=\frac{\beta_1}{||\beta_1||}, \eta_2=\frac{\beta_2}{||\beta_2||}</script><p>则 $\eta_1,\eta_2$ 是标准正交向量组</p>
+<h4 id="矩阵的幂"><a href="#矩阵的幂" class="headerlink" title="矩阵的幂"></a>矩阵的幂</h4><p>$A$ 是一个 $n$ 阶方阵, $A^m=\overbrace{AA\cdots A}^{m\text{个}}$ 称为 $A$ 的 $m$ 次幂</p>
+<blockquote>
+<p>[注]</p>
+<ol>
+<li><p>因矩阵乘法不满足交换律, 故一般,</p>
+<script type="math/tex; mode=display">
+(A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2\ne A^2+2AB+B^2\\
+(A-B)^2=A^2-AB-BA+B^2\ne A^2-2AB+B^2\\
+(A+B)(A-B)=A^2+BA-AB-B^2\ne A^2-B^2\\
+(AB)^m=\overbrace{(AB)(AB)\cdots (AB)}^{m\text{个}}\ne A^mB^m</script></li>
+<li><p>若 $f(x)=a_0+a_1x+\cdots+a_mx^m$, 则</p>
+<script type="math/tex; mode=display">
+f(A)=a_0E+a_1A+\cdots+a_mA^m</script></li>
+</ol>
+</blockquote>
+<h4 id="方阵乘积的行列式"><a href="#方阵乘积的行列式" class="headerlink" title="方阵乘积的行列式"></a>方阵乘积的行列式</h4><p>设 $A, B$ 是同阶方阵, 则 $|AB|=|A||B|$</p>
+<blockquote>
+<p>[注] 几种重要矩阵</p>
+<ol>
+<li><p>零矩阵</p>
+<ul>
+<li>每个元素均为零的矩阵, 记为 $O$</li>
+</ul>
+</li>
+<li><p>单位矩阵</p>
+<ul>
+<li>主对角元素均为 $1$, 其余元素全为零的 $n$ 阶方阵, 称为 $n$ 阶单位矩阵, 记成 $E$ (或 $I$)</li>
+</ul>
+</li>
+<li><p>数量矩阵</p>
+<ul>
+<li>数 $k$ 和单位矩阵的乘积称为数量矩阵</li>
+</ul>
+</li>
+<li><p>对角矩阵</p>
+<ul>
+<li>非主对角元素均为零的矩阵称为对角矩阵</li>
+</ul>
+</li>
+<li><p>上 (下) 三角矩阵</p>
+<ul>
+<li>当 $i&gt;(&lt;)j$ 时, $a_{ij}=0$ 的矩阵称为上 (下) 三角矩阵</li>
+</ul>
+</li>
+<li><p>对称矩阵</p>
+<ul>
+<li>满足条件 $A^T=A$ 的矩阵 $A$ 称为对称矩阵, $A^T=A\Leftrightarrow a_{ij}=a_{ji}$</li>
+</ul>
+</li>
+<li><p>反对称矩阵</p>
+<ul>
+<li>满足条件 $A^T=-A$ 的矩阵 $A$ 称为反对称矩阵<script type="math/tex; mode=display">
+A^T=-A\Leftrightarrow\begin{cases}
+a_{ij}=-a_{ji}, & i\ne j\\
+a_{ii}=0
+\end{cases}</script></li>
+</ul>
+</li>
+<li><p>正交矩阵</p>
+<ul>
+<li>设 $A$ 是 $n$ 阶方阵, 满足 $A^TA=E$, 则称 $A$ 是正交矩阵</li>
+<li>$A$ 是正交矩阵 $\Leftrightarrow A^TA=E\Leftrightarrow A^T=A^{-1}\Leftrightarrow A$ 的行 (列) 向量组是标准正交向量组</li>
+</ul>
+</li>
+<li><p>分块矩阵</p>
+<ol>
+<li>矩阵的分块<ul>
+<li>用几条纵线和横线把一个矩阵分成若干小块, 每一小块称为原矩阵的子块, 把子块看作原矩阵的一个元素, 就得到了分块矩阵</li>
+</ul>
+</li>
+<li>分块矩阵的基本运算 (以 $2\times 2$ 型分块矩阵为例)<ol>
+<li>加法: 同型, 且分法一致, 则 $\begin{bmatrix}A_1 &amp; A_2\\ A_3 &amp; A_4\end{bmatrix}+\begin{bmatrix}B_1 &amp; B_2\\ B_3 &amp; B_4\end{bmatrix}=\begin{bmatrix}A_1+B_1 &amp; A_2+B_2\\ A_3+B_3 &amp; A_4+B_4\end{bmatrix}$</li>
+<li>数乘: $k\begin{bmatrix}A &amp; B\\ C &amp; D\end{bmatrix}=\begin{bmatrix}kA &amp; kB\\ kC &amp; kD\end{bmatrix}$</li>
+<li>乘法: $\begin{bmatrix}A &amp; B\\ C &amp; D\end{bmatrix}\begin{bmatrix}X &amp; Y\\ Z &amp; W\end{bmatrix}=\begin{bmatrix}AX+BZ &amp; AY+BW\\ CX+DZ &amp; CY+DW\end{bmatrix}$, 要可乘、可加</li>
+</ol>
+</li>
+</ol>
+<p><strong>注意</strong> 对于乘法的运算, 分块相乘后, 左边的仍在左边, 右边的仍在右边</p>
+<p>若 $A,B$ 分别为 $m,n$ 阶方阵, 则分块对角矩阵的幂为</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}A & O\\ O & B\end{bmatrix}^n=\begin{bmatrix}A^n & O\\ O & B^n\end{bmatrix}</script></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵定义及其基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">矩阵的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵的基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89"><span class="toc-text">相等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95"><span class="toc-text">加法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E4%B9%98%E7%9F%A9%E9%98%B5"><span class="toc-text">数乘矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-text">矩阵乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5"><span class="toc-text">转置矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E4%B8%8E%E6%AD%A3%E4%BA%A4"><span class="toc-text">向量的内积与正交</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E7%A7%AF"><span class="toc-text">内积</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4"><span class="toc-text">正交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1"><span class="toc-text">模</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8F%E7%BB%84"><span class="toc-text">标准正交向量组</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%BD%E5%AF%86%E7%89%B9%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%8C%96-%E5%8F%88%E7%A7%B0%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E5%8C%96-%E8%BF%87%E7%A8%8B"><span class="toc-text">施密特标准正交化 (又称正交规范化) 过程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%B9%82"><span class="toc-text">矩阵的幂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E9%98%B5%E4%B9%98%E7%A7%AF%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">方阵乘积的行列式</span></a></li></ol></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+
+
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2021 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+      new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'ce37b7d644656285b3f6',
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+    <script src="/js/toc.js"></script>
+</body>
+
+</html>

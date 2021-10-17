@@ -1,4 +1,16 @@
 var barLocal = document.documentElement.scrollTop
+var isClickToc = false
+
+window.addEventListener('load', function () {
+  var toc = document.getElementsByClassName('toc')[0]
+
+  toc.addEventListener('click', function (e) {
+    if (e.target.tagName != 'LI') {
+      isClickToc = true
+      console.log(e.target)
+    }
+  })
+})
 
 window.addEventListener('scroll', function (e) {
   var newLocal = document.documentElement.scrollTop
@@ -10,7 +22,7 @@ window.addEventListener('scroll', function (e) {
     return
   }
 
-  if (barLocal > newLocal) {
+  if (barLocal > newLocal && !isClickToc) {
     menu.className = 'show-menu'
   } else {
     menu.className = 'hidden-menu'
@@ -29,6 +41,7 @@ window.addEventListener('scroll', function (e) {
     }
   }
   barLocal = newLocal
+  isClickToc = false
 })
 
 hljs.initHighlightingOnLoad()

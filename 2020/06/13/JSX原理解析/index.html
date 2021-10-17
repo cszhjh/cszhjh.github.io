@@ -162,7 +162,6 @@
             </span>
             2020/6/13
         </span>
-
         
         <span class="category">
             <a href="/categories/React">
@@ -183,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/JSX" style=color:#00bcd4>
+                <a href="/tags/JSX" style=color:#03a9f4>
                     JSX
                 </a>
             </span>
@@ -193,12 +192,6 @@
     </div>
 
     <div class="content" v-pre>
-        
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX-%E8%BD%AC%E6%8D%A2%E6%9C%AC%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">JSX 转换本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Babel-%E5%AE%98%E7%BD%91%E6%9F%A5%E7%9C%8B"><span class="toc-number">1.1.</span> <span class="toc-text">Babel 官网查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99-createElement"><span class="toc-number">1.2.</span> <span class="toc-text">编写 createElement</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-DOM"><span class="toc-number">2.</span> <span class="toc-text">虚拟 DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-DOM-%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">虚拟 DOM 的创建过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E8%99%9A%E6%8B%9F-DOM"><span class="toc-number">2.2.</span> <span class="toc-text">为什么采用虚拟 DOM</span></a></li></ol></li></ol>
-        </div>
-        
         <h2 id="JSX-转换本质"><a href="#JSX-转换本质" class="headerlink" title="JSX 转换本质"></a>JSX 转换本质</h2><p>实际上, JSX 仅仅只是<code>React.createElement(component, props, ...children)</code>函数的语法糖</p>
 <ul>
 <li>所有的 JSX 最终都会被转换成<code>React.createElement</code>的函数调用</li>
@@ -399,6 +392,16 @@ ReactDOM.render(React.createElement(App, null), document.getElementById(&#39;app
     
 </div>
 
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSX-%E8%BD%AC%E6%8D%A2%E6%9C%AC%E8%B4%A8"><span class="toc-text">JSX 转换本质</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Babel-%E5%AE%98%E7%BD%91%E6%9F%A5%E7%9C%8B"><span class="toc-text">Babel 官网查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99-createElement"><span class="toc-text">编写 createElement</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-DOM"><span class="toc-text">虚拟 DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F-DOM-%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="toc-text">虚拟 DOM 的创建过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E8%99%9A%E6%8B%9F-DOM"><span class="toc-text">为什么采用虚拟 DOM</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+
+
+
                      
 <footer id="footer">
     <div class="footer-wrap">
@@ -432,7 +435,7 @@ ReactDOM.render(React.createElement(App, null), document.getElementById(&#39;app
     </div>
 
     <script>
-    new Vue({
+      new Vue({
         el: "#layout",
         data: {
             show_page: false,
@@ -488,6 +491,7 @@ ReactDOM.render(React.createElement(App, null), document.getElementById(&#39;app
 </script>
 
 
+    <script src="/js/toc.js"></script>
 </body>
 
 </html>

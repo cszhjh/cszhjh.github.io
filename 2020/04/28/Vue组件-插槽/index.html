@@ -162,7 +162,6 @@
             </span>
             2020/4/28
         </span>
-
         
         <span class="category">
             <a href="/categories/Vue">
@@ -183,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Vue-Components" style=color:#00a596>
+                <a href="/tags/Vue-Components" style=color:#ff7d73>
                     Vue-Components
                 </a>
             </span>
@@ -193,12 +192,6 @@
     </div>
 
     <div class="content" v-pre>
-        
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-slot"><span class="toc-number">1.</span> <span class="toc-text">为什么使用 slot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E6%8F%92%E6%A7%BD"><span class="toc-number">2.</span> <span class="toc-text">组件的插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6-slot"><span class="toc-number">3.</span> <span class="toc-text">如何封装组件? (slot)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">插槽的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">插槽的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-number">4.2.</span> <span class="toc-text">插槽的默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="toc-number">5.</span> <span class="toc-text">具名插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">6.</span> <span class="toc-text">编译作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD"><span class="toc-number">7.</span> <span class="toc-text">作用域插槽</span></a></li></ol>
-        </div>
-        
         <h2 id="为什么使用-slot"><a href="#为什么使用-slot" class="headerlink" title="为什么使用 slot"></a>为什么使用 slot</h2><ul>
 <li>插槽的目的是让我们原来的设备具备更多的扩展性<ul>
 <li>比如电脑的 USB 插槽, 可以扩展 U 盘、硬盘、手机、音响、键盘、鼠标等</li>
@@ -346,6 +339,16 @@
     
 </div>
 
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-slot"><span class="toc-text">为什么使用 slot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E6%8F%92%E6%A7%BD"><span class="toc-text">组件的插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E7%BB%84%E4%BB%B6-slot"><span class="toc-text">如何封装组件? (slot)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">插槽的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">插槽的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">插槽的默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E5%90%8D%E6%8F%92%E6%A7%BD"><span class="toc-text">具名插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">编译作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD"><span class="toc-text">作用域插槽</span></a></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+
+
+
                      
 <footer id="footer">
     <div class="footer-wrap">
@@ -379,7 +382,7 @@
     </div>
 
     <script>
-    new Vue({
+      new Vue({
         el: "#layout",
         data: {
             show_page: false,
@@ -435,6 +438,7 @@
 </script>
 
 
+    <script src="/js/toc.js"></script>
 </body>
 
 </html>

@@ -162,7 +162,6 @@
             </span>
             2020/6/25
         </span>
-
         
         <span class="category">
             <a href="/categories/React">
@@ -183,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/setState" style=color:#00a596>
+                <a href="/tags/setState" style=color:#03a9f4>
                     setState
                 </a>
             </span>
@@ -193,12 +192,6 @@
     </div>
 
     <div class="content" v-pre>
-        
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-setState"><span class="toc-number">1.</span> <span class="toc-text">为什么使用 setState</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState-%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0"><span class="toc-number">2.</span> <span class="toc-text">setState 异步更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState-%E4%B8%80%E5%AE%9A%E6%98%AF%E5%BC%82%E6%AD%A5%E5%90%97"><span class="toc-number">3.</span> <span class="toc-text">setState 一定是异步吗?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState-%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">4.</span> <span class="toc-text">setState 的合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-number">4.1.</span> <span class="toc-text">数据的合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA-setState-%E5%90%88%E5%B9%B6"><span class="toc-number">4.2.</span> <span class="toc-text">多个 setState 合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E6%9B%B4%E6%96%B0%E6%9C%BA%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">React 更新机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diffing-%E7%AE%97%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">Diffing 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">6.1.</span> <span class="toc-text">对比不同类型的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">6.2.</span> <span class="toc-text">对比同类型的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%AD%90%E8%8A%82%E7%82%B9%E8%BF%9B%E8%A1%8C%E9%80%92%E5%BD%92"><span class="toc-number">6.3.</span> <span class="toc-text">对子节点进行递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keys-%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">7.</span> <span class="toc-text">keys 的优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SCU-%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">8.</span> <span class="toc-text">SCU 的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#render-%E5%87%BD%E6%95%B0%E8%A2%AB%E8%B0%83%E7%94%A8"><span class="toc-number">8.1.</span> <span class="toc-text">render 函数被调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shouldComponentUpdate"><span class="toc-number">8.2.</span> <span class="toc-text">shouldComponentUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PureComponent-%E5%92%8C-memo"><span class="toc-number">8.3.</span> <span class="toc-text">PureComponent 和 memo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%9B%E9%87%8F"><span class="toc-number">8.4.</span> <span class="toc-text">不可变数据的力量</span></a></li></ol></li></ol>
-        </div>
-        
         <h2 id="为什么使用-setState"><a href="#为什么使用-setState" class="headerlink" title="为什么使用 setState"></a>为什么使用 setState</h2><p>回到最早的案例, 当点击一个<strong>改变文本</strong>的按钮时, 修改界面显示的内容</p>
 <p><a target="_blank" rel="noopener" href="https://s1.ax1x.com/2020/06/10/tIyydK.png"><img src="https://s1.ax1x.com/2020/06/10/tIyydK.png" alt="tIyydK.png"></a></p>
 <pre><code class="lang-react">import React, &#123; Component &#125; from &#39;react&#39;
@@ -1005,6 +998,16 @@ export default class App extends PureComponent &#123;
     
 </div>
 
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8-setState"><span class="toc-text">为什么使用 setState</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState-%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0"><span class="toc-text">setState 异步更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState-%E4%B8%80%E5%AE%9A%E6%98%AF%E5%BC%82%E6%AD%A5%E5%90%97"><span class="toc-text">setState 一定是异步吗?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setState-%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-text">setState 的合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%90%88%E5%B9%B6"><span class="toc-text">数据的合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA-setState-%E5%90%88%E5%B9%B6"><span class="toc-text">多个 setState 合并</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React-%E6%9B%B4%E6%96%B0%E6%9C%BA%E5%88%B6"><span class="toc-text">React 更新机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diffing-%E7%AE%97%E6%B3%95"><span class="toc-text">Diffing 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E4%B8%8D%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-text">对比不同类型的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-text">对比同类型的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%AD%90%E8%8A%82%E7%82%B9%E8%BF%9B%E8%A1%8C%E9%80%92%E5%BD%92"><span class="toc-text">对子节点进行递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keys-%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">keys 的优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SCU-%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">SCU 的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#render-%E5%87%BD%E6%95%B0%E8%A2%AB%E8%B0%83%E7%94%A8"><span class="toc-text">render 函数被调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shouldComponentUpdate"><span class="toc-text">shouldComponentUpdate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PureComponent-%E5%92%8C-memo"><span class="toc-text">PureComponent 和 memo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8A%9B%E9%87%8F"><span class="toc-text">不可变数据的力量</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+
+
+
                      
 <footer id="footer">
     <div class="footer-wrap">
@@ -1038,7 +1041,7 @@ export default class App extends PureComponent &#123;
     </div>
 
     <script>
-    new Vue({
+      new Vue({
         el: "#layout",
         data: {
             show_page: false,
@@ -1094,6 +1097,7 @@ export default class App extends PureComponent &#123;
 </script>
 
 
+    <script src="/js/toc.js"></script>
 </body>
 
 </html>

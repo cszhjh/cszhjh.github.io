@@ -162,7 +162,6 @@
             </span>
             2020/4/5
         </span>
-
         
         <span class="category">
             <a href="/categories/JavaScript">
@@ -183,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/Utils" style=color:#ff7d73>
+                <a href="/tags/Utils" style=color:#03a9f4>
                     Utils
                 </a>
             </span>
@@ -193,12 +192,6 @@
     </div>
 
     <div class="content" v-pre>
-        
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E5%BA%A6%E5%85%8B%E9%9A%86"><span class="toc-number">1.</span> <span class="toc-text">浅度克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86"><span class="toc-number">2.</span> <span class="toc-text">深度克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">封装</span></a></li></ol>
-        </div>
-        
         <h2 id="浅度克隆"><a href="#浅度克隆" class="headerlink" title="浅度克隆"></a>浅度克隆</h2><p>浅度克隆实际上就是<strong>深度克隆第一维变量</strong>, 其他维度的变量不进行特殊处理, <strong>当克隆出来的对象中有引用类型的属性, 那么原对象和克隆对象将使用同一个引用值</strong></p>
 <span id="more"></span>
 <pre><code class="lang-javascript">const obj = &#123;
@@ -305,6 +298,16 @@ const newObj2 = clone(obj, true)  // 深度克隆
     
 </div>
 
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E5%BA%A6%E5%85%8B%E9%9A%86"><span class="toc-text">浅度克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%85%8B%E9%9A%86"><span class="toc-text">深度克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85"><span class="toc-text">封装</span></a></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+
+
+
                      
 <footer id="footer">
     <div class="footer-wrap">
@@ -338,7 +341,7 @@ const newObj2 = clone(obj, true)  // 深度克隆
     </div>
 
     <script>
-    new Vue({
+      new Vue({
         el: "#layout",
         data: {
             show_page: false,
@@ -394,6 +397,7 @@ const newObj2 = clone(obj, true)  // 深度克隆
 </script>
 
 
+    <script src="/js/toc.js"></script>
 </body>
 
 </html>

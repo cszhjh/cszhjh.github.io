@@ -162,7 +162,6 @@
             </span>
             2021/10/12
         </span>
-
         
         <span class="category">
             <a href="/categories/数学">
@@ -183,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/行列式" style=color:#ffa2c4>
+                <a href="/tags/行列式" style=color:#00bcd4>
                     行列式
                 </a>
             </span>
@@ -193,12 +192,6 @@
     </div>
 
     <div class="content" v-pre>
-        
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">1.</span> <span class="toc-text">行列式的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E9%80%86%E5%BA%8F%E6%95%B0%E6%B3%95%E5%AE%9A%E4%B9%89-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">行列式的逆序数法定义 ( 第二种定义 )</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%88%97%E5%92%8C%E9%80%86%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">排列和逆序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%88%97"><span class="toc-number">2.1.1.</span> <span class="toc-text">排列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%BA%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">逆序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%BA%8F%E6%95%B0"><span class="toc-number">2.1.3.</span> <span class="toc-text">逆序数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%87%E6%8E%92%E5%88%97%E5%92%8C%E5%81%B6%E6%8E%92%E5%88%97"><span class="toc-number">2.1.4.</span> <span class="toc-text">奇排列和偶排列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n-%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">2.2.</span> <span class="toc-text">n 阶行列式的定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%B1%95%E5%BC%80%E5%AE%9A%E7%90%86-%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%AE%9A%E4%B9%89"><span class="toc-number">3.</span> <span class="toc-text">行列式的展开定理 ( 第三种定义 )</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%99%E5%AD%90%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">余子式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-%F0%9F%8C%9F%F0%9F%8C%9F%F0%9F%8C%9F"><span class="toc-number">3.2.</span> <span class="toc-text">代数余子式 🌟🌟🌟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E6%8C%89%E6%9F%90%E4%B8%80%E8%A1%8C-%E5%88%97-%E5%B1%95%E5%BC%80%E7%9A%84%E5%B1%95%E5%BC%80%E5%85%AC%E5%BC%8F"><span class="toc-number">3.3.</span> <span class="toc-text">行列式按某一行 ( 列 ) 展开的展开公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">几个重要的行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AF%B9%E8%A7%92%E7%BA%BF%E8%A1%8C%E5%88%97%E5%BC%8F-%E4%B8%8A-%E4%B8%8B-%E4%B8%89%E8%A7%92%E5%BD%A2%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-number">4.1.</span> <span class="toc-text">主对角线行列式 ( 上 ( 下 ) 三角形行列式 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%AF%E5%AF%B9%E8%A7%92%E7%BA%BF%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">副对角线行列式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B1%95%E5%BC%80%E5%BC%8F"><span class="toc-number">4.3.</span> <span class="toc-text">拉普拉斯展开式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E5%BE%B7%E8%92%99%E5%BE%B7%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-number">4.4.</span> <span class="toc-text">范德蒙德行列式</span></a></li></ol></li></ol>
-        </div>
-        
         <blockquote>
 <p>二阶行列式是由两个二维向量组成的, 其 ( 运算规则的 ) 结果为以这两个向量为邻边的平行四边形的面积</p>
 </blockquote>
@@ -430,6 +423,16 @@ x_1^{n-1} & x_2^{n-1} & \dots & x_n^{n-1}\\
     
 </div>
 
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">行列式的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E9%80%86%E5%BA%8F%E6%95%B0%E6%B3%95%E5%AE%9A%E4%B9%89-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%AE%9A%E4%B9%89"><span class="toc-text">行列式的逆序数法定义 ( 第二种定义 )</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%88%97%E5%92%8C%E9%80%86%E5%BA%8F"><span class="toc-text">排列和逆序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%88%97"><span class="toc-text">排列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%BA%8F"><span class="toc-text">逆序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%BA%8F%E6%95%B0"><span class="toc-text">逆序数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%87%E6%8E%92%E5%88%97%E5%92%8C%E5%81%B6%E6%8E%92%E5%88%97"><span class="toc-text">奇排列和偶排列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n-%E9%98%B6%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">n 阶行列式的定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%B1%95%E5%BC%80%E5%AE%9A%E7%90%86-%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%AE%9A%E4%B9%89"><span class="toc-text">行列式的展开定理 ( 第三种定义 )</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%99%E5%AD%90%E5%BC%8F"><span class="toc-text">余子式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-%F0%9F%8C%9F%F0%9F%8C%9F%F0%9F%8C%9F"><span class="toc-text">代数余子式 🌟🌟🌟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E6%8C%89%E6%9F%90%E4%B8%80%E8%A1%8C-%E5%88%97-%E5%B1%95%E5%BC%80%E7%9A%84%E5%B1%95%E5%BC%80%E5%85%AC%E5%BC%8F"><span class="toc-text">行列式按某一行 ( 列 ) 展开的展开公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">几个重要的行列式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E5%AF%B9%E8%A7%92%E7%BA%BF%E8%A1%8C%E5%88%97%E5%BC%8F-%E4%B8%8A-%E4%B8%8B-%E4%B8%89%E8%A7%92%E5%BD%A2%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">主对角线行列式 ( 上 ( 下 ) 三角形行列式 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%AF%E5%AF%B9%E8%A7%92%E7%BA%BF%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">副对角线行列式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%B1%95%E5%BC%80%E5%BC%8F"><span class="toc-text">拉普拉斯展开式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E5%BE%B7%E8%92%99%E5%BE%B7%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">范德蒙德行列式</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+
+
+
                      
 <footer id="footer">
     <div class="footer-wrap">
@@ -481,7 +484,7 @@ x_1^{n-1} & x_2^{n-1} & \dots & x_n^{n-1}\\
     </div>
 
     <script>
-    new Vue({
+      new Vue({
         el: "#layout",
         data: {
             show_page: false,
@@ -537,6 +540,7 @@ x_1^{n-1} & x_2^{n-1} & \dots & x_n^{n-1}\\
 </script>
 
 
+    <script src="/js/toc.js"></script>
 </body>
 
 </html>
