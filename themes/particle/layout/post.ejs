@@ -11,7 +11,6 @@
             </span>
             <%- date(page.date, 'YYYY/M/D') %>
         </span>
-
         <% if(page.categories && page.categories.data.length!=0){ %>
         <span class="category">
             <a href="<%- rootlink %>categories/<%= page.categories.data[0].name.replace(" ", "-") %>">
@@ -51,12 +50,6 @@
     </div>
 
     <div class="content" v-pre>
-        <% if (page.toc){ %>
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        <%- toc(page.content) %>
-        </div>
-        <% } %>
         <%- page.content %>
     </div>
 
@@ -68,3 +61,6 @@
     </div>
     <% } %>
 </div>
+<% if (page.toc){ %>
+  <%- partial('toc')%>
+<% } %>
