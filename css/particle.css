@@ -1063,6 +1063,11 @@ footer .footer-icon {
   background: scrollbar-thumb;
   border-radius: 10px;
 }
+@media (max-width: 900px) {
+  .post-toc {
+    display: none;
+  }
+}
 @media (min-width: 900px) {
   .post-toc {
     max-width: 19%;

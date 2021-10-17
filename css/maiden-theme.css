@@ -1063,6 +1063,11 @@ footer .footer-icon {
   background: rgba(255,162,178,0.502);
   border-radius: 10px;
 }
+@media (max-width: 900px) {
+  .post-toc {
+    display: none;
+  }
+}
 @media (min-width: 900px) {
   .post-toc {
     max-width: 19%;
