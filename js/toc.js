@@ -14,23 +14,24 @@ function tocInit() {
     }
   }
 
+  var tocLink = document.getElementsByClassName('toc-link')
+  var headerLink = document.getElementsByClassName('headerlink')
+  var headerLinkLength = headerLink.length
+  var headerLinkTop = new Array(headerLinkLength)
   var currentIndex = 0
 
-  function tocActive() {
-    var tocLink = document.getElementsByClassName('toc-link')
-    var headerLink = document.getElementsByClassName('headerlink')
-    var headerLinkLength = headerLink.length
-    var headerLinkTop = new Array(headerLinkLength)
+  tocLink[0].className += ' active'
 
-    function getOffsetTopByBody(el) {
-      let offsetTop = 0
-      while (el && el.tagName !== 'BODY') {
-        offsetTop += el.offsetTop
-        el = el.offsetParent
-      }
-      return offsetTop
+  function getOffsetTopByBody(el) {
+    let offsetTop = 0
+    while (el && el.tagName !== 'BODY') {
+      offsetTop += el.offsetTop
+      el = el.offsetParent
     }
+    return offsetTop
+  }
 
+  function tocActive() {
     for (var i = 0; i < headerLinkLength; ++i) {
       headerLinkTop[i] = getOffsetTopByBody(headerLink[i])
     }
