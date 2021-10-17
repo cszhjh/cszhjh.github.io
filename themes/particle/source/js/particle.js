@@ -3,11 +3,10 @@ var isClickToc = false
 
 window.addEventListener('load', function () {
   var toc = document.getElementsByClassName('toc')[0]
-
+  if (!toc) return
   toc.addEventListener('click', function (e) {
     if (e.target.tagName != 'LI') {
       isClickToc = true
-      console.log(e.target)
     }
   })
 })
