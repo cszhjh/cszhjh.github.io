@@ -296,6 +296,17 @@ vector&lt;string&gt; forward_segment(const string &amp;text) &#123;
     <tr>
         <td colspan="6">“就读”被分出，去掉“就读”后处理文本为“北京大学”</td>
     </tr>
+    <tr>
+        <td>2</td>
+        <td>2 < 6</td>
+        <td>5</td>
+        <td>北京大学</td>
+        <td>是</td>
+        <td>北京大学</td>
+    </tr>
+    <tr>
+        <td colspan="6">正向最长匹配分词结果为“就读 / 北京大学”</td>
+    </tr>
 </table>
 
 
@@ -307,7 +318,7 @@ vector&lt;string&gt; forward_segment(const string &amp;text) &#123;
 <li>第三轮<br>i.    将“研究”作为候选词，词典中有对应的词，匹配成功。</li>
 <li>扫描终止，保存第三个单词“研究”，搜索结束，返回结果。</li>
 </ol>
-<p>至此，通过逆向最长匹配对“研究生命科学”的匹配结果为：“研究 / 生命 / 科学”。<br>实验数据表明，逆向最长匹配算法的分词错误率大约为 0.41%，切分精准率比正向最长匹配算法略高。<br>实现逆向最长匹配算法，如下</p>
+<p>至此，通过逆向最长匹配对“研究生命科学”的匹配结果为：“研究 / 生命 / 科学”。<br>实验数据表明，逆向最长匹配算法的分词错误率大约为 <code>0.41%</code>，切分精准率比正向最长匹配算法略高。<br>实现逆向最长匹配算法，如下</p>
 <pre><code class="lang-c++">/**
  * 逆向分词
  * @param text 待分词字符串
@@ -561,7 +572,8 @@ void Trie::clear(Node *node) &#123;
     if (!node || node-&gt;nexts.empty()) &#123;
         return;
     &#125;
-    for (unordered_map&lt;string, Node *&gt;::iterator it = node-&gt;nexts.begin(); it != node-&gt;nexts.end(); it++) &#123;
+    unordered_map&lt;string, Node *&gt;::iterator it;
+    for (it = node-&gt;nexts.begin(); it != node-&gt;nexts.end(); it++) &#123;
         this-&gt;clear(it-&gt;second);
         delete it-&gt;second;
     &#125;
