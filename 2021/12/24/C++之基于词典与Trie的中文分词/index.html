@@ -182,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/中文分词" style=color:#ffa2c4>
+                <a href="/tags/中文分词" style=color:#ff7d73>
                     中文分词
                 </a>
             </span>
@@ -308,50 +308,67 @@ vector&lt;string&gt; forward_segment(const string &amp;text) &#123;
         <td colspan="6">正向最长匹配分词结果为“就读 / 北京大学”</td>
     </tr>
 </table>
+#### 逆向最长匹配
 
+逆向最长匹配算法和正向最长匹配算法的原理类似，区别在于逆向最大匹配算法的扫描方向是从右向左的，如果匹配失败，则去掉左端的一个字。
+例：对“研究生命起源”进行分词
 
-<p>正向最长匹配分词结果为“就读 / 北京大学”</p>
-<h4 id="逆向最长匹配"><a href="#逆向最长匹配" class="headerlink" title="逆向最长匹配"></a>逆向最长匹配</h4><p>逆向最长匹配算法和正向最长匹配算法的原理类似，区别在于逆向最大匹配算法的扫描方向是从右向左的，如果匹配失败，则去掉左端的一个字。<br>例：对“研究生命起源”进行分词</p>
-<ol>
-<li>第一轮<br>i.    将“研究生命起源”作为候选词，词典中没有对应的词，匹配失败。<br>ii.    左边减少一个字，将“究生命起源”作为候选词，词典中没有对应的词，匹配失败。<br>iii.    左边减少一个字，将“生命起源”作为候选词，词典中没有对应的词，匹配失败。<br>iv.    左边减少一个字，将“命起源”作为候选词，词典中没有对应的词，匹配失败。<br>v.    左边减少一个字，将“起源”作为候选词，词典中有对应的词，匹配成功。<br>扫描终止，保存第一个单词“起源”，去除第一个单词开始第二轮扫描。</li>
-<li>第二轮<br>i.    将“研究生命”作为候选词，词典中没有对应的词，匹配失败。<br>ii.    将“究生命”作为候选词，词典中没有对应的词，匹配失败。<br>iii.    将“生命”作为候选词，词典中有对应的词，匹配成功。<br>扫描终止，保存第二个单词“生命”，去除第二个单词开始第三轮扫描。</li>
-<li>第三轮<br>i.    将“研究”作为候选词，词典中有对应的词，匹配成功。</li>
-<li>扫描终止，保存第三个单词“研究”，搜索结束，返回结果。</li>
-</ol>
-<p>至此，通过逆向最长匹配对“研究生命科学”的匹配结果为：“研究 / 生命 / 科学”。<br>实验数据表明，逆向最长匹配算法的分词错误率大约为 <code>0.41%</code>，切分精准率比正向最长匹配算法略高。<br>实现逆向最长匹配算法，如下</p>
-<pre><code class="lang-c++">/**
+1. 第一轮
+   i.    将“研究生命起源”作为候选词，词典中没有对应的词，匹配失败。
+   ii.    左边减少一个字，将“究生命起源”作为候选词，词典中没有对应的词，匹配失败。
+   iii.    左边减少一个字，将“生命起源”作为候选词，词典中没有对应的词，匹配失败。
+   iv.    左边减少一个字，将“命起源”作为候选词，词典中没有对应的词，匹配失败。
+   v.    左边减少一个字，将“起源”作为候选词，词典中有对应的词，匹配成功。
+   扫描终止，保存第一个单词“起源”，去除第一个单词开始第二轮扫描。
+2. 第二轮
+   i.    将“研究生命”作为候选词，词典中没有对应的词，匹配失败。
+   ii.    将“究生命”作为候选词，词典中没有对应的词，匹配失败。
+   iii.    将“生命”作为候选词，词典中有对应的词，匹配成功。
+   扫描终止，保存第二个单词“生命”，去除第二个单词开始第三轮扫描。
+3. 第三轮
+   i.    将“研究”作为候选词，词典中有对应的词，匹配成功。
+4. 扫描终止，保存第三个单词“研究”，搜索结束，返回结果。
+
+至此，通过逆向最长匹配对“研究生命科学”的匹配结果为：“研究 / 生命 / 科学”。
+实验数据表明，逆向最长匹配算法的分词错误率大约为 `0.41%`，切分精准率比正向最长匹配算法略高。
+实现逆向最长匹配算法，如下
+
+```c++
+/**
  * 逆向分词
  * @param text 待分词字符串
  * @return 分词结果单词数组
  */
-vector&lt;string&gt; backward_segment(const string &amp;text) &#123;
-    vector&lt;string&gt; word_list, characters;
+vector<string> backward_segment(const string &text) {
+    vector<string> word_list, characters;
     // 获取单字数组
     split_word(text, characters);
 
-    for (int i = characters.size() - 1; i &gt;= 0;) &#123;
+    for (int i = characters.size() - 1; i >= 0;) {
         string longest_word = characters[i];
         int word_size = 1;
-        for (int j = 0; j &lt;= i; j++) &#123;
+        for (int j = 0; j <= i; j++) {
             string word;
             // 截取候选词
-            for (int k = j; k &lt;= i; k++) &#123;
+            for (int k = j; k <= i; k++) {
                 word += characters[k];
-            &#125;
+            }
             // 匹配单词
-            if (search(word) &amp;&amp; word.size() &gt; longest_word.size()) &#123;
+            if (search(word) && word.size() > longest_word.size()) {
                 longest_word = word;
                 word_size = i - j + 1;
                 break;
-            &#125;
-        &#125;
+            }
+        }
         word_list.insert(word_list.begin(), longest_word);
         i -= word_size;
-    &#125;
+    }
     return word_list;
-&#125;
-</code></pre>
-<p>使用上面代码对“研究生命起源”进行分词，具体代码流程如图所示：</p>
+}
+```
+
+使用上面代码对“研究生命起源”进行分词，具体代码流程如图所示：
+
 <table style="text-align: center">
     <tr>
         <th align="center">i</th>
@@ -600,7 +617,7 @@ void Trie::clear(Node *node) &#123;
 
   <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-text">中文分词方法概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%8D%E5%85%B8%E8%A7%84%E5%88%99%E7%9A%84%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E6%96%B9%E6%B3%95"><span class="toc-text">基于词典规则的中文分词方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D"><span class="toc-text">正向最长匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%90%91%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D"><span class="toc-text">逆向最长匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D"><span class="toc-text">双向最长匹配</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trie%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">Trie字典树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">什么是字典树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E6%A0%91%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">字典树的实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93-%E8%AE%BA"><span class="toc-text">结  论</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E6%96%B9%E6%B3%95%E6%A6%82%E8%BF%B0"><span class="toc-text">中文分词方法概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%8D%E5%85%B8%E8%A7%84%E5%88%99%E7%9A%84%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E6%96%B9%E6%B3%95"><span class="toc-text">基于词典规则的中文分词方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D"><span class="toc-text">正向最长匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D"><span class="toc-text">双向最长匹配</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trie%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">Trie字典树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">什么是字典树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E6%A0%91%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">字典树的实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93-%E8%AE%BA"><span class="toc-text">结  论</span></a></li></ol>
     <!-- <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
