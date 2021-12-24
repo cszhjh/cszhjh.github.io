@@ -182,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/中文分词" style=color:#ff7d73>
+                <a href="/tags/中文分词" style=color:#00bcd4>
                     中文分词
                 </a>
             </span>
@@ -462,6 +462,7 @@ vector&lt;string&gt;bidirectional_segment(const string &amp;text) &#123;
 </code></pre>
 <h3 id="Trie字典树"><a href="#Trie字典树" class="headerlink" title="Trie字典树"></a>Trie字典树</h3><p>匹配算法的瓶颈之一在于如何判断词典中是否含有字符串。如果用有序列表（TreeMap）的话，时间复杂度是<code>O(logN)</code>（N是词典大小）。如果用散列表（Java的HashMap，Python的dict）的话，表面上时间复杂度虽然降下去了，但内存复杂度却上去了。有没有速度又快、内存又省的数据结构呢？有，那便是字典树。</p>
 <h4 id="什么是字典树"><a href="#什么是字典树" class="headerlink" title="什么是字典树"></a>什么是字典树</h4><p>字符串集合常用字典树（Trie树、前缀树）存储，它的查询时间复杂度可以达到常数级<code>O(1)</code>，这是一种字符串上的树形数据结构。字典树中每条边都对应一个字，从根节点往下的路径构成一个个字符串。字典树并不直接在节点存储字符串，而是将词语视作根节点到某节点之间的一条路径，并在终点节点（蓝色）上做个标记，该节点对应词语的结尾。字符串就是一条路径，要查询一个单词，只需顺着这条路径从根节点往下走。如果最后能走到特殊标记的节点，则说明该字符串在集合中，否则说明不存在。根节点一般什么都不保存，其他节点通常有两个属性（<code>pass</code>, <code>end</code>），<code>pass</code>表示当前节点通过了几次，<code>end</code>表示这个节点成为了多少个词的结尾。一个典型的字典树如下图所示。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/TNWj10"><img src="https://s4.ax1x.com/2021/12/24/TNWj10.png" alt="TNWj10.png"></a></p>
 <h4 id="字典树的实现"><a href="#字典树的实现" class="headerlink" title="字典树的实现"></a>字典树的实现</h4><p>由上图可知，每个节点都应该至少知道自己的子节点与对应的变，以及自己是否对应一个词。所以在每个节点中，使用<code>unordered_map</code>存储子节点，并用<code>end</code>表示其是否为一个词。</p>
 <pre><code class="lang-c++">class Node &#123;
 public:
