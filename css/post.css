@@ -29,3 +29,6 @@
 .article .content {
   margin: 50px 0;
 }
+.article strong {
+  color: #2c3e50;
+}

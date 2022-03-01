@@ -6,7 +6,7 @@ body {
   background: #f6f8fa;
   width: 100%;
   font-family: Kosugi;
-  font-weight: 500;
+  font-weight: 400;
 }
 * {
   margin: 0;
@@ -31,7 +31,7 @@ h5 {
   margin: 15px 0;
   font-weight: bold;
   font-family: Kosugi;
-  color: #1e3e3f;
+  color: #2c3e50;
 }
 h1 {
   font-size: 30px;
@@ -269,7 +269,7 @@ a {
   display: inline-block;
 }
 #home-posts .post .excerpt {
-  color: #1e3e3f;
+  color: #2c3e50;
 }
 #home-posts .post .post-tags a {
   color: #ffbbf4;
@@ -363,7 +363,7 @@ a {
 }
 #home-card .card-style .name {
   margin: 10px auto;
-  color: #1e3e3f;
+  color: #2c3e50;
   text-transform: capitalize;
 }
 #home-card .card-style .descriptions {
@@ -675,7 +675,7 @@ a {
 }
 .content table tr th {
   padding: 8px 20px;
-  color: #1e3e3f;
+  color: #2c3e50;
 }
 .content table tr th:nth-child(2n) {
   background: #a3ddfb;
@@ -873,7 +873,7 @@ footer .footer-icon {
   margin: auto;
   position: relative;
   top: 100px;
-  color: #1e3e3f;
+  color: #2c3e50;
   padding: 20px;
   font-size: 15px;
 }
@@ -899,6 +899,9 @@ footer .footer-icon {
 }
 .article .content {
   margin: 50px 0;
+}
+.article strong {
+  color: #2c3e50;
 }
 @media (min-width: 900px) {
   #menu .desktop-menu {
