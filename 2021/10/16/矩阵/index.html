@@ -182,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/矩阵" style=color:#ff7d73>
+                <a href="/tags/矩阵" style=color:#00bcd4>
                     矩阵
                 </a>
             </span>
@@ -309,6 +309,21 @@ AB\ne BA</script></li>
 <li>$AB=AC,A\ne O\Rightarrow A(B-C)=O$ 及 $A\ne O\nRightarrow B=C$</li>
 </ol>
 </blockquote>
+<h4 id="矩阵的幂"><a href="#矩阵的幂" class="headerlink" title="矩阵的幂"></a>矩阵的幂</h4><p>$A$ 是一个 $n$ 阶方阵, $A^m=\overbrace{AA\cdots A}^{m\text{个}}$ 称为 $A$ 的 $m$ 次幂</p>
+<blockquote>
+<p>[注]</p>
+<ol>
+<li><p>因矩阵乘法不满足交换律, 故<strong>一般</strong>,</p>
+<script type="math/tex; mode=display">
+(A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2\ne A^2+2AB+B^2\\
+(A-B)^2=A^2-AB-BA+B^2\ne A^2-2AB+B^2\\
+(A+B)(A-B)=A^2+BA-AB-B^2\ne A^2-B^2\\
+(AB)^m=\overbrace{(AB)(AB)\cdots (AB)}^{m\text{个}}\ne A^mB^m</script></li>
+<li><p>若 $f(x)=a_0+a_1x+\cdots+a_mx^m$, 则</p>
+<script type="math/tex; mode=display">
+f(A)=a_0E+a_1A+\cdots+a_mA^m</script></li>
+</ol>
+</blockquote>
 <h4 id="转置矩阵"><a href="#转置矩阵" class="headerlink" title="转置矩阵"></a>转置矩阵</h4><p>将 $m\times n$ 矩阵 $A=(a_{ij})_{m\times n}$ 的行与列互换得到的 $n\times m$ 矩阵, 称为矩阵 $A$ 的转置矩阵, 记为 $A^T$, 即</p>
 <script type="math/tex; mode=display">
 A^T=\begin{bmatrix}
@@ -324,6 +339,74 @@ a_{1n} & a_{2n} & \cdots & a_{mn} \\
 <li>$(AB)^T=B^TA^T$</li>
 <li>当 $m=n$ 时, $|A^T|=|A|$</li>
 </ol>
+<h4 id="方阵乘积的行列式"><a href="#方阵乘积的行列式" class="headerlink" title="方阵乘积的行列式"></a>方阵乘积的行列式</h4><p>设 $A, B$ 是同阶方阵, 则 $|AB|=|A||B|$</p>
+<blockquote>
+<p>[注] 几种重要矩阵</p>
+<ol>
+<li><p>零矩阵</p>
+<ul>
+<li>每个元素均为零的矩阵, 记为 $O$</li>
+</ul>
+</li>
+<li><p>单位矩阵</p>
+<ul>
+<li>主对角元素均为 $1$, 其余元素全为零的 $n$ 阶方阵, 称为 $n$ 阶单位矩阵, 记成 $E$ (或 $I$)</li>
+</ul>
+</li>
+<li><p>数量矩阵</p>
+<ul>
+<li>数 $k$ 和单位矩阵的乘积称为数量矩阵</li>
+</ul>
+</li>
+<li><p>对角矩阵</p>
+<ul>
+<li>非主对角元素均为零的矩阵称为对角矩阵</li>
+</ul>
+</li>
+<li><p>上 (下) 三角矩阵</p>
+<ul>
+<li>当 $i&gt;(\text{或}&lt;)j$ 时, $a_{ij}=0$ 的矩阵称为上 (或下) 三角矩阵</li>
+</ul>
+</li>
+<li><p>对称矩阵</p>
+<ul>
+<li>满足条件 $A^T=A$ 的矩阵 $A$ 称为对称矩阵, $A^T=A\Leftrightarrow a_{ij}=a_{ji}$</li>
+</ul>
+</li>
+<li><p>反对称矩阵</p>
+<ul>
+<li>满足条件 $A^T=-A$ 的矩阵 $A$ 称为反对称矩阵<script type="math/tex; mode=display">
+A^T=-A\Leftrightarrow\begin{cases}
+a_{ij}=-a_{ji}, & i\ne j\\
+a_{ii}=0
+\end{cases}</script></li>
+</ul>
+</li>
+<li><p>正交矩阵</p>
+<ul>
+<li>设 $A$ 是 $n$ 阶方阵, 满足 $A^TA=E$, 则称 $A$ 是正交矩阵</li>
+<li>$A$ 是正交矩阵 $\Leftrightarrow A^TA=E\Leftrightarrow A^T=A^{-1}\Leftrightarrow A$ 的行 (列) 向量组是标准正交向量组</li>
+</ul>
+</li>
+<li><p>分块矩阵</p>
+<ol>
+<li>矩阵的分块<ul>
+<li>用几条纵线和横线把一个矩阵分成若干小块, 每一小块称为原矩阵的子块, 把子块看作原矩阵的一个元素, 就得到了分块矩阵</li>
+</ul>
+</li>
+<li>分块矩阵的基本运算 (以 $2\times 2$ 型分块矩阵为例)<ol>
+<li>加法: 同型, 且分法一致, 则 $\begin{bmatrix}A_1 &amp; A_2\\ A_3 &amp; A_4\end{bmatrix}+\begin{bmatrix}B_1 &amp; B_2\\ B_3 &amp; B_4\end{bmatrix}=\begin{bmatrix}A_1+B_1 &amp; A_2+B_2\\ A_3+B_3 &amp; A_4+B_4\end{bmatrix}$</li>
+<li>数乘: $k\begin{bmatrix}A &amp; B\\ C &amp; D\end{bmatrix}=\begin{bmatrix}kA &amp; kB\\ kC &amp; kD\end{bmatrix}$</li>
+<li>乘法: $\begin{bmatrix}A &amp; B\\ C &amp; D\end{bmatrix}\begin{bmatrix}X &amp; Y\\ Z &amp; W\end{bmatrix}=\begin{bmatrix}AX+BZ &amp; AY+BW\\ CX+DZ &amp; CY+DW\end{bmatrix}$, 要可乘、可加</li>
+</ol>
+</li>
+</ol>
+<p><strong>注意</strong> 对于乘法的运算, 分块相乘后, 左边的仍在左边, 右边的仍在右边</p>
+<p>若 $A,B$ 分别为 $m,n$ 阶方阵, 则分块对角矩阵的幂为</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}A & O\\ O & B\end{bmatrix}^n=\begin{bmatrix}A^n & O\\ O & B^n\end{bmatrix}</script></li>
+</ol>
+</blockquote>
 <h3 id="伴随矩阵"><a href="#伴随矩阵" class="headerlink" title="伴随矩阵"></a>伴随矩阵</h3><p>设矩阵 $A=\begin{bmatrix}a_{11} &amp; \cdots &amp; a_{1n} \\ \vdots &amp; &amp; \vdots \\a_{n1} &amp; \cdots &amp; a_{nn} \end{bmatrix}$, $\forall a_{ij} \Rightarrow M_{ij} \Rightarrow A_{ij}$</p>
 <p>伴随矩阵为 $A^*=\begin{bmatrix}<br>A_{11} &amp; A_{21} &amp; \cdots &amp; A_{n1} \\<br>A_{12} &amp; A_{22} &amp; \cdots &amp; A_{n2} \\<br>\vdots &amp; \vdots &amp; &amp; \vdots \\<br>A_{1n} &amp; A_{2n} &amp; \cdots &amp; A_{nn} \\<br>\end{bmatrix}$</p>
 <p>$AA^*=\begin{bmatrix}a_{11} &amp; \cdots &amp; a_{1n} \\ \vdots &amp; &amp; \vdots \\a_{n1} &amp; \cdots &amp; a_{nn} \end{bmatrix}\begin{bmatrix}<br>A_{11} &amp; \cdots &amp; A_{n1} \\<br>\vdots &amp; &amp; \vdots \\<br>A_{1n} &amp; \cdots &amp; A_{nn} \\<br>\end{bmatrix}=\begin{bmatrix}|A| &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; |A| &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; |A| \\ \end{bmatrix} = |A|E$</p>
@@ -437,7 +520,7 @@ a_{1n} & a_{2n} & \cdots & a_{mn} \\
 
   <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5"><span class="toc-text">矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">矩阵的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵的基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89"><span class="toc-text">相等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95"><span class="toc-text">加法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E4%B9%98%E7%9F%A9%E9%98%B5"><span class="toc-text">数乘矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-text">矩阵乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5"><span class="toc-text">转置矩阵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5"><span class="toc-text">伴随矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5"><span class="toc-text">逆矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%AD%90%EF%B8%8F%E9%80%86%E9%98%B5%E5%AD%98%E5%9C%A8%E5%AE%9A%E7%90%86"><span class="toc-text">⭐️逆阵存在定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2"><span class="toc-text">初等变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E7%9F%A9%E9%98%B5"><span class="toc-text">初等矩阵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%A9%E7%90%86%E8%AE%BA"><span class="toc-text">秩理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%A9%E7%9A%84%E6%B1%82%E6%B3%95"><span class="toc-text">秩的求法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%A9%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">秩的性质</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5"><span class="toc-text">矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">矩阵的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97"><span class="toc-text">矩阵的基本运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E7%AD%89"><span class="toc-text">相等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95"><span class="toc-text">加法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E4%B9%98%E7%9F%A9%E9%98%B5"><span class="toc-text">数乘矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-text">矩阵乘法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%B9%82"><span class="toc-text">矩阵的幂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5"><span class="toc-text">转置矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E9%98%B5%E4%B9%98%E7%A7%AF%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">方阵乘积的行列式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5"><span class="toc-text">伴随矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5"><span class="toc-text">逆矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%AD%90%EF%B8%8F%E9%80%86%E9%98%B5%E5%AD%98%E5%9C%A8%E5%AE%9A%E7%90%86"><span class="toc-text">⭐️逆阵存在定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2"><span class="toc-text">初等变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E7%AD%89%E7%9F%A9%E9%98%B5"><span class="toc-text">初等矩阵</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%A9%E7%90%86%E8%AE%BA"><span class="toc-text">秩理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%A9%E7%9A%84%E6%B1%82%E6%B3%95"><span class="toc-text">秩的求法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%A9%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">秩的性质</span></a></li></ol></li></ol></li></ol>
     <!-- <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
