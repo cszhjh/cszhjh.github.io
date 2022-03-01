@@ -750,6 +750,36 @@ a {
 .content .hljs .hljs-variable {
   color: #458;
 }
+.content blockquote {
+  padding: 12px 24px 12px 30px;
+  margin: 2em 0;
+  border-left-width: 4px;
+  border-left-style: solid;
+  background-color: #f8f8f8;
+  position: relative;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-color: #42b983;
+  padding: 0.1rem 1.5rem;
+  border-left-width: 0.5rem;
+  border-left-style: solid;
+  margin: 1rem 0;
+}
+.content blockquote:before {
+  position: absolute;
+  top: 19px;
+  left: -14px;
+  color: #fff;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  content: url("../images/bulb.svg");
+  width: 25px;
+  height: 25px;
+  left: -16px;
+}
 footer {
   position: relative;
   font-size: 14px;
