@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 向量</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>向量 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2021/10/16
+        </span>
+        
+        <span class="category">
+            <a href="/categories/数学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数学
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/向量" style=color:#03a9f4>
+                    向量
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><p>$\alpha = \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix}$ $n$ 维列向量</p>
+<h3 id="向量的内积与正交"><a href="#向量的内积与正交" class="headerlink" title="向量的内积与正交"></a>向量的内积与正交</h3><h4 id="模"><a href="#模" class="headerlink" title="模"></a>模</h4><p>$|\alpha|=\sqrt{\sum_\limits{i=1}^na_i^2}$ 称为向量 $\alpha$ 的模 (长度)</p>
+<p>$|\alpha|=0$,  则 $\alpha=0$, $\alpha$ 称为零向量</p>
+<p>$|\alpha|=1$ 时, 称 $\alpha$ 为单位向量</p>
+<p>$\alpha \not=0$, 且 $\alpha\not=1$, 存在对应的单位向量 $\alpha^o=\frac{1}{|\alpha|}\alpha$, 称为单位化(规范化)</p>
+<span id="more"></span>
+<h4 id="内积"><a href="#内积" class="headerlink" title="内积"></a>内积</h4><p>设 $\alpha=\begin{pmatrix}a_1 \\ \vdots \\ a_n\end{pmatrix}, \beta=\begin{pmatrix}b_1 \\ \vdots \\ b_n\end{pmatrix}$, 则称</p>
+<script type="math/tex; mode=display">
+(\alpha, \beta)=\sum_{i=1}^na_ib_i=a_1b_1+a_2b_2+\cdots+a_nb_n</script><p>为向量 $\alpha, \beta$ 的内积, 记作 $(\alpha, \beta)$, 即 $(\alpha,\beta)=\alpha^T\beta$</p>
+<ol>
+<li>$(\alpha, \beta)=(\beta, \alpha)=\alpha^T\beta=\beta^T\alpha$</li>
+<li>$(\alpha, \alpha)=\alpha^T\alpha=|\alpha|^2, (\alpha, \alpha)=0\Leftrightarrow\alpha=0$</li>
+<li>$(\alpha, k_1\beta_1+\cdots+k_n\beta_n)=k_1(\alpha,\beta_1)+k_2(\alpha,\beta_2)+\cdots+k_n(\alpha,\beta_n)$</li>
+</ol>
+<h4 id="正交"><a href="#正交" class="headerlink" title="正交"></a>正交</h4><p>当 $(\alpha, \beta)=0$ 时, 称向量 $\alpha, \beta$ 是正交向量, 记为 $\alpha \perp \beta$</p>
+<p><code>零向量与任何向量正交</code></p>
+<h4 id="标准正交向量组"><a href="#标准正交向量组" class="headerlink" title="标准正交向量组"></a>标准正交向量组</h4><p>若列向量组 $\alpha_1, \alpha_2, \cdots, \alpha_s$ 满足 $\alpha_i^T\alpha_j=\begin{cases}0, &amp; i\ne j \\ 1, &amp; i=j\end{cases}$</p>
+<p>则称 $\alpha_1, \alpha_2, \cdots, \alpha_s$ 为标准或单位正交向量组</p>
+<h4 id="施密特标准正交化-又称正交规范化-过程"><a href="#施密特标准正交化-又称正交规范化-过程" class="headerlink" title="施密特标准正交化 (又称正交规范化) 过程"></a>施密特标准正交化 (又称正交规范化) 过程</h4><p>线性无关向量组 $\alpha_1, \alpha_2$ 的标准正交化(又称正交规范化) 公式为</p>
+<script type="math/tex; mode=display">
+\beta_1=\alpha_1\\
+\beta_2=\alpha_2-\frac{(\alpha_2,\beta_1)}{(\beta_1,\beta_1)}\beta_1</script><p>得到的 $\beta_1,\beta_2$ 是正交向量组</p>
+<p>将 $\beta_1,\beta_2$ 单位化, 得</p>
+<script type="math/tex; mode=display">
+\eta_1=\frac{\beta_1}{|\beta_1|}, \eta_2=\frac{\beta_2}{|\beta_2|}</script><p>则 $\eta_1,\eta_2$ 是标准正交向量组</p>
+<h3 id="相关性与线性表示理论"><a href="#相关性与线性表示理论" class="headerlink" title="相关性与线性表示理论"></a>相关性与线性表示理论</h3><script type="math/tex; mode=display">
+\begin{cases}
+a_{11}x_1+\cdots+a_{1n}x_n=0 \\
+\cdots &(*) \\
+a_{m1}x_1+\cdots+a_{mn}x_n=0
+\end{cases}</script><script type="math/tex; mode=display">
+\begin{cases}
+a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+\cdots &(**) \\
+a_{m1}x_1+\cdots+a_{mn}x_n=b_m
+\end{cases}</script><p>将方程组用向量的形式表达</p>
+<p>$\alpha_1=\begin{pmatrix} a_{11} \\ \vdots \\ a_{m1} \end{pmatrix}, \alpha_2=\begin{pmatrix} a_{12} \\ \vdots \\ a_{m2} \end{pmatrix}, \cdots, \alpha_n=\begin{pmatrix} a_{1n} \\ \vdots \\ a_{mn} \end{pmatrix}$</p>
+<p>$x_1\alpha1+x_2\alpha_2+\cdots+x_n\alpha_n=0$    $(*)$</p>
+<p>$x_1\alpha1+x_2\alpha_2+\cdots+x_n\alpha_n=b$    $(**)$</p>
+<h4 id="、-解的概况"><a href="#、-解的概况" class="headerlink" title="$(*)$、$(**)$ 解的概况"></a>$(*)$、$(**)$ 解的概况</h4><p>$\begin{cases} x_1+2x_2=0 \\ x_1-x_2=0 \end{cases}\Leftrightarrow x_1\begin{pmatrix} 1 \\ 1 \end{pmatrix}+x_2\begin{pmatrix} 2 \\ -1 \end{pmatrix}=0 \Leftrightarrow x_1=0, x_2=0$, 仅有零解</p>
+<p>$\begin{cases} x_1-x_2=0 \\ 2x_1+x_3=0 \end{cases}\Leftrightarrow x_1\begin{pmatrix} 1 \\ 2 \end{pmatrix}+x_2\begin{pmatrix} -1 \\ 0 \end{pmatrix}+x_3\begin{pmatrix} 0 \\ 1 \end{pmatrix}=0$, 有无数解</p>
+<blockquote>
+<p>$(*)\begin{cases} \text{仅有零解} \\ \text{除零解以为存在无数个非零解} \end{cases}$</p>
+</blockquote>
+<p>$\begin{cases} x_1-x_2=2 \\ 2x_1+x_2=1 \end{cases}\Leftrightarrow x_1\begin{pmatrix} 1 \\ 2 \end{pmatrix}+x_2\begin{pmatrix} -1 \\ 1 \end{pmatrix}=\begin{pmatrix} 2 \\ 1 \end{pmatrix}$, 有唯一解</p>
+<p>$\begin{cases} x_1+x_2=1 \\ 2x_1+2x_2=2 \end{cases}\Leftrightarrow x_1\begin{pmatrix} 1 \\ 2 \end{pmatrix}+x_2\begin{pmatrix} 1 \\ 2 \end{pmatrix}=\begin{pmatrix} 1 \\ 2 \end{pmatrix}$, 有无数解</p>
+<p>$\begin{cases} x_1+x_2=1 \\ 2x_1+2x_2=3 \end{cases}\Leftrightarrow x_1\begin{pmatrix} 1 \\ 2 \end{pmatrix}+x_2\begin{pmatrix} 1 \\ 2 \end{pmatrix}=\begin{pmatrix} 1 \\ 3 \end{pmatrix}$, 无解</p>
+<blockquote>
+<p>$(**)\begin{cases}\text{有解}\begin{cases}唯一解 \\ 无数解 \end{cases} \\ 无解 \end{cases}$</p>
+</blockquote>
+<h4 id="相关性"><a href="#相关性" class="headerlink" title="相关性"></a>相关性</h4><ol>
+<li>$(*)$ 仅有零解, 即 $x_1\alpha_1+\cdots+x_n\alpha_n=0\Leftrightarrow x_1=x_2=\cdots=x_n=0$, 称 $\alpha_1, \cdots, \alpha_n$ <strong>线性无关</strong></li>
+<li>$(*)$ 有非零解, 即存在不全为零的 $k_1, k_2, \cdots, k_n$, 使 $k_1\alpha_1+k_2\alpha_2+\cdots+k_n\alpha_n=0$, 称 $\alpha_1, \cdots, \alpha_n$ <strong>线性相关</strong></li>
+</ol>
+<h4 id="线性表示"><a href="#线性表示" class="headerlink" title="线性表示"></a>线性表示</h4><ol>
+<li>$(**)$ 有解, 称 $b$ 可由 $\alpha_1, \cdots, \alpha_n$ <strong>线性表示</strong></li>
+<li>$(**)$ 无解, 称 $b$ 不可由 $\alpha_1, \cdots, \alpha_n$ <strong>线性表示</strong></li>
+</ol>
+<h4 id="相关性与线性表示的性质"><a href="#相关性与线性表示的性质" class="headerlink" title="相关性与线性表示的性质"></a>相关性与线性表示的性质</h4><ol>
+<li>$\alpha_1, \cdots, \alpha_n$ 线性相关 $\Leftrightarrow$ 至少有一个向量可由其余向量线性表示<ol>
+<li>$\alpha, \beta$ 线性相关 $\Leftrightarrow$ $\alpha, \beta$ 成比例</li>
+<li>含零向量的向量组一定线性相关</li>
+</ol>
+</li>
+<li>$\alpha_1, \cdots, \alpha_n$ 线性无关<ol>
+<li>$\alpha_1, \cdots, \alpha_n, \beta$ 线性无关 $\Leftrightarrow$ $\beta$ 不可由 $\alpha_1, \cdots, \alpha_n$ 线性表示</li>
+<li>$\alpha_1, \cdots, \alpha_n, \beta$ 线性相关 $\Rightarrow$ $\beta$ 可由 $\alpha_1, \cdots, \alpha_n$ <strong>唯一</strong>线性表示</li>
+</ol>
+</li>
+<li>全组线性无关 $\Rightarrow$ 任一部分组一定线性无关</li>
+<li>部分组线性相关 $\Rightarrow$ 全组线性相关</li>
+<li>$\alpha_1, \cdots, \alpha_n$ 为 $n$ 个 $n$ 维向量, 则<ol>
+<li>$\alpha_1, \cdots, \alpha_n$ 线性无关 $\Leftrightarrow$ $|\alpha_1, \cdots, \alpha_n|\not=0$</li>
+<li>$\alpha_1, \cdots, \alpha_n$ 线性相关 $\Leftrightarrow$ $|\alpha_1, \cdots, \alpha_n|=0$</li>
+</ol>
+</li>
+<li>$\alpha_1,\cdots,\alpha_n$ 为 $n$ 个 $m$ 维向量 $(m&lt;n)$, 则 $\alpha_1,\cdots,\alpha_n$ 线性相关</li>
+<li>$\begin{cases} \text{1. 向量组添向量提高相关性} \\ \text{2. 向量组添维数提高无关性}\end{cases}$</li>
+<li>$\alpha_1,\cdots,\alpha_n$ 非零且两两正交 $\Rightarrow$ $\alpha_1,\cdots,\alpha_n$ 线性无关</li>
+</ol>
+<h3 id="向量组等价"><a href="#向量组等价" class="headerlink" title="向量组等价"></a>向量组等价</h3><p>$I: \alpha_1,\cdots,\alpha_m; II: \beta_1,\cdots,\beta_n.$</p>
+<p>$if\begin{cases} \alpha_1=k_{11}\beta_1+\cdots+k_{1n}\beta_n \\ \alpha_2=k_{21}\beta_1+\cdots+k_{2n}\beta_n \\ \cdots \\ \alpha_m=k_{m1}\beta_1+\cdots+k_{mn}\beta_n \end{cases}$      $(1)$</p>
+<p>称 $I$ 组可由 $II$ 组<strong>线性表示</strong></p>
+<p>$if\begin{cases} \beta_1=k_{11}\alpha_1+\cdots+k_{1m}\alpha_m \\ \beta_2=k_{21}\alpha_1+\cdots+k_{2m}\alpha_m \\ \cdots \\ \beta_n=k_{n1}\alpha_1+\cdots+k_{nm}\alpha_m \end{cases}$      $(2)$</p>
+<p>称 $II$ 组可由 $I$ 组<strong>线性表示</strong></p>
+<ol>
+<li>$if (1)、(2)$ 皆成立, 称 $I、II$ <strong>等价</strong></li>
+</ol>
+<h3 id="极大线性无关组与向量组的秩"><a href="#极大线性无关组与向量组的秩" class="headerlink" title="极大线性无关组与向量组的秩"></a>极大线性无关组与向量组的秩</h3><p>$if\begin{cases} 1.\exists r\text{个向量线性无关} \\ 2.\forall r+1\text{个向量(不一定有)线性相关} \end{cases}$ </p>
+<p>称 $r$ 个线性无关的线性无关的向量组为<strong>极大线性无关组</strong>, $r$ 称为极大线性无关组的<strong>秩</strong></p>
+<p>$Notes:$</p>
+<ol>
+<li>极大组不一定唯一</li>
+<li>$\alpha_1,\cdots,\alpha_n$ 线性无关 $\Leftrightarrow$ $\alpha_1,\cdots,\alpha_n$ 为极大组 $\Leftrightarrow$ $r(\alpha_1,\cdots,\alpha_n)$$=n$<ul>
+<li>$\alpha_1,\cdots,\alpha_n$ 线性相关 $\Leftrightarrow$ $r(\alpha_1, \cdots, \alpha_n)&lt;n$</li>
+</ul>
+</li>
+<li>向量组与极大组等价</li>
+<li>$I:\alpha_1,\cdots,\alpha_n;II:\alpha_1,\cdots,\alpha_n,\beta$<ol>
+<li>$r(I)=r(II)\Leftrightarrow\beta$ 可由 $\alpha_1,\cdots,\alpha_n$ 线性表示</li>
+<li>$r(II)=r(I)+1\Leftrightarrow \beta$ 不可由 $\alpha_1,\cdots,\alpha_n$ 线性表示</li>
+</ol>
+</li>
+<li>$A_{m\times n}=\begin{pmatrix} \alpha_1 \\ \vdots \\ \alpha_m \end{pmatrix}=(\beta_1,\cdots,\beta_n)$<ol>
+<li>$\alpha_1,\cdots,\alpha_m$ 称为 $A$ 的行向量组, $r(\alpha_1,\cdots,\alpha_m)$ 称为 $A$ 的<strong>行秩</strong></li>
+<li>$\beta_1,\cdots,\beta_n$ 称为 $A$ 的列向量组, $r(\beta_1,\cdots,\beta_n)$ 称为 $A$ 的<strong>列秩</strong></li>
+</ol>
+</li>
+<li>$A_{m\times n}, B_{n\times s}=(\beta_1,\cdots,\beta_s)$<ul>
+<li>$AB=A(\beta_1,\cdots,\beta_s)=(A\beta_1,\cdots,A\beta_s)$</li>
+</ul>
+</li>
+<li>$I:\alpha_1,\alpha_2,\alpha_3$<ul>
+<li>$A=(\alpha_1,\alpha_2,\alpha_3)$</li>
+<li>$ B=(\alpha_1-\alpha_2+\alpha_3,2\alpha_1+\alpha_2,\alpha_2-4\alpha_3)=A\begin{pmatrix} 1 &amp; 2 &amp; 0 \\ -1 &amp; 1 &amp; 1 \\ 1 &amp; 0 &amp; -4 \end{pmatrix}$</li>
+</ul>
+</li>
+</ol>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ol>
+<li>矩阵<strong>三秩相等</strong></li>
+<li>$I:\alpha_1,\cdots,\alpha_m;II:\beta_1,\cdots,\beta_n$. 若 $I$ 组可由 $II$ 组线性表示, 则 $r(I)\leq r(II)$</li>
+<li>等价向量组的秩相等, 反之不对</li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F"><span class="toc-text">向量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E4%B8%8E%E6%AD%A3%E4%BA%A4"><span class="toc-text">向量的内积与正交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1"><span class="toc-text">模</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%A7%AF"><span class="toc-text">内积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4"><span class="toc-text">正交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8F%E7%BB%84"><span class="toc-text">标准正交向量组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%BD%E5%AF%86%E7%89%B9%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%8C%96-%E5%8F%88%E7%A7%B0%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E5%8C%96-%E8%BF%87%E7%A8%8B"><span class="toc-text">施密特标准正交化 (又称正交规范化) 过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%80%A7%E4%B8%8E%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%A4%BA%E7%90%86%E8%AE%BA"><span class="toc-text">相关性与线性表示理论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%81-%E8%A7%A3%E7%9A%84%E6%A6%82%E5%86%B5"><span class="toc-text">$(*)$、$(**)$ 解的概况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="toc-text">相关性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%A4%BA"><span class="toc-text">线性表示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%80%A7%E4%B8%8E%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%A4%BA%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">相关性与线性表示的性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%BB%84%E7%AD%89%E4%BB%B7"><span class="toc-text">向量组等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%A4%A7%E7%BA%BF%E6%80%A7%E6%97%A0%E5%85%B3%E7%BB%84%E4%B8%8E%E5%90%91%E9%87%8F%E7%BB%84%E7%9A%84%E7%A7%A9"><span class="toc-text">极大线性无关组与向量组的秩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-text">性质</span></a></li></ol></li></ol></li></ol>
+    <!-- <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+    -->
+</div>
+
+
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+      new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'ce37b7d644656285b3f6',
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+    <script src="/js/toc.js"></script>
+</body>
+
+</html>
