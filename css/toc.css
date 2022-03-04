@@ -1,3 +1,6 @@
+.post-toc {
+  width: 250px;
+}
 @media (max-width: 900px) {
   .post-toc {
     display: none;
@@ -6,6 +9,7 @@
 @media (min-width: 900px) {
   .post-toc {
     max-width: 19%;
+    max-height: 70%;
     overflow-x: hidden;
     overflow-y: scroll;
     z-index: 9999;
@@ -20,9 +24,6 @@
     box-shadow: 0 0 5px rgba(0,0,0,0.6);
     border-radius: 10px;
     margin: 1.5em 0 0.3em 1.5em;
-  }
-  .post-toc max-height 70% {
-    min-width: 250px;
   }
   .post-toc::-webkit-scrollbar-thumb {
     display: none;
