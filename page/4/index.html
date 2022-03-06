@@ -181,6 +181,67 @@
 
 <div class="post">
 
+    <a href="/2020/05/04/异步编程/">
+        <h2>
+            异步编程
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+        <span class="category">
+            <a href="/categories/JavaScript">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" /></span>
+                JavaScript
+            </a>
+        </span>
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2020/5/4
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            <h2 id="什么是同步和异步"><a href="#什么是同步和异步" class="headerlink" title="什么是同步和异步?"></a>什么是同步和异步?</h2><p>你可能知道, <strong>JavaScript 语言</strong> 的执行环境是“单线程”</p>
+<p>所谓“单线程”, 就是指一次只能完成一件任务, 如果有多个任务, 就必须排队, 前面一个任务完成, 再执行后面一个任务, 以此类推<br>例如现实生活中的<strong>排队</strong></p>
+<p>这种模式的好处是实现起来比较简单, 执行环境相对单纯, 坏处是只要有一个任务耗时很长, 后面的任务都必须排队等着, 会拖延整个程序的执行<br>常见的浏览器无响应(假死), 往往就是因为某一段 JavaScript 代码长时间运行(比如死循环), 导致整个页面卡在这个地方, 其他任务无法执行</p>
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Promise" style=color:#ffa2c4>
+                Promise
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2020/05/04/异步编程/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
     <a href="/2020/05/03/Axios/">
         <h2>
             Axios
@@ -233,7 +294,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Axios" style=color:#ffa2c4>
+            <a href="/tags/Axios" style=color:#ff7d73>
                 Axios
             </a>
         </span>
@@ -298,7 +359,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Vuex" style=color:#03a9f4>
+            <a href="/tags/Vuex" style=color:#00bcd4>
                 Vuex
             </a>
         </span>
@@ -364,7 +425,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Vue-Router" style=color:#03a9f4>
+            <a href="/tags/Vue-Router" style=color:#00a596>
                 Vue-Router
             </a>
         </span>
@@ -428,7 +489,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#00bcd4>
+            <a href="/tags/Vue" style=color:#ff7d73>
                 Vue
             </a>
         </span>
@@ -496,7 +557,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Vue-CLI" style=color:#ffa2c4>
+            <a href="/tags/Vue-CLI" style=color:#00a596>
                 Vue-CLI
             </a>
         </span>
@@ -561,7 +622,7 @@
         
         <span class="tag">
             
-            <a href="/tags/Webpack" style=color:#03a9f4>
+            <a href="/tags/Webpack" style=color:#00bcd4>
                 Webpack
             </a>
         </span>
@@ -648,7 +709,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#03a9f4>
+            <a href="/tags/Vue" style=color:#00bcd4>
                 Vue
             </a>
         </span>
@@ -712,7 +773,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue" style=color:#ff7d73>
+            <a href="/tags/Vue" style=color:#03a9f4>
                 Vue
             </a>
         </span>
@@ -788,7 +849,7 @@ const app = new Vue(&#123;
         
         <span class="tag">
             
-            <a href="/tags/Vue-Components" style=color:#ffa2c4>
+            <a href="/tags/Vue-Components" style=color:#03a9f4>
                 Vue-Components
             </a>
         </span>
@@ -796,71 +857,6 @@ const app = new Vue(&#123;
     </div>
 
     <a href="/2020/04/28/Vue组件-插槽/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2020/04/28/Vue组件化开发/">
-        <h2>
-            Vue 组件化开发
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-        <span class="category">
-            <a href="/categories/Vue">
-                <span class="icon">
-                    <a-icon type="book" theme="filled" /></span>
-                Vue
-            </a>
-        </span>
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2020/4/28
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            <h2 id="Vue-组件化介绍"><a href="#Vue-组件化介绍" class="headerlink" title="Vue 组件化介绍"></a>Vue 组件化介绍</h2><ul>
-<li><strong>组件化</strong>是 Vue 的<strong>精髓</strong>, Vue 就是由一个一个的组件构成的</li>
-<li><strong>组件化思想</strong>是笔者认为世界上最美丽的思想, 此时不学, 更待何时!!!<ul>
-<li><strong>(别再跟我说面向对象思想了, 我没有对象~~)</strong></li>
-</ul>
-</li>
-</ul>
-            
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        <span class="icon">
-            <a-icon type="tags" theme="filled" />
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/Vue-Components" style=color:#ffa2c4>
-                Vue-Components
-            </a>
-        </span>
-        
-    </div>
-
-    <a href="/2020/04/28/Vue组件化开发/ " class="go-post">
         阅读全文
     </a>
 </div>
