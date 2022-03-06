@@ -211,82 +211,12 @@
     <div class="excerpt">
         <div class="content" v-pre>
             
-            
             <h2 id="线性方程组"><a href="#线性方程组" class="headerlink" title="线性方程组"></a>线性方程组</h2><h3 id="方程组与矩阵、向量之间的关系"><a href="#方程组与矩阵、向量之间的关系" class="headerlink" title="方程组与矩阵、向量之间的关系"></a>方程组与矩阵、向量之间的关系</h3><h4 id="齐次线性方程组"><a href="#齐次线性方程组" class="headerlink" title="齐次线性方程组"></a>齐次线性方程组</h4><script type="math/tex; mode=display">
 \begin{cases} a_{11}x_1+\cdots+a_{1_n}x_n=0 \\ \cdots \\ a_{m1}x_1+\cdots+a_{mn}x_n=0 \end{cases} \Rightarrow \begin{cases} \text{仅有零解} \\ \text{有非零解} \end{cases}</script><p>等价于下列两种形式</p>
 <script type="math/tex; mode=display">
 x_1\alpha_1+\cdots+x_n\alpha_n=0 \Rightarrow \begin{cases} \alpha_1,\cdots,\alpha_n\text{线性无关} \\ \alpha_1,\cdots,\alpha_n\text{线性相关} \end{cases}</script><script type="math/tex; mode=display">
-AX=0\Rightarrow \begin{cases} r(A)=n \\ r(A)<n\end{cases}</script><h4 id="非齐次线性方程组"><a href="#非齐次线性方程组" class="headerlink" title="非齐次线性方程组"></a>非齐次线性方程组</h4><script type="math/tex; mode=display">
-\begin{cases} a_{11}x_1+\cdots+a_{1_n}x_n=b_1 \\ \cdots \\ a_{m1}x_1+\cdots+a_{mn}x_n=b_m \end{cases} \Rightarrow \begin{cases} \text{有解} \begin{cases} \text{唯一解} \\ \text{无数解}\end{cases} \\ \text{无解} \end{cases}</script><p>等价于下列两种形式</p>
-<script type="math/tex; mode=display">
-x_1\alpha_1+\cdots+x_n\alpha_n=b \Rightarrow \begin{cases} b \text{可由}\alpha_1,\cdots,\alpha_n\text{线性表示} \\ b\text{不可由}\alpha_1,\cdots,\alpha_n\text{线性表示} \end{cases}</script><script type="math/tex; mode=display">
-AX=b; \begin{pmatrix} A=(\alpha_1,\cdots,\alpha_n) \\ \bar{A}=(A\vdots b)=(\alpha_1,\cdots,\alpha_n,b) \end{pmatrix} \Rightarrow \begin{cases} r(A)=r(\bar{A}) \begin{cases} r(A)=r(\bar{A})=n \\ r(A)=r(\bar{A}) < n \end{cases} \\ r(A) + 1=r(\bar{A})\end{cases}</script><blockquote>
-<p>$\bar{A}$ 称为<strong>增广矩阵</strong></p>
-</blockquote>
-<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><p>矩阵 $A_{m\times n}$, 设 $AX=0$ 为 $(*)$, $AX=b$ 为 $(**)$</p>
-<p>对于 $(*)$</p>
-<ol>
-<li>$(*)$ 仅有零解 $\Leftrightarrow r(A)=n$</li>
-<li>$(*)$ 有非零解 $\Leftrightarrow r(A)&lt;n$</li>
-</ol>
-<p>对于 $(**)$</p>
-<ol>
-<li><p>$(**)$ 有解 $\Leftrightarrow r(A)=r(\bar{A}) \begin{cases} =n, &amp; \text{唯一解} \\ &lt;n, &amp; \text{无数解} \end{cases}$</p>
-</li>
-<li><p>$(**)$ 无解 $\Leftrightarrow r(A)+1=r(\bar{A})$</p>
-<ul>
-<li><blockquote>
-<p>$AX=0$ 仅有零解与$AX=b$ 有唯一解的关系为:</p>
-<p>$r(A)=n \Leftarrow r(A)=r(\bar{A})=n$</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>$A_{m\times n},B_{n\times s}=(\beta_1,\cdots,\beta_s)$, 且 $AB=0$, 则 $\beta_1,\cdots,\beta_s$ 为 $AX=0$ 的解</p>
-</li>
-</ol>
-<h3 id="基础解系与通解"><a href="#基础解系与通解" class="headerlink" title="基础解系与通解"></a>基础解系与通解</h3><h4 id="齐次线性方程组-1"><a href="#齐次线性方程组-1" class="headerlink" title="齐次线性方程组"></a>齐次线性方程组</h4><p>设方程组 $\begin{cases} x_1+2x_2-x_3+x_4=0 \\ x_1+x_2+3x_3-x_4=0 \\ 3x_1+5x_2+x_3+x_4=0 \end{cases}$</p>
-<p>$A=\begin{pmatrix} 1 &amp; 2 &amp; -1 &amp; 1 \\ 1 &amp; 1 &amp; 3 &amp; -1 \\ 3 &amp; 5 &amp; 1 &amp; 1 \end{pmatrix}\rightarrow\begin{pmatrix} 1 &amp; 2 &amp; -1 &amp; 1 \\ 0 &amp; -1 &amp; 4 &amp; -2 \\ 0 &amp; -1 &amp; 4 &amp; -2 \end{pmatrix}\rightarrow\begin{pmatrix} 1 &amp; 0  &amp; 7 &amp; -3 \\ 0 &amp; 1 &amp; -4 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix}$</p>
-<p>同解方程组为 $\begin{cases} x_1=-7x_3+3x_4 \\ x_2=4x_3-2x_4 \end{cases}$</p>
-<p>通解 $X=\begin{pmatrix} -7x_3+3x_4 \\ 4x_3-2x_4 \\ x_3 \\ x_4 \end{pmatrix}=x_3\begin{pmatrix} -7 \\ 4 \\ 1 \\ 0 \end{pmatrix} + x_4\begin{pmatrix} 3 \\ -2 \\ 0 \\ 1 \end{pmatrix}=k_1\begin{pmatrix} -7 \\ 4 \\ 1 \\ 0 \end{pmatrix} + k_2\begin{pmatrix} 3 \\ -2 \\ 0 \\ 1 \end{pmatrix}$</p>
-<p>$\begin{pmatrix} -7 \\ 4 \\ 1 \\ 0 \end{pmatrix} \text{称为} \xi_1 \begin{pmatrix} 3 \\ -2 \\ 0 \\ 1 \end{pmatrix} \text{称为} \xi_2$</p>
-<ol>
-<li>$\xi_1,\xi_2$ 为 $AX=0$ 的解</li>
-<li>$\xi_1, \xi_2$ 线性无关</li>
-<li>$\xi$ 的个数 $=4-r(A)$</li>
-</ol>
-<p>$A_{m\times n}, r(A)=r$, 对 $AX=0$, 若 $\begin{cases} 1.\xi_1,\cdots,\xi_s\text{为}AX=0\text{的解} \\ 2.\xi_1,\cdots,\xi_s\text{线性无关} \\ 3.s=n-r \end{cases}$, 称 $\xi_1,\cdots,\xi_s$ 为 $AX=0$ 的<strong>基础解系</strong></p>
-<p><strong>通解</strong>为 $X=k_1\xi_1+\cdots+k_s\xi_s$</p>
-<h4 id="非齐次线性方程组-1"><a href="#非齐次线性方程组-1" class="headerlink" title="非齐次线性方程组"></a>非齐次线性方程组</h4><p>$A_{m\times n}, AX=b$</p>
-<ol>
-<li>将 $\bar{A}=(A\vdots b)$ 经过初等行变换形成具有<code>阶梯化</code>的矩阵</li>
-<li>$r(A)\not=r(\bar{A})\Rightarrow$ 无解, $r(A)=r(\bar{A})\Rightarrow$ 有解</li>
-</ol>
-<p>设 $\bar{A}\rightarrow \begin{pmatrix} 1 &amp; -1 &amp; -3 &amp; 2 &amp; 1 \\ 0 &amp; 1 &amp; 1  &amp; -2 &amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ &amp; &amp; \cdots \end{pmatrix};r(\bar{A})=r(A)=2&lt;4\Rightarrow$ 无数解</p>
-<p>经过初等行变换后 $\bar{A}\rightarrow\begin{pmatrix} 1 &amp; 0 &amp; -2 &amp; 0 &amp; 4 \\ 0 &amp; 1 &amp; 1  &amp; -2 &amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ &amp; &amp; \cdots \end{pmatrix}$</p>
-<p>同解方程组 $\begin{cases}x_1=2x_3+4 \\ x_2=-x_3+2x_4+3\end{cases}$</p>
-<p>通解为 $X=\begin{pmatrix} 2x_3+4 \\ -x_3+2x_4+3 \\ x_3 \\ x_4 \end{pmatrix}=x_3\begin{pmatrix} 2 \\\ -1 \\ 1 \\ 0\end{pmatrix}+x_4\begin{pmatrix} 0 \\ 2 \\ 0 \\ 1\end{pmatrix}+\begin{pmatrix} 4 \\ 3 \\ 0 \\ 0\end{pmatrix}=k_1\begin{pmatrix} 2 \\\ -1 \\ 1 \\ 0\end{pmatrix}+k_2\begin{pmatrix} 0 \\ 2 \\ 0 \\ 1\end{pmatrix}+\begin{pmatrix} 4 \\ 3 \\ 0 \\ 0\end{pmatrix}$</p>
-<blockquote>
-<p>$AX=b$ 的通解为: $AX=0$ 的通解 $+AX=b$ 的特解</p>
-<p>其中 $\begin{pmatrix} 2 \\\ -1 \\ 1 \\ 0\end{pmatrix}、\begin{pmatrix} 0 \\ 2 \\ 0 \\ 1\end{pmatrix}$ 为 $AX=0$ 的通解, $\begin{pmatrix} 4 \\ 3 \\ 0 \\ 0\end{pmatrix}$ 为 $AX=b$ 的特解</p>
-</blockquote>
-<h4 id="含参方程组解的讨论、克拉默法则"><a href="#含参方程组解的讨论、克拉默法则" class="headerlink" title="含参方程组解的讨论、克拉默法则"></a>含参方程组解的讨论、克拉默法则</h4><p>$Note:$</p>
-<p>$\begin{cases} a_{11}x_1+\cdots+a_{1n}x_n=0 \\ \cdots \\ a_{n1}x_1+\cdots+a_{nn}x_n=0 \end{cases}$   $(1)$</p>
-<p>$\begin{cases} a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\ \cdots \\ a_{n1}x_1+\cdots+a_{nn}x_n=b_n \end{cases}$   $(2)$</p>
-<p>$A=\begin{pmatrix} a_{11} &amp; \cdots &amp; a_{1n} \\ \vdots &amp; &amp; \vdots \\ a_{n1} &amp; \dots &amp; a_{nn} \end{pmatrix}, |A|=D$</p>
-<p>$D_1=\begin{vmatrix} b_1 &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ b_n &amp; a_{n2} &amp; \cdots &amp; a_{nn} \end{vmatrix}, \cdots, D_n=\begin{vmatrix} a_{11} &amp; \cdots &amp; a_{1,n-1} &amp; b_1 \\ \vdots &amp; &amp; \vdots &amp; \vdots \\ a_{n1} &amp; \cdots &amp; a_{n,n-1} &amp; b_n \end{vmatrix}$</p>
-<p>对于 $(1)$</p>
-<ol>
-<li>$(1)$ 仅有零解 $\Leftrightarrow r(A)=n\Leftrightarrow |A|\not=0$, 即 $D\not=0$</li>
-<li>$(1)$ 有非零解 $\Leftrightarrow r(A)&lt;n\Leftrightarrow |A|=0$, 即 $D=0$</li>
-</ol>
-<p>对于 $(2)$</p>
-<ol>
-<li>$(2)\text{唯一解}\Leftrightarrow D\not=0\Leftrightarrow r(A)=n\Leftrightarrow r(A)=r(\bar{A})=n$</li>
-<li>$x_1=\frac{D_1}{D},\cdots,x_n=\frac{D_n}{D}$</li>
-<li>$D=0\Leftrightarrow r(A)&lt;n\begin{cases} r(A)=r(\bar{A})&lt;n, &amp; \text{无数解} \\ r(A)\not=r(\bar{A}), &amp; \text{无解} \end{cases}$</li>
-</ol>
-
+AX=0\Rightarrow \begin{cases} r(A)=n \\ r(A)<n\end{cases}</script>
+            
             
         </div>
     </div>
@@ -300,7 +230,7 @@ AX=b; \begin{pmatrix} A=(\alpha_1,\cdots,\alpha_n) \\ \bar{A}=(A\vdots b)=(\alph
         
         <span class="tag">
             
-            <a href="/tags/向量" style=color:#00a596>
+            <a href="/tags/向量" style=color:#00bcd4>
                 向量
             </a>
         </span>
@@ -363,7 +293,7 @@ AX=b; \begin{pmatrix} A=(\alpha_1,\cdots,\alpha_n) \\ \bar{A}=(A\vdots b)=(\alph
         
         <span class="tag">
             
-            <a href="/tags/向量" style=color:#ff7d73>
+            <a href="/tags/向量" style=color:#ffa2c4>
                 向量
             </a>
         </span>
@@ -423,7 +353,7 @@ AX=b; \begin{pmatrix} A=(\alpha_1,\cdots,\alpha_n) \\ \bar{A}=(A\vdots b)=(\alph
         
         <span class="tag">
             
-            <a href="/tags/中文分词" style=color:#ff7d73>
+            <a href="/tags/中文分词" style=color:#03a9f4>
                 中文分词
             </a>
         </span>
@@ -556,7 +486,7 @@ a_{m1} & a_{m2} & \cdots & a_{mn} \\
         
         <span class="tag">
             
-            <a href="/tags/行列式" style=color:#ffa2c4>
+            <a href="/tags/行列式" style=color:#03a9f4>
                 行列式
             </a>
         </span>
@@ -682,7 +612,7 @@ a(t)=\lim_\limits{\Delta t\to0}\frac{\Delta v}{\Delta t}=v'(t)=s''(t)</script><p
         
         <span class="tag">
             
-            <a href="/tags/积分" style=color:#00bcd4>
+            <a href="/tags/积分" style=color:#ffa2c4>
                 积分
             </a>
         </span>
@@ -741,7 +671,7 @@ a(t)=\lim_\limits{\Delta t\to0}\frac{\Delta v}{\Delta t}=v'(t)=s''(t)</script><p
         
         <span class="tag">
             
-            <a href="/tags/微分" style=color:#ffa2c4>
+            <a href="/tags/微分" style=color:#00bcd4>
                 微分
             </a>
         </span>
@@ -805,7 +735,7 @@ a(t)=\lim_\limits{\Delta t\to0}\frac{\Delta v}{\Delta t}=v'(t)=s''(t)</script><p
         
         <span class="tag">
             
-            <a href="/tags/微分" style=color:#03a9f4>
+            <a href="/tags/微分" style=color:#ffa2c4>
                 微分
             </a>
         </span>
