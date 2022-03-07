@@ -53,9 +53,17 @@ function tocInit() {
     }
   }
 
+  let tocText = document.getElementsByClassName("toc-text");
+  function tocTextTitle() {
+    for (let i = 0; i < tocText.length; ++i) {
+      tocText[i].setAttribute("title", tocText[i].innerText);
+    }
+  }
+
   window.addEventListener("scroll", function (e) {
     tocFixed();
     tocActive();
+    tocTextTitle();
   });
 }
 window.addEventListener("load", tocInit);
