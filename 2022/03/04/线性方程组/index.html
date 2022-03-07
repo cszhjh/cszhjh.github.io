@@ -182,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/向量" style=color:#ffa2c4>
+                <a href="/tags/向量" style=color:#ff7d73>
                     向量
                 </a>
             </span>
@@ -269,6 +269,19 @@ AX=b; \begin{pmatrix} A=(\alpha_1,\cdots,\alpha_n) \\ \bar{A}=(A\vdots b)=(\alph
 </li>
 <li>$D=0\Leftrightarrow r(A)&lt;n\begin{cases} r(A)=r(\bar{A})&lt;n, &amp; \text{无数解} \\ r(A)\not=r(\bar{A}), &amp; \text{无解} \end{cases}$</li>
 </ol>
+<h3 id="方程组解的理论延伸"><a href="#方程组解的理论延伸" class="headerlink" title="方程组解的理论延伸"></a>方程组解的理论延伸</h3><ol>
+<li>$AX=0$ 的基础解系不唯一, 但线性无关的解向量的个数是唯一的</li>
+<li>当 $r(A)=r(\bar{A})=r&lt;n$ 时, $AX=b$ 所有解向量的极大线性无关向量的个数为 $n-r+1$ 个</li>
+<li>设 $\eta_1,\cdots,\eta_s$ 是 $AX=b$ 的一组解, 则 $k_1\eta_1+\cdots+k_s\eta_s$ 为 $AX=b$ 的解的<strong>充分必要条件</strong>是 $k_1+\cdots+k_s=1$</li>
+<li>$A_{m\times n}, B_{n\times s}, AB=0$, 则 $B$ 的列向量组为 $AX=0$ 的解</li>
+<li>$AX=0$ 与 $BX=0$ 为同解方程组, 则 $r(A)=r(B)$, 反之不对</li>
+<li>若 $AX=0$ 的解为 $BX=0$ 的解, 则 $r(A)\geq r(B)$<ol>
+<li>若 $AX=0$ 的解为 $BX=0$ 的解, 但 $BX=0$ 的解不全是 $AX=0$ 的解, 则 $r(A)&gt;r(B)$</li>
+<li>若 $AX=0$ 的解为 $BX=0$ 的解, 且 $r(A)=r(B)$, 则 $AX=0$ 与 $BX=0$ 同解</li>
+</ol>
+</li>
+<li>$AX=b,BX=c$, 则 $\begin{pmatrix} A \\ B \end{pmatrix}X=\begin{pmatrix} b \\ c \end{pmatrix}$ 的解为 $AX=b$ 和 $BX=c$ 的公共解</li>
+</ol>
 
     </div>
 
@@ -283,7 +296,7 @@ AX=b; \begin{pmatrix} A=(\alpha_1,\cdots,\alpha_n) \\ \bar{A}=(A\vdots b)=(\alph
 
   <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-text">线性方程组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5%E3%80%81%E5%90%91%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">方程组与矩阵、向量之间的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-text">齐次线性方程组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-text">非齐次线性方程组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA"><span class="toc-text">理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%A7%A3%E7%B3%BB%E4%B8%8E%E9%80%9A%E8%A7%A3"><span class="toc-text">基础解系与通解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84-1"><span class="toc-text">齐次线性方程组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84-1"><span class="toc-text">非齐次线性方程组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AB%E5%8F%82%E6%96%B9%E7%A8%8B%E7%BB%84%E8%A7%A3%E7%9A%84%E8%AE%A8%E8%AE%BA%E3%80%81%E5%85%8B%E6%8B%89%E9%BB%98%E6%B3%95%E5%88%99"><span class="toc-text">含参方程组解的讨论、克拉默法则</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-text">线性方程组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%8E%E7%9F%A9%E9%98%B5%E3%80%81%E5%90%91%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">方程组与矩阵、向量之间的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-text">齐次线性方程组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-text">非齐次线性方程组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA"><span class="toc-text">理论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%A7%A3%E7%B3%BB%E4%B8%8E%E9%80%9A%E8%A7%A3"><span class="toc-text">基础解系与通解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84-1"><span class="toc-text">齐次线性方程组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84-1"><span class="toc-text">非齐次线性方程组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AB%E5%8F%82%E6%96%B9%E7%A8%8B%E7%BB%84%E8%A7%A3%E7%9A%84%E8%AE%A8%E8%AE%BA%E3%80%81%E5%85%8B%E6%8B%89%E9%BB%98%E6%B3%95%E5%88%99"><span class="toc-text">含参方程组解的讨论、克拉默法则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E7%A8%8B%E7%BB%84%E8%A7%A3%E7%9A%84%E7%90%86%E8%AE%BA%E5%BB%B6%E4%BC%B8"><span class="toc-text">方程组解的理论延伸</span></a></li></ol></li></ol>
     <!-- <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
