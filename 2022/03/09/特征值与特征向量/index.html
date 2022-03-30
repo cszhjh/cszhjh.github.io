@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhjh&#39;s Blog || 特征值与特征向量</title>
+    <meta name="author" content="Zhjh">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/full-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Zhjh's Blog</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Zhjh's Blog</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>特征值与特征向量 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/3/9
+        </span>
+        
+        <span class="category">
+            <a href="/categories/数学">
+                <span class="icon">
+                    <a-icon type="book" theme="filled" />
+                </span>
+                数学
+            </a>
+        </span>
+        
+
+        
+
+        <span class="tags">
+            <span class="icon">
+                <a-icon type="tags" theme="filled" />
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/特征值与特征向量" style=color:#ffa2c4>
+                    特征值与特征向量
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+
+    <div class="content" v-pre>
+        <h2 id="特征值与特征向量"><a href="#特征值与特征向量" class="headerlink" title="特征值与特征向量"></a>特征值与特征向量</h2><p>$A_{n\times n}$, 若存在数 $\lambda$ 和向量 $\alpha(\not=0)$ 使得 $A\alpha=\lambda\alpha$, 称 $\lambda$ 为<strong>特征值</strong>, $\alpha$ 为 $\lambda$ 对应的<strong>特征向量</strong></p>
+<h3 id="特征方程"><a href="#特征方程" class="headerlink" title="特征方程"></a>特征方程</h3><p>$|\lambda E-A|=0$ 或 $\begin{vmatrix}\lambda-a_{11} &amp; -a_{12} &amp; \cdots \ &amp; -a_{1n} \\ -a_{21} &amp; \lambda-a_{22} &amp; \cdots &amp; -a_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ -a_{n1} &amp; -a_{n2} &amp; \cdots &amp; \lambda-a_{nn} \end{vmatrix}$ 称为<strong>特征方程</strong></p>
+<blockquote>
+<p>$Notes:$</p>
+<ol>
+<li>$\lambda$ 不一定是实数</li>
+<li>$A_{n\times n}, |\lambda E-A|=0\Rightarrow \lambda_1, \lambda_2,\cdots,\lambda_n$, 则<ol>
+<li>$\lambda_1+\lambda_2+\cdots+\lambda_n=a_{11}+a_{22}+\cdots+a_{nn}\triangleq tr(A)$; $tr(A)$ 称为 A 的<strong>迹</strong>, 即主对角线之和</li>
+<li>$\lambda_1\lambda_2\cdots\lambda_n=|A|$</li>
+</ol>
+</li>
+<li>$r(A)=n\Leftrightarrow |A|\not= 0\Leftrightarrow\forall\lambda\not=0$</li>
+<li>$r(A)&lt;n\Leftrightarrow |A|=0\Leftrightarrow \exists\lambda=0$</li>
+<li>$\lambda_0$ 为特征值, $\lambda_0$ 对应的特征向量为 $(\lambda_0E-A)X=0$ 的非零解<ol>
+<li>$\lambda_0$ 一定有无数个特征向量</li>
+<li>$\lambda_0$ 对应的线性无关特征向量即 $(\lambda_0E-A)X=0$ 的基础解系</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<h4 id="矩阵相似"><a href="#矩阵相似" class="headerlink" title="矩阵相似"></a>矩阵相似</h4><p>$A,B$ 为 $n$ 阶矩阵, 若存在可逆阵 $p$, 使得 $p^{-1}Ap=B$, 称 $A$ 与 $B$ 相似, 记为 $A\sim B$</p>
+<blockquote>
+<p>$Notes:$</p>
+<ol>
+<li>$\begin{cases} A\sim A (\because E^{-1}AE=A) \\ A\sim B \Leftrightarrow B\sim A \\ A\sim B, B\sim C \Rightarrow A\sim C \end{cases}$</li>
+<li>$A\sim B\Rightarrow r(A)=r(B)$</li>
+<li>$A\sim B\Rightarrow |\lambda E-A|=|\lambda E-B|$</li>
+<li>$A\sim B\Rightarrow |\lambda E-A|=|\lambda E-B|\Rightarrow A、B$ 特征值相同 $\Rightarrow \begin{cases} tr(A)=tr(B) \\ |A|=|B| \end{cases}$</li>
+<li>$A^T\sim B^T$</li>
+<li>若 $A,B$ 可逆, 则 $\begin{cases} A^{-1}\sim B^{-1} \\ A^*\sim B^* \end{cases}$</li>
+</ol>
+</blockquote>
+<h4 id="矩阵对角化"><a href="#矩阵对角化" class="headerlink" title="矩阵对角化"></a>矩阵对角化</h4><p>$A_{n\times n}$ 若存在可逆阵 $p$, 使 $p^{-1}Ap=\begin{pmatrix} a_{11} &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; a_{nn} \end{pmatrix}$, 称 $A$ 可对角化 (或 $A$ 可相似对角化、$A$ 与对角阵相似)</p>
+<h3 id="特征值与特征向量的性质"><a href="#特征值与特征向量的性质" class="headerlink" title="特征值与特征向量的性质"></a>特征值与特征向量的性质</h3><p>$A=\begin{pmatrix} a_{11} &amp; \cdots &amp; a_{1n} \\ \vdots &amp; &amp; \vdots \\ a_{n1} &amp; \cdots &amp; a_{nn} \end{pmatrix}$, 若 $\forall a_{ij}=a_{ji}$, 或 $A=A^T$, 称 $A$ 为<strong>实对称矩阵</strong></p>
+<blockquote>
+<p>实对称矩阵的性质:</p>
+<ol>
+<li>特征值都是实数</li>
+<li>不同特征值对应的特征向量之间是正交的</li>
+<li>实对称矩阵一定可以对角化</li>
+</ol>
+</blockquote>
+<h4 id="一般性质"><a href="#一般性质" class="headerlink" title="一般性质"></a>一般性质</h4><ol>
+<li>$A_{n\times n}, \lambda_1\not=\lambda_2$, 则 $\begin{rcases} (\lambda_1E-A)X=0\Rightarrow \xi_1,\cdots,\xi_s \\ (\lambda_2E-A)X=0\Rightarrow \eta_1,\cdots,\eta_t \end{rcases} \xi_1,\cdots,\xi_s,\eta_1,\cdots,\eta_t$ 线性无关</li>
+<li>$A\alpha=\lambda_0\alpha$<ol>
+<li>$f(A)\alpha=f(\lambda_0)\alpha$ ($\alpha$ 为 $A$ 的属于 $\lambda_0$ 的特征向量 $\Rightarrow$ $\alpha$ 为 $f(A)$ 的属于 $f(\lambda_0)$ 的特征向量)</li>
+<li>⭐️ 若 $A$ 可逆, 则 $A^{-1}\alpha=\frac{1}{\lambda_0}\alpha, A^*\alpha=\frac{|A|}{\lambda_0}\alpha$</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>$Notes:$</p>
+<ol>
+<li>$A、A^{-1}、A^*$ 特征向量相同</li>
+<li>$A、A^{-1}$ 特征值互为<strong>倒数</strong></li>
+<li>$A^*$ 特征值为 $\frac{|A|}{\lambda_0}$</li>
+</ol>
+</blockquote>
+<ol>
+<li>⭐️$A_{n\times n}$ 可相似对角化 $\Leftrightarrow$ 存在 $n$ 个线性无关的特征向量</li>
+</ol>
+<h4 id="对角化过程"><a href="#对角化过程" class="headerlink" title="对角化过程"></a>对角化过程</h4><ol>
+<li>$|\lambda E-A|=0\Rightarrow \lambda_1,\cdots,\lambda_n$</li>
+<li>$(\lambda_iE-A)X=0\Rightarrow \alpha_1,\cdots,\alpha_m\begin{cases} 线性无关 \\ m\leq n \end{cases}$</li>
+<li>$\begin{cases} m&lt;n, &amp; A\text{不可对角化} \\ m=n, &amp; A\text{可对角化} \end{cases}$</li>
+<li>令 $P=(\alpha_1,\cdots,\alpha_n)$, $P$ 可逆</li>
+<li>$AP=(A\alpha_1,\cdots,A\alpha_n)=(\lambda_1\alpha_1,\cdots,\lambda_n\alpha_n)=(\alpha_1,\cdots,\alpha_n)\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}=P\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}$</li>
+<li>$P^{-1}AP=\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}$</li>
+</ol>
+<h4 id="正交"><a href="#正交" class="headerlink" title="正交"></a>正交</h4><h5 id="向量正交"><a href="#向量正交" class="headerlink" title="向量正交"></a>向量正交</h5><p>若 $(\alpha, \beta)=0$, 则 $\alpha\bot\beta$</p>
+<p><code>零向量与任何向量正交</code></p>
+<p>性质:</p>
+<p>$\alpha_1,\cdots,\alpha_n$ 非零且两两正交 $\Rightarrow\alpha_1,\cdots,\alpha_n$ 线性无关</p>
+<h5 id="施密特标准正交化-又称正交规范化-过程"><a href="#施密特标准正交化-又称正交规范化-过程" class="headerlink" title="施密特标准正交化 (又称正交规范化) 过程"></a>施密特标准正交化 (又称正交规范化) 过程</h5><p>已知 $\alpha_1,\alpha_2,\cdots,\alpha_n$ 线性无关</p>
+<p>正交化:</p>
+<script type="math/tex; mode=display">
+\beta_1=\alpha_1 \\
+\beta_2=\alpha_2-\frac{(\alpha_2,\beta_1)}{(\beta_1,\beta_1)}\beta_1 \\
+\beta_3=\alpha_3-\frac{(\alpha_3,\beta_1)}{(\beta_1,\beta_1)}\beta_1-\frac{(\alpha_3,\beta_2)}{(\beta_2,\beta_2)}\beta_2 \\
+\vdots \\
+\beta_n=\alpha_n-\frac{(\alpha_n,\beta_1)}{(\beta_1,\beta_1)}\beta_1-\cdots-\frac{(\alpha_n,\beta_{n-1})}{(\beta_{n-1},\beta_{n-1})}\beta_{n-1}</script><blockquote>
+<p>$\beta_1,\cdots,\beta_n$ 两两正交</p>
+</blockquote>
+<p>标准化:</p>
+<script type="math/tex; mode=display">
+\gamma_1=\frac{1}{|\beta_1|}\beta_1,\cdots,\gamma_n=\frac{1}{|\beta_n|}\beta_n</script><blockquote>
+<p>$\gamma_1,\cdots,\gamma_n$ 两两正交且规范</p>
+</blockquote>
+<h5 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h5><p>$A_{n\times n}$， 若 $A^TA=E$ 称 $A$ 为正交矩阵</p>
+<blockquote>
+<p>性质:</p>
+<ol>
+<li>$A^TA=E\Rightarrow A^T=A^{-1}$</li>
+<li>$A^TA=E\Rightarrow |A|=\pm1$</li>
+<li>$A^TA=E\Rightarrow \lambda=\pm1$</li>
+</ol>
+</blockquote>
+<h5 id="正交矩阵等价条件"><a href="#正交矩阵等价条件" class="headerlink" title="正交矩阵等价条件"></a>正交矩阵等价条件</h5><p>$A=(\gamma_1,\cdots,\gamma_n)_{n\times n}$, 则$A^TA=E\Longleftrightarrow\gamma_1,\cdots,\gamma_n$ 两两正交且规范</p>
+<h3 id="实对称矩阵对角化过程"><a href="#实对称矩阵对角化过程" class="headerlink" title="实对称矩阵对角化过程"></a>实对称矩阵对角化过程</h3><p>$A^T=A$ 对角化步骤:</p>
+<ol>
+<li>$|\lambda E-A|=0\Rightarrow\lambda_1,\cdots,\lambda_n$</li>
+<li>$(\lambda_iE-A)X=0\Rightarrow\alpha_1,\cdots,\alpha_n$</li>
+<li>$Case1:$ 找可逆阵 $P$<ul>
+<li>令 $P=(\alpha_1,\cdots,\alpha_n)$ 可逆</li>
+<li>$A\alpha_1=\lambda_1\alpha_1,\cdots,A\alpha_n=\lambda_n\alpha_n$</li>
+<li>$AP=P\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}\Rightarrow P^{-1}AP=\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}$</li>
+</ul>
+</li>
+<li>$Case2:$ 找正交阵 $Q$<ul>
+<li>$\alpha_1,\cdots,\alpha_n\xRightarrow[\text{规范化}]{\text{正交化}}\gamma_1,\cdots,\gamma_n$</li>
+<li>$(A\gamma_1=\lambda_1\gamma_1,\cdots,A\gamma_n=\lambda_n\gamma_n)$</li>
+<li>$Q=(\gamma_1,\cdots,\gamma_n), Q^TQ=E$</li>
+<li>$AQ=Q\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}$</li>
+<li>$Q^{-1}AQ=Q^TAQ=\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}$</li>
+</ul>
+</li>
+</ol>
+<h4 id="矩阵对角化判断"><a href="#矩阵对角化判断" class="headerlink" title="矩阵对角化判断"></a>矩阵对角化判断</h4><ol>
+<li>$A^T=A\Rightarrow A$ 可对角化</li>
+<li>$A^T\not=A\Rightarrow \text{找出}\lambda_1,\cdots,\lambda_n$<ol>
+<li>$\forall\lambda_i\not=\forall\lambda_j(i\not=j)$, 即每个特征值都是单重, 则 $A$ 可对角化</li>
+<li>每个特征值重数与其无关特征向量个数一致, 则 $A$ 可对角化</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <div id="comment">
+        <div id="gitalk-container">
+        </div>
+    </div>
+    
+</div>
+
+  <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="toc-text">特征值与特征向量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B"><span class="toc-text">特征方程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%BC%BC"><span class="toc-text">矩阵相似</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="toc-text">矩阵对角化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-text">特征值与特征向量的性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E6%80%A7%E8%B4%A8"><span class="toc-text">一般性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%A7%92%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">对角化过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4"><span class="toc-text">正交</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E6%AD%A3%E4%BA%A4"><span class="toc-text">向量正交</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%BD%E5%AF%86%E7%89%B9%E6%A0%87%E5%87%86%E6%AD%A3%E4%BA%A4%E5%8C%96-%E5%8F%88%E7%A7%B0%E6%AD%A3%E4%BA%A4%E8%A7%84%E8%8C%83%E5%8C%96-%E8%BF%87%E7%A8%8B"><span class="toc-text">施密特标准正交化 (又称正交规范化) 过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="toc-text">正交矩阵</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E7%AD%89%E4%BB%B7%E6%9D%A1%E4%BB%B6"><span class="toc-text">正交矩阵等价条件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="toc-text">实对称矩阵对角化过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%AF%B9%E8%A7%92%E5%8C%96%E5%88%A4%E6%96%AD"><span class="toc-text">矩阵对角化判断</span></a></li></ol></li></ol></li></ol>
+    <!-- <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+    -->
+</div>
+
+
+
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2020 - 2022 Zhjh&#39;s Blog
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Zhjh
+        </div>
+        <!-- <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+        <div> -->
+            备案号：<a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">
+                琼ICP备 - 20001325号
+            </a>
+        </div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+
+                </div>
+            </div>
+        </transition>
+         <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    </div>
+
+    <script>
+      new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+<script src="/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+    const gitalk = new Gitalk({
+        clientID: 'ce37b7d644656285b3f6',
+        clientSecret: '3b328b4c8ec578d1e5c6bd874b247060ca91df29',
+        repo: 'blog-comment',      // The repository of store comments,
+        owner: 'cszhjh',
+        admin: ['cszhjh'],
+        language: 'zh-CN',
+        id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: true  // Facebook-like distraction free mode
+    })
+    gitalk.render('gitalk-container')
+</script>
+
+
+    <script src="/js/toc.js"></script>
+</body>
+
+</html>
