@@ -182,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/特征值与特征向量" style=color:#ffa2c4>
+                <a href="/tags/特征值与特征向量" style=color:#00a596>
                     特征值与特征向量
                 </a>
             </span>
@@ -212,6 +212,7 @@
 </li>
 </ol>
 </blockquote>
+<span id="more"></span>
 <h4 id="矩阵相似"><a href="#矩阵相似" class="headerlink" title="矩阵相似"></a>矩阵相似</h4><p>$A,B$ 为 $n$ 阶矩阵, 若存在可逆阵 $p$, 使得 $p^{-1}Ap=B$, 称 $A$ 与 $B$ 相似, 记为 $A\sim B$</p>
 <blockquote>
 <p>$Notes:$</p>
@@ -235,7 +236,7 @@
 </ol>
 </blockquote>
 <h4 id="一般性质"><a href="#一般性质" class="headerlink" title="一般性质"></a>一般性质</h4><ol>
-<li>$A_{n\times n}, \lambda_1\not=\lambda_2$, 则 $\begin{rcases} (\lambda_1E-A)X=0\Rightarrow \xi_1,\cdots,\xi_s \\ (\lambda_2E-A)X=0\Rightarrow \eta_1,\cdots,\eta_t \end{rcases} \xi_1,\cdots,\xi_s,\eta_1,\cdots,\eta_t$ 线性无关</li>
+<li>$A_{n\times n}, \lambda_1\not=\lambda_2$, 则 $\begin{cases} (\lambda_1E-A)X=0\Rightarrow \xi_1,\cdots,\xi_s \\ (\lambda_2E-A)X=0\Rightarrow \eta_1,\cdots,\eta_t \end{cases} \Rightarrow \xi_1,\cdots,\xi_s,\eta_1,\cdots,\eta_t$ 线性无关</li>
 <li>$A\alpha=\lambda_0\alpha$<ol>
 <li>$f(A)\alpha=f(\lambda_0)\alpha$ ($\alpha$ 为 $A$ 的属于 $\lambda_0$ 的特征向量 $\Rightarrow$ $\alpha$ 为 $f(A)$ 的属于 $f(\lambda_0)$ 的特征向量)</li>
 <li>⭐️ 若 $A$ 可逆, 则 $A^{-1}\alpha=\frac{1}{\lambda_0}\alpha, A^*\alpha=\frac{|A|}{\lambda_0}\alpha$</li>
@@ -301,7 +302,7 @@
 </ul>
 </li>
 <li>$Case2:$ 找正交阵 $Q$<ul>
-<li>$\alpha_1,\cdots,\alpha_n\xRightarrow[\text{规范化}]{\text{正交化}}\gamma_1,\cdots,\gamma_n$</li>
+<li>$\alpha_1,\cdots,\alpha_n\text{规范化和正交化}\Rightarrow\gamma_1,\cdots,\gamma_n$</li>
 <li>$(A\gamma_1=\lambda_1\gamma_1,\cdots,A\gamma_n=\lambda_n\gamma_n)$</li>
 <li>$Q=(\gamma_1,\cdots,\gamma_n), Q^TQ=E$</li>
 <li>$AQ=Q\begin{pmatrix} \lambda_1 &amp; &amp; \\ &amp; \ddots &amp; \\ &amp; &amp; \lambda_n \end{pmatrix}$</li>
