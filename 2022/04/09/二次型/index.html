@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhjh&#39;s Blog || 零点问题与微分不等式</title>
+    <title>Zhjh&#39;s Blog || 二次型</title>
     <meta name="author" content="Zhjh">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -153,14 +153,14 @@
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>零点问题与微分不等式 </h1>
+        <h1>二次型 </h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <a-icon type="calendar" theme="filled" />
             </span>
-            2021/8/14
+            2022/4/9
         </span>
         
         <span class="category">
@@ -182,8 +182,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/微分" style=color:#ff7d73>
-                    微分
+                <a href="/tags/二次型" style=color:#ff7d73>
+                    二次型
                 </a>
             </span>
             
@@ -192,35 +192,84 @@
     </div>
 
     <div class="content" v-pre>
-        <h2 id="零点问题"><a href="#零点问题" class="headerlink" title="零点问题"></a>零点问题</h2><p>方程 $f(x)=0$ 的根就是函数 $f(x)$ 的零点, 从几何上讲, 方程的根作为两条曲线的交点, 代数语言 “$f(x)=g(x)$” 的根与几何语言”曲线 $f(x)$ 与 $g(x)$ 的交点”, 两者概念不同, 但描述的是同一件事, 基于此, 为讨论方程的根, 有时可改为讨论曲线的交点, 讨论方程根的问题 ( 也成为函数的零点问题 ) 通常可以考虑下面这些方法</p>
-<span id="more"></span>
-<h3 id="零点定理-证存在性"><a href="#零点定理-证存在性" class="headerlink" title="零点定理 ( 证存在性 )"></a>零点定理 ( 证存在性 )</h3><p>设 $f(x)$ 在 $[a, b]$ 上连续, 且 $f(a)f(b)&lt;0$, 则 $f(x)=0$ 在 $(a, b)$ 内至少有一个根</p>
+        <h2 id="二次型"><a href="#二次型" class="headerlink" title="二次型"></a>二次型</h2><p>$f(x_1,x_2,x_3)=2x_1^2-x_2^2+4x_3^2$ 称为标准二次型</p>
+<p>矩阵化: $A=\begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 4 \end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, f=X^TAX$</p>
 <blockquote>
-<p>[注] 推广的零点定理: 若 $f(x)$ 在 $(a,b)$ 内连续, $\lim_\limits{x\to a^+}f(x)=\alpha, \lim_\limits{x\to b^-}f(x)=\beta$​, 且 $\alpha\cdot\beta&lt;0$, 则 $f(x)=0$ 在 $(a,b)$ 内至少存在一个根, 这里 $a, b, \alpha, \beta$ 可以是有限数, 也可以是无穷大</p>
+<p>$A$ 为对角矩阵</p>
 </blockquote>
-<h3 id="单调性-证唯一性"><a href="#单调性-证唯一性" class="headerlink" title="单调性 ( 证唯一性 )"></a>单调性 ( 证唯一性 )</h3><p>若 $f(x)$ 在 $(a,b)$ 内单调, 则 $f(x)=0$ 在 $(a,b)$ 内至多有一个根, 这里 $a,b$ 可以是有限数, 也可以是无穷大</p>
-<h3 id="罗尔原话-罗尔定理的推论-⭐️"><a href="#罗尔原话-罗尔定理的推论-⭐️" class="headerlink" title="罗尔原话 ( 罗尔定理的推论 ) ⭐️"></a>罗尔原话 ( 罗尔定理的推论 ) ⭐️</h3><p>若 $f^{(n)}(x)=0$ 至多有 $k$ 个根, 则 $f(x)=0$ 至多有 $k+n$ 个根</p>
-<h3 id="实系数奇次方程至少有一个实根-⭐️"><a href="#实系数奇次方程至少有一个实根-⭐️" class="headerlink" title="实系数奇次方程至少有一个实根 ⭐️"></a>实系数奇次方程至少有一个实根 ⭐️</h3><p>试证任何实系数奇次方程</p>
-<script type="math/tex; mode=display">
-x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}=0</script><blockquote>
-<p>证明: 设</p>
-<script type="math/tex; mode=display">
-f(x)=x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}</script><p>则 $\lim_\limits{x\to+\infty}f(x)=+\infty$​​​, 故 $\forall M_1&gt;0$​​​, $\exists X_1&gt;0$​​​, 当 $x&gt;X_1$​​​ 时, $f(x)&gt;M_1&gt;0$​​​, 故 $\exists x_1 &gt; X_1$​​​, 使 $f(x_1)&gt;0$​​​</p>
-<p>又 $\lim_\limits{x\to-\infty}f(x)=-\infty$​​​​​​​, 故 $\forall M_2&gt;0$​​​​​​​, $\exists X_2&gt;0$​​​​​​​, 当 $x&lt;-X_2$​​​​​​​ 时, $f(x)&lt;-M_2&lt;0$​​​​​​​, 故 $\exists x_2 &lt; -X_2$​​​​​​​, 使 $f(x_2)&lt;0$​​​​​​​</p>
-<p>由 $f(x)$ 的连续性及零点定理, 知 $\exists\xi\in(x_2,x_1)\subset(-\infty,+\infty)$, 使 $f(\xi)=0$, 即至少有一个实根</p>
+<p>$f(x_1,x_2,x_3)=x_1^2-3x_2^2+2x_3^2+4x_1x_2-2x_1x_3+2x_2x_3$ 称为非标准二次型</p>
+<p>矩阵化: $A=\begin{pmatrix} 1 &amp; 2 &amp; -1 \\ 2 &amp; -3 &amp; 1 \\ -1 &amp; 1 &amp; 2 \end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, f=X^TAX$</p>
+<blockquote>
+<p>$A^T=A$ 对称但不对角</p>
 </blockquote>
-<h2 id="微分不等式"><a href="#微分不等式" class="headerlink" title="微分不等式"></a>微分不等式</h2><h3 id="用函数性态-包括单调性、凹凸性和最值等-证明不等式"><a href="#用函数性态-包括单调性、凹凸性和最值等-证明不等式" class="headerlink" title="用函数性态 ( 包括单调性、凹凸性和最值等 ) 证明不等式"></a>用函数性态 ( 包括单调性、凹凸性和最值等 ) 证明不等式</h3><ol>
-<li>⭐️ 若有 $f’(x)\geq 0, a&lt;x&lt;b$​, 则有 $f(a) \leq f(x)\leq f(b)$​</li>
-<li>若有 $f’’(x)\geq0, a&lt;x&lt;b$​, 则有 $f’(a)\leq f’(x)\leq f’(b)$​​<ol>
-<li>当 $f’(a)&gt;0$ 时,  $f’(x)&gt;0\Rightarrow f(x)$ 单调增加</li>
-<li>当 $f’(b)&lt;0$ 时, $f’(x)&lt;0\Rightarrow f(x)$ 单调减少</li>
+<span id="more"></span>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>二次型: $f=X^TAX\begin{cases} \text{标准}\Leftrightarrow A\text{是对角阵} \\ \text{非标准}\Leftrightarrow A^T=A\text{且}A\text{非对角阵} \end{cases}$</p>
+<p>矩阵合同: $A,B$ 为 $n$ 阶矩阵, 若存在可逆矩阵 $P$, 使得 $P^TAP=B$, 称 $A,B$ 合同, 记 $A\cong B$</p>
+<p>二次型的标准化: $f=X^TAX(X=PY, P\text{可逆})=Y^T(P^TAP)Y$</p>
+<ul>
+<li>若 $P^TAP=\begin{pmatrix} l_1 \\ &amp;  \ddots \\ &amp; &amp; l_n \end{pmatrix}$, 则 $f=l_1y_1^2+\cdots+l_ny_n^2$</li>
+</ul>
+<blockquote>
+<p>$Notes:$ 二次型标准化的两个标准</p>
+<ol>
+<li>$X=PY, P$ 可逆</li>
+<li>$P^TAP=\begin{pmatrix} l_1 \\ &amp;  \ddots \\ &amp; &amp; l_n \end{pmatrix}$</li>
 </ol>
-</li>
-<li>⭐️ 设 $f(x)$ 在 $I$ 内有唯一的极值点 $x_0$, 则 $\begin{cases}\text{当} x_0 \text{为极大值点时,} f(x_0)\geq f(x)\\\text{当} x_0 \text{为极小值点时,} f(x_0)\leq f(x)\end{cases}$ , $\forall x\in I$</li>
-<li>⭐️ 若有 $f’’(x)&gt;0, a&lt;x&lt;b, f(a)=f(b)=0$, 则有 $f(x)&lt;0$</li>
+</blockquote>
+<p><strong>二次型矩阵一定是对称矩阵</strong></p>
+<h3 id="标准化"><a href="#标准化" class="headerlink" title="标准化"></a>标准化</h3><h4 id="配方法"><a href="#配方法" class="headerlink" title="配方法"></a>配方法</h4><blockquote>
+<p><strong>Example:</strong></p>
+<p>$f(x_1,x_2)=x_1^2-2x_1x_2-3x_2^2$</p>
+<p>解:</p>
+<p>法一:</p>
+<p>$1˚. A=\begin{pmatrix} 1 &amp; -1 \\ -1 &amp; -3\end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}, f=X^TAX$</p>
+<p>$2^˚. f=(x_1-x_2)^2-4x_2^2$</p>
+<p>$ 令\begin{cases} x_1-x_2=y_1 \\ x_2=y_2 \end{cases} \Rightarrow \begin{cases} x_1=y_1+y_2 \\ x_2=y_2 \end{cases}, \text{即}X=PY, P=\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\text{可逆}$</p>
+<p>$3^˚. f=X^TAX(X=PY)=Y^T(P^TAP)Y=y_1^2-4y_2^2$</p>
+<p>法二:</p>
+<p>$1˚. A=\begin{pmatrix} 1 &amp; -1 \\ -1 &amp; -3\end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}, f=X^TAX$</p>
+<p>$2^˚. f=(x_1-x_2)^2-(2x_2)^2$</p>
+<p>$ 令\begin{cases} x_1-x_2=y_1 \\ 2x_2=y_2 \end{cases} \Rightarrow \begin{cases} x_1=y_1+\frac{1}{2}y_2 \\ x_2=\frac{1}{2}y_2 \end{cases}, \text{即}X=PY, P=\begin{pmatrix} 1 &amp; \frac{1}{2} \\ 0 &amp; \frac{1}{2} \end{pmatrix}\text{可逆}$</p>
+<p>$3^˚. f=X^TAX(X=PY)=Y^T(P^TAP)Y=y_1^2-y_2^2$</p>
+<p><strong>Example:</strong></p>
+<p>$f(x_1, x_2, x_3)=x_1^2+2x_1x_2-2x_1x_3-3x_3^2$</p>
+<p>解:</p>
+<p>$1˚. A=\begin{pmatrix} 1 &amp; 1 &amp; -1 \\ 1 &amp; 0 &amp; 0 \\ -1 &amp; 0 &amp; -3 \end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}, f=X^TAX$</p>
+<p>$2^˚. f=(x_1+x_2-x_3)^2-x_2^2-4x_3^2+2x_2x_3=(x_1+x_2-x_3)^2-(x_2-x_3)^2-3x_3^2$</p>
+<p>$令\begin{cases} x_1+x_2-x_3=y_1 \\ x_2-x_3=y_2 \\ x_3=y_3 \end{cases} \Rightarrow \begin{cases} x_1=y_1-y_2 \\ x_2=y_2+y_3 \\ x_3=y_3 \end{cases}, \text{即}X=PY, P=\begin{pmatrix} 1 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\text{可逆}$</p>
+<p>$3^˚. f=X^TAX(X=PY)=Y^T(P^TAP)Y=y_1^2-y_2^2-3y_3^2$</p>
+<p>$Notes:$</p>
+<ol>
+<li>配方法二次型有无数个标准型</li>
+<li>标准型系数不一定为 $A$ 的特征值</li>
 </ol>
-<h3 id="用常数变量化证明不等式"><a href="#用常数变量化证明不等式" class="headerlink" title="用常数变量化证明不等式"></a>用常数变量化证明不等式</h3><p>如果欲证的不等式中都是常数, 则可以将其中一个或者几个常数变量化, 再利用上面所述的导数工具去证明</p>
-<h3 id="用中值定理证明不等式"><a href="#用中值定理证明不等式" class="headerlink" title="用中值定理证明不等式"></a>用中值定理证明不等式</h3><p>主要用<strong>拉格朗日中值定理</strong>或者<strong>泰勒公式</strong></p>
+</blockquote>
+<h4 id="正交变换法"><a href="#正交变换法" class="headerlink" title="正交变换法"></a>正交变换法</h4><p>$1^˚. f=X^TAX, A^T=A$</p>
+<p>$2^˚. |\lambda E-A|=0 \Rightarrow \lambda_1, \cdots, \lambda_n$</p>
+<p>$3^˚. (\lambda_iE-A)X=0 \Rightarrow \alpha_1, \cdots, \alpha_n$</p>
+<p>$4^˚. \alpha_1,\cdots,\alpha_n$ 正交化、规范化 $\Rightarrow \gamma_1, \cdots, \gamma_n$</p>
+<p>$(A\gamma_1=\lambda_1\gamma_1, A\gamma_2=\lambda_2\gamma_2,\cdots,A\gamma_n=\lambda_n\gamma_n)$</p>
+<p>令 $Q=(\gamma_1,\cdots,\gamma_n), Q^TQ=E$</p>
+<p>$AQ=Q\begin{pmatrix} \lambda_1 \\ &amp; \ddots \\ &amp; &amp; \lambda_n \end{pmatrix}\Rightarrow Q^TAQ=\begin{pmatrix} \lambda_1 \\ &amp; \ddots \\ &amp; &amp; \lambda_n \end{pmatrix}$</p>
+<p>$5^˚. f=X^TAX(X=QY, Q\text{为正交阵})=Y^T(Q^TAQ)Y=\lambda_1y_1^2+\cdots+\lambda_ny_n^2$</p>
+<blockquote>
+<p>$Note:$ 正交变换法标准型系数一定为特征值 (<strong>唯一</strong>)</p>
+</blockquote>
+<h3 id="正定二次型"><a href="#正定二次型" class="headerlink" title="正定二次型"></a>正定二次型</h3><blockquote>
+<p><strong>Example:</strong></p>
+<p>$f(x_1,x_2,x_3)=2x_1^2+3x_2^2+x_3^2=X^TAX$</p>
+<p>$A=\begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; 3 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}$</p>
+<p>$\begin{cases} X^TAX\geq 0 \\ X^TAX=0\Leftrightarrow X=0 \end{cases}\Leftrightarrow \forall X\not=0, X^TAX&gt;0$</p>
+<p><strong>Example:</strong></p>
+<p>$f(x_1,x_2)=x_1^2-2x_1x_2+3x_2^2=X^TAX$</p>
+<p>$A=\begin{pmatrix} 1 &amp; -1 \\ -1 &amp; 3 \end{pmatrix}, X=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}$</p>
+<p>$f(x_1,x_2)=(x_1-x_2)^2+2x_2^2$</p>
+<p>$\begin{cases} X^TAX\geq 0 \\ X^TAX=0\Leftrightarrow X=0 \end{cases}\Leftrightarrow \forall X\not=0, X^TAX&gt;0$</p>
+</blockquote>
+<h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>$f=X^TAX$, 若 $\forall X\not=0$, 有 $X^TAX&gt;0$</p>
+<p>$X^TAX$ 称为正定二次型, $A$ 称为正定矩阵</p>
+<h4 id="判别法"><a href="#判别法" class="headerlink" title="判别法"></a>判别法</h4><h5 id="定义法"><a href="#定义法" class="headerlink" title="定义法"></a>定义法</h5><p>$\forall X\not=0, X^TAX&gt;0$</p>
+<h5 id="特征值法"><a href="#特征值法" class="headerlink" title="特征值法"></a>特征值法</h5><p>定理: $A_{n\times n}, A^T=A$, 则 $A$ 正定 $\Leftrightarrow \lambda_1&gt;0,\cdots,\lambda_n&gt;0$</p>
 
     </div>
 
@@ -235,7 +284,7 @@ f(x)=x^{2n+1}+a_1x^{2n}+\dots+a_2x+a_{2n+1}</script><p>则 $\lim_\limits{x\to+\i
 
   <div class="post-toc" id="post-toc">
     <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B6%E7%82%B9%E9%97%AE%E9%A2%98"><span class="toc-text">零点问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%B6%E7%82%B9%E5%AE%9A%E7%90%86-%E8%AF%81%E5%AD%98%E5%9C%A8%E6%80%A7"><span class="toc-text">零点定理 ( 证存在性 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E6%80%A7-%E8%AF%81%E5%94%AF%E4%B8%80%E6%80%A7"><span class="toc-text">单调性 ( 证唯一性 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%97%E5%B0%94%E5%8E%9F%E8%AF%9D-%E7%BD%97%E5%B0%94%E5%AE%9A%E7%90%86%E7%9A%84%E6%8E%A8%E8%AE%BA-%E2%AD%90%EF%B8%8F"><span class="toc-text">罗尔原话 ( 罗尔定理的推论 ) ⭐️</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%B3%BB%E6%95%B0%E5%A5%87%E6%AC%A1%E6%96%B9%E7%A8%8B%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E4%B8%AA%E5%AE%9E%E6%A0%B9-%E2%AD%90%EF%B8%8F"><span class="toc-text">实系数奇次方程至少有一个实根 ⭐️</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-text">微分不等式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%87%BD%E6%95%B0%E6%80%A7%E6%80%81-%E5%8C%85%E6%8B%AC%E5%8D%95%E8%B0%83%E6%80%A7%E3%80%81%E5%87%B9%E5%87%B8%E6%80%A7%E5%92%8C%E6%9C%80%E5%80%BC%E7%AD%89-%E8%AF%81%E6%98%8E%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-text">用函数性态 ( 包括单调性、凹凸性和最值等 ) 证明不等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%B8%B8%E6%95%B0%E5%8F%98%E9%87%8F%E5%8C%96%E8%AF%81%E6%98%8E%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-text">用常数变量化证明不等式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E8%AF%81%E6%98%8E%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="toc-text">用中值定理证明不等式</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E5%9E%8B"><span class="toc-text">二次型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%8C%96"><span class="toc-text">标准化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E6%96%B9%E6%B3%95"><span class="toc-text">配方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2%E6%B3%95"><span class="toc-text">正交变换法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%AE%9A%E4%BA%8C%E6%AC%A1%E5%9E%8B"><span class="toc-text">正定二次型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E5%88%AB%E6%B3%95"><span class="toc-text">判别法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%B3%95"><span class="toc-text">定义法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E6%B3%95"><span class="toc-text">特征值法</span></a></li></ol></li></ol></li></ol></li></ol>
     <!-- <div class="back-to-top" id="back-to-top">
         <a href="javascript:void(0);">回到顶部</a>
     </div>
